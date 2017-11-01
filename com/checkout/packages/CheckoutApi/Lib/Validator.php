@@ -1,14 +1,14 @@
 <?php
 
 /**
- *  CheckoutApi_Lib_Validator
+ *  CheckoutapiLibValidator
  *  class for validation
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Api
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
  */
-final class CheckoutApi_Lib_Validator extends CheckoutApi_lib_Object
+final class CheckoutapiLibValidator extends CheckoutapilibObject
 {
 
     /**
@@ -16,7 +16,7 @@ final class CheckoutApi_Lib_Validator extends CheckoutApi_lib_Object
      * @param mixed $var
      * @return boolean
      * Simple usage:
-     *       CheckoutApi_Lib_Validator::isEmpty($var)
+     *       CheckoutapiLibValidator::isEmpty($var)
      */
 	public static function isEmpty($var) 
 	{	
@@ -46,7 +46,7 @@ final class CheckoutApi_Lib_Validator extends CheckoutApi_lib_Object
      * @param mixed $int
      * @return boolean
      * Simple usage:
-     *       CheckoutApi_Lib_Validator::isInteger($int)
+     *       CheckoutapiLibValidator::isInteger($int)
      */
 
 	public static function isInteger($int) 
@@ -59,7 +59,7 @@ final class CheckoutApi_Lib_Validator extends CheckoutApi_lib_Object
      * @param $string
      * @return bool
      * Simple usage:
-     *       CheckoutApi_Lib_Validator::isString($var)
+     *       CheckoutapiLibValidator::isString($var)
      */
 
 	public static function isString($string)
@@ -72,7 +72,7 @@ final class CheckoutApi_Lib_Validator extends CheckoutApi_lib_Object
      * @param mixed $string
      * @return bool
      * Simple usage:
-     *       CheckoutApi_Lib_Validator::isFloat($string)
+     *       CheckoutapiLibValidator::isFloat($string)
      *
      */
 
@@ -85,7 +85,7 @@ final class CheckoutApi_Lib_Validator extends CheckoutApi_lib_Object
      *   A helper method that check if $email is a valid email
      * @param mixed $email
      * @return int
-     * CheckoutApi_ validate email
+     * Checkoutapi validate email
      * @todo find a better regex or build one for validate email
      */
 	public static function isValidEmail($email) 

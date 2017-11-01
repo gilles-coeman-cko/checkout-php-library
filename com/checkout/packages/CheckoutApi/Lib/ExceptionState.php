@@ -1,15 +1,15 @@
 <?php
 
 /**
- *  CheckoutApi_Lib_ExceptionState
+ *  CheckoutapiLibExceptionstate
  *  A class that manage and log error for a request
  * @todo need to clean up a bit the code and renaming few thing in it
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Api
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
  */
- class CheckoutApi_Lib_ExceptionState extends CheckoutApi_Lib_Object
+ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject
 {
      /** @var bool $_errorState keep the state of error. if yes mean there is an error that prevent futher processing */
 	private $_errorState = false;
@@ -84,7 +84,7 @@
 	}
 
      /**
-      * CheckoutApi_ getter for $_trace
+      * Checkoutapi getter for $_trace
       * @return array
       */
 	public function getTrace()
@@ -93,7 +93,7 @@
 	}
 
      /**
-      * CheckoutApi_ return array of message
+      * Checkoutapi return array of message
       * @param $message
       */
 	public function setMessage($message)
@@ -104,7 +104,7 @@
 	}
 
      /**
-      * CheckoutApi_ return an arrray of errors
+      * Checkoutapi return an arrray of errors
       * @return array
       */
 	public function getMessage()
@@ -171,7 +171,7 @@
 	}
 
      /**
-      * CheckoutApi_ print out the error
+      * Checkoutapi print out the error
       * @return string $errorToreturn a list of errors
       */
 
@@ -191,7 +191,7 @@
 					continue;
 				}
 
-				CheckoutApi_Utility_Utilities::dump($message[$i] .'==> { ');
+				CheckoutapiUtilityUtilities::dump($message[$i] .'==> { ');
 				
 				foreach($trace[$i] as $errorIndex => $errors) {
                     echo   "<pre>";
@@ -204,7 +204,7 @@
                     echo   '</strong>';
 				}
 				
-				CheckoutApi_Utility_Utilities::dump('} ');
+				CheckoutapiUtilityUtilities::dump('} ');
 				
 			}
 			

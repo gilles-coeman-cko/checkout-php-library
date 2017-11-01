@@ -1,27 +1,27 @@
 <?php
 /**
- * Class CheckoutApi_Parser_JSON
+ * Class CheckoutapiParserJson
  * a parser to handle JSON
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Api
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
  */
-class CheckoutApi_Parser_JSON extends CheckoutApi_Parser_Parser 
+class CheckoutapiParserJson extends CheckoutapiParserParser 
 {
     /**@var  array $_headers  Content negotiation relies on the use of specific headers */
 	protected $_headers = array ('Content-Type: application/json;charset=UTF-8','Accept: application/json');
 
     /**
-     * Convert a json to a CheckoutApi_Lib_RespondObj object
+     * Convert a json to a CheckoutapiLibRespondobj object
      * @param JSON $parser
-     * @return CheckoutApi_Lib_RespondObj|null
+     * @return CheckoutapiLibRespondobj|null
      * @throws Exception
      */
 	public function parseToObj($parser)
 	{
-        /** @var CheckoutApi_Lib_RespondObj $respondObj */
-        $respondObj = CheckoutApi_Lib_Factory::getInstance('CheckoutApi_Lib_RespondObj');
+        /** @var CheckoutapiLibRespondobj $respondObj */
+        $respondObj = CheckoutapiLibFactory::getInstance('CheckoutapiLibRespondobj');
 
 		if($parser && is_string ($parser)) {
 			$encoding = mb_detect_encoding($parser);

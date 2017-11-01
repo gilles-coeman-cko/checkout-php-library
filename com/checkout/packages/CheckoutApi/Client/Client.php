@@ -1,17 +1,17 @@
 <?php
 
 /**
- * CheckoutApi_Client_Client
- * An abstract class for CheckoutApi_Client gateway api.
+ * CheckoutapiClientClient
+ * An abstract class for CheckoutapiClient gateway api.
  * This class encapsulate the main functionality of all gateway implimentation.
  *
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Api
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
  */
 
- abstract class CheckoutApi_Client_Client  extends CheckoutApi_Lib_Object
+ abstract class CheckoutapiClientClient  extends CheckoutapiLibObject
  {
 
      /** @var null $_uri Uri to where request should be made  */
@@ -25,9 +25,9 @@
     protected $_processType = "curl";
 
      /** @var string $_respondType   Type of respond expecting from the server */
-    protected $_respondType = CheckoutApi_Parser_Constant::API_RESPOND_TYPE_JSON;
+    protected $_respondType = CheckoutapiParserConstant::API_RESPOND_TYPE_JSON;
 
-     /** @var  null|CheckoutApi_Parser_Parser  $_parserObj CheckoutApi_ use for keeping an instance of the paser */
+     /** @var  null|CheckoutapiParserParser  $_parserObj Checkoutapi use for keeping an instance of the paser */
     protected $_parserObj = null;
 
      /**
@@ -69,10 +69,10 @@
     }
 
      /**
-      * CheckoutApi_ initialise return an adapter.
+      * Checkoutapi initialise return an adapter.
       * @param $adapterName Adapter Name
       * @param array $arguments argument for creating the adapter
-      * @return CheckoutApi_Client_Adapter_Abstract|null
+      * @return CheckoutapiClientAdapterAbstract|null
       * @throws Exception
       */
 
@@ -80,13 +80,13 @@
     {
         $stdName = ucfirst($adapterName);
 
-        $classAdapterName = CheckoutApi_Client_Constant::ADAPTER_CLASS_GROUP.$stdName;
+        $classAdapterName = CheckoutapiClientConstant::ADAPTER_CLASS_GROUP.$stdName;
         
         $class = null;
 
         if (class_exists($classAdapterName)) {
-            /** @var CheckoutApi_Client_Adapter_Abstract  $class */
-            $class = CheckoutApi_Lib_Factory::getSingletonInstance($classAdapterName,$arguments);
+            /** @var CheckoutapiClientAdapterAbstract  $class */
+            $class = CheckoutapiLibFactory::getSingletonInstance($classAdapterName,$arguments);
             if(isset($arguments['uri'])) {
                 $class->setUri($arguments['uri']);
             }
@@ -106,7 +106,7 @@
 
      /**
       * Getter for $_parserObje
-      * @return CheckoutApi_Parser_Parser|null
+      * @return Checkoutapi_Parser_Parser|null
       */
     public function getParser()
     {
@@ -192,9 +192,9 @@
       */
     public function initParser()
     {
-        $parserType = CheckoutApi_Client_Constant::PARSER_CLASS_GROUP.$this->getRespondType(); 
+        $parserType = CheckoutapiClientConstant::PARSER_CLASS_GROUP.$this->getRespondType(); 
 
-        $parserObj =  CheckoutApi_Lib_Factory::getSingletonInstance($parserType) ;
+        $parserObj =  CheckoutapiLibFactory::getSingletonInstance($parserType) ;
         $this->setParser($parserObj);       
     }
 

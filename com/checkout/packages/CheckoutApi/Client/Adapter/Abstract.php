@@ -1,24 +1,24 @@
 <?php 
 /**
- * CheckoutApi_Client_Adapter_Abstract
+ * CheckoutapiClientAdapterAbstract
  *
- * CheckoutApi_Client_Adapter_Abstract An abstract class for CheckoutApi_Client adapters.
+ * CheckoutapiClientAdapterAbstract An abstract class for CheckoutapiClient adapters.
  * An adapter can be define a method of transmitting message over http protocol
  * It encapsulate all basic and core method required by an adpater
  *
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Cleint
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
  */
-abstract class CheckoutApi_Client_Adapter_Abstract extends CheckoutApi_Lib_Object 
+abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject 
 {
-	/** @var string$_uri CheckoutApi_ server identifier */
+	/** @var string$_uri Checkoutapi server identifier */
 
 	protected $_uri = null;
-	/** @var resource|null $_resource  CheckoutApi_ The server session handler */
+	/** @var resource|null $_resource  Checkoutapi The server session handler */
 	protected $_resource = null;
-    /**  @var mixed $_respond  CheckoutApi_ Respond return by the server */
+    /**  @var mixed $_respond  Checkoutapi Respond return by the server */
     protected $_respond = null;
 
 
@@ -124,7 +124,7 @@ abstract class CheckoutApi_Client_Adapter_Abstract extends CheckoutApi_Lib_Objec
     }
 
     /**
-     * CheckoutApi_ Setter for respond
+     * Checkoutapi_ Setter for respond
      * @param mixed $respond responnd obtain by gateway
      * 
      **/
@@ -135,7 +135,7 @@ abstract class CheckoutApi_Client_Adapter_Abstract extends CheckoutApi_Lib_Objec
     }
 
     /**
-     * CheckoutApi_ Getter for respond
+     * Checkoutapi_ Getter for respond
      * 
      * @return mixed
      * 
@@ -148,7 +148,7 @@ abstract class CheckoutApi_Client_Adapter_Abstract extends CheckoutApi_Lib_Objec
 
     /**
      * Create a connection using the adapter
-     * @return $this CheckoutApi_Client_Adapter_Abstract
+     * @return $this CheckoutapiClientAdapterAbstract
      */
     public function connect() 
     {
@@ -171,7 +171,7 @@ abstract class CheckoutApi_Client_Adapter_Abstract extends CheckoutApi_Lib_Objec
 
     /**
      * Return request made by the adapter
-     * @return  CheckoutApi_Lib_RespondObj
+     * @return  CheckoutapiLibRespondobj
      */
     abstract function request();
 

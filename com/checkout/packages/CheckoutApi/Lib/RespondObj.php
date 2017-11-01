@@ -1,14 +1,14 @@
 <?php
 
 /**
- *  CheckoutApi_Lib_RespondObj
+ *  CheckoutapiLibRespondobj
  * This class is responsible of mapping anytime of respond into an object with attribute and magic getters
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Api
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
  */
-class CheckoutApi_Lib_RespondObj implements ArrayAccess
+class CheckoutapiLibRespondobj implements ArrayAccess
 {
     /** @var array $_config configuration value */
 
@@ -20,7 +20,7 @@ class CheckoutApi_Lib_RespondObj implements ArrayAccess
      * @param $method
      * @param $args
      * @throws Exception
-     * CheckoutApi_ a php magical method
+     * Checkoutapi a php magical method
      * @example http://php.net/manual/en/language.oop5.overloading.php#object.call
      */
 
@@ -56,7 +56,7 @@ class CheckoutApi_Lib_RespondObj implements ArrayAccess
     /**
      * This method return value from the attribute config
      * @param null $key attribute you want to retrive
-     * @return array|CheckoutApi_Lib_RespondObj|null
+     * @return array|CheckoutapiLibRespondobj|null
      * @throws Exception
      */
    private function getConfig($key = null, $args = null)
@@ -80,8 +80,8 @@ class CheckoutApi_Lib_RespondObj implements ArrayAccess
                 }
                 
             }elseif(is_array($value)) {
-                /** @var CheckoutApi_Lib_RespondObj $to_return */
-                $to_return = CheckoutApi_Lib_Factory::getInstance('CheckoutApi_Lib_RespondObj');
+                /** @var Checkoutapi_LibRespondobj $to_return */
+                $to_return = CheckoutapiLibFactory::getInstance('CheckoutapiLibRespondobj');
                 $to_return->setConfig( $value);
                 return $to_return;
             }
@@ -130,25 +130,25 @@ class CheckoutApi_Lib_RespondObj implements ArrayAccess
 
     public function isValid()
     {
-         /** @var CheckoutApi_Lib_ExceptionState $exceptionState */
-         $exceptionState = CheckoutApi_Lib_Factory::getSingletonInstance('CheckoutApi_Lib_ExceptionState');
+         /** @var CheckoutapiLibExceptionstate $exceptionState */
+         $exceptionState = CheckoutapiLibFactory::getSingletonInstance('CheckoutapiLibExceptionstate');
 
          return $exceptionState->isValid();
     }
 
     /**
      * @param boolean $print print error
-     * Print all error log by the CheckoutApi_Lib_ExceptionState object for the current request
+     * Print all error log by the CheckoutapiLibExceptionstate object for the current request
      * @throws Exception
      * @return string $error an string of errors
-     * CheckoutApi_ print the error
+     * Checkoutapi print the error
      */
 
     public function printError($print = true)
     {
-         /** @var CheckoutApi_Lib_ExceptionState $exceptionState */
+         /** @var CheckoutapiLibExceptionstate $exceptionState */
 
-          $exceptionState = CheckoutApi_Lib_Factory::getSingletonInstance('CheckoutApi_Lib_ExceptionState');
+          $exceptionState = CheckoutapiLibFactory::getSingletonInstance('CheckoutapiLibExceptionstate');
           $error =  $exceptionState->debug();
           $exceptionState->flushState();
             if($print) {
@@ -158,18 +158,18 @@ class CheckoutApi_Lib_RespondObj implements ArrayAccess
     }
 
     /**
-     * Return an instance of CheckoutApi_Lib_ExceptionState
-     * @return CheckoutApi_Lib_ExceptionState|null
+     * Return an instance of CheckoutapiLibExceptionstate
+     * @return CheckoutapiLibExceptionstate|null
      * @throws Exception
      *
      */
-    public function getExceptionState()
+    public function getExceptionstate()
     {
-        $classException = "CheckoutApi_Lib_ExceptionState";
+        $classException = "CheckoutapiLibExceptionstate";
         $class = null;
         if (class_exists($classException)) {
-            /** @var CheckoutApi_Lib_ExceptionState $class */
-            $class = CheckoutApi_Lib_Factory::getSingletonInstance($classException);
+            /** @var CheckoutapiLibExceptionstate $class */
+            $class = CheckoutapiLibFactory::getSingletonInstance($classException);
 
         }
 

@@ -1,14 +1,14 @@
 <?php
 
 /**
- * CheckoutApi_Client_Adapter_Constant
+ * CheckoutapiClientAdapterConstant
  * Constant class for Adapter
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Adapter
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
  */
-final class CheckoutApi_Client_Adapter_Constant
+final class CheckoutapiClientAdapterConstant
 {
 	const API_POST = 'POST'; 
 	const API_GET = 'GET'; 

@@ -1,15 +1,15 @@
 <?php 
 /**
 * This class is used as signature  for all current and future adapters
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Adapter
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
 **/
-interface CheckoutApi_Client_Adapter_Interface 
+interface CheckoutapiClientAdapterInterface 
 {
 	/**
-	* CheckoutApi_ Read respond on the server
+	* Checkoutapi Read respond on the server
 	* 
 	* @return object
 	**/
@@ -17,13 +17,13 @@ interface CheckoutApi_Client_Adapter_Interface
 	public function request();
     
     /**
-    *CheckoutApi_ Close all open connections and release all set variables
+    *Checkoutapi Close all open connections and release all set variables
     **/
 
 	public function close();
 
     /**
-    * CheckoutApi_ Open a connection to server/URI
+    * Checkoutapi Open a connection to server/URI
     * @return resource
     **/
 

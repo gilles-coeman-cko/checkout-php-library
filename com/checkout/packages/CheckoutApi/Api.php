@@ -1,7 +1,7 @@
 <?php
 
 /**
- * CheckoutApi_Api
+ * CheckoutapiApi
  *
  * PHP Version 5.2
  * @category     Api
@@ -10,36 +10,36 @@
  */
 
 /**
- * Class final  CheckoutApi_Api.
- * This class is responsible in creating instance of payment gateway interface(CheckoutApi_Client_Client).
+ * Class final  CheckoutapiApi.
+ * This class is responsible in creating instance of payment gateway interface(CheckoutapiClientClient).
  *
  * The simplest usage would be:
- *     $Api = CheckoutApi_Api::getApi();
+ *     $Api = CheckoutapiApi::getApi();
  *
- * This will create an instance a singleton instance of CheckoutApi_Client_Client
- * The default gateway is CheckoutApi_Client_ClientGW3.
+ * This will create an instance a singleton instance of CheckoutapiClientClient
+ * The default gateway is CheckoutapiClientClientgw3.
  *
  * If you need create instance of other gateways, you can do do those steps:
  *
- *     $Api = CheckoutApi_Api::getApi(array(),'CheckoutApi_Client_Client[GATEWAYNAME]');
+ *     $Api = CheckoutapiApi::getApi(array(),'CheckoutapiClientClient[GATEWAYNAME]');
  *
  *  If you need initialise some configuration before hand:
  *
  *     $config = array('config1' => 'value1', 'config2' => 'value2');
- *     $Api = CheckoutApi_Api::getApi($config);
+ *     $Api = CheckoutapiApi::getApi($config);
  */
 
-final class CheckoutApi_Api 
+final class CheckoutapiApi 
 {
     /** @var string $_apiClass  The name of the gateway to be used  */
-	private static $_apiClass = 'CheckoutApi_Client_ClientGW3';
+	private static $_apiClass = 'CheckoutapiClientClientgw3';
 
 
     /**
      * Helper static function to get singleton instance of a gateway interface.
      * @param array $arguments A set arguments for initialising class constructor.
      * @param null|string $_apiClass Gateway class name.
-     * @return CheckoutApi_Client_Client An singleton instance of CheckoutApi_Client_Client
+     * @return CheckoutapiClientClient An singleton instance of CheckoutapiClientClient
      * @throws Exception
      */
 
@@ -50,15 +50,15 @@ final class CheckoutApi_Api
     	}
                 
         //Initialise the exception library
-        $exceptionState = CheckoutApi_Lib_Factory::getSingletonInstance('CheckoutApi_Lib_ExceptionState');
+        $exceptionState = CheckoutapiLibFactory::getSingletonInstance('CheckoutapiLibExceptionstate');
         $exceptionState->setErrorState(false);
         
-        return CheckoutApi_Lib_Factory::getSingletonInstance(self::getApiClass(),$arguments);
+        return CheckoutapiLibFactory::getSingletonInstance(self::getApiClass(),$arguments);
     }
 
     /**
      * Helpper static function for setting  for $_apiClass.
-     * @param CheckoutApi_Client_Client $apiClass gateway interface name
+     * @param CheckoutapiClientClient $apiClass gateway interface name
      */
 
     public static function setApiClass($apiClass)
@@ -68,7 +68,7 @@ final class CheckoutApi_Api
 
     /**
      * Helper static function  for retriving value of $_apiClass.
-     * @return CheckoutApi_Client_Client  $_apiClass
+     * @return CheckoutapiClientClient  $_apiClass
      */
 
     public static function getApiClass()

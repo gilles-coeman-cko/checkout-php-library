@@ -1,15 +1,15 @@
 <?php
 
 /**
- *  CheckoutApi_Lib_Object
+ *  CheckoutapiLibObject
  * This class is a base class for the other class
  * it provide common feature that exist between other classes
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Api
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
  */
-class CheckoutApi_Lib_Object implements ArrayAccess
+class CheckoutapiLibObject implements ArrayAccess
 {
 
     /** @var array $_config an array that containt all configuration for a class */
@@ -83,16 +83,16 @@ class CheckoutApi_Lib_Object implements ArrayAccess
 
     public function exception($errorMsg,  array $trace, $error = true )
     {
-        $classException = "CheckoutApi_Lib_ExceptionState";
+        $classException = "CheckoutapiLibExceptionstate";
 
         if (class_exists($classException)) {
 
-            /** @var CheckoutApi_Lib_ExceptionState $class */
-            $class = CheckoutApi_Lib_Factory::getSingletonInstance($classException);
+            /** @var CheckoutapiLibExceptionstate $class */
+            $class = CheckoutapiLibFactory::getSingletonInstance($classException);
               
         } else {
             
-            throw new Exception("Not a valid class ::  CheckoutApi_Lib_ExceptionState");
+            throw new Exception("Not a valid class ::  CheckoutapiLibExceptionstate");
             
         } 
 
@@ -109,15 +109,15 @@ class CheckoutApi_Lib_Object implements ArrayAccess
      */
     public function flushState()
     {
-        $classException = "CheckoutApi_Lib_ExceptionState";
+        $classException = "CheckoutapiLibExceptionstate";
 
         if (class_exists($classException)) {
-            /** @var CheckoutApi_Lib_ExceptionState $class */
-            $class = CheckoutApi_Lib_Factory::getSingletonInstance($classException);
+            /** @var CheckoutapiLibExceptionstate $class */
+            $class = CheckoutapiLibFactory::getSingletonInstance($classException);
               
         } else {
             
-            throw new Exception("Not a valid class ::  CheckoutApi_Lib_ExceptionState");
+            throw new Exception("Not a valid class ::  CheckoutapiLibExceptionstate");
             
         } 
         $class->flushState();
@@ -126,17 +126,17 @@ class CheckoutApi_Lib_Object implements ArrayAccess
     }
 
     /**
-     * Return an a singleton instance of a CheckoutApi_Lib_ExceptionState object
-     * @return CheckoutApi_Lib_ExceptionState|null
+     * Return an a singleton instance of a CheckoutapiLibExceptionstate object
+     * @return CheckoutapiLibExceptionstate|null
      * @throws Exception
      */
-    public function getExceptionState()
+    public function getExceptionstate()
     {
-        $classException = "CheckoutApi_Lib_ExceptionState";
+        $classException = "CheckoutapiLibExceptionstate";
         $class = null;
         if (class_exists($classException)) {
-            /** @var CheckoutApi_Lib_ExceptionState $class */
-            $class = CheckoutApi_Lib_Factory::getSingletonInstance($classException);
+            /** @var CheckoutapiLibExceptionstate $class */
+            $class = CheckoutapiLibFactory::getSingletonInstance($classException);
 
         }
 

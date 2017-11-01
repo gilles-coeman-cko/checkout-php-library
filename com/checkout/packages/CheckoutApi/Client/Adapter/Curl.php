@@ -2,28 +2,28 @@
 
 /**
 * This class is an adapter that allow to make call over http protocol via curl
- * @package     CheckoutApi
+ * @package     Checkoutapi
  * @category     Adapter
  * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
  * @copyright 2014 Integration team (http://www.checkout.com)
 */
 
-class CheckoutApi_Client_Adapter_Curl extends CheckoutApi_Client_Adapter_Abstract implements CheckoutApi_Client_Adapter_Interface 
+class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract implements CheckoutapiClientAdapterInterface 
 {
     /**  @var int $_timeout  timeout for gateway  */
     private $_timeout = 60;
 
     /**
-     * CheckoutApi_ constructor for curl class
+     * Checkoutapi constructor for curl class
      * @param array $arguments configuration for setting the curl connection
      * @throws Exception
      */
 	public function __construct( array $arguments = array())
 	{
 
-		if(!CheckoutApi_Utility_Utilities::checkExtension('curl')) {
-			//throw new Exception("cURL extension has to be loaded to use CheckoutApi_Client_Adapter_Curl ");	
-			$this->exception("cURL extension has to be loaded to use CheckoutApi_Client_Adapter_Curl", debug_backtrace());
+		if(!CheckoutapiUtilityUtilities::checkExtension('curl')) {
+			//throw new Exception("cURL extension has to be loaded to use CheckoutapiClientAdapterCurl ");	
+			$this->exception("cURL extension has to be loaded to use CheckoutapiClientAdapterCurl", debug_backtrace());
 
 		}
 
@@ -34,7 +34,7 @@ class CheckoutApi_Client_Adapter_Curl extends CheckoutApi_Client_Adapter_Abstrac
 
 	/**
 	* A method that do a request on provide uri and return itsel
-	* @return CheckoutApi_Client_Adapter_Curl return self
+	* @return CheckoutapiClientAdapterCurl return self
 	* Simple usage:
      *      $adapter->request()->getRespond()
      */
@@ -63,18 +63,18 @@ class CheckoutApi_Client_Adapter_Curl extends CheckoutApi_Client_Adapter_Abstrac
 
 		$curlMethod = '';
 		switch ($method) {
-			case CheckoutApi_Client_Adapter_Constant::API_POST:
-				$curlMethod =  CheckoutApi_Client_Adapter_Constant::API_POST;
+			case CheckoutapiClientAdapterConstant::API_POST:
+				$curlMethod =  CheckoutapiClientAdapterConstant::API_POST;
 				break;
-			case CheckoutApi_Client_Adapter_Constant::API_GET:
-				$curlMethod =  CheckoutApi_Client_Adapter_Constant::API_GET;
+			case CheckoutapiClientAdapterConstant::API_GET:
+				$curlMethod =  CheckoutapiClientAdapterConstant::API_GET;
 
 				break;
-			case CheckoutApi_Client_Adapter_Constant::API_DELETE:
-			    $curlMethod = CheckoutApi_Client_Adapter_Constant::API_DELETE;
+			case CheckoutapiClientAdapterConstant::API_DELETE:
+			    $curlMethod = CheckoutapiClientAdapterConstant::API_DELETE;
 			break;
-            case CheckoutApi_Client_Adapter_Constant::API_PUT:
-                $curlMethod = CheckoutApi_Client_Adapter_Constant::API_PUT;
+            case CheckoutapiClientAdapterConstant::API_PUT:
+                $curlMethod = CheckoutapiClientAdapterConstant::API_PUT;
             break;
 			default :
 				
@@ -82,13 +82,13 @@ class CheckoutApi_Client_Adapter_Curl extends CheckoutApi_Client_Adapter_Abstrac
 			break;
 		}
 
-        if($curlMethod != CheckoutApi_Client_Adapter_Constant::API_GET) {
+        if($curlMethod != CheckoutapiClientAdapterConstant::API_GET) {
             curl_setopt($resource, CURLOPT_CUSTOMREQUEST, $curlMethod);
         }
 
 //		curl_setopt($resource , $curlMethod, true);
 
-		if($method == CheckoutApi_Client_Adapter_Constant::API_POST || $method == CheckoutApi_Client_Adapter_Constant::API_PUT  ) {
+		if($method == CheckoutapiClientAdapterConstant::API_POST || $method == CheckoutapiClientAdapterConstant::API_PUT  ) {
 			curl_setopt($resource, CURLOPT_POSTFIELDS, $this->getPostedParam());
 		}
 
@@ -164,14 +164,14 @@ class CheckoutApi_Client_Adapter_Curl extends CheckoutApi_Client_Adapter_Abstrac
 
     /**
      *  return a method type POST|GET|PUT|DELETE
-     * @return  string default CheckoutApi_Client_Adapter_Constant::API_POST
+     * @return  string default CheckoutapiClientAdapterConstant::API_POST
      */
 	public function getMethod()
 	{
 		$method = $this->getConfig('method');
 		
 		if(!$method) {
-			$method = CheckoutApi_Client_Adapter_Constant::API_POST;
+			$method = CheckoutapiClientAdapterConstant::API_POST;
 		}
 
 		return $method;
