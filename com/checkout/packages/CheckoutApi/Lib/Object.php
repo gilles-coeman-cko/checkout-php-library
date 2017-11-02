@@ -1,69 +1,87 @@
 <?php
 
 /**
- *  CheckoutapiLibObject
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
+
+/**
+ * CheckoutapiLibObject
  * This class is a base class for the other class
  * it provide common feature that exist between other classes
- * @package     Checkoutapi
- * @category     Api
- * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @copyright 2014 Integration team (http://www.checkout.com)
+ *
+ * @category Lib
+ * @version  Release: @package_version@
  */
 class CheckoutapiLibObject implements ArrayAccess
 {
 
-    /** @var array $_config an array that containt all configuration for a class */
+    /**
+     * 
+     *
+     * @var array $_config an array that containt all configuration for a class 
+     */
     protected $_config = array();
 
 
     /**
      * A method that get the configuration for an object
-     * @param null $key name of configuration you wnat to retrive
-     * @return array|null
      *
+     * @param  null $key name of configuration you wnat to retrive
+     * @return array|null
      */
 
     public function getConfig($key = null) 
-    {	
-    	if($key!=null && isset($this->_config[$key])) { 
-    		
-    		return $this->_config[$key];
-    	
-    	} elseif($key == null) {
-    		
+    {    
+        if($key!=null && isset($this->_config[$key])) { 
+            
+            return $this->_config[$key];
+        
+        } elseif($key == null) {
+            
             return $this->_config;
-    	}
+        }
 
         return null;
     }
 
     /**
      * A settter. it get an array and update or add new configuration value to object
-     * @param array $config configuration value
+     *
+     * @param  array $config configuration value
      * @throws Exception
      */
 
     public function setConfig($config = array()) 
     { 
 
-    	if(is_array($config) ) {
+        if(is_array($config) ) {
 
-    		if(!empty($config)) {
-    			foreach($config as $key=>$value) {
+            if(!empty($config)) {
+                foreach($config as $key=>$value) {
 
-    				$this->_config[$key] = $value;
-    			}
-    		}
+                    $this->_config[$key] = $value;
+                }
+            }
 
-     	} else {
-    		
-    		throw new Exception( "Invalid parameter");
-    	}
+        } else {
+            
+            throw new Exception("Invalid parameter");
+        }
 
     }
 
     /**
      *  reset config attribute
+     *
      * @return $this
      */
     public function resetConfig()
@@ -74,9 +92,10 @@ class CheckoutapiLibObject implements ArrayAccess
 
     /**
      * setting and logging error message
-     * @param string $errorMsg error message you wan to log
-     * @param array $trace stack trace
-     * @param bool $error state of the error. true for important error
+     *
+     * @param  string $errorMsg error message you wan to log
+     * @param  array  $trace    stack trace
+     * @param  bool   $error    state of the error. true for important error
      * @return mixed
      * @throws Exception
      */
@@ -87,7 +106,11 @@ class CheckoutapiLibObject implements ArrayAccess
 
         if (class_exists($classException)) {
 
-            /** @var CheckoutapiLibExceptionstate $class */
+            /**
+* 
+             *
+ * @var CheckoutapiLibExceptionstate $class 
+*/
             $class = CheckoutapiLibFactory::getSingletonInstance($classException);
               
         } else {
@@ -96,7 +119,7 @@ class CheckoutapiLibObject implements ArrayAccess
             
         } 
 
-        $class->setLog($errorMsg,$trace,$error);
+        $class->setLog($errorMsg, $trace, $error);
 
         return $class;
         
@@ -104,15 +127,19 @@ class CheckoutapiLibObject implements ArrayAccess
 
     /**
      * Reset the attribute config for an object
-     * @throws Exception
      *
+     * @throws Exception
      */
     public function flushState()
     {
         $classException = "CheckoutapiLibExceptionstate";
 
         if (class_exists($classException)) {
-            /** @var CheckoutapiLibExceptionstate $class */
+            /**
+* 
+             *
+ * @var CheckoutapiLibExceptionstate $class 
+*/
             $class = CheckoutapiLibFactory::getSingletonInstance($classException);
               
         } else {
@@ -127,6 +154,7 @@ class CheckoutapiLibObject implements ArrayAccess
 
     /**
      * Return an a singleton instance of a CheckoutapiLibExceptionstate object
+     *
      * @return CheckoutapiLibExceptionstate|null
      * @throws Exception
      */
@@ -135,7 +163,11 @@ class CheckoutapiLibObject implements ArrayAccess
         $classException = "CheckoutapiLibExceptionstate";
         $class = null;
         if (class_exists($classException)) {
-            /** @var CheckoutapiLibExceptionstate $class */
+            /**
+* 
+             *
+ * @var CheckoutapiLibExceptionstate $class 
+*/
             $class = CheckoutapiLibFactory::getSingletonInstance($classException);
 
         }
@@ -143,7 +175,8 @@ class CheckoutapiLibObject implements ArrayAccess
         return $class;
     }
 
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value) 
+    {
         if (is_null($offset)) {
             $this->_config[] = $value;
         } else {
@@ -151,15 +184,18 @@ class CheckoutapiLibObject implements ArrayAccess
         }
     }
 
-    public function offsetExists($offset) {
+    public function offsetExists($offset) 
+    {
         return isset($this->_config[$offset]);
     }
 
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset) 
+    {
         unset($this->_config[$offset]);
     }
 
-    public function offsetGet($offset) {
+    public function offsetGet($offset) 
+    {
         return isset($this->_config[$offset]) ? $this->_config[$offset] : null;
     }
 }

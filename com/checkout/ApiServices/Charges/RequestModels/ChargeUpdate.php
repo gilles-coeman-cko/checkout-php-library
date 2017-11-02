@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * User: dhiraj.gangoosirdar
@@ -11,56 +24,56 @@ namespace com\checkout\ApiServices\Charges\RequestModels;
 
 class ChargeUpdate
 {
-	private $_chargeId;
-	private $_description;
-	private $_metadata = array();
+    private $_chargeId;
+    private $_description;
+    private $_metadata = array();
 
-	/**
-	 * @return mixed
-	 */
-	public function getChargeId ()
-	{
-		return $this->_chargeId;
-	}
+    /**
+     * @return mixed
+     */
+    public function getChargeId()
+    {
+        return $this->_chargeId;
+    }
 
-	/**
-	 * @param mixed $chargeId
-	 */
-	public function setChargeId ( $chargeId )
-	{
-		$this->_chargeId = $chargeId;
-	}
+    /**
+     * @param mixed $chargeId
+     */
+    public function setChargeId( $chargeId )
+    {
+        $this->_chargeId = $chargeId;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getDescription ()
-	{
-		return $this->_description;
-	}
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->_description;
+    }
 
-	/**
-	 * @param mixed $description
-	 */
-	public function setDescription ( $description )
-	{
-		$this->_description = $description;
-	}
+    /**
+     * @param mixed $description
+     */
+    public function setDescription( $description )
+    {
+        $this->_description = $description;
+    }
 
-	/**
-	 * @return array
-	 */
-	public function getMetadata ()
-	{
-		return $this->_metadata;
-	}
+    /**
+     * @return array
+     */
+    public function getMetadata()
+    {
+        return $this->_metadata;
+    }
 
-	/**
-	 * @param array $metadata
-	 */
-	public function setMetadata ( $metadata )
-	{
-		$this->_metadata = $metadata;
-	}
+    /**
+     * @param array $metadata
+     */
+    public function setMetadata( $metadata )
+    {
+        $this->_metadata = $metadata;
+    }
 
 }

@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * User: dhiraj.gangoosirdar
@@ -11,41 +24,41 @@ namespace com\checkout\ApiServices\Charges\RequestModels;
 
 class CardIdChargeCreate extends BaseCharge
 {
-	protected $_cardId;
+    protected $_cardId;
     protected $_cvv;
     protected $_transactionIndicator;
 
-	/**
-	 * @return mixed
-	 */
-	public function getCardId ()
-	{
-		return $this->_cardId;
-	}
+    /**
+     * @return mixed
+     */
+    public function getCardId()
+    {
+        return $this->_cardId;
+    }
 
-	/**
-	 * @param mixed $cardId
-	 */
-	public function setCardId ( $cardId )
-	{
-		$this->_cardId = $cardId;
-	}
+    /**
+     * @param mixed $cardId
+     */
+    public function setCardId( $cardId )
+    {
+        $this->_cardId = $cardId;
+    }
     
     /**
-	 * @return mixed
-	 */
-	public function getCvv ()
-	{
-		return $this->_cvv;
-	}
+     * @return mixed
+     */
+    public function getCvv()
+    {
+        return $this->_cvv;
+    }
 
-	/**
-	 * @param mixed $cvv
-	 */
-	public function setCvv( $cvv )
-	{
-		$this->_cvv = $cvv;
-	}
+    /**
+     * @param mixed $cvv
+     */
+    public function setCvv( $cvv )
+    {
+        $this->_cvv = $cvv;
+    }
 
     /**
      * @return mixed

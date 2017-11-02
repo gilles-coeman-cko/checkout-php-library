@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * Date: 22.12.2015
@@ -13,7 +26,8 @@ class ReportingService extends \com\checkout\ApiServices\BaseServices
      * @return ResponseModels\TransactionList
      * @throws \Exception
      */
-    public function queryTransaction(RequestModels\TransactionFilter $requestModel) {
+    public function queryTransaction(RequestModels\TransactionFilter $requestModel) 
+    {
         $reportingMapper    = new ReportingMapper($requestModel);
         $reportingUri       = $this->_apiUrl->getQueryTransactionApiUri();
         $secretKey          = $this->_apiSetting->getSecretKey();
@@ -32,7 +46,8 @@ class ReportingService extends \com\checkout\ApiServices\BaseServices
     }
 
 
-    public function queryChargeback(RequestModels\TransactionFilter $requestModel) {
+    public function queryChargeback(RequestModels\TransactionFilter $requestModel) 
+    {
         $reportingMapper    = new ReportingMapper($requestModel);
         $reportingUri       = $this->_apiUrl->getQueryChargebackApiUri();
         $secretKey          = $this->_apiSetting->getSecretKey();

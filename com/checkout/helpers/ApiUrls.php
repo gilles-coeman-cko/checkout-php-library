@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
+
 namespace com\checkout\helpers;
 
 class ApiUrls
@@ -38,6 +51,7 @@ class ApiUrls
 
     /**
      * get the base api url
+     *
      * @return string
      */
     public function getBaseApiUri()
@@ -47,6 +61,7 @@ class ApiUrls
 
     /**
      * set the base api url
+     *
      * @param string $baseApiUri
      */
     public function setBaseApiUri($baseApiUri)
@@ -56,6 +71,7 @@ class ApiUrls
 
     /**
      * return url to verify a charge
+     *
      * @return string
      */
     public function getVerifyChargesApiUri()
@@ -69,6 +85,7 @@ class ApiUrls
 
     /**
      * set the url for verify a charge
+     *
      * @param string $verifyChargesApiUri
      */
     public function setVerifyChargesApiUri($verifyChargesApiUri)
@@ -78,6 +95,7 @@ class ApiUrls
 
     /**
      * return card token url
+     *
      * @return string
      */
     public function getCardTokensApiUri()
@@ -90,6 +108,7 @@ class ApiUrls
 
     /**
      * set card token url
+     *
      * @param string $cardTokensApiUri
      */
     public function setCardTokensApiUri($cardTokensApiUri)
@@ -99,6 +118,7 @@ class ApiUrls
 
     /**
      * set payment token url
+     *
      * @return string
      */
     public function getPaymentTokensApiUri()
@@ -111,6 +131,7 @@ class ApiUrls
 
     /**
      * set payment token url
+     *
      * @param string $paymentTokensApiUri
      */
     public function setPaymentTokensApiUri($paymentTokensApiUri)
@@ -120,6 +141,7 @@ class ApiUrls
 
     /**
      * set payment token update url
+     *
      * @return string
      */
     public function getPaymentTokenUpdateApiUri()
@@ -132,6 +154,7 @@ class ApiUrls
 
     /**
      * set payment token update url
+     *
      * @param string $paymentTokenUpdateApiUri
      */
     public function setPaymentTokenUpdateApiUri($paymentTokenUpdateApiUri)
@@ -141,6 +164,7 @@ class ApiUrls
 
     /**
      * return payment token url
+     *
      * @return string
      */
     public function getCardProvidersUri()
@@ -153,6 +177,7 @@ class ApiUrls
 
     /**
      * set payment token url
+     *
      * @param string $cardProvidersUri
      */
     public function setCardProvidersUri($cardProvidersUri)
@@ -162,6 +187,7 @@ class ApiUrls
 
     /**
      * set local payment url
+     *
      * @return string
      */
     public function getLocalPaymentProvidersUri()
@@ -175,6 +201,7 @@ class ApiUrls
 
     /**
      * set local payment url
+     *
      * @param string $localPaymentProvidersUri
      */
     public function setLocalPaymentProvidersUri($localPaymentProvidersUri)
@@ -184,6 +211,7 @@ class ApiUrls
 
     /**
      * return customer url
+     *
      * @return string
      */
     public function getCustomersApiUri()
@@ -197,6 +225,7 @@ class ApiUrls
 
     /**
      * set customer url
+     *
      * @param string $customersApiUri
      */
     public function setCustomersApiUri($customersApiUri)
@@ -206,6 +235,7 @@ class ApiUrls
 
     /**
      * get card url
+     *
      * @return string
      */
     public function getCardsApiUri()
@@ -218,6 +248,7 @@ class ApiUrls
 
     /**
      * set card url
+     *
      * @param string $cardsApiUri
      */
     public function setCardsApiUri($cardsApiUri)
@@ -227,6 +258,7 @@ class ApiUrls
 
     /**
      * get card charge url
+     *
      * @return string
      */
     public function getCardChargesApiUri()
@@ -239,6 +271,7 @@ class ApiUrls
 
     /**
      * set cart charge url
+     *
      * @param string $cardChargesApiUri
      */
     public function setCardChargesApiUri($cardChargesApiUri)
@@ -248,6 +281,7 @@ class ApiUrls
 
     /**
      * get card token charge url
+     *
      * @return string
      */
     public function getCardTokenChargesApiUri()
@@ -260,6 +294,7 @@ class ApiUrls
 
     /**
      * set card token charge url
+     *
      * @param string $cardTokenChargesApiUri
      */
     public function setCardTokenChargesApiUri($cardTokenChargesApiUri)
@@ -269,6 +304,7 @@ class ApiUrls
 
     /**
      * get the charge payment token url
+     *
      * @return string
      */
     public function getChargeWithPaymentTokenUri()
@@ -282,6 +318,7 @@ class ApiUrls
 
     /**
      * set the charge payment token url
+     *
      * @param string $chargeWithPaymentTokenUri
      */
     public function setChargeWithPaymentTokenUri($chargeWithPaymentTokenUri)

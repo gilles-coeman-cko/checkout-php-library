@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * Date: 22.12.2015
@@ -20,112 +33,128 @@ class TransactionFilter
     /**
      * @param $fromDate
      */
-    public function setFromDate($fromDate) {
+    public function setFromDate($fromDate) 
+    {
         $this->_fromDate = $fromDate;
     }
 
     /**
      * @return null
      */
-    public function getFromDate() {
+    public function getFromDate() 
+    {
         return $this->_fromDate;
     }
 
     /**
      * @param $toDate
      */
-    public function setToDate($toDate) {
+    public function setToDate($toDate) 
+    {
         $this->_toDate = $toDate;
     }
 
     /**
      * @return null
      */
-    public function getToDate() {
+    public function getToDate() 
+    {
         return $this->_toDate;
     }
 
     /**
      * @param $pageSize
      */
-    public function setPageSize($pageSize) {
+    public function setPageSize($pageSize) 
+    {
         $this->_pageSize = $pageSize;
     }
 
     /**
      * @return null
      */
-    public function getPageSize() {
+    public function getPageSize() 
+    {
         return $this->_pageSize;
     }
 
     /**
      * @param $pageNumber
      */
-    public function setPageNumber($pageNumber) {
+    public function setPageNumber($pageNumber) 
+    {
         $this->_pageNumber = $pageNumber;
     }
 
     /**
      * @return null
      */
-    public function getPageNumber() {
+    public function getPageNumber() 
+    {
         return $this->_pageNumber;
     }
 
     /**
      * @param $sortColumn
      */
-    public function setSortColumn($sortColumn) {
+    public function setSortColumn($sortColumn) 
+    {
         $this->_sortColumn = $sortColumn;
     }
 
     /**
      * @return null
      */
-    public function getSortColumn() {
+    public function getSortColumn() 
+    {
         return $this->_sortColumn;
     }
 
     /**
      * @param $sortOrder
      */
-    public function setSortOrder($sortOrder) {
+    public function setSortOrder($sortOrder) 
+    {
         $this->_sortOrder = $sortOrder;
     }
 
     /**
      * @return null
      */
-    public function getSortOrder() {
+    public function getSortOrder() 
+    {
         return $this->_sortOrder;
     }
 
     /**
      * @param $search\
      */
-    public function setSearch($search) {
+    public function setSearch($search) 
+    {
         $this->_search = $search;
     }
 
     /**
      * @return null
      */
-    public function getSearch() {
+    public function getSearch() 
+    {
         return $this->_search;
     }
 
     /**
      * @param array $filters
      */
-    public function setFilters(Array $filters) {
+    public function setFilters(Array $filters) 
+    {
         $this->_filters = $filters;
     }
 
     /**
      * @return array
      */
-    public function getFilters() {
+    public function getFilters() 
+    {
         return $this->_filters;
     }
 }

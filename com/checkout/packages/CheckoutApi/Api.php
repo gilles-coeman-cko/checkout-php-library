@@ -3,14 +3,18 @@
 /**
  * CheckoutapiApi
  *
- * PHP Version 5.2
- * @category     Api
- * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @copyright 2014 Integration team (http://www.checkout.com)
+ * PHP Version 5.6
+ * 
+ * @category Checkoutapi
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
  */
 
 /**
- * Class final  CheckoutapiApi.
+ * class final  CheckoutapiApi.
  * This class is responsible in creating instance of payment gateway interface(CheckoutapiClientClient).
  *
  * The simplest usage would be:
@@ -27,52 +31,61 @@
  *
  *     $config = array('config1' => 'value1', 'config2' => 'value2');
  *     $Api = CheckoutapiApi::getApi($config);
+ *
+ * @category Checkoutapi
+ * @version  Release: @package_version@
  */
-
-final class CheckoutapiApi 
+final class CheckoutapiApi
 {
-    /** @var string $_apiClass  The name of the gateway to be used  */
-	private static $_apiClass = 'CheckoutapiClientClientgw3';
+    /**
+     * 
+     *
+     * @var string $_apiclass  The name of the gateway to be used  
+     */
+    private static $_apiclass = 'CheckoutapiClientClientgw3';
 
 
     /**
      * Helper static function to get singleton instance of a gateway interface.
-     * @param array $arguments A set arguments for initialising class constructor.
-     * @param null|string $_apiClass Gateway class name.
+     *
+     * @param  array       $arguments A set arguments for initialising class constructor.
+     * @param  null|string $_apiclass Gateway class name.
      * @return CheckoutapiClientClient An singleton instance of CheckoutapiClientClient
      * @throws Exception
      */
 
-    public static function getApi(array $arguments = array(),$_apiClass = null)
+    public static function getApi(array $arguments = array(),$_apiclass = null)
     {
-    	if($_apiClass) {
-    		self::setApiClass($_apiClass);
-    	}
+        if($_apiclass) {
+            self::setApiclass($_apiclass);
+        }
                 
         //Initialise the exception library
         $exceptionState = CheckoutapiLibFactory::getSingletonInstance('CheckoutapiLibExceptionstate');
         $exceptionState->setErrorState(false);
         
-        return CheckoutapiLibFactory::getSingletonInstance(self::getApiClass(),$arguments);
+        return CheckoutapiLibFactory::getSingletonInstance(self::getApiclass(), $arguments);
     }
 
     /**
-     * Helpper static function for setting  for $_apiClass.
-     * @param CheckoutapiClientClient $apiClass gateway interface name
+     * Helpper static function for setting  for $_apiclass.
+     *
+     * @param CheckoutapiClientClient $apiclass gateway interface name
      */
 
-    public static function setApiClass($apiClass)
+    public static function setApiclass($apiclass)
     {
-    	self::$_apiClass = $apiClass;
+        self::$_apiclass = $apiclass;
     }
 
     /**
-     * Helper static function  for retriving value of $_apiClass.
-     * @return CheckoutapiClientClient  $_apiClass
+     * Helper static function  for retriving value of $_apiclass.
+     *
+     * @return CheckoutapiClientClient  $_apiclass
      */
 
-    public static function getApiClass()
+    public static function getApiclass()
     {
-    	return self::$_apiClass;
+        return self::$_apiclass;
     }
 }

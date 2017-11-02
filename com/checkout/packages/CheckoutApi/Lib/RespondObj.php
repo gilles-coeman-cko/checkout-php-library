@@ -1,25 +1,42 @@
 <?php
 
 /**
- *  CheckoutapiLibRespondobj
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
+
+/**
+ * CheckoutapiLibRespondobj
  * This class is responsible of mapping anytime of respond into an object with attribute and magic getters
- * @package     Checkoutapi
- * @category     Api
- * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @copyright 2014 Integration team (http://www.checkout.com)
+ *
+ * @category Lib
+ * @version  Release: @package_version@
  */
 class CheckoutapiLibRespondobj implements ArrayAccess
 {
-    /** @var array $_config configuration value */
+    /**
+     * 
+     *
+     * @var array $_config configuration value 
+     */
 
     protected $_config = array();
     protected $_updateConfig = array();
 
     /**
      * A method that caputer all getter or setters and use them to either set or get value from attribute config
-     * @param $method
-     * @param $args
-     * @throws Exception
+     *
+     * @param   $method
+     * @param   $args
+     * @throws  Exception
      * Checkoutapi a php magical method
      * @example http://php.net/manual/en/language.oop5.overloading.php#object.call
      */
@@ -27,39 +44,40 @@ class CheckoutapiLibRespondobj implements ArrayAccess
     public function __call($method, $args)
     {
         switch (substr($method, 0, 3)) {
-            case 'get' :
-                    $key = substr($method,3);
-                    $key = lcfirst($key);
-                    $data = $this->getConfig($key, isset($args[0]) ? $args[0] : null);
-
-                return $data;
-                break;
-            case 'set' :
-                    $key = substr($method,3);
-                    $key = lcfirst($key);
-                    $this->_updateConfig[$key] = $args[0];
-                return $args[0];
-                break;
-
-            case 'has';
-                $key = substr($method,3);
+        case 'get' :
+                $key = substr($method, 3);
                 $key = lcfirst($key);
-                $data = $this->getConfig($key);
+                $data = $this->getConfig($key, isset($args[0]) ? $args[0] : null);
+
+            return $data;
+                break;
+        case 'set' :
+                $key = substr($method, 3);
+                $key = lcfirst($key);
+                $this->_updateConfig[$key] = $args[0];
+            return $args[0];
+                break;
+
+        case 'has';
+            $key = substr($method, 3);
+            $key = lcfirst($key);
+            $data = $this->getConfig($key);
 
             return $data?true:false;
 
         }
 
-       throw new Exception("Respond does not support this method " .$method."(".print_r($args,1).")");
+        throw new Exception("Respond does not support this method " .$method."(".print_r($args, 1).")");
     }
 
     /**
      * This method return value from the attribute config
-     * @param null $key attribute you want to retrive
+     *
+     * @param  null $key attribute you want to retrive
      * @return array|CheckoutapiLibRespondobj|null
      * @throws Exception
      */
-   private function getConfig($key = null, $args = null)
+    private function getConfig($key = null, $args = null)
     {
         if($key!=null) {
 
@@ -72,17 +90,24 @@ class CheckoutapiLibRespondobj implements ArrayAccess
 
             }
 
-            if (isset($args["returnAsArray"]) && $args["returnAsArray"]){
+            if (isset($args["returnAsArray"]) && $args["returnAsArray"]) {
 
-                /** Return the response as an array */
-                if(is_array($value)){
+                /**
+* 
+ * Return the response as an array 
+*/
+                if(is_array($value)) {
                     return $value;
                 }
                 
             }elseif(is_array($value)) {
-                /** @var Checkoutapi_LibRespondobj $to_return */
+                /**
+* 
+                 *
+ * @var Checkoutapi_LibRespondobj $to_return 
+*/
                 $to_return = CheckoutapiLibFactory::getInstance('CheckoutapiLibRespondobj');
-                $to_return->setConfig( $value);
+                $to_return->setConfig($value);
                 return $to_return;
             }
 
@@ -97,7 +122,8 @@ class CheckoutapiLibRespondobj implements ArrayAccess
 
     /**
      * This method set the config value for an object
-     * @param array $config configuration to be set
+     *
+     * @param  array $config configuration to be set
      * @throws Exception
      */
 
@@ -109,7 +135,7 @@ class CheckoutapiLibRespondobj implements ArrayAccess
             if(!empty($config)) {
                 foreach($config as $key=>$value) {
                     
-                    if(!isset($this->_config[$key])){
+                    if(!isset($this->_config[$key])) {
                         $this->_config[$key] = $value;
                     }
                 }
@@ -117,20 +143,25 @@ class CheckoutapiLibRespondobj implements ArrayAccess
             
         } else {
             
-            throw new Exception( "Invalid parameter"."(".print_r($config,1).")");
+            throw new Exception("Invalid parameter"."(".print_r($config, 1).")");
         }
 
     }
 
     /**
      * check if respond obj is valid
+     *
      * @return boolean
      * @throws Exception
      */
 
     public function isValid()
     {
-         /** @var CheckoutapiLibExceptionstate $exceptionState */
+         /**
+* 
+          *
+ * @var CheckoutapiLibExceptionstate $exceptionState 
+*/
          $exceptionState = CheckoutapiLibFactory::getSingletonInstance('CheckoutapiLibExceptionstate');
 
          return $exceptionState->isValid();
@@ -138,7 +169,7 @@ class CheckoutapiLibRespondobj implements ArrayAccess
 
     /**
      * @param boolean $print print error
-     * Print all error log by the CheckoutapiLibExceptionstate object for the current request
+     *                       Print all error log by the CheckoutapiLibExceptionstate object for the current request
      * @throws Exception
      * @return string $error an string of errors
      * Checkoutapi print the error
@@ -146,29 +177,37 @@ class CheckoutapiLibRespondobj implements ArrayAccess
 
     public function printError($print = true)
     {
-         /** @var CheckoutapiLibExceptionstate $exceptionState */
+         /**
+* 
+          *
+ * @var CheckoutapiLibExceptionstate $exceptionState 
+*/
 
           $exceptionState = CheckoutapiLibFactory::getSingletonInstance('CheckoutapiLibExceptionstate');
           $error =  $exceptionState->debug();
           $exceptionState->flushState();
-            if($print) {
-                echo $error;
-            }
+        if($print) {
+            echo $error;
+        }
         return $error;
     }
 
     /**
      * Return an instance of CheckoutapiLibExceptionstate
+     *
      * @return CheckoutapiLibExceptionstate|null
      * @throws Exception
-     *
      */
     public function getExceptionstate()
     {
         $classException = "CheckoutapiLibExceptionstate";
         $class = null;
         if (class_exists($classException)) {
-            /** @var CheckoutapiLibExceptionstate $class */
+            /**
+* 
+             *
+ * @var CheckoutapiLibExceptionstate $class 
+*/
             $class = CheckoutapiLibFactory::getSingletonInstance($classException);
 
         }
@@ -178,6 +217,7 @@ class CheckoutapiLibRespondobj implements ArrayAccess
 
     /**
      * Return all configuration value for an object
+     *
      * @return config value
      */
 
@@ -187,7 +227,8 @@ class CheckoutapiLibRespondobj implements ArrayAccess
         return $this->getConfig();
     }
 
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value) 
+    {
         if (is_null($offset)) {
             $this->_config[] = $value;
         } else {
@@ -195,15 +236,18 @@ class CheckoutapiLibRespondobj implements ArrayAccess
         }
     }
 
-    public function offsetExists($offset) {
+    public function offsetExists($offset) 
+    {
         return isset($this->_config[$offset]);
     }
 
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset) 
+    {
         unset($this->_config[$offset]);
     }
 
-    public function offsetGet($offset) {
+    public function offsetGet($offset) 
+    {
         return isset($this->_config[$offset]) ? $this->_config[$offset] : null;
     }
 }

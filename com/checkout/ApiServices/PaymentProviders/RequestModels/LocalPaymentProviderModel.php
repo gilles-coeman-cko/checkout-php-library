@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * User: dhiraj.gangoosirdar
@@ -11,124 +24,124 @@ namespace com\checkout\ApiServices\PaymentProviders\RequestModels;
 
 class LocalPaymentProviderModel
 {
-	private $_providerId;
-	private $_paymentToken;
-	private $_ip;
-	private $_countryCode;
-	private $_limit;
-	private $_name;
-	private $_region;
+    private $_providerId;
+    private $_paymentToken;
+    private $_ip;
+    private $_countryCode;
+    private $_limit;
+    private $_name;
+    private $_region;
 
-	/**
-	 * @return mixed
-	 */
-	public function getCountryCode ()
-	{
-		return $this->_countryCode;
-	}
+    /**
+     * @return mixed
+     */
+    public function getCountryCode()
+    {
+        return $this->_countryCode;
+    }
 
-	/**
-	 * @param mixed $countryCode
-	 */
-	public function setCountryCode ( $countryCode )
-	{
-		$this->_countryCode = $countryCode;
-	}
+    /**
+     * @param mixed $countryCode
+     */
+    public function setCountryCode( $countryCode )
+    {
+        $this->_countryCode = $countryCode;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getIp ()
-	{
-		return $this->_ip;
-	}
+    /**
+     * @return mixed
+     */
+    public function getIp()
+    {
+        return $this->_ip;
+    }
 
-	/**
-	 * @param mixed $ip
-	 */
-	public function setIp ( $ip )
-	{
-		$this->_ip = $ip;
-	}
+    /**
+     * @param mixed $ip
+     */
+    public function setIp( $ip )
+    {
+        $this->_ip = $ip;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getLimit ()
-	{
-		return $this->_limit;
-	}
+    /**
+     * @return mixed
+     */
+    public function getLimit()
+    {
+        return $this->_limit;
+    }
 
-	/**
-	 * @param mixed $limit
-	 */
-	public function setLimit ( $limit )
-	{
-		$this->_limit = $limit;
-	}
+    /**
+     * @param mixed $limit
+     */
+    public function setLimit( $limit )
+    {
+        $this->_limit = $limit;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getName ()
-	{
-		return $this->_name;
-	}
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->_name;
+    }
 
-	/**
-	 * @param mixed $name
-	 */
-	public function setName ( $name )
-	{
-		$this->_name = $name;
-	}
+    /**
+     * @param mixed $name
+     */
+    public function setName( $name )
+    {
+        $this->_name = $name;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getPaymentToken ()
-	{
-		return $this->_paymentToken;
-	}
+    /**
+     * @return mixed
+     */
+    public function getPaymentToken()
+    {
+        return $this->_paymentToken;
+    }
 
-	/**
-	 * @param mixed $paymentToken
-	 */
-	public function setPaymentToken ( $paymentToken )
-	{
-		$this->_paymentToken = $paymentToken;
-	}
+    /**
+     * @param mixed $paymentToken
+     */
+    public function setPaymentToken( $paymentToken )
+    {
+        $this->_paymentToken = $paymentToken;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getProviderId ()
-	{
-		return $this->_providerId;
-	}
+    /**
+     * @return mixed
+     */
+    public function getProviderId()
+    {
+        return $this->_providerId;
+    }
 
-	/**
-	 * @param mixed $providerId
-	 */
-	public function setProviderId ( $providerId )
-	{
-		$this->_providerId = $providerId;
-	}
+    /**
+     * @param mixed $providerId
+     */
+    public function setProviderId( $providerId )
+    {
+        $this->_providerId = $providerId;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getRegion ()
-	{
-		return $this->_region;
-	}
+    /**
+     * @return mixed
+     */
+    public function getRegion()
+    {
+        return $this->_region;
+    }
 
-	/**
-	 * @param mixed $region
-	 */
-	public function setRegion ( $region )
-	{
-		$this->_region = $region;
-	}
+    /**
+     * @param mixed $region
+     */
+    public function setRegion( $region )
+    {
+        $this->_region = $region;
+    }
 
 }

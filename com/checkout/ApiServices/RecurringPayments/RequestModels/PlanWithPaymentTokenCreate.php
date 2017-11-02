@@ -1,14 +1,27 @@
 <?php
 
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
+
 namespace com\checkout\ApiServices\RecurringPayments\RequestModels;
 
 
 class PlanWithPaymentTokenCreate extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
 {
-	protected $_transactionIndicator;
+    protected $_transactionIndicator;
     protected $_paymentPlans = array();
 
-	/**
+    /**
      * @return mixed
      */
     public function getTransactionIndicator()
@@ -24,19 +37,19 @@ class PlanWithPaymentTokenCreate extends \com\checkout\ApiServices\Charges\Reque
         $this->_transactionIndicator = $transactionIndicator;
     }
 
-	/**
-	 * @return mixed
-	 */
-	public function getPaymentPlans ()
-	{
-		return $this->_paymentPlans;
-	}
+    /**
+     * @return mixed
+     */
+    public function getPaymentPlans()
+    {
+        return $this->_paymentPlans;
+    }
 
-	/**
-	 * @param mixed $paymentPlans
-	 */
-	public function setPaymentPlans ( BaseRecurringPayment $paymentPlans )
-	{
-		$this->_paymentPlans[] = $paymentPlans;
-	}
+    /**
+     * @param mixed $paymentPlans
+     */
+    public function setPaymentPlans( BaseRecurringPayment $paymentPlans )
+    {
+        $this->_paymentPlans[] = $paymentPlans;
+    }
 }

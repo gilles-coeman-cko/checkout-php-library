@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * User: dhiraj.gangoosirdar
@@ -11,45 +24,45 @@ namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
 
 class CardProvider extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-	private $_id;
-	private $_name;
-	public function __construct($response)
-	{
+    private $_id;
+    private $_name;
+    public function __construct($response)
+    {
         parent::__construct($response);
-		$this->_setId($response->getId());
-		$this->_setName($response->getName());
-	}
+        $this->_setId($response->getId());
+        $this->_setName($response->getName());
+    }
 
-	/**
-	 * @param mixed $id
-	 */
-	protected function _setId ( $id )
-	{
-		$this->_id = $id;
-	}
+    /**
+     * @param mixed $id
+     */
+    protected function _setId( $id )
+    {
+        $this->_id = $id;
+    }
 
-	/**
-	 * @param mixed $name
-	 */
-	protected function _setName ( $name )
-	{
-		$this->_name = $name;
-	}
+    /**
+     * @param mixed $name
+     */
+    protected function _setName( $name )
+    {
+        $this->_name = $name;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getId ()
-	{
-		return $this->_id;
-	}
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->_id;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getName ()
-	{
-		return $this->_name;
-	}
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->_name;
+    }
 
 }

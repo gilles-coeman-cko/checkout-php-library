@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * User: dhiraj.gangoosirdar
@@ -13,9 +26,17 @@ use com\checkout\helpers\AppSetting;
 
 class BaseServices
 {
-    /** @var AppSetting */
+    /**
+     * 
+     *
+     * @var AppSetting 
+     */
     protected $_apiSetting = null;
-    /** @var ApiUrls */
+    /**
+     * 
+     *
+     * @var ApiUrls 
+     */
     protected $_apiUrl = null;
 
     public function __construct(AppSetting $apiSetting, ApiUrls $apiUrl = null)

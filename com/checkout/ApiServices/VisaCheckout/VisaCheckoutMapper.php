@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * Date: 22.12.2015
@@ -52,7 +65,7 @@ class VisaCheckoutMapper
                 $requestVisaCheckout['callId'] = $callId;
             }
 
-            if(method_exists($requestModel,'getIncludeBinData') && ($includeBinData = $requestModel->getIncludeBinData())) {
+            if(method_exists($requestModel, 'getIncludeBinData') && ($includeBinData = $requestModel->getIncludeBinData())) {
                 $requestVisaCheckout['includeBinData'] = $includeBinData;
             }
         }

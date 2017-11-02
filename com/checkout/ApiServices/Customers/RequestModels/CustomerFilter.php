@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * User: dhiraj.gangoosirdar
@@ -11,58 +24,58 @@ namespace com\checkout\ApiServices\Customers\RequestModels;
 
 class CustomerFilter
 {
-	private $_count;
-	private $_offset;
-	/**
-	Holds created start and end dates separated by |
-	 */
-	private $_created;
+    private $_count;
+    private $_offset;
+    /**
+    Holds created start and end dates separated by |
+     */
+    private $_created;
 
-	/**
-	 * @return mixed
-	 */
-	public function getCreated ()
-	{
-		return $this->_created;
-	}
+    /**
+     * @return mixed
+     */
+    public function getCreated()
+    {
+        return $this->_created;
+    }
 
-	/**
-	 * @param mixed $created
-	 */
-	public function setCreated ( $created )
-	{
-		$this->_created = $created;
-	}
+    /**
+     * @param mixed $created
+     */
+    public function setCreated( $created )
+    {
+        $this->_created = $created;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getOffset ()
-	{
-		return $this->_offset;
-	}
+    /**
+     * @return mixed
+     */
+    public function getOffset()
+    {
+        return $this->_offset;
+    }
 
-	/**
-	 * @param mixed $offset
-	 */
-	public function setOffset ( $offset )
-	{
-		$this->_offset = $offset;
-	}
+    /**
+     * @param mixed $offset
+     */
+    public function setOffset( $offset )
+    {
+        $this->_offset = $offset;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getCount ()
-	{
-		return $this->_count;
-	}
+    /**
+     * @return mixed
+     */
+    public function getCount()
+    {
+        return $this->_count;
+    }
 
-	/**
-	 * @param mixed $count
-	 */
-	public function setCount ( $count )
-	{
-		$this->_count = $count;
-	}
+    /**
+     * @param mixed $count
+     */
+    public function setCount( $count )
+    {
+        $this->_count = $count;
+    }
 }

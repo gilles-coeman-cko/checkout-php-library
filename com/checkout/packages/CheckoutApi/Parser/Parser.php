@@ -1,67 +1,114 @@
 <?php
-/**
- * An abstract class that contain the basic functionally all parser need to inherit
 
- * @package     Checkoutapi
- * @category     Api
- * @author       Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @copyright 2014 Integration team (http://www.checkout.com)
+/**
+ * CheckoutapiApi.
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
  */
 
-abstract class CheckoutapiParserParser extends CheckoutapiLibObject 
+/**
+ * An abstract class that contain the basic functionally all parser need to inherit.
+ * 
+ * @category Parser
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @version  Release: @package_version@
+ * @link     https://www.checkout.com/
+ */
+abstract class CheckoutapiParserParser extends CheckoutapiLibObject
 {
     /**
-     * @var $_headers  array Checkoutapi hold value for headers to be send by the transport message layer
+     * Headers.
+     * 
+     * @var $headers array Checkoutapi hold value for headers to be send by 
+     * the transport message layer
      */
-	protected $_headers = array();
-
-    /** @var $_respondObj null|CheckoutapiLibRespondobj  * Checkoutapi hold an  value for */
-	protected $_respondObj = null;
-	protected $_info = array( 'httpStatus'=>0);
+    protected $headers = array();
 
     /**
-     * This method need to be implimented by all children. It take a string, parse it  and then map it to an object
-     * @param $parser
+     * Repsond Object.
+     *
+     * @var $respondObj null|CheckoutapiLibRespondobj Checkoutapi hold an value
+     */
+    protected $respondObj = null;
+    protected $info = array( 'httpStatus'=>0);
+
+    /**
+     * This method need to be implimented by all children. 
+     * It take a string, parse it  and then map it to an object.
+     *
+     * @param object $parser A parser.
+     * 
      * @return CheckoutapiLibRespondobj
      */
-	abstract public function parseToObj($parser);
+    abstract public function parseToObj($parser);
 
     /**
-     * setter $_respondObj
-     * @param $obj CheckoutapiLibRespondobj
+     * Setter $respondObj.
+     *
+     * @param object $obj CheckoutapiLibRespondobj
+     * 
+     * @return void
      */
-	public function setRespondobj($obj)
-	{
-		$this->_respondObj = $obj;
-	}
+    public function setRespondobj($obj)
+    {
+        $this->respondObj = $obj;
+    }
 
     /**
-     * @getter  $_respondObj
+     * Getter $responseObj.
+     * 
      * @return CheckoutapiLibRespondobj|null
      */
-	public function getRespondobj()
-	{
-		return $this->_respondObj ;
-	}
+    public function getRespondobj()
+    {
+        return $this->respondObj ;
+    }
 
     /**
-     *  getter $_headers
+     * Getter $headers.
+     *
      * @return array
      */
-	public function getHeaders()
-	{
-		return $this->_headers;
-	}
+    public function getHeaders()
+    {
+        return $this->headers;
+    }
 
     /**
-     *  format the value base on the parser type
-     * @param $postedParam
+     * Format the value base on the parser type.
+     *
+     * @param object $postedParam A var.
+     * 
      * @return mixed
      */
-	abstract public function preparePosted($postedParam);
-	abstract public function setResourceInfo($info);
-	public function getResourceInfo()
+    abstract public function preparePosted($postedParam);
+
+    /**
+     * Set Resource Info.
+     *
+     * @param object $info A var.
+     * 
+     * @return mixed
+     */
+    abstract public function setResourceInfo($info);
+
+    /**
+     * Get Resource Info.
+     *
+     * @return array
+     */
+    public function getResourceInfo()
     {
-        return $this->_info;
+        return $this->info;
     }
 }

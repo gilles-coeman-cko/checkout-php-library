@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * User: dhiraj.gangoosirdar
@@ -11,40 +24,40 @@ namespace com\checkout\ApiServices\SharedModels;
 
 class Phone
 {
-	protected $_number;
-	protected $_countryCode;
+    protected $_number;
+    protected $_countryCode;
 
-	/**
-	 * @return mixed
-	 */
-	public function getCountryCode ()
-	{
-		return $this->_countryCode;
-	}
+    /**
+     * @return mixed
+     */
+    public function getCountryCode()
+    {
+        return $this->_countryCode;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getNumber ()
-	{
-		return $this->_number;
-	}
+    /**
+     * @return mixed
+     */
+    public function getNumber()
+    {
+        return $this->_number;
+    }
 
-	/**
-	 * @param mixed $countryCode
-	 */
-	public function setCountryCode ( $countryCode )
-	{
-		$this->_countryCode = $countryCode;
-	}
+    /**
+     * @param mixed $countryCode
+     */
+    public function setCountryCode( $countryCode )
+    {
+        $this->_countryCode = $countryCode;
+    }
 
-	/**
-	 * @param mixed $number
-	 */
-	public function setNumber ( $number )
-	{
-		$this->_number = $number;
-	}
+    /**
+     * @param mixed $number
+     */
+    public function setNumber( $number )
+    {
+        $this->_number = $number;
+    }
 
     public function getPhoneDetails()
     {

@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * User: dhiraj.gangoosirdar
@@ -32,8 +45,10 @@ class TokenService extends BaseServices
             'postedParam' => $chargeMapper->requestPayloadConverter(),
         );
 
-        $processCharge = ApiHttpClient::postRequest($this->_apiUrl->getPaymentTokensApiUri(),
-            $this->_apiSetting->getSecretKey(), $requestPayload);
+        $processCharge = ApiHttpClient::postRequest(
+            $this->_apiUrl->getPaymentTokensApiUri(),
+            $this->_apiSetting->getSecretKey(), $requestPayload
+        );
 
         return new ResponseModels\PaymentToken($processCharge);
     }
@@ -56,8 +71,10 @@ class TokenService extends BaseServices
 
         $updateUri = sprintf($this->_apiUrl->getPaymentTokenUpdateApiUri(), $requestModel->getId());
 
-        $processCharge = ApiHttpClient::putRequest($updateUri,
-            $this->_apiSetting->getSecretKey(), $requestPayload);
+        $processCharge = ApiHttpClient::putRequest(
+            $updateUri,
+            $this->_apiSetting->getSecretKey(), $requestPayload
+        );
 
         return new  OkResponse($processCharge);
     }

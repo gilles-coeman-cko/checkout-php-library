@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
+
 namespace com\checkout\ApiServices\RecurringPayments;
 
 class RecurringPaymentQueryMapper
@@ -48,63 +61,63 @@ class RecurringPaymentQueryMapper
                 $requestQuery['fromDate'] = $fromDate;
             }
 
-            if(method_exists($requestModel,'getToDate') && ($toDate = $requestModel->getToDate())) {
+            if(method_exists($requestModel, 'getToDate') && ($toDate = $requestModel->getToDate())) {
                 $requestQuery['toDate'] = $toDate;
             }
 
-            if(method_exists($requestModel,'getOffset') && ($offset = $requestModel->getOffset())) {
+            if(method_exists($requestModel, 'getOffset') && ($offset = $requestModel->getOffset())) {
                 $requestQuery['offset'] = $offset;
             }
 
-            if(method_exists($requestModel,'getCount') && ($count = $requestModel->getCount())) {
+            if(method_exists($requestModel, 'getCount') && ($count = $requestModel->getCount())) {
                 $requestQuery['count'] = $count;
             }
 
-            if(method_exists($requestModel,'getName') && ($name = $requestModel->getName())) {
+            if(method_exists($requestModel, 'getName') && ($name = $requestModel->getName())) {
                 $requestQuery['name'] = $name;
             }
 
-            if(method_exists($requestModel,'getPlanTrackId') && ($planTrackId = $requestModel->getPlanTrackId())) {
+            if(method_exists($requestModel, 'getPlanTrackId') && ($planTrackId = $requestModel->getPlanTrackId())) {
                 $requestQuery['planTrackId'] = $planTrackId;
             }
 
-            if(method_exists($requestModel,'getAutoCapTime') && ($autoCapTime = $requestModel->getAutoCapTime())) {
+            if(method_exists($requestModel, 'getAutoCapTime') && ($autoCapTime = $requestModel->getAutoCapTime())) {
                 $requestQuery['autoCapTime'] = $autoCapTime;
             }
 
-            if(method_exists($requestModel,'getValue') && ($value = $requestModel->getValue())) {
+            if(method_exists($requestModel, 'getValue') && ($value = $requestModel->getValue())) {
                 $requestQuery['value'] = $value;
             }
 
-            if(method_exists($requestModel,'getStatus') && ($status = $requestModel->getStatus())) {
+            if(method_exists($requestModel, 'getStatus') && ($status = $requestModel->getStatus())) {
                 $requestQuery['status'] = $status;
             }
 
-            if(method_exists($requestModel,'getPlanId') && ($planId = $requestModel->getPlanId())) {
+            if(method_exists($requestModel, 'getPlanId') && ($planId = $requestModel->getPlanId())) {
                 $requestQuery['planId'] = $planId;
             }
 
-            if(method_exists($requestModel,'getCardId') && ($cardId = $requestModel->getCardId())) {
+            if(method_exists($requestModel, 'getCardId') && ($cardId = $requestModel->getCardId())) {
                 $requestQuery['cardId'] = $cardId;
             }
 
-            if(method_exists($requestModel,'getCustomerId') && ($customerId = $requestModel->getCustomerId())) {
+            if(method_exists($requestModel, 'getCustomerId') && ($customerId = $requestModel->getCustomerId())) {
                 $requestQuery['customerId'] = $customerId;
             }
 
-            if(method_exists($requestModel,'getCurrency') && ($currency = $requestModel->getCurrency())) {
+            if(method_exists($requestModel, 'getCurrency') && ($currency = $requestModel->getCurrency())) {
                 $requestQuery['currency'] = $currency;
             }
 
-            if(method_exists($requestModel,'getCycle') && ($cycle = $requestModel->getCycle())) {
+            if(method_exists($requestModel, 'getCycle') && ($cycle = $requestModel->getCycle())) {
                 $requestQuery['cycle'] = $cycle;
             }
 
-            if(method_exists($requestModel,'getStartDate') && ($startDate = $requestModel->getStartDate())) {
+            if(method_exists($requestModel, 'getStartDate') && ($startDate = $requestModel->getStartDate())) {
                 $requestQuery['startDate'] = $startDate;
             }
 
-            if(method_exists($requestModel,'getNextRecurringDate') && ($nextRecurringDate = $requestModel->getNextRecurringDate())) {
+            if(method_exists($requestModel, 'getNextRecurringDate') && ($nextRecurringDate = $requestModel->getNextRecurringDate())) {
                 $requestQuery['nextRecurringDate'] = $nextRecurringDate;
             }
         }

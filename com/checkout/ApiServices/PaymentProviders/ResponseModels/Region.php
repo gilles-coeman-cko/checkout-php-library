@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * CheckoutapiApi
+ *
+ * PHP Version 5.6
+ * 
+ * @category Api
+ * @package  Checkoutapi
+ * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
+ * @author   Gilles Coeman <gilles.coeman@checkout.com>
+ * @license  https://checkout.com/terms/ MIT License
+ * @link     https://www.checkout.com/
+ */
 /**
  * Created by PhpStorm.
  * User: dhiraj.gangoosirdar
@@ -11,28 +24,28 @@ namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
 
 class Region extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-	private $_regionId;
-	private $_name;
+    private $_regionId;
+    private $_name;
 
-	public function __construct($response)
-	{
+    public function __construct($response)
+    {
         parent::__construct($response);
-		$this->_setName($response->getName());
-		$this->_setRegionId($response->getRegionId());
-	}
-	/**
-	 * @param mixed $name
-	 */
-	private function _setName ( $name )
-	{
-		$this->_name = $name;
-	}
+        $this->_setName($response->getName());
+        $this->_setRegionId($response->getRegionId());
+    }
+    /**
+     * @param mixed $name
+     */
+    private function _setName( $name )
+    {
+        $this->_name = $name;
+    }
 
-	/**
-	 * @param mixed $regionId
-	 */
-	private function _setRegionId ( $regionId )
-	{
-		$this->_regionId = $regionId;
-	}
+    /**
+     * @param mixed $regionId
+     */
+    private function _setRegionId( $regionId )
+    {
+        $this->_regionId = $regionId;
+    }
 }
