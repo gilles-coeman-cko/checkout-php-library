@@ -1,201 +1,223 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * CheckoutapiApi.
  *
  * PHP Version 5.6
- * 
+ *
  * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 /**
- * CheckoutapiLibObject
- * This class is a base class for the other class
- * it provide common feature that exist between other classes
+ * CheckoutapiLibObject.
+ *
+ * This class is a base class for the other class.
+ * it provide common feature that exist between other classes.
  *
  * @category Lib
- * @version  Release: @package_version@
+ * @version Release: @package_version@
  */
-class CheckoutapiLibObject implements ArrayAccess
-{
+class CheckoutapiLibObject implements ArrayAccess {
 
-    /**
-     * 
-     *
-     * @var array $_config an array that containt all configuration for a class 
-     */
-    protected $_config = array();
+  /**
+   * Onfig.
+   *
+   * @var array
+   *   An array that containt all configuration for a class.
+   */
+  protected $config = array();
 
+  /**
+   * Method that get the configuration for an object.
+   *
+   * @param null $key
+   *   name of configuration you want to retrive.
+   *
+   * @return array|null
+   */
+  public function getConfig($key = NULL) {
+    if ($key != NULL && isset($this->_config[$key])) {
 
-    /**
-     * A method that get the configuration for an object
-     *
-     * @param  null $key name of configuration you wnat to retrive
-     * @return array|null
-     */
+      return $this->_config[$key];
 
-    public function getConfig($key = null) 
-    {    
-        if($key!=null && isset($this->_config[$key])) { 
-            
-            return $this->_config[$key];
-        
-        } elseif($key == null) {
-            
-            return $this->_config;
+    } elseif ($key == NULL) {
+
+      return $this->_config;
+    }
+
+    return NULL;
+  }
+
+  /**
+   * Settter it get an array and update or add new configuration value to object.
+   *
+   * @param array $config
+   *   configuration value.
+   *
+   * @throws Exception
+   */
+  public function setConfig(array $config = array()) {
+
+    if (is_array($config)) {
+
+      if (!empty($config)) {
+        foreach ($config as $key => $value) {
+
+          $this->_config[$key] = $value;
         }
-
-        return null;
-    }
-
-    /**
-     * A settter. it get an array and update or add new configuration value to object
-     *
-     * @param  array $config configuration value
-     * @throws Exception
-     */
-
-    public function setConfig($config = array()) 
-    { 
-
-        if(is_array($config) ) {
-
-            if(!empty($config)) {
-                foreach($config as $key=>$value) {
-
-                    $this->_config[$key] = $value;
-                }
-            }
-
-        } else {
-            
-            throw new Exception("Invalid parameter");
-        }
+      }
 
     }
+    else {
 
-    /**
-     *  reset config attribute
-     *
-     * @return $this
-     */
-    public function resetConfig()
-    {
-        $this->_config = array();
-        return $this;
+      throw new Exception("Invalid parameter");
     }
 
-    /**
-     * setting and logging error message
-     *
-     * @param  string $errorMsg error message you wan to log
-     * @param  array  $trace    stack trace
-     * @param  bool   $error    state of the error. true for important error
-     * @return mixed
-     * @throws Exception
-     */
+  }
 
-    public function exception($errorMsg,  array $trace, $error = true )
-    {
-        $classException = "CheckoutapiLibExceptionstate";
+  /**
+   * Eset config attribute.
+   *
+   * @return $this
+   */
+  public function resetConfig() {
+    $this->_config = array();
+    return $this;
+  }
 
-        if (class_exists($classException)) {
+  /**
+   * Etting and logging error message.
+   *
+   * @param string $errorMsg
+   *   Error message you wan to log.
+   * @param array $trace
+   *   Stack trace.
+   * @param bool $error
+   *   State of the error. TRUE for important error.
+   *
+   * @return mixed
+   *   The Response.
+   *
+   * @throws Exception
+   */
+  public function exception($errorMsg, array $trace, $error = TRUE) {
+    $classException = "CheckoutapiLibExceptionstate";
 
-            /**
-* 
-             *
- * @var CheckoutapiLibExceptionstate $class 
-*/
-            $class = CheckoutapiLibFactory::getSingletonInstance($classException);
-              
-        } else {
-            
-            throw new Exception("Not a valid class ::  CheckoutapiLibExceptionstate");
-            
-        } 
+    if (class_exists($classException)) {
 
-        $class->setLog($errorMsg, $trace, $error);
+      /**
+       * Get Singleton Instance.
+       *
+       * @var CheckoutapiLibExceptionstate $class
+       */
+      $class = CheckoutapiLibFactory::getSingletonInstance($classException);
 
-        return $class;
-        
     }
+    else {
 
-    /**
-     * Reset the attribute config for an object
-     *
-     * @throws Exception
-     */
-    public function flushState()
-    {
-        $classException = "CheckoutapiLibExceptionstate";
-
-        if (class_exists($classException)) {
-            /**
-* 
-             *
- * @var CheckoutapiLibExceptionstate $class 
-*/
-            $class = CheckoutapiLibFactory::getSingletonInstance($classException);
-              
-        } else {
-            
-            throw new Exception("Not a valid class ::  CheckoutapiLibExceptionstate");
-            
-        } 
-        $class->flushState();
-
+      throw new Exception("Not a valid class ::  CheckoutapiLibExceptionstate");
 
     }
 
-    /**
-     * Return an a singleton instance of a CheckoutapiLibExceptionstate object
-     *
-     * @return CheckoutapiLibExceptionstate|null
-     * @throws Exception
-     */
-    public function getExceptionstate()
-    {
-        $classException = "CheckoutapiLibExceptionstate";
-        $class = null;
-        if (class_exists($classException)) {
-            /**
-* 
-             *
- * @var CheckoutapiLibExceptionstate $class 
-*/
-            $class = CheckoutapiLibFactory::getSingletonInstance($classException);
+    $class->setLog($errorMsg, $trace, $error);
 
-        }
+    return $class;
 
-        return $class;
+  }
+
+  /**
+   * Eset the attribute config for an object.
+   *
+   * @throws Exception
+   */
+  public function flushState() {
+    $classException = "CheckoutapiLibExceptionstate";
+
+    if (class_exists($classException)) {
+      /**
+       * Get Singleton Instance.
+       *
+       * @var CheckoutapiLibExceptionstate $class
+       */
+      $class = CheckoutapiLibFactory::getSingletonInstance($classException);
+    }
+    else {
+      throw new Exception("Not a valid class ::  CheckoutapiLibExceptionstate");
+    }
+    $class->flushState();
+
+  }
+
+  /**
+   * Get Singleton Instance of CheckoutapiLibExceptionstate object.
+   *
+   * @return CheckoutapiLibExceptionstate|null
+   *
+   * @throws Exception
+   */
+  public function getExceptionstate() {
+    $classException = "CheckoutapiLibExceptionstate";
+    $class = NULL;
+    if (class_exists($classException)) {
+      /**
+       * Get Singleton Instance.
+       *
+       * @var CheckoutapiLibExceptionstate $class
+       */
+      $class = CheckoutapiLibFactory::getSingletonInstance($classException);
+
     }
 
-    public function offsetSet($offset, $value) 
-    {
-        if (is_null($offset)) {
-            $this->_config[] = $value;
-        } else {
-            $this->_config[$offset] = $value;
-        }
-    }
+    return $class;
+  }
 
-    public function offsetExists($offset) 
-    {
-        return isset($this->_config[$offset]);
+  /**
+   * Offset set.
+   *
+   * @param mixed $offset
+   *   Var for offset.
+   * @param mixed $value
+   *   Var for value.
+   */
+  public function offsetSet($offset, $value) {
+    if (is_null($offset)) {
+      $this->_config[] = $value;
     }
+    else {
+      $this->_config[$offset] = $value;
+    }
+  }
 
-    public function offsetUnset($offset) 
-    {
-        unset($this->_config[$offset]);
-    }
+  /**
+   * Offset exists.
+   *
+   * @param mixed $offset
+   *   Var for offset.
+   */
+  public function offsetExists($offset) {
+    return isset($this->_config[$offset]);
+  }
 
-    public function offsetGet($offset) 
-    {
-        return isset($this->_config[$offset]) ? $this->_config[$offset] : null;
-    }
+  /**
+   * OffsetUnset.
+   *
+   * @param mixed $offset
+   *   Var for offset.
+   */
+  public function offsetUnset($offset) {
+    unset($this->_config[$offset]);
+  }
+
+  /**
+   * OffsetGet.
+   *
+   * @param mixed $offset
+   *   Var for offset.
+   */
+  public function offsetGet($offset) {
+    return isset($this->_config[$offset]) ? $this->_config[$offset] : NULL;
+  }
 }

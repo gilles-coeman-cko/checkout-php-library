@@ -1,210 +1,187 @@
 <?php
 
 /**
- * CheckoutapiClientAdapterAbstract
+ * CheckoutapiClientAdapterAbstract.
  *
  * PHP Version 5.6
- * 
+ *
  * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */ 
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
+ */
 
 /**
- * CheckoutapiClientAdapterAbstract
+ * CheckoutapiClientAdapterAbstract.
  *
  * CheckoutapiClientAdapterAbstract An abstract class for CheckoutapiClient adapters.
- * An adapter can be define a method of transmitting message over http protocol
- * It encapsulate all basic and core method required by an adpater
+ * An adapter can be define a method of transmitting message over http protocol.
+ * It encapsulate all basic and core method required by an adpater.
  *
  * @category Client
- * @version  Release: @package_version@
+ * @version Release: @package_version@
  */
-abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject
-{
-    /**
-     * 
-     *
-     * @var string$_uri Checkoutapi server identifier 
-     */
+abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
+  /**
+   * FFFKO.
+   *
+   * @var string$uri Checkoutapi server identifier
+   */
+  protected $uri = NULL;
+  /**
+   * FFFKO.
+   *
+   * @var resource|null $resource  Checkoutapi The server session handler
+   */
+  protected $resource = NULL;
+  /**
+   * FFFKO.
+   *
+   * @var mixed $respond  Checkoutapi Respond return by the server
+   */
+  protected $respond = NULL;
 
-    protected $_uri = null;
-    /**
-     * 
-     *
-     * @var resource|null $_resource  Checkoutapi The server session handler 
-     */
-    protected $_resource = null;
-    /**
-     * 
-     *
-     * @var mixed $_respond  Checkoutapi Respond return by the server 
-     */
-    protected $_respond = null;
-
-
-    /**
-     * Constructor for Adapters
-     *
-     * @param  array $arguments Array of configuration for constructor
-     * @throws Exception
-     */
-
-    public function __construct( array $arguments = array() ) 
-    { 
-        if(isset($arguments['uri']) && $uri = $arguments['uri'] ) {
-            $this->setUri($uri);
-        }
-        
-        if(isset($arguments['config']) && $config = $arguments['config'] ) {
-
-            $this->setConfig($arguments['config']);
-        }
-   
+  /**
+   * Onstructor for Adapters.
+   *
+   * @param array $arguments
+   *   Array of configuration for constructor.
+   * @throws Exception
+   */
+  public function __construct(array $arguments = array()) {
+    if (isset($arguments['uri']) && $uri = $arguments['uri']) {
+      $this->setUri($uri);
     }
 
-     /**
-      *  Set/Get attribute wrapper
-      *
-      * @param  string $method Method being call
-      * @param  array  $args   Argument being pass
-      * @return mixed
-      */
+    if (isset($arguments['config']) && $config = $arguments['config']) {
 
-    public function __call($method, $args)
-    {
-        switch (substr($method, 0, 3)) {
-        case 'get' :
-                
-            $key = substr($method, 3);
-            $key = lcfirst($key);
-            $data = $this->getConfig($key, isset($args[0]) ? $args[0] : null);
-                
-            return $data;
-
-        case 'set' :
-                
-            $key =substr($method, 3);
-            $key = lcfirst($key);
-            $result = $this->setConfig($key, isset($args[0]) ? $args[0] : null);
-      
-            return $result;
-
-           
-        }
-
-        //throw new Exception("Invalid method ".get_class($this)."::".$method."(".print_r($args,1).")");
-
-        $this->exception(
-            "Invalid method ".get_class($this)."::".$method."(".print_r($args, 1).")",
-            debug_backtrace()
-        );
-
-        return null;
+      $this->setConfig($config);
     }
 
-    /**
-     *  setter for $_uri
-     *
-     * @param string $uri setting the url value
-     **/
+  }
 
-    public function setUri($uri)
-    { 
+  /**
+   * Et/Get attribute wrapper.
+   *
+   * @param string $method
+   *   Method being call.
+   * @param array $args
+   *   Argument being pass.
+   * @return mixed
+   */
+  public function __call($method, array $args) {
+    switch (substr($method, 0, 3)) {
+      case 'get':
 
-        $this->_uri = $uri;
+        $key = substr($method, 3);
+        $key = lcfirst($key);
+        $data = $this->getConfig($key, isset($args[0]) ? $args[0] : NULL);
+
+        return $data;
+
+      case 'set':
+
+        $key = substr($method, 3);
+        $key = lcfirst($key);
+        $result = $this->setConfig($key, isset($args[0]) ? $args[0] : NULL);
+
+        return $result;
+
     }
 
-    /**
-     *  Getter for $_uri
-     *
-     * @return string
-     **/
+    //throw new Exception("Invalid method ".get_class($this)."::".$method."(".print_r($args,1).")");
+    $this->exception(
+      "Invalid method " . get_class($this) . "::" . $method . "(" . print_r($args, 1) . ")",
+      debug_backtrace()
+    );
 
-    public function getUri()
-    {
-        return $this->_uri;
-    }
+    return NULL;
+  }
 
-    /**
-     * Setter for $_resource
-     *
-     * @var resource $resource
-     **/
+  /**
+   * Etter for $uri.
+   *
+   * @param string $uri
+   *   setting the url value.
+   **/
+  public function setUri($uri) {
 
-    public function setResource($resource) 
-    {
-        $this->_resource = $resource;
-    }
+    $this->_uri = $uri;
+  }
 
+  /**
+   * Etter for $uri.
+   *
+   * @return string
+   **/
+  public function getUri() {
+    return $this->_uri;
+  }
 
-    /**
-     * Getter for $_resource
-     * 
-     * @return resource
-     **/
+  /**
+   * Etter for $resource.
+   *
+   * @var resource $resource
+   **/
+  public function setResource($resource) {
+    $this->_resource = $resource;
+  }
 
-    public function getResource()
-    {
-        return $this->_resource;
-    }
+  /**
+   * Etter for $resource.
+   *
+   * @return resource
+   **/
+  public function getResource() {
+    return $this->_resource;
+  }
 
-    /**
-     * Checkoutapi_ Setter for respond
-     *
-     * @param mixed $respond responnd obtain by gateway
-     **/
+  /**
+   * Checkoutapi_ Setter for respond.
+   *
+   * @param mixed $respond
+   *   responnd obtain by gateway.
+   **/
+  public function setRespond($respond) {
+    $this->_respond = $respond;
+  }
 
-    public function setRespond($respond)
-    {
-        $this->_respond = $respond;
-    }
+  /**
+   * Checkoutapi_ Getter for respond.
+   *
+   * @return mixed
+   **/
+  public function getRespond() {
+    return $this->_respond;
+  }
 
-    /**
-     * Checkoutapi_ Getter for respond
-     * 
-     * @return mixed
-     **/
-     
-    public function getRespond()
-    {
-        return $this->_respond;
-    }
+  /**
+   * Reate a connection using the adapter.
+   *
+   * @return $this CheckoutapiClientAdapterAbstract
+   */
+  public function connect() {
+    return $this;
+  }
 
-    /**
-     * Create a connection using the adapter
-     *
-     * @return $this CheckoutapiClientAdapterAbstract
-     */
-    public function connect() 
-    {
-        return $this;
-    }
+  /**
+   * Lose all resource.
+   */
+  public function close() {
+    $this->setResource(NULL);
+    $this->setRespond(NULL);
+  }
 
-    /**
-     * Close all resource
-     */
-    public function close()
-    {
-        $this->setResource(null);
-        $this->setRespond(null);
-    }
+  public function getResourceInfo() {
 
-    public function getResourceInfo() 
-    {
+    return array('httpStatus' => '');
+  }
 
-        return array('httpStatus'=>'');
-    }
-
-    /**
-     * Return request made by the adapter
-     *
-     * @return CheckoutapiLibRespondobj
-     */
-    abstract function request();
-
+  /**
+   * Eturn request made by the adapter.
+   *
+   * @return CheckoutapiLibRespondobj
+   */
+  abstract public function request();
 
 }
