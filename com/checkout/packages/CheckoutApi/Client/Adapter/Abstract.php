@@ -14,7 +14,8 @@
 /**
  * CheckoutapiClientAdapterAbstract.
  *
- * CheckoutapiClientAdapterAbstract An abstract class for CheckoutapiClient adapters.
+ * CheckoutapiClientAdapterAbstract.
+ * An abstract class for CheckoutapiClient adapters.
  * An adapter can be define a method of transmitting message over http protocol.
  * It encapsulate all basic and core method required by an adpater.
  *
@@ -25,19 +26,19 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   /**
    * FFFKO.
    *
-   * @var string$uri Checkoutapi server identifier
+   * @var string
    */
   protected $uri = NULL;
   /**
    * FFFKO.
    *
-   * @var resource|null $resource  Checkoutapi The server session handler
+   * @var resource|null
    */
   protected $resource = NULL;
   /**
    * FFFKO.
    *
-   * @var mixed $respond  Checkoutapi Respond return by the server
+   * @var mixed
    */
   protected $respond = NULL;
 
@@ -46,6 +47,7 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
    *
    * @param array $arguments
    *   Array of configuration for constructor.
+   *
    * @throws Exception
    */
   public function __construct(array $arguments = array()) {
@@ -61,13 +63,15 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   }
 
   /**
-   * Et/Get attribute wrapper.
+   * Get/Get attribute wrapper.
    *
    * @param string $method
    *   Method being call.
    * @param array $args
    *   Argument being pass.
+   *
    * @return mixed
+   *   A mixed .
    */
   public function __call($method, array $args) {
     switch (substr($method, 0, 3)) {
@@ -89,59 +93,66 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
 
     }
 
-    //throw new Exception("Invalid method ".get_class($this)."::".$method."(".print_r($args,1).")");
     $this->exception(
-      "Invalid method " . get_class($this) . "::" . $method . "(" . print_r($args, 1) . ")",
+      "Invalid method " . get_class(
+        $this
+      ) . "::" . $method . "(" . print_r(
+        $args,
+        1
+      ) . ")",
       debug_backtrace()
     );
 
     return NULL;
+
   }
 
   /**
-   * Etter for $uri.
+   * Getter for $uri.
    *
    * @param string $uri
-   *   setting the url value.
-   **/
+   *   Setting the url value.
+   */
   public function setUri($uri) {
 
     $this->_uri = $uri;
   }
 
   /**
-   * Etter for $uri.
+   * Getter for $uri.
    *
    * @return string
-   **/
+   */
   public function getUri() {
     return $this->_uri;
+
   }
 
   /**
-   * Etter for $resource.
+   * Getter for $resource.
    *
-   * @var resource $resource
-   **/
+   * @var resource
+   */
   public function setResource($resource) {
     $this->_resource = $resource;
   }
 
   /**
-   * Etter for $resource.
+   * Getter for $resource.
    *
    * @return resource
-   **/
+   */
   public function getResource() {
     return $this->_resource;
+
   }
 
   /**
    * Checkoutapi_ Setter for respond.
    *
    * @param mixed $respond
-   *   responnd obtain by gateway.
-   **/
+   *   Responnd obtain by gateway.
+   */
   public function setRespond($respond) {
     $this->_respond = $respond;
   }
@@ -150,18 +161,20 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
    * Checkoutapi_ Getter for respond.
    *
    * @return mixed
-   **/
+   */
   public function getRespond() {
     return $this->_respond;
+
   }
 
   /**
-   * Reate a connection using the adapter.
+   * Create a connection using the adapter.
    *
    * @return $this CheckoutapiClientAdapterAbstract
    */
   public function connect() {
     return $this;
+
   }
 
   /**
@@ -171,17 +184,18 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
     $this->setResource(NULL);
     $this->setRespond(NULL);
   }
-
   public function getResourceInfo() {
 
     return array('httpStatus' => '');
+
   }
 
   /**
-   * Eturn request made by the adapter.
+   * Return request made by the adapter.
    *
    * @return CheckoutapiLibRespondobj
+   *   A CheckoutapiLibRespondobj .
    */
   abstract public function request();
 
-}
+  }

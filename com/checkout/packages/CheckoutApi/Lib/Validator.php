@@ -24,13 +24,13 @@ class CheckoutapiLibValidator extends CheckoutapilibObject {
   /**
    * Helper method that check if variable is empty.
    *
+   * Simple usage:
+   *   CheckoutapiLibValidator::isEmpty($var).
+   *
    * @param mixed $var
    *   A var for var.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *       CheckoutapiLibValidator::isEmpty($var).
    */
   public static function isEmpty($var) {
     $toReturn = FALSE;
@@ -52,53 +52,57 @@ class CheckoutapiLibValidator extends CheckoutapilibObject {
     }
 
     return $toReturn;
+
   }
 
   /**
    * FFFelper method that check if $int integer.
+   *
+   * Simple usage:
+   *   CheckoutapiLibValidator::isInteger($int).
    *
    * @param mixed $int
    *   A var for int.
    *
    * @return bool
    *   The return.
-   *
-   * Simple usage:.
-   *       CheckoutapiLibValidator::isInteger($int).
    */
   public static function isInteger($int) {
     return is_int($int);
+
   }
 
   /**
    * Helper method that check if $string is a string.
    *
+   * Simple usage:
+   *   CheckoutapiLibValidator::isString($var).
+   *
    * @param string $string
    *
    * @return bool
    *   The return.
-   *
-   * Simple usage:.
-   *       CheckoutapiLibValidator::isString($var).
    */
   public static function isString($string) {
     return is_string($string);
+
   }
 
   /**
    * Helper method that check if $string is a float.
+   *
+   * Simple usage:
+   *   CheckoutapiLibValidator::isFloat($string).
    *
    * @param mixed $string
    *   A var for string.
    *
    * @return bool
    *    The return.
-   *
-   * Simple usage:.
-   *       CheckoutapiLibValidator::isFloat($string).
    */
   public static function isFloat($string) {
     return is_float($string);
+
   }
 
   /**
@@ -115,6 +119,7 @@ class CheckoutapiLibValidator extends CheckoutapilibObject {
     $emailReg = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,10})$/";
     $email = strtolower($email);
     return preg_match($emailReg, $email);
+
   }
 
   /**
@@ -125,7 +130,9 @@ class CheckoutapiLibValidator extends CheckoutapilibObject {
    *
    * @param integer $length
    *   A var for length.
+   *
    * @return bool
+   *   A bool .
    */
   public static function isLength($var, $length) {
 
@@ -147,9 +154,11 @@ class CheckoutapiLibValidator extends CheckoutapilibObject {
    *   A var for cvv.
    *
    * @return TRUE
+   *   A TRUE .
    */
   public static function isValidCvvLen($cvv) {
     $pattern = '/^[0-9]{3,4}$/';
     return preg_match($pattern, $cvv) ? TRUE : FALSE;
+
   }
 }

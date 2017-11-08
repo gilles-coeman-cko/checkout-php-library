@@ -15,7 +15,7 @@
  * CheckoutapiLibObject.
  *
  * This class is a base class for the other class.
- * it provide common feature that exist between other classes.
+ * It provide common feature that exist between other classes.
  *
  * @category Lib
  * @version Release: @package_version@
@@ -34,9 +34,10 @@ class CheckoutapiLibObject implements ArrayAccess {
    * Method that get the configuration for an object.
    *
    * @param null $key
-   *   name of configuration you want to retrive.
+   *   Name of configuration you want to retrive.
    *
    * @return array|null
+   *   A array .
    */
   public function getConfig($key = NULL) {
     if ($key != NULL && isset($this->_config[$key])) {
@@ -46,16 +47,18 @@ class CheckoutapiLibObject implements ArrayAccess {
     } elseif ($key == NULL) {
 
       return $this->_config;
+
     }
 
     return NULL;
+
   }
 
   /**
-   * Settter it get an array and update or add new configuration value to object.
+   * Settter it get an array and update or add configuration value to object.
    *
    * @param array $config
-   *   configuration value.
+   *   Configuration value.
    *
    * @throws Exception
    */
@@ -86,6 +89,7 @@ class CheckoutapiLibObject implements ArrayAccess {
   public function resetConfig() {
     $this->_config = array();
     return $this;
+
   }
 
   /**
@@ -108,11 +112,7 @@ class CheckoutapiLibObject implements ArrayAccess {
 
     if (class_exists($classException)) {
 
-      /**
-       * Get Singleton Instance.
-       *
-       * @var CheckoutapiLibExceptionstate $class
-       */
+      // @var CheckoutapiLibExceptionstate
       $class = CheckoutapiLibFactory::getSingletonInstance($classException);
 
     }
@@ -137,11 +137,7 @@ class CheckoutapiLibObject implements ArrayAccess {
     $classException = "CheckoutapiLibExceptionstate";
 
     if (class_exists($classException)) {
-      /**
-       * Get Singleton Instance.
-       *
-       * @var CheckoutapiLibExceptionstate $class
-       */
+      // @var CheckoutapiLibExceptionstate
       $class = CheckoutapiLibFactory::getSingletonInstance($classException);
     }
     else {
@@ -162,16 +158,13 @@ class CheckoutapiLibObject implements ArrayAccess {
     $classException = "CheckoutapiLibExceptionstate";
     $class = NULL;
     if (class_exists($classException)) {
-      /**
-       * Get Singleton Instance.
-       *
-       * @var CheckoutapiLibExceptionstate $class
-       */
+      // @var CheckoutapiLibExceptionstate
       $class = CheckoutapiLibFactory::getSingletonInstance($classException);
 
     }
 
     return $class;
+
   }
 
   /**
@@ -199,6 +192,7 @@ class CheckoutapiLibObject implements ArrayAccess {
    */
   public function offsetExists($offset) {
     return isset($this->_config[$offset]);
+
   }
 
   /**
@@ -219,5 +213,6 @@ class CheckoutapiLibObject implements ArrayAccess {
    */
   public function offsetGet($offset) {
     return isset($this->_config[$offset]) ? $this->_config[$offset] : NULL;
+
   }
 }

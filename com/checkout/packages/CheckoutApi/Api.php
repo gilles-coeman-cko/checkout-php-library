@@ -14,7 +14,7 @@
 /**
  * Lass final  CheckoutapiApi.
  *
- * 
+ *
  * This class is responsible in creating instance of payment gateway interface.
  * (CheckoutapiClientClient).
  *
@@ -41,7 +41,7 @@ final class CheckoutapiApi {
   /**
    *
    *
-   * @var string $apiClass 
+   * @var string
    *   The name of the gateway to be used.
    */
   private static $apiClass = 'CheckoutapiClientClientgw3';
@@ -54,7 +54,8 @@ final class CheckoutapiApi {
    * @param null|string $apiClass
    *   Gateway class name.
    *
-   * @return CheckoutapiClientClient An singleton instance of CheckoutapiClientClient
+   * @return CheckoutapiClientClient
+   *   An singleton instance of CheckoutapiClientClient
    *
    * @throws Exception
    */
@@ -63,18 +64,24 @@ final class CheckoutapiApi {
       self::setApiClass($apiClass);
     }
 
-    //Initialise the exception library
-    $exceptionState = CheckoutapiLibFactory::getSingletonInstance('CheckoutapiLibExceptionstate');
+   // Initialise the exception library
+    $exceptionState = CheckoutapiLibFactory::getSingletonInstance(
+      'CheckoutapiLibExceptionstate'
+    );
     $exceptionState->setErrorState(FALSE);
 
-    return CheckoutapiLibFactory::getSingletonInstance(self::getApiClass(), $arguments);
+    return CheckoutapiLibFactory::getSingletonInstance(
+      self::getApiClass(),
+      $arguments
+    );
+
   }
 
   /**
    * Elpper static function for setting  for $apiClass.
    *
    * @param CheckoutapiClientClient $apiClass
-   *   gateway interface name.
+   *   Gateway interface name.
    */
   public static function setApiClass($apiClass) {
     self::$apiClass = $apiClass;
@@ -83,9 +90,11 @@ final class CheckoutapiApi {
   /**
    * Elper static function  for retriving value of $apiClass.
    *
-   * @return CheckoutapiClientClient  $apiClass
+   * @return CheckoutapiClientClient
+   *   A CheckoutapiClientClient for   $apiClass.
    */
   public static function getApiClass() {
     return self::$apiClass;
+
   }
 }

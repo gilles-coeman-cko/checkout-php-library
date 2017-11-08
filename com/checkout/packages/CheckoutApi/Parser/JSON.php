@@ -18,28 +18,34 @@
  * @version Release: @package_version@
  */
 class CheckoutapiParserJSON extends CheckoutapiParserParser {
-  /**
-   * FFFKO.
-   *
-   * @var array $headers  Content negotiation relies on the use of specific headers
-   */
-  protected $headers = array('Content-Type: application/json;charset=UTF-8', 'Accept: application/json');
 
   /**
-   * Onvert a json to a CheckoutapiLibRespondObj object.
+   * Prefilled header array.
+   *
+   * @var array
+   */
+  protected $headers = array(
+    'Content-Type: application/json;charset=UTF-8',
+    'Accept: application/json',
+  );
+
+  /**
+   * Cnvert a json to a CheckoutapiLibRespondObj object.
    *
    * @param JSON $parser
-   *   A parser.
+   *   A JSON string.
    *
    * @return CheckoutapiLibRespondObj|null
-   *   A return.
+   *   A an object converted from the JSON string.
    *
    * @throws Exception
    */
   public function parseToObj(JSON $parser) {
 
     // @var CheckoutapiLibRespondObj $respondObj
-    $respondObj = CheckoutapiLibFactory::getInstance('CheckoutapiLibRespondObj');
+    $respondObj = CheckoutapiLibFactory::getInstance(
+      'CheckoutapiLibRespondObj'
+    );
 
     if ($parser && is_string($parser)) {
       $encoding = mb_detect_encoding($parser);
@@ -59,27 +65,30 @@ class CheckoutapiParserJSON extends CheckoutapiParserParser {
     }
     $respondObj->setConfig($this->getResourceInfo());
     return $respondObj;
+
   }
 
   /**
-   * His method prepare a posted value, so it match the header of the parser.
+   * Prepares posted values, so they match the header of the parser.
    *
-   * @param mixed $postedparam
-   *   A var for postedparam.
+   * @param array $postedParam
+   *   The array or object.
    *
    * @return JSON
+   *   A JSON encoded array.
    */
-  public function preparePosted($postedParam) {
+  public function preparePosted(array $postedParam) {
     return json_encode($postedParam);
   }
 
   /**
-   * FFFetResourceInfo.
+   * Set the resource info.
    *
-   * @param mixed $info
-   *   Var for info.
+   * @param array $info
+   *   The info array.
    */
-  public function setResourceInfo($info) {
-    $this->_info = $info;
+  public function setResourceInfo(array $info) {
+    $this->info = $info;
   }
+
 }

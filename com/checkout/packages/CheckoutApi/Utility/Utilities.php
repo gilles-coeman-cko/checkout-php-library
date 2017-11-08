@@ -32,6 +32,7 @@ final class CheckoutapiUtilityUtilities {
    */
   public static function checkExtension($extension) {
     return extension_loaded($extension);
+
   }
 
   /**

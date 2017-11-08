@@ -22,37 +22,39 @@ interface CheckoutapiClientAdapterInterface {
    * Checkoutapi Read respond on the server.
    *
    * @return object
-   **/
+   */
   public function request();
 
   /**
    * Checkoutapi Close all open connections and release all set variables.
-   **/
+   */
   public function close();
 
   /**
    * Checkoutapi Open a connection to server/URI.
    *
    * @return resource
-   **/
+   */
   public function connect();
 
   /**
-   * Et parameter $config value.
+   * Get parameter $config value.
    *
    * @param array $array
-   *   config array.
+   *   Config array.
    *
    * @return mixed
-   **/
+   */
   public function setConfig(array $array = array());
 
   /**
-   * Eturn parameter value in $config variable.
+   * Return parameter value in $config variable.
    *
    * @param string $key
-   *   config name to retrive.
+   *   Config name to retrive.
+   *
    * @return mixed
-   **/
+   */
   public function getConfig($key = NULL);
-}
+
+  }

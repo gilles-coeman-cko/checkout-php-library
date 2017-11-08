@@ -14,24 +14,27 @@
 /**
  * CheckoutapiClientValidationGw3.
  *
- * Checkoutapi validator class for gateway 3.0 base on documentation on http://dev.checkout.com/ref/?shell#cards
+ * Checkoutapi validator class for gateway 3.0 base on documentation
+ * On http://dev.checkout.com/ref/?shell#cards.
  *
  * @category Client
  * @version Release: @package_version@
  */
 final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
+
   /**
-   * Helper  method to check if email has been set in the payload and if it's a valid email.
+   * Helper method to check if a valid email has been set in the payload.
+   *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isEmailValid($postedParam);.
    *
    * @param array $postedParam
    *   A var for postedParam.
    *
    * @return bool
-   * Checkoutapi check if email valid.
-   * Simple usage:.
-   *          CheckoutapiClientValidationGw3::isEmailValid($postedParam);.
+   *   Checkoutapi check if email valid.
    */
-  public static function isEmailValid($postedParam) {
+  public static function isEmailValid(array $postedParam) {
     $isEmailEmpty = TRUE;
     $isValidEmail = FALSE;
 
@@ -42,9 +45,8 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     if (!$isEmailEmpty) {
-
-      $isValidEmail = CheckoutapiLibValidator::isValidEmail($postedParam['email']);
-
+      $isValidEmail =
+        CheckoutapiLibValidator::isValidEmail($postedParam['email']);
     }
 
     return !$isEmailEmpty && $isValidEmail;
@@ -54,42 +56,47 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
   /**
    * Helper method that is use to check if payload has set a customer id.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::CustomerIdValid($postedParam);.
+   *
    * @param array $postedParam
    *   A var for postedParam.
    *
    * @return bool
-   * check if customer id is valid.
-   * Simple usage:.
-   *          CheckoutapiClientValidationGw3::CustomerIdValid($postedParam);.
+   *   Check if customer id is valid.
    */
-  public static function isCustomerIdValid($postedParam) {
+  public static function isCustomerIdValid(array $postedParam) {
     $isCustomerIdEmpty = TRUE;
     $isValidCustomerId = FALSE;
 
     if (isset($postedParam['customerId'])) {
-      $isCustomerIdEmpty = CheckoutapiLibValidator::isEmpty($postedParam['customerId']);
+      $isCustomerIdEmpty =
+        CheckoutapiLibValidator::isEmpty($postedParam['customerId']);
     }
 
     if (!$isCustomerIdEmpty) {
 
-      $isValidCustomerId = CheckoutapiLibValidator::isString($postedParam['customerId']);
+      $isValidCustomerId =
+        CheckoutapiLibValidator::isString($postedParam['customerId']);
     }
 
     return !$isCustomerIdEmpty && $isValidCustomerId;
+
   }
 
   /**
    * Helper method that is use to valid if amount is correct in a payload.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isValueValid($postedParam).
+   *
    * @param array $postedParam
    *   A var for postedParam.
    *
    * @return bool
-   * Checkoutapi check if amount is valid.
-   * Simple usage:.
-   *        CheckoutapiClientValidationGw3::isValueValid($postedParam).
+   *   Checkoutapi check if amount is valid.
    */
-  public static function isValueValid($postedParam) {
+  public static function isValueValid(array $postedParam) {
     $isValid = FALSE;
 
     if (isset($postedParam['value'])) {
@@ -106,20 +113,25 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     return $isValid;
+
   }
 
   /**
-   * Helper method that is use check if payload has a currency set and if length of currency value is 3.
+   * Helper method.
+   *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isValidCurrency($postedParam);.
+   *
+   * Checks if payload has a currency set and if
+   * Length of currency value is 3.
    *
    * @param array $postedParam
    *   A var for postedParam.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *      CheckoutapiClientValidationGw3::isValidCurrency($postedParam);.
+   *   True if currency is valid.
    */
-  public static function isValidCurrency($postedParam) {
+  public static function isValidCurrency(array $postedParam) {
     $isValid = FALSE;
 
     if (isset($postedParam['currency'])) {
@@ -137,20 +149,22 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     return $isValid;
+
   }
 
   /**
    * Helper method that check if a name is set in the payload.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isNameValid($postedParam);.
+   *
    * @param array $postedParam
    *   A var for postedParam.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *      CheckoutapiClientValidationGw3::isNameValid($postedParam);.
+   *   True if name is valid.
    */
-  public static function isNameValid($postedParam) {
+  public static function isNameValid(array $postedParam) {
     $isValid = FALSE;
 
     if (isset($postedParam['name'])) {
@@ -164,20 +178,22 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     return $isValid;
+
   }
 
   /**
    * Helper method that check if card number is set in payload.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isCardNumberValid($param).
+   *
    * @param array $param
    *   A var for param.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *      CheckoutapiClientValidationGw3::isCardNumberValid($param).
+   *   True if cardnumber is valid.
    */
-  public static function isCardNumberValid($param) {
+  public static function isCardNumberValid(array $param) {
     $isValid = FALSE;
 
     if (isset($param['number'])) {
@@ -185,109 +201,140 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
       $errorIsEmpty = CheckoutapiLibValidator::isEmpty($param['number']);
 
       if (!$errorIsEmpty) {
-        //$this->logError(TRUE, "Card number can not be empty.", array('card'=>$param),FALSE);
         $isValid = TRUE;
       }
-
     }
 
     return $isValid;
+
   }
 
   /**
    * Helper method that check if month is properly set in payload card object.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isMonthValid($card).
+   *
    * @param array $card
    *   A var for card.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *          CheckoutapiClientValidationGw3::isMonthValid($card).
+   *   True if month is valid.
    */
-  public static function isMonthValid($card) {
+  public static function isMonthValid(array $card) {
     $isValid = FALSE;
 
     if (isset($card['expiryMonth'])) {
 
-      $isExpiryMonthEmpty = CheckoutapiLibValidator::isEmpty($card['expiryMonth'], FALSE);
+      $isExpiryMonthEmpty = CheckoutapiLibValidator::isEmpty(
+        $card['expiryMonth'],
+        FALSE
+      );
 
-      if (!$isExpiryMonthEmpty && CheckoutapiLibValidator::isInteger($card['expiryMonth']) && ($card['expiryMonth'] > 0 && $card['expiryMonth'] < 13)) {
+      if (
+        !$isExpiryMonthEmpty &&
+        CheckoutapiLibValidator::isInteger(
+          $card['expiryMonth']
+        ) &&
+        ($card['expiryMonth'] > 0 &&
+        $card['expiryMonth'] < 13)
+      ) {
         $isValid = TRUE;
       }
     }
 
     return $isValid;
+
   }
 
   /**
    * Helper method that check if year is properly set in payload.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isValidYear($card).
+   *
    * @param array $card
    *   A var for card.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *      CheckoutapiClientValidationGw3::isValidYear($card).
+   *   True if year is valid.
    */
-  public static function isValidYear($card) {
+  public static function isValidYear(array $card) {
     $isValid = FALSE;
 
     if (isset($card['expiryYear'])) {
 
       $isExpiryYear = CheckoutapiLibValidator::isEmpty($card['expiryYear']);
 
-      if (!$isExpiryYear && CheckoutapiLibValidator::isInteger($card['expiryYear'])
-        && (CheckoutapiLibValidator::isLength($card['expiryYear'], 2) || CheckoutapiLibValidator::isLength($card['expiryYear'], 4))
+      if (
+        !$isExpiryYear && CheckoutapiLibValidator::isInteger(
+          $card['expiryYear']
+        )
+        && (
+          CheckoutapiLibValidator::isLength(
+            $card['expiryYear'],
+            2
+          ) || CheckoutapiLibValidator::isLength(
+            $card['expiryYear'],
+            4
+          )
+        )
       ) {
-
         $isValid = TRUE;
-
       }
     }
 
     return $isValid;
+
   }
 
   /**
    * Helper method that check if cvv is properly set in payload.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isValidCvv($card).
+   *
    * @param array $card
    *   A var for card.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *          CheckoutapiClientValidationGw3::isValidCvv($card).
+   *   True if CVV is valid.
    */
-  public static function isValidCvv($card) {
+  public static function isValidCvv(array $card) {
     $isValid = FALSE;
 
     if (isset($card['cvv'])) {
 
       $isCvvEmpty = CheckoutapiLibValidator::isEmpty($card['cvv']);
 
-      if (!$isCvvEmpty && CheckoutapiLibValidator::isValidCvvLen($card['cvv'])) {
+      if (!$isCvvEmpty && CheckoutapiLibValidator::isValidCvvLen(
+        $card['cvv']
+      )) {
 
         $isValid = TRUE;
 
       }
     }
     return $isValid;
+
   }
 
   /**
-   * Helper method that check if card is properly set in payload It check if expiry date , card number , cvv and name is set.
+   * A helper method.
    *
-   * @param $param
+   * Helper method that check if card is properly set in payload It check if
+   * Expiry date , card number , cvv and name is set.
+   *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isCardValid($param).
+   *
+   * @param array $param
+   *   A var for param.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *          CheckoutapiClientValidationGw3::isCardValid($param).
+   *   True if the card is valid.
    */
-  public static function isCardValid($param) {
+  public static function isCardValid(array $param) {
     $isValid = TRUE;
 
     if (isset($param['card'])) {
@@ -326,6 +373,7 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
       }
 
       return $isValid;
+
     }
     return TRUE;
 
@@ -334,12 +382,14 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
   /**
    * Helper method that check if card id was set in payload.
    *
-   * @param $param
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::CardIdValid($param).
+   *
+   * @param mixed $param
+   *   A var for param.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *      CheckoutapiClientValidationGw3::CardIdValid($param).
+   *   True if the card id is valid.
    */
   public static function isCardIdValid($param) {
     $isValid = FALSE;
@@ -356,6 +406,7 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
       }
 
       return $isValid;
+
     }
     return TRUE;
 
@@ -364,18 +415,20 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
   /**
    * Helper method that check if card id is set in payload.
    *
-   * The difference between isCardIdValid and isGetCardIdValid is, isCardIdValid check if card id is set.
-   * in postedparam where as isGetCardIdValid check if configuration pass has a card id.
+   * The difference between isCardIdValid and isGetCardIdValid is, i
+   * SCardIdValid check if card id is set in postedparam where as
+   * IsGetCardIdValid check if configuration pass has a card id.
+   *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isGetCardIdValid($param).
    *
    * @param array $param
    *   A var for param.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *         CheckoutapiClientValidationGw3::isGetCardIdValid($param).
+   *   True if a valid card has set.
    */
-  public static function isGetCardIdValid($param) {
+  public static function isGetCardIdValid(array $param) {
     $isValid = FALSE;
     $card = $param['cardId'];
 
@@ -394,15 +447,19 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
    *   A var for postedParam.
    *
    * @return bool
+   *   True if the phone is valid.
    */
-  public static function isPhoneNoValid($postedParam) {
+  public static function isPhoneNoValid(array $postedParam) {
     $isValid = FALSE;
 
     if (isset($postedParam['phoneNumber'])) {
 
       $isPhoneEmpty = CheckoutapiLibValidator::isEmpty($postedParam['phoneNumber']);
 
-      if (!$isPhoneEmpty && CheckoutapiLibValidator::isString($postedParam['phoneNumber'])) {
+      if (
+        !$isPhoneEmpty &&
+        CheckoutapiLibValidator::isString($postedParam['phoneNumber'])
+      ) {
         $isValid = TRUE;
       }
     }
@@ -414,15 +471,16 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
   /**
    * Helper method that check that check if token is set in payload.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isCardToken($param).
+   *
    * @param array $param
    *   A var for param.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *       CheckoutapiClientValidationGw3::isCardToken($param).
+   *   True if the card token is valid.
    */
-  public static function isCardToken($param) {
+  public static function isCardToken(array $param) {
     $isValid = FALSE;
 
     if (isset($param['cardToken'])) {
@@ -434,20 +492,22 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     return $isValid;
+
   }
 
   /**
    * Helper method that check that check if paymentToken is set in payload.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isPaymentToken($param).
+   *
    * @param array $param
    *   A var for param.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *       CheckoutapiClientValidationGw3::isPaymentToken($param).
+   *   True if the payment token is valid.
    */
-  public static function isPaymentToken($param) {
+  public static function isPaymentToken(array $param) {
     $isValid = FALSE;
 
     if (isset($param['paymentToken'])) {
@@ -459,19 +519,22 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     return $isValid;
+
   }
+
   /**
    * Helper method that check that check if session token is set in payload.
+   *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isSessionToken($param).
    *
    * @param array $param
    *   A var for param.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *      CheckoutapiClientValidationGw3::isSessionToken($param).
+   *   True if the session token is valid.
    */
-  public static function isSessionToken($param) {
+  public static function isSessionToken(array $param) {
     $isValid = FALSE;
 
     if (isset($param['token'])) {
@@ -483,20 +546,25 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     return $isValid;
+
   }
 
   /**
-   * Helper method that check if localpayment object is valid in payload It check if lppId is set.
+   * Helper method.isCardIdValid.
+   *
+   * Checks if localpayment object is valid in payload
+   * It check if lppId is set.
+   *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isLocalPyamentHashValid($postedParam).
    *
    * @param array $postedParam
    *   A var for postedParam.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *       CheckoutapiClientValidationGw3::isLocalPyamentHashValid($postedParam).
+   *   True if the local payment hash is valid.
    */
-  public static function isLocalPyamentHashValid($postedParam) {
+  public static function isLocalPyamentHashValid(array $postedParam) {
     $isValid = FALSE;
 
     if (isset($postedParam['localPayment']) && !(CheckoutapiLibValidator::isEmpty($postedParam['localPayment']))) {
@@ -506,37 +574,42 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     return $isValid;
+
   }
 
   /**
    * Helper method that check if a charge id was set in the payload.
    *
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isChargeIdValid($param).
+   *
    * @param array $param
    *   A var for param.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *       CheckoutapiClientValidationGw3::isChargeIdValid($param).
+   *   True if the charge id is valid.
    */
-  public static function isChargeIdValid($param) {
+  public static function isChargeIdValid(array $param) {
     $isValid = FALSE;
 
     if (isset($param['chargeId']) && !(CheckoutapiLibValidator::isEmpty($param['chargeId']))) {
       $isValid = TRUE;
     }
     return $isValid;
+
   }
 
   /**
    * Helper method that check provider id is set in payload.
    *
-   * @param $param
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isProvider($param).
+   *
+   * @param mixed $param
+   *   A param var.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *      CheckoutapiClientValidationGw3::isProvider($param).
+   *   True if the provider is set.
    */
   public static function isProvider($param) {
     $isValid = FALSE;
@@ -545,17 +618,20 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
       $isValid = TRUE;
     }
     return $isValid;
+
   }
 
   /**
    * Helper method that check plan id is set in payload.
    *
-   * @param $param
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isPlanIdValid($param).
+   *
+   * @param mixed $postedParam
+   *   A postedParam var.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *      CheckoutapiClientValidationGw3::isPlanIdValid($param).
+   *   True if the plan id is set.
    */
   public static function isPlanIdValid($postedParam) {
     $isPlanIdEmpty = TRUE;
@@ -571,17 +647,20 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     return !$isPlanIdEmpty && $isValidPlanId;
+
   }
 
   /**
    * Helper method that check customer plan id is set in payload.
    *
-   * @param $param
+   * Simple usage:
+   *   CheckoutapiClientValidationGw3::isCustomerPlanIdValid($param).
+   *
+   * @param mixed $postedParam
+   *   A postedParam var.
    *
    * @return bool
-   *
-   * Simple usage:.
-   *      CheckoutapiClientValidationGw3::isCustomerPlanIdValid($param).
+   *   True if the customer plan id is set.
    */
   public static function isCustomerPlanIdValid($postedParam) {
     $isCustomerPlanIdEmpty = TRUE;
@@ -597,5 +676,7 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
     }
 
     return !$isCustomerPlanIdEmpty && $isValidCustomerPlanId;
+
   }
+
 }

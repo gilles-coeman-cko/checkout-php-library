@@ -25,7 +25,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
   /**
    * The state of error.
    *
-   * @var bool $errorState
+   * @var bool
    *   If yes mean there is an error that prevent further processing.
    */
   private $errorState = FALSE;
@@ -33,7 +33,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
   /**
    * Stack trace.
    *
-   * @var array $trace
+   * @var array
    *   An array that hold a debugging stack trace.
    */
   private $trace = array();
@@ -41,7 +41,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
   /**
    * Message.
    *
-   * @var array $message
+   * @var array
    *   An array that hold all error message for a request.
    */
   private $message = array();
@@ -49,7 +49,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
   /**
    * Critical.
    *
-   * @var array $critical
+   * @var array
    *   An array that hold the critical state of each error log for a request.
    */
   private $critical = array();
@@ -57,7 +57,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
   /**
    * Debugmode.
    *
-   * @var bool $debug
+   * @var bool
    *   A flag to set debug mode on.
    */
   private $debug = FALSE;
@@ -91,6 +91,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    */
   private function getErrorState() {
     return $this->_errorState;
+
   }
 
   /**
@@ -101,20 +102,22 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    */
   public function hasError() {
     return $this->getErrorState();
+
   }
 
   /**
-   * Heck if respond state  is valid.
+   * Check if respond state is valid.
    *
    * @return bool
-   *   True if not in errorstate.
+   *   True if the response state is valid.
    */
   public function isValid() {
     return !$this->getErrorState();
+
   }
 
   /**
-   * Ebug stack trace array.
+   * Debug stack trace array.
    *
    * @param array $trace
    *   The array.
@@ -131,6 +134,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    */
   public function getTrace() {
     return $this->_trace;
+
   }
 
   /**
@@ -153,6 +157,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    */
   public function getMessage() {
     return $this->_message;
+
   }
 
   /**
@@ -173,13 +178,14 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
     }
 
     return $msgError;
+
   }
 
   /**
-   * Et level of individual error.
+   * Get level of individual error.
    *
    * @param mixed $critical
-   *   New critical value;.
+   *   New critical value.
    *
    * @return mixed
    *   Will be void.
@@ -189,7 +195,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
   }
 
   /**
-   * Etter.
+   * Getter for critical.
    *
    * @return array
    *   Critcal returned.
@@ -199,13 +205,13 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
   }
 
   /**
-   * Et error state of object we can have an error but still proceed.
+   * Get error state of object we can have an error but still proceed.
    *
-   * @var string $errorMsg
+   * @var string
    *   Error message.
-   * @var array $trace
-   *  Stack trace.
-   * @var bool $state
+   * @var array
+   *   Stack trace.
+   * @var bool
    *   If critical or not.
    */
   public function setLog($errorMsg, $trace, $state = TRUE) {
@@ -258,10 +264,11 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
 
     }
     return $errorToreturn;
+
   }
 
   /**
-   * Eset all attribute for the exception error object.
+   * Reset all attribute for the exception error object.
    */
   public function flushState() {
     $this->_errorState = FALSE;

@@ -21,16 +21,16 @@ abstract class CheckoutapiParserParser extends CheckoutapiLibObject {
   /**
    * Headers.
    *
-   * @var $headers
-   *   Array Checkoutapi hold value for headers to be send by the transport message layer.
+   * @var array
+   *   Array to hold value for headers to be send by the transport layer.
    */
   protected $headers = array();
 
   /**
    * Response object.
    *
-   * @var $respondObj
-   *   null|CheckoutapiLibRespondobj  * Checkoutapi hold an  value for.
+   * @var object
+   *   Null|CheckoutapiLibRespondobj Checkoutapi.
    */
   protected $respondObj = NULL;
   protected $info = array('httpStatus' => 0);
@@ -41,67 +41,73 @@ abstract class CheckoutapiParserParser extends CheckoutapiLibObject {
    * This method need to be implemented by all children.
    *
    * @param mixed $parser
-   *   A var.
+   *   A string to mchange into an object.
    *
    * @return CheckoutapiLibRespondobj
+   *   A CheckoutapiLibRespondobj.
    */
   abstract public function parseToObj($parser);
 
   /**
-   * Etter $respondObj.
+   * Getter $respondObj.
    *
    * @param object $obj
-   *   CheckoutapiLibRespondobj.
+   *   A CheckoutapiLibRespondobj.
    */
   public function setRespondobj($obj) {
     $this->_respondObj = $obj;
   }
 
   /**
-   * Etter $respondObj.
+   * Getter $respondObj.
    *
    * @return CheckoutapiLibRespondobj|null
+   *   A CheckoutapiLibRespondobj.
    */
   public function getRespondobj() {
     return $this->_respondObj;
   }
 
   /**
-   * Etter $headers.
+   * Getter $headers.
    *
    * @return array
+   *   An array with the header information.
    */
   public function getHeaders() {
     return $this->_headers;
   }
 
   /**
-   * Ormat the value base on the parser type.
+   * Format the value base on the parser type.
    *
    * @param mixed $postedParam
-   *   The var.
+   *   The array to prepare for posting.
    *
    * @return mixed
+   *   A mixed the prepared array or object.
    */
   abstract public function preparePosted($postedParam);
 
   /**
-   * Et Resource Info.
+   * Get Resource Info.
    *
    * @param mixed $info
-   *   The info.
+   *   The info of the recource.
    *
    * @return mixed
+   *   An bool to exert succes.
    */
   abstract public function setResourceInfo($info);
 
   /**
-   * Et Resource Info.
+   * Get Resource Info.
    *
-   * @return mixed
+   * @return array
+   *   An array with the resource info.
    */
   public function getResourceInfo() {
-    return $this->_info;
+    return $this->info;
   }
 
 }

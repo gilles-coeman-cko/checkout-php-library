@@ -14,7 +14,8 @@
 /**
  * CheckoutapiClientConstant.
  *
- * A final class that manage constant value for all CheckoutapiClientClient instance.
+ * A final class that manage constant value for
+ * All CheckoutapiClientClient instances.
  *
  * @category Client
  * @version Release: @package_version@
@@ -36,4 +37,5 @@ final class CheckoutapiClientConstant {
   const STATUS_CAPTURE = 'Captured';
   const STATUS_REFUND = 'Refunded';
   const LIB_VERSION = 'v1.2.12';
+
 }

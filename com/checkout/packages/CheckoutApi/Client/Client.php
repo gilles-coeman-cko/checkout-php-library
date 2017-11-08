@@ -23,45 +23,52 @@
 abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
 
   /**
-   * FFFKO.
+   * Uri.
    *
-   * @var null $uri Uri to where request should be made
+   * @var null
+   *   Uri to where request should be made.
    */
   protected $uri = NULL;
 
   /**
-   * FFFKO.
+   * Headers.
    *
-   * @var array $headers Hold headers that should be pass to api
+   * @var array
+   *   Hold headers that should be pass to api.
    */
   protected $headers = array();
 
   /**
-   * FFFKO.
+   * Process type.
    *
-   * @var string $processType  Type of adapter to be called
+   * @var string
+   *   Type of adapter to be called.
    */
   protected $processType = "curl";
 
   /**
-   * FFFKO.
+   * Respond type.
    *
-   * @var string $respondType   Type of respond expecting from the server
+   * @var string
+   *   Type of respond expecting from the server.
    */
   protected $respondType = CheckoutapiParserConstant::API_RESPOND_TYPE_JSON;
 
   /**
-   * FFFKO.
+   * Parser object.
    *
-   * @var null|CheckoutapiParserParser  $parserObj Checkoutapi use for keeping an instance of the paser
+   * @var null|object
+   *   CheckoutapiParserParser $parserObj Checkoutapi
+   *   Use for keeping an instance of the paser.
    */
   protected $parserObj = NULL;
 
   /**
-   * Onstructor.
+   * Constructor.
    *
    * @param array $config
-   *   configutation for class.
+   *   Configutation for class.
+   *
    * @throws Exception
    */
   public function __construct(array $config = array()) {
@@ -71,13 +78,15 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
   }
 
   /**
-   * Et/Get attribute wrapper.
+   * Set/Get attribute wrapper.
    *
    * @param string $method
-   *   method being call.
+   *   Method being call.
    * @param array $args
-   *   argument for method being called.
+   *   Argument for method being called.
+   *
    * @return mixed
+   *   A mixed for data.
    */
   public function __call($method, array $args) {
     switch (substr($method, 0, 3)) {
@@ -91,35 +100,41 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
 
     }
 
-    $this->exception("Api does not support this method " . $method . "(" . print_r($args, 1) . ")", debug_backtrace());
+    $this->exception(
+      "Api does not support this method " .
+        $method . "(" . print_r($args, 1) . ")",
+      debug_backtrace());
     return NULL;
+
   }
 
   /**
    * Checkoutapi initialise return an adapter.
    *
-   * @param $adapterName
+   * @param mixed $adapterName
    *   Adapter Name.
    * @param array $arguments
-   *   argument for creating the adapter.
+   *   Argument for creating the adapter.
+   *
    * @return CheckoutapiClientAdapterAbstract|null
+   *   Something.
    *
    * @throws Exception
    */
   public function getAdapter($adapterName, array $arguments = array()) {
     $stdName = ucfirst($adapterName);
 
-    $classAdapterName = CheckoutapiClientConstant::ADAPTER_CLASS_GROUP . $stdName;
+    $classAdapterName =
+      CheckoutapiClientConstant::ADAPTER_CLASS_GROUP . $stdName;
 
     $class = NULL;
 
     if (class_exists($classAdapterName)) {
-      /**
-       * FFFKO.
-       *
-       * @var CheckoutapiClientAdapterAbstract  $class
-       */
-      $class = CheckoutapiLibFactory::getSingletonInstance($classAdapterName, $arguments);
+      // @var CheckoutapiClientAdapterAbstract $class.
+      $class = CheckoutapiLibFactory::getSingletonInstance(
+        $classAdapterName,
+        $arguments
+      );
       if (isset($arguments['uri'])) {
         $class->setUri($arguments['uri']);
       }
@@ -139,19 +154,21 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
   }
 
   /**
-   * Etter for $parserObje.
+   * Getter for $parserObje.
    *
    * @return Checkoutapi_Parser_Parser|null
+   *   A Checkoutapi_Parser_Parser.
    */
   public function getParser() {
     return $this->_parserObj;
+
   }
 
   /**
-   * Etter for $parserObj.
+   * Getter for $parserObj.
    *
    * @param string $parser
-   *   parser name.
+   *   Parser name.
    */
   public function setParser($parser) {
     $this->_parserObj = $parser;
@@ -159,59 +176,59 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
   }
 
   /**
-   * Et the headers array base on which paser we are using.
+   * Set the headers array base on which paser we are using.
    *
    * @param array $headers
-   *   extra headers.
+   *   Extra headers.
    */
   public function setHeaders(array $headers) {
 
     if (!$this->_parserObj) {
       $this->initParser($this->getRespondType());
-
     }
 
-    /**
-     * FFFKO.
-     *
-     * @var array  _headers
-     */
+    // @var array  _headers.
     $this->_headers = $this->getParser()->getHeaders();
     $this->_headers = array_merge($this->_headers, $headers);
   }
 
   /**
-   * Etters for $headers.
+   * Getters for $headers.
    *
-   * @return array $headers headers
+   * @return array
+   *   A array for $headers headers.
    */
   public function getHeaders() {
     return $this->_headers;
+
   }
 
   /**
-   * Et which adapter communicator to use.
+   * Set which adapter communicator to use.
    *
    * @param string $processType
-   *   process type or adapter name.
+   *   Process type or adapter name.
    */
   public function setProcessType($processType) {
     $this->_processType = $processType;
   }
 
   /**
-   * Eturn name of adpater.
+   * Return name of adpater.
    *
-   * @return string $processType  name of adapter
+   * @return string
+   *   A string for  $processType  name of adapter.
    */
   public function getProcessType() {
     return $this->_processType;
+
   }
 
   /**
-   * Eturn the respond type default json.
+   * Return the respond type default json.
    *
    * @return string
+   *   A string.
    */
   public function getRespondType() {
     $respondType = $this->_respondType;
@@ -220,37 +237,41 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
     }
 
     return $respondType;
+
   }
 
   /**
-   * Reate and set a parser.
+   * Create and set a parser.
    *
    * @throws Exception
    */
   public function initParser() {
-    $parserType = CheckoutapiClientConstant::PARSER_CLASS_GROUP . $this->getRespondType();
+    $parserType =
+      CheckoutapiClientConstant::PARSER_CLASS_GROUP . $this->getRespondType();
 
     $parserObj = CheckoutapiLibFactory::getSingletonInstance($parserType);
     $this->setParser($parserObj);
   }
 
   /**
-   * Etter for $uri.
+   * Getter for $uri.
    *
    * @param string $uri
-   *   endpoint name.
+   *   Endpoint name.
    */
   public function setUri($uri) {
     $this->_uri = $uri;
   }
 
   /**
-   * Etter for $uri.
+   * Getter for $uri.
    *
-   * @return string $uri
+   * @return string
+   *   The uri.
    */
   public function getUri() {
     return $this->_uri;
+
   }
 
 }

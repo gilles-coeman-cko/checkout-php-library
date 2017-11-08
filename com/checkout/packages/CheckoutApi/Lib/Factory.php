@@ -22,7 +22,7 @@ final class CheckoutapiLibFactory extends CheckoutapiLibObject {
   /**
    * Registry.
    *
-   * @var array $registry
+   * @var array
    *   An array holding instance of object.
    */
   private static $registry = array();
@@ -38,7 +38,6 @@ final class CheckoutapiLibFactory extends CheckoutapiLibObject {
    *
    * @return mixed
    *   Checkoutapi create instance.
-   *
    */
   public static function getInstance($className, array $arguments = array()) {
     return new $className($arguments);
@@ -49,7 +48,7 @@ final class CheckoutapiLibFactory extends CheckoutapiLibObject {
    *
    * Given the name of the class.
    * Simple usage:
-   *   CheckoutapiLibFactory::getSingletonInstance('CheckoutapiClientClientgw3');
+   *   CheckoutapiLibFactory::getSingletonInstance('CheckoutapiClientClientgw3')
    *
    * @param mixed $className
    *   The classname.
@@ -61,7 +60,10 @@ final class CheckoutapiLibFactory extends CheckoutapiLibObject {
    *
    * @throws Exception
    */
-  public static function getSingletonInstance($className, array $arguments = array()) {
+  public static function getSingletonInstance(
+      $className,
+      array $arguments = array()
+    ) {
     $registerKey = $className;
 
     if (!isset(self::$registry[$registerKey])) {
@@ -70,11 +72,17 @@ final class CheckoutapiLibFactory extends CheckoutapiLibObject {
       }
       else {
         error_log($className, 0);
-        throw new Exception('Invalid class name:: ' . $className . "(" . print_r($arguments, 1) . ')');
+        throw new Exception(
+          'Invalid class name:: ' . $className . "(" . print_r(
+            $arguments,
+            1
+          ) . ')'
+        );
       }
     }
 
     return self::$registry[$registerKey];
+
   }
 
 }

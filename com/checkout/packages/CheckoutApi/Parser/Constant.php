@@ -21,4 +21,5 @@ final class CheckoutapiParserConstant {
   const API_RESPOND_TYPE_JSON = 'Json';
   const API_RESPOND_TYPE_XML = 'XML';
   const API_RESPOND_TYPE_HTTP = 'HTTP';
+
 }

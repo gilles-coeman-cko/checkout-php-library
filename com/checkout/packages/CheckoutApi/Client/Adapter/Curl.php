@@ -4,12 +4,13 @@
  * CheckoutapiApi.
  *
  * PHP Version 5.6
- * 
- * .@category Api
+ *
+ * @category Api
  * @package Checkoutapi
  *
- * @license https://checkout.com/terms/ MIT License @link https://www.checkout.com/
- */ 
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
+ */
 
 /**
  * His class is an adapter that allow to make call over http protocol via curl.
@@ -21,7 +22,7 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
   /**
    * FFFKO.
    *
-   * @var int $timeout  timeout for gateway
+   * @var int
    */
   private $timeout = 60;
 
@@ -29,14 +30,17 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
    * Checkoutapi constructor for curl class.
    *
    * @param array $arguments
-   *   configuration for setting the curl connection.
+   *   Configuration for setting the curl connection.
+   *
    * @throws Exception
    */
   public function __construct(array $arguments = array()) {
 
     if (!CheckoutapiUtilityUtilities::checkExtension('curl')) {
-      //throw new Exception("cURL extension has to be loaded to use CheckoutapiClientAdapterCurl ");
-      $this->exception("cURL extension has to be loaded to use CheckoutapiClientAdapterCurl", debug_backtrace());
+      $this->exception(
+        "cURL extension has to be loaded to use CheckoutapiClientAdapterCurl",
+        debug_backtrace()
+      );
 
     }
 
@@ -46,10 +50,11 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
   /**
    * Method that do a request on provide uri and return itsel.
    *
-   * @return CheckoutapiClientAdapterCurl return self
+   * Simple usage:
+   *   $adapter->request()->getRespond().
    *
-   * Simple usage:.
-   *      $adapter->request()->getRespond().
+   * @return CheckoutapiClientAdapterCurl
+   *   Return self.
    */
   public function request() {
 
@@ -60,14 +65,14 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
 
     $resource = $this->getResource();
     curl_setopt($resource, CURLOPT_URL, $this->getUri());
-    //setting curl options
+   // Setting curl options
     $headers = $this->getHeaders();
 
     if (!empty($headers)) {
 
       curl_setopt($resource, CURLOPT_HTTPHEADER, $headers);
 
-      //curl_setopt($resource, CURLOPT_HEADER, TRUE);
+     // Curl_setopt($resource, CURLOPT_HEADER, TRUE);
     }
 
     $method = $this->getMethod();
@@ -77,14 +82,17 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
       case CheckoutapiClientAdapterConstant::API_POST:
         $curlMethod = CheckoutapiClientAdapterConstant::API_POST;
         break;
-      case CheckoutapiClientAdapterConstant::API_GET:
+
+       case CheckoutapiClientAdapterConstant::API_GET:
         $curlMethod = CheckoutapiClientAdapterConstant::API_GET;
 
         break;
-      case CheckoutapiClientAdapterConstant::API_DELETE:
+
+       case CheckoutapiClientAdapterConstant::API_DELETE:
         $curlMethod = CheckoutapiClientAdapterConstant::API_DELETE;
         break;
-      case CheckoutapiClientAdapterConstant::API_PUT:
+
+       case CheckoutapiClientAdapterConstant::API_PUT:
         $curlMethod = CheckoutapiClientAdapterConstant::API_PUT;
         break;
       default:
@@ -98,7 +106,10 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     }
 
     //  curl_setopt($resource , $curlMethod, TRUE);
-    if ($method == CheckoutapiClientAdapterConstant::API_POST || $method == CheckoutapiClientAdapterConstant::API_PUT) {
+    if (
+      $method == CheckoutapiClientAdapterConstant::API_POST ||
+      $method == CheckoutapiClientAdapterConstant::API_PUT
+    ) {
       curl_setopt($resource, CURLOPT_POSTFIELDS, $this->getPostedParam());
     }
 
@@ -115,7 +126,8 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
           'respond_code' => $http_status,
           'curl_info' => curl_getinfo($resource),
           'respondBody' => $response,
-          'postedParam' => $this->getPostedParam(),
+          * @param array $postedParam
+*   An array with the parameters that will be posted. => $this->getPostedParam(),
           'rawPostedParam' => $this->getRawpostedParam(),
         )
       );
@@ -130,16 +142,17 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     $this->setRespond($response);
 
     return $this;
-  }
 
+  }
   public function getResourceInfo() {
     $info = curl_getinfo($this->getResource());
 
     return array('httpStatus' => $info['http_code']);
+
   }
   /**
    * Lose all open connections and release all set variables.
-   **/
+   */
   public function connect() {
     if ($this->getResource()) {
       $this->close();
@@ -152,11 +165,12 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     $this->setResource($resource);
     parent::connect();
     return $this;
+
   }
 
   /**
    * Lose all open connections and release all set variables.
-   **/
+   */
   public function close() {
 
     if ($this->getResource()) {
@@ -167,9 +181,10 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
   }
 
   /**
-   * Eturn a method type POST|GET|PUT|DELETE.
+   * Return a method type POST|GET|PUT|DELETE.
    *
-   * @return string default CheckoutapiClientAdapterConstant::API_POST
+   * @return string
+   *   A string for  default CheckoutapiClientAdapterConstant::API_POST.
    */
   public function getMethod() {
     $method = $this->getConfig('method');
@@ -179,12 +194,14 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     }
 
     return $method;
+
   }
 
   /**
    * Ateway timeout value.
    *
-   * @return int timeout
+   * @return int
+   *   A int for  timeout.
    */
   public function getTimeout() {
     $timeout = $this->_timeout;
@@ -193,6 +210,7 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     }
 
     return $timeout;
+
   }
 
 }
