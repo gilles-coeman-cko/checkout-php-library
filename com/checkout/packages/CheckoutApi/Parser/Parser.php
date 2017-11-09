@@ -18,6 +18,7 @@
  * @version Release: @package_version@
  */
 abstract class CheckoutapiParserParser extends CheckoutapiLibObject {
+
   /**
    * Headers.
    *
@@ -49,7 +50,7 @@ abstract class CheckoutapiParserParser extends CheckoutapiLibObject {
   abstract public function parseToObj($parser);
 
   /**
-   * Getter $respondObj.
+   * Setter respondObj.
    *
    * @param object $obj
    *   A CheckoutapiLibRespondobj.
@@ -59,7 +60,7 @@ abstract class CheckoutapiParserParser extends CheckoutapiLibObject {
   }
 
   /**
-   * Getter $respondObj.
+   * Getter respondObj.
    *
    * @return CheckoutapiLibRespondobj|null
    *   A CheckoutapiLibRespondobj.
@@ -69,13 +70,13 @@ abstract class CheckoutapiParserParser extends CheckoutapiLibObject {
   }
 
   /**
-   * Getter $headers.
+   * Getter headers.
    *
    * @return array
    *   An array with the header information.
    */
   public function getHeaders() {
-    return $this->_headers;
+    return $this->headers;
   }
 
   /**
@@ -90,7 +91,7 @@ abstract class CheckoutapiParserParser extends CheckoutapiLibObject {
   abstract public function preparePosted($postedParam);
 
   /**
-   * Get Resource Info.
+   * Set Resource Info.
    *
    * @param mixed $info
    *   The info of the recource.

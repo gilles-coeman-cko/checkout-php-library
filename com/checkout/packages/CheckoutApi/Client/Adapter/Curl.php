@@ -20,7 +20,7 @@
  */
 class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract implements CheckoutapiClientAdapterInterface{
   /**
-   * FFFKO.
+   * Timeout time in minutes.
    *
    * @var int
    */
@@ -51,7 +51,7 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
    * Method that do a request on provide uri and return itsel.
    *
    * Simple usage:
-   *   $adapter->request()->getRespond().
+   *   $adapter->request()->getRespond()
    *
    * @return CheckoutapiClientAdapterCurl
    *   Return self.
@@ -65,14 +65,11 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
 
     $resource = $this->getResource();
     curl_setopt($resource, CURLOPT_URL, $this->getUri());
-   // Setting curl options
+
     $headers = $this->getHeaders();
 
     if (!empty($headers)) {
-
       curl_setopt($resource, CURLOPT_HTTPHEADER, $headers);
-
-     // Curl_setopt($resource, CURLOPT_HEADER, TRUE);
     }
 
     $method = $this->getMethod();
@@ -105,7 +102,6 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
       curl_setopt($resource, CURLOPT_CUSTOMREQUEST, $curlMethod);
     }
 
-    //  curl_setopt($resource , $curlMethod, TRUE);
     if (
       $method == CheckoutapiClientAdapterConstant::API_POST ||
       $method == CheckoutapiClientAdapterConstant::API_PUT
@@ -126,8 +122,7 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
           'respond_code' => $http_status,
           'curl_info' => curl_getinfo($resource),
           'respondBody' => $response,
-          * @param array $postedParam
-*   An array with the parameters that will be posted. => $this->getPostedParam(),
+          'postedParam' => $this->getPostedParam(),
           'rawPostedParam' => $this->getRawpostedParam(),
         )
       );
@@ -144,14 +139,16 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     return $this;
 
   }
+
   public function getResourceInfo() {
     $info = curl_getinfo($this->getResource());
 
     return array('httpStatus' => $info['http_code']);
 
   }
+
   /**
-   * Lose all open connections and release all set variables.
+   * Close all open connections and release all set variables.
    */
   public function connect() {
     if ($this->getResource()) {
@@ -169,7 +166,7 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
   }
 
   /**
-   * Lose all open connections and release all set variables.
+   * Close all open connections and release all set variables.
    */
   public function close() {
 
@@ -198,10 +195,10 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
   }
 
   /**
-   * Ateway timeout value.
+   * Gateway timeout value.
    *
    * @return int
-   *   A int for  timeout.
+   *   A int for timeout.
    */
   public function getTimeout() {
     $timeout = $this->_timeout;
@@ -210,7 +207,6 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     }
 
     return $timeout;
-
   }
 
 }

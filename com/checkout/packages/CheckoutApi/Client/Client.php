@@ -160,7 +160,7 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
    *   A Checkoutapi_Parser_Parser.
    */
   public function getParser() {
-    return $this->_parserObj;
+    return $this->parserObj;
 
   }
 
@@ -171,7 +171,7 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
    *   Parser name.
    */
   public function setParser($parser) {
-    $this->_parserObj = $parser;
+    $this->parserObj = $parser;
 
   }
 
@@ -183,13 +183,13 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
    */
   public function setHeaders(array $headers) {
 
-    if (!$this->_parserObj) {
+    if (!$this->parserObj) {
       $this->initParser($this->getRespondType());
     }
 
-    // @var array  _headers.
-    $this->_headers = $this->getParser()->getHeaders();
-    $this->_headers = array_merge($this->_headers, $headers);
+    // @var array headers.
+    $this->headers = $this->getParser()->getHeaders();
+    $this->headers = array_merge($this->headers, $headers);
   }
 
   /**
@@ -199,7 +199,7 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
    *   A array for $headers headers.
    */
   public function getHeaders() {
-    return $this->_headers;
+    return $this->headers;
 
   }
 
@@ -210,7 +210,7 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
    *   Process type or adapter name.
    */
   public function setProcessType($processType) {
-    $this->_processType = $processType;
+    $this->processType = $processType;
   }
 
   /**
@@ -220,7 +220,7 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
    *   A string for  $processType  name of adapter.
    */
   public function getProcessType() {
-    return $this->_processType;
+    return $this->processType;
 
   }
 
@@ -231,7 +231,7 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
    *   A string.
    */
   public function getRespondType() {
-    $respondType = $this->_respondType;
+    $respondType = $this->respondType;
     if ($respondType = $this->getConfig('respondType')) {
       $respondType = $respondType;
     }
@@ -254,23 +254,23 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
   }
 
   /**
-   * Getter for $uri.
+   * Setter for uri.
    *
    * @param string $uri
    *   Endpoint name.
    */
   public function setUri($uri) {
-    $this->_uri = $uri;
+    $this->uri = $uri;
   }
 
   /**
-   * Getter for $uri.
+   * Getter for uri.
    *
    * @return string
    *   The uri.
    */
   public function getUri() {
-    return $this->_uri;
+    return $this->uri;
 
   }
 

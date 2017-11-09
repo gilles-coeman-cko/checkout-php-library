@@ -22,12 +22,19 @@
  */
 class CheckoutapiLibRespondobj implements ArrayAccess {
   /**
-   * FFFKO.
+   * Configuration.
    *
    * @var array
    *   Configuration value
    */
   protected $config = array();
+
+  /**
+   * Update Config.
+   *
+   * @var array
+   *   UpdateConfig value
+   */
   protected $updateConfig = array();
 
   /**
@@ -124,7 +131,7 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
   }
 
   /**
-   * His method set the config value for an object.
+   * This method set the config value for an object.
    *
    * @param array $config
    *   Configuration to be set.
@@ -253,7 +260,7 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
   }
 
   /**
-   * OfsetExists.
+   * OffsetExists.
    *
    * @param array $offset
    *   The array with the offset.

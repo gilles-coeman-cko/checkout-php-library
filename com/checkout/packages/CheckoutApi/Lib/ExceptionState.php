@@ -67,9 +67,9 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    */
   public function __construct() {
     if (isset($_SERVER['API_CHECKOUT_DEBUG'])) {
-      $this->_debug = $_SERVER['API_CHECKOUT_DEBUG'] == "TRUE" ? TRUE : FALSE;
+      $this->debug = $_SERVER['API_CHECKOUT_DEBUG'] == "TRUE" ? TRUE : FALSE;
     }
-    $this->_debug = TRUE;
+    $this->debug = TRUE;
   }
 
   /**
@@ -79,7 +79,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    *   State of the current error.
    */
   public function setErrorState($state) {
-    $this->_errorState = $state;
+    $this->errorState = $state;
 
   }
 
@@ -90,7 +90,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    *   Current errorstate.
    */
   private function getErrorState() {
-    return $this->_errorState;
+    return $this->errorState;
 
   }
 
@@ -123,7 +123,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    *   The array.
    */
   public function setTrace(array $trace) {
-    $this->_trace[] = $trace;
+    $this->trace[] = $trace;
   }
 
   /**
@@ -133,7 +133,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    *   The trace array.
    */
   public function getTrace() {
-    return $this->_trace;
+    return $this->trace;
 
   }
 
@@ -144,8 +144,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    *   The message array.
    */
   public function setMessage($message) {
-
-    $this->_message[md5($message)] = $message;
+    $this->message[md5($message)] = $message;
 
   }
 
@@ -156,12 +155,12 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    *   The message array.
    */
   public function getMessage() {
-    return $this->_message;
+    return $this->message;
 
   }
 
   /**
-   * Ompile all errors in one line.
+   * Compile all errors in one line.
    *
    * @return string
    *   The string.
@@ -182,7 +181,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
   }
 
   /**
-   * Get level of individual error.
+   * Set level of individual error.
    *
    * @param mixed $critical
    *   New critical value.
@@ -191,7 +190,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    *   Will be void.
    */
   public function setCritical($critical) {
-    $this->_critical[] = $critical;
+    $this->critical[] = $critical;
   }
 
   /**
@@ -201,20 +200,20 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    *   Critcal returned.
    */
   public function getCritical() {
-    return $this->_critical;
+    return $this->critical;
   }
 
   /**
-   * Get error state of object we can have an error but still proceed.
+   * Set error state of object we can have an error but still proceed.
    *
-   * @var string
+   * @param string $errorMsg
    *   Error message.
-   * @var array
+   * @param array $trace
    *   Stack trace.
-   * @var bool
+   * @param bool $state
    *   If critical or not.
    */
-  public function setLog($errorMsg, $trace, $state = TRUE) {
+  public function setLog($errorMsg, array $trace, $state = TRUE) {
 
     $this->setErrorState($state);
     $this->setTrace($trace);
@@ -230,7 +229,7 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    */
   public function debug() {
     $errorToreturn = '';
-    if ($this->_debug && $this->hasError()) {
+    if ($this->debug && $this->hasError()) {
       $message = $this->getMessage();
       $trace = $this->getTrace();
       $critical = $this->getCritical();
@@ -271,10 +270,10 @@ class CheckoutapiLibExceptionstate extends CheckoutapiLibObject {
    * Reset all attribute for the exception error object.
    */
   public function flushState() {
-    $this->_errorState = FALSE;
-    $this->_trace = array();
-    $this->_message = array();
-    $this->_critical = array();
+    $this->errorState = FALSE;
+    $this->trace = array();
+    $this->message = array();
+    $this->critical = array();
   }
 
 }

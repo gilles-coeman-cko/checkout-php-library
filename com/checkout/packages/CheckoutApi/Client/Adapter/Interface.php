@@ -12,16 +12,18 @@
  */
 
 /**
- * His class is used as signature  for all current and future adapters.
+ * This class is used as signature for all current and future adapters.
  *
  * @category Client
  * @version Release: @package_version@
  */
 interface CheckoutapiClientAdapterInterface {
+
   /**
    * Checkoutapi Read respond on the server.
    *
    * @return object
+   *   Return confirmation.
    */
   public function request();
 
@@ -34,6 +36,7 @@ interface CheckoutapiClientAdapterInterface {
    * Checkoutapi Open a connection to server/URI.
    *
    * @return resource
+   *   Return the recources.
    */
   public function connect();
 
@@ -44,6 +47,7 @@ interface CheckoutapiClientAdapterInterface {
    *   Config array.
    *
    * @return mixed
+   *   Return confirmation.
    */
   public function setConfig(array $array = array());
 
@@ -54,6 +58,7 @@ interface CheckoutapiClientAdapterInterface {
    *   Config name to retrive.
    *
    * @return mixed
+   *   Return confirmation.
    */
   public function getConfig($key = NULL);
 

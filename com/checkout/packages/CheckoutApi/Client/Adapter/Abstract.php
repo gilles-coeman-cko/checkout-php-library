@@ -24,26 +24,22 @@
  */
 abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   /**
-   * FFFKO.
-   *
    * @var string
    */
   protected $uri = NULL;
+
   /**
-   * FFFKO.
-   *
    * @var resource|null
    */
   protected $resource = NULL;
+
   /**
-   * FFFKO.
-   *
    * @var mixed
    */
   protected $respond = NULL;
 
   /**
-   * Onstructor for Adapters.
+   * Constructor for Adapters.
    *
    * @param array $arguments
    *   Array of configuration for constructor.
@@ -63,7 +59,7 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   }
 
   /**
-   * Get/Get attribute wrapper.
+   * Set/Get attribute wrapper.
    *
    * @param string $method
    *   Method being call.
@@ -108,14 +104,14 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   }
 
   /**
-   * Getter for $uri.
+   * Setter for $uri.
    *
    * @param string $uri
    *   Setting the url value.
    */
   public function setUri($uri) {
 
-    $this->_uri = $uri;
+    $this->uri = $uri;
   }
 
   /**
@@ -124,12 +120,12 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
    * @return string
    */
   public function getUri() {
-    return $this->_uri;
+    return $this->uri;
 
   }
 
   /**
-   * Getter for $resource.
+   * Setter for $resource.
    *
    * @var resource
    */
@@ -148,7 +144,7 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   }
 
   /**
-   * Checkoutapi_ Setter for respond.
+   * Setter for respond.
    *
    * @param mixed $respond
    *   Responnd obtain by gateway.
@@ -158,7 +154,7 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   }
 
   /**
-   * Checkoutapi_ Getter for respond.
+   * Getter for respond.
    *
    * @return mixed
    */
@@ -178,7 +174,7 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   }
 
   /**
-   * Lose all resource.
+   * close all resource.
    */
   public function close() {
     $this->setResource(NULL);
@@ -194,7 +190,7 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
    * Return request made by the adapter.
    *
    * @return CheckoutapiLibRespondobj
-   *   A CheckoutapiLibRespondobj .
+   *   A CheckoutapiLibRespondobj.
    */
   abstract public function request();
 

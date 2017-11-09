@@ -18,36 +18,33 @@
  * This class is responsible in creating instance of payment gateway interface.
  * (CheckoutapiClientClient).
  *
- * The simplest usage would be:.
- *     $Api = CheckoutapiApi::getApi();.
+ * The simplest usage would be:
+ *   $Api = CheckoutapiApi::getApi();
  *
- * This will create an instance a singleton instance of CheckoutapiClientClient.
- * The default gateway is CheckoutapiClientClientgw3.
+ * This will create an instance a singleton instance of CheckoutapiClientClient
+ * the default gateway is CheckoutapiClientClientgw3
  *
- * If you need create instance of other gateways, you can do do those steps:.
+ * If you need create instance of other gateways, you can do do those steps:
+ *   $Api = CheckoutapiApi::getApi(array(),
+ *     'CheckoutapiClientClient[GATEWAYNAME]');
  *
- *     $Api = CheckoutapiApi::getApi(array(),.
- *     'CheckoutapiClientClient[GATEWAYNAME]');.
- *
- *  If you need initialise some configuration before hand:.
- *
- *     $config = array('config1' => 'value1', 'config2' => 'value2');.
- *     $Api = CheckoutapiApi::getApi($config);.
+ * If you need initialise some configuration before hand:
+ *   $config = array('config1' => 'value1', 'config2' => 'value2');
+ *   $Api = CheckoutapiApi::getApi($config);
  *
  * @category Checkoutapi
  * @version Release: @package_version@
  */
 final class CheckoutapiApi {
+
   /**
-   *
-   *
    * @var string
    *   The name of the gateway to be used.
    */
   private static $apiClass = 'CheckoutapiClientClientgw3';
 
   /**
-   * Elper static function to get singleton instance of a gateway interface.
+   * Helper static function to get singleton instance of a gateway interface.
    *
    * @param array $arguments
    *   A set arguments for initialising class constructor.
@@ -78,7 +75,7 @@ final class CheckoutapiApi {
   }
 
   /**
-   * Elpper static function for setting  for $apiClass.
+   * Helper static function for setting for $apiClass.
    *
    * @param CheckoutapiClientClient $apiClass
    *   Gateway interface name.
@@ -88,10 +85,10 @@ final class CheckoutapiApi {
   }
 
   /**
-   * Elper static function  for retriving value of $apiClass.
+   * Helper static function for retriving value of $apiClass.
    *
    * @return CheckoutapiClientClient
-   *   A CheckoutapiClientClient for   $apiClass.
+   *   A CheckoutapiClientClient for apiClass.
    */
   public static function getApiClass() {
     return self::$apiClass;

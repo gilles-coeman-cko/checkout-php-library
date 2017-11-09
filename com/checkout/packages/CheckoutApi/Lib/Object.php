@@ -23,7 +23,7 @@
 class CheckoutapiLibObject implements ArrayAccess {
 
   /**
-   * Onfig.
+   * Config.
    *
    * @var array
    *   An array that containt all configuration for a class.
@@ -82,7 +82,7 @@ class CheckoutapiLibObject implements ArrayAccess {
   }
 
   /**
-   * Eset config attribute.
+   * Reset config attribute.
    *
    * @return $this
    */
@@ -93,7 +93,7 @@ class CheckoutapiLibObject implements ArrayAccess {
   }
 
   /**
-   * Etting and logging error message.
+   * Setting and logging error message.
    *
    * @param string $errorMsg
    *   Error message you wan to log.
@@ -129,7 +129,7 @@ class CheckoutapiLibObject implements ArrayAccess {
   }
 
   /**
-   * Eset the attribute config for an object.
+   * Reset the attribute config for an object.
    *
    * @throws Exception
    */
