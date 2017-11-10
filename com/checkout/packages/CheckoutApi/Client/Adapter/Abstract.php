@@ -24,16 +24,22 @@
  */
 abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   /**
+   * The URL.
+   *
    * @var string
    */
   protected $uri = NULL;
 
   /**
+   * The resource.
+   *
    * @var resource|null
    */
   protected $resource = NULL;
 
   /**
+   * The respond object.
+   *
    * @var mixed
    */
   protected $respond = NULL;
@@ -118,6 +124,7 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
    * Getter for $uri.
    *
    * @return string
+   *   Return the URL.
    */
   public function getUri() {
     return $this->uri;
@@ -127,19 +134,21 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   /**
    * Setter for $resource.
    *
-   * @var resource
+   * @param resource $resource
+   *   The resource.
    */
   public function setResource($resource) {
-    $this->_resource = $resource;
+    $this->resource = $resource;
   }
 
   /**
    * Getter for $resource.
    *
    * @return resource
+   *   The resource.
    */
   public function getResource() {
-    return $this->_resource;
+    return $this->resource;
 
   }
 
@@ -147,26 +156,28 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
    * Setter for respond.
    *
    * @param mixed $respond
-   *   Responnd obtain by gateway.
+   *   Responds obtained by gateway.
    */
   public function setRespond($respond) {
-    $this->_respond = $respond;
+    $this->respond = $respond;
   }
 
   /**
    * Getter for respond.
    *
    * @return mixed
+   *   The response.
    */
   public function getRespond() {
-    return $this->_respond;
+    return $this->respond;
 
   }
 
   /**
    * Create a connection using the adapter.
    *
-   * @return $this CheckoutapiClientAdapterAbstract
+   * @return object
+   *   CheckoutapiClientAdapterAbstract.
    */
   public function connect() {
     return $this;
@@ -174,14 +185,20 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   }
 
   /**
-   * close all resource.
+   * Close all resource.
    */
   public function close() {
     $this->setResource(NULL);
     $this->setRespond(NULL);
   }
-  public function getResourceInfo() {
 
+  /**
+   * Gey the resource info.
+   *
+   * @return array
+   *   Array with an empty httpStatus attribute.
+   */
+  public function getResourceInfo() {
     return array('httpStatus' => '');
 
   }
@@ -194,4 +211,4 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
    */
   abstract public function request();
 
-  }
+}

@@ -62,4 +62,4 @@ interface CheckoutapiClientAdapterInterface {
    */
   public function getConfig($key = NULL);
 
-  }
+}

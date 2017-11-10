@@ -12,8 +12,7 @@
  */
 
 /**
- * Lass final  CheckoutapiApi.
- *
+ * Class final  CheckoutapiApi.
  *
  * This class is responsible in creating instance of payment gateway interface.
  * (CheckoutapiClientClient).
@@ -38,6 +37,8 @@
 final class CheckoutapiApi {
 
   /**
+   * Private Static API Class.
+   *
    * @var string
    *   The name of the gateway to be used.
    */
@@ -61,7 +62,7 @@ final class CheckoutapiApi {
       self::setApiClass($apiClass);
     }
 
-   // Initialise the exception library
+    // Initialise the exception library.
     $exceptionState = CheckoutapiLibFactory::getSingletonInstance(
       'CheckoutapiLibExceptionstate'
     );
@@ -77,7 +78,7 @@ final class CheckoutapiApi {
   /**
    * Helper static function for setting for $apiClass.
    *
-   * @param CheckoutapiClientClient $apiClass
+   * @param mixed $apiClass
    *   Gateway interface name.
    */
   public static function setApiClass($apiClass) {
@@ -94,4 +95,5 @@ final class CheckoutapiApi {
     return self::$apiClass;
 
   }
+
 }

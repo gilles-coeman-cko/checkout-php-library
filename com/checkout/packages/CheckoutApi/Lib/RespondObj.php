@@ -113,7 +113,8 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
         if (is_array($value)) {
           return $value;
         }
-      } elseif (is_array($value)) {
+      }
+      elseif (is_array($value)) {
         // @var Checkoutapi_LibRespondobj.
         $to_return = CheckoutapiLibFactory::getInstance(
           'CheckoutapiLibRespondobj'
@@ -168,6 +169,7 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
    * Check if respond obj is valid.
    *
    * @return bool
+   *   True if the object is valid.
    *
    * @throws Exception
    */
@@ -268,7 +270,6 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
    * @return bool
    *   True if offset is set.
    */
-
   public function offsetExists(array $offset) {
     return isset($this->config[$offset]);
   }
@@ -294,6 +295,6 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
    */
   public function offsetGet(array $offset) {
     return isset($this->config[$offset]) ? $this->config[$offset] : NULL;
-
   }
+
 }

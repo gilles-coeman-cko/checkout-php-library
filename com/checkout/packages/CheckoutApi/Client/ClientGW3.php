@@ -14,35 +14,34 @@
 /**
  * CheckoutapiClientClientgw3.
  *
- * Gateway 3.0 class
+ * Gateway 3.0 class.
  *
  * Class CheckoutapiClientClientgw3.
  * This class in an interface to the Checkout Gateway 3.0.
  * It provide access to all endpoint setup by the gateway.
- * The simplest usage would be example creating a card token:.
- *      $secretKey = 'sk_test_CC937715-4F68-4306-BCBE-640B249A4D50';.
- *      $cardTokenConfig = array();.
- *      $cardTokenConfig['authorization'] = "$publicKey" ;.
- *      $Api = CheckoutapiApi::getApi();.
- *      $cardTokenConfig[* @param array $postedParam
-*   An array with the parameters that will be posted.] = array (.
- *                                              'email' =>'dhiraj.@checkout.com',
- *                                               'card' => array(.
- *                                               'phoneNumber'=>'0123465789',.
- *                                               'name'=>'test name',.
- *                                               'number' => '4543474002249996',.
- *                                               'expiryMonth' => 06,.
- *                                               'expiryYear' => 2017,.
- *                                               'cvv' => 956,.
- *                                               ).
- *                                           );.
- *     $respondCardToken = $Api->getCardToken( $cardTokenConfig );.
- *     If($respondCardToken->isValid()) {.
- *        Echo $respondCardToken->getId();.
+ * The simplest usage would be example creating a card token:
+ *     $secretKey = 'sk_test_CC937715-4F68-4306-BCBE-640B249A4D50';
+ *     $cardTokenConfig = array();
+ *     $cardTokenConfig['authorization'] = "$publicKey" ;
+ *     $Api = CheckoutapiApi::getApi();
+ *     $cardTokenConfig['postedParam'] = array (
+ *     'email' =>'dhiraj.@checkout.com',
+ *       'card' => array(
+ *         'phoneNumber'=>'0123465789',
+ *         'name'=>'test name',
+ *         'number' => '4543474002249996',
+ *         'expiryMonth' => 06,
+ *         'expiryYear' => 2017,
+ *         'cvv' => 956,
+ *       )
+ *     );
+ *     $respondCardToken = $Api->getCardToken( $cardTokenConfig );
+ *     If($respondCardToken->isValid()) {
+ *        Echo $respondCardToken->getId();
  *     }
-     else {.
- *          Echo $respondCardToken->printError();.
- *      }.
+ *     else {
+ *          Echo $respondCardToken->printError();
+ *      }
  *
  *   Those couple of lines , will create an instance of the .
  *   CheckoutapiClientClientgw3. It will then will request a card
@@ -54,9 +53,9 @@
  * @version Release: @package_version@
  */
 class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
- 
+
   /**
-   * FFFKO.
+   * URI Charge.
    *
    * @var string
    *   To store uri for charge url.
@@ -64,15 +63,15 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   protected $uriCharge = NULL;
 
   /**
-   * FFFKO.
+   * URI Token.
    *
-   * * .@var string $uriToken
+   * @var string
    *   To store uri for token url.
    */
   protected $uriToken = NULL;
 
   /**
-   * FFFKO.
+   * URI Costumer.
    *
    * @var string
    *   To store uri for customer url.
@@ -80,21 +79,21 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   protected $uriCustomer = NULL;
 
   /**
-   * FFFKO.
+   * URI Provider.
    *
    * @var string
    */
   protected $uriProvider = NULL;
- 
+
   /**
-   * FFFKO.
+   * Mode.
    *
    * @var string
    */
   private $mode = 'dev';
 
   /**
-   * Onstructor.
+   * Constructor.
    *
    * @param array $config
    *   Configuration for class.
@@ -117,23 +116,26 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * Create Card Token.
    *
    * Simple usage:
-   *   $param['postedParam'] = array (.
+   *   $param['postedParam'] = array (
    *     'email'   =>    'dhiraj.@checkout.com',
-   *     'card'    =>    array(.
-   *       'phoneNumber'      => '0123465789',.
-   *       'name'             => 'test name',.
-   *       'number'           => 'XXXXXXXXX',.
-   *       'expiryYear'       => 2017,.
-   *       'cvv'              => 956.
-   *     ).
-   *   );.
-   *   $respondCardToken = $Api->getCardToken( $param );.
-   *  Use by having, first an instance of the gateway 3.0 and set of arguments as above
+   *     'card'    =>    array(
+   *       'phoneNumber'      => '0123465789',
+   *       'name'             => 'test name',
+   *       'number'           => 'XXXXXXXXX',
+   *       'expiryYear'       => 2017,
+   *       'cvv'              => 956
+   *     )
+   *   );
+   *   $respondCardToken = $Api->getCardToken( $param );
+   *
+   * Use by having, first an instance of the gateway 3.0
+   * and set of arguments as above.
    *
    * @param array $param
    *   Payload for creating a card token parameter.
    *
    * @return CheckoutapiLibRespondObj
+   *   The card token respons.
    *
    * @throws Exception
    */
@@ -154,16 +156,19 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
 
   /**
    * Create payment token.
-   * 
+   *
    * Simple usage:
-   *   $sessionConfig['postedParam'] = array( "value"=>100, "currency"=>"GBP");.
-   *     $sessionTokenObj = $Api->getPaymentToken($sessionConfig);.
-   * Use by having, first an instance of the gateway 3.0 and set of argument base on documentation for creating a session token.
+   *   $sessionConfig['postedParam'] = array( "value"=>100, "currency"=>"GBP");
+   *     $sessionTokenObj = $Api->getPaymentToken($sessionConfig);
+   *
+   * Use by having, first an instance of the gateway 3.0 and
+   * set of argument base on documentation for creating a session token.
    *
    * @param array $param
    *   Payload param.
    *
    * @return CheckoutapiLibRespondObj
+   *   The payment token response.
    *
    * @throws Exception
    */
@@ -178,12 +183,18 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
 
     if (!$isAmountValid) {
       $hasError = TRUE;
-      $this->throwException('Please provide a valid amount (in cents)', array('pram' => $param));
+      $this->throwException(
+        'Please provide a valid amount (in cents)',
+        array('pram' => $param)
+      );
     }
 
     if (!$isCurrencyValid) {
       $hasError = TRUE;
-      $this->throwException('Please provide a valid currency code (ISO currency code)', array('pram' => $param));
+      $this->throwException(
+        'Please provide a valid currency code (ISO currency code)',
+        array('pram' => $param)
+      );
     }
 
     return $this->request($uri, $param, !$hasError);
@@ -193,15 +204,9 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   /**
    * Create Charge.
    *
-   * @param array $param
-   *   Payload param.
-   *
-   * @return CheckoutapiLibRespondObj
-   *
-   * @throws Exception
-   *
    * Simple usage:
-   * This methods can be call to create charge for checkout.com gateway 3.0 by passing
+   * This methods can be call to create charge for
+   * checkout.com gateway 3.0 by passing.
    *
    * Full card details:
    *   $param['postedParam'] = array (
@@ -241,7 +246,15 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *   );
    *
    * And then just call the method:
-   *   $charge = $Api->createCharge($param);
+   *   $Charge = $Api->createCharge($param);
+   *
+   * @param array $param
+   *   Payload param.
+   *
+   * @return CheckoutapiLibRespondObj
+   *   The response.
+   *
+   * @throws Exception
    */
   public function createCharge(array $param) {
     $hasError = FALSE;
@@ -258,33 +271,54 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
 
     if (!$isEmailValid && !$isCustomerIdValid) {
       $hasError = TRUE;
-      $this->throwException('Please provide a valid Email address or Customer id', array('param' => $postedParam));
+      $this->throwException(
+        'Please provide a valid Email address or Customer id',
+        array('param' => $postedParam)
+      );
     }
 
     if ($isCardTokenValid) {
       if (isset($postedParam['card'])) {
-        $this->throwException('unset card object', array('param' => $postedParam), FALSE);
+        $this->throwException(
+          'unset card object',
+          array('param' => $postedParam),
+          FALSE
+        );
       }
       $this->setUriCharge('', 'token');
 
-    } elseif ($isCardValid) {
+    }
+    elseif ($isCardValid) {
 
       if (isset($postedParam['token'])) {
-        $this->throwException('unset invalid token object', array('param' => $postedParam), FALSE);
+        $this->throwException(
+          'unset invalid token object',
+          array('param' => $postedParam),
+          FALSE
+        );
         unset($param['postedParam']['token']);
       }
       $this->setUriCharge('', 'card');
 
-    } elseif ($isCardIdValid) {
+    }
+    elseif ($isCardIdValid) {
       $this->setUriCharge('', 'card');
 
       if (isset($postedParam['token'])) {
-        $this->throwException('unset invalid token object', array('param' => $postedParam), FALSE);
+        $this->throwException(
+          'unset invalid token object',
+          array('param' => $postedParam),
+          FALSE
+        );
         unset($param['postedParam']['token']);
       }
 
       if (isset($postedParam['card'])) {
-        $this->throwException('unset invalid token object', array('param' => $postedParam), FALSE);
+        $this->throwException(
+          'unset invalid token object',
+          array('param' => $postedParam),
+          FALSE
+        );
 
         if (isset($param['postedParam']['card']['name'])) {
           unset($param['postedParam']['card']['name']);
@@ -303,28 +337,51 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
         }
       }
 
-    } elseif ($isEmailValid || $isCustomerIdValid) {
+    }
+    elseif ($isEmailValid || $isCustomerIdValid) {
       $this->setUriCharge('', 'customer');
     }
     else {
       $hasError = TRUE;
-      $this->throwException('Please provide  either a valid card token or a card object or a card id', array('pram' => $param));
+      $this->throwException(
+        'Please provide  either a valid card token or a card object or a card id',
+        array('pram' => $param)
+      );
     }
 
     if (!$isAmountValid) {
       $hasError = TRUE;
-      $this->throwException('Please provide a valid amount (in cents)', array('pram' => $param));
+      $this->throwException(
+        'Please provide a valid amount (in cents)',
+        array('pram' => $param)
+      );
     }
 
     if (!$isCurrencyValid) {
       $hasError = TRUE;
-      $this->throwException('Please provide a valid currency code (ISO currency code)', array('pram' => $param));
+      $this->throwException(
+        'Please provide a valid currency code (ISO currency code)',
+        array('pram' => $param)
+      );
     }
 
-    return $this->_responseUpdateStatus($this->request($this->getUriCharge(), $param, !$hasError));
+    return $this->responseUpdateStatus(
+      $this->request($this->getUriCharge(), $param, !$hasError)
+    );
 
   }
 
+  /**
+   * Verify charge payment token.
+   *
+   * This method verifies the charge payment token in the parameters array.
+   *
+   * @param array $param
+   *   The parameters array.
+   *
+   * @return bool
+   *   True if it is a valid charge payment token.
+   */
   public function verifyChargePaymentToken(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
@@ -336,7 +393,10 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
 
     if (!$isTokenValid) {
       $hasError = TRUE;
-      $this->throwException('Please provide a valid payment token ', array('param' => $param));
+      $this->throwException(
+        'Please provide a valid payment token ',
+        array('param' => $param)
+      );
 
     }
     else {
@@ -349,15 +409,21 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   }
 
   /**
-   * Refund  Info.
+   * Refund info.
    *
-   * This method returns the Captured amount, total refunded amount and 
+   * This method returns the Captured amount, total refunded amount and
    * the amount remaining to refund.
    *
    * Simple usage:
    *   $refundInfo = $Api->getRefundInfo($param);
+   *
+   * @param array $param
+   *   The parameters array.
+   *
+   * @return mixed
+   *   Returns the refund info.
    */
-  public function getRefundAmountInfo($param) {
+  public function getRefundAmountInfo(array $param) {
 
     $chargeHistory = $this->getChargeHistory($param);
     $charges = $chargeHistory->getCharges();
@@ -385,25 +451,26 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   }
 
   /**
-   * Refund  Charge.
+   * Refund charge.
    *
-   * This method refunds a Card Charge that has previously been created but not yet refunded
-   * or void a charge that has been capture.
+   * This method refunds a Card Charge that has previously been
+   * created but not yet refunded or void a charge that has been capture.
    *
    * Simple usage:
-   *   $param['postedParam'] = array (.
-   *     'value'=>150.
-   *   );.
-   *   $refundCharge = $Api->refundCharge($param);.
+   *   $param['postedParam'] = array (
+   *     'value'=>150
+   *   );
+   *   $refundCharge = $Api->refundCharge($param);
    *
    * @param array $param
    *   Payload param for refund a charge.
    *
    * @return CheckoutapiLibRespondObj
+   *   Refund charges.
    *
    * @throws Exception
    */
-  public function refundCharge($param) {
+  public function refundCharge(array $param) {
     $chargeHistory = $this->getChargeHistory($param);
     $charges = $chargeHistory->getCharges();
     $uri = $this->getUriCharge();
@@ -419,7 +486,9 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
         if (in_array(CheckoutapiClientConstant::STATUS_CAPTURE, $charge)
           || in_array(CheckoutapiClientConstant::STATUS_REFUND, $charge)
         ) {
-          if (strtolower($charge['status']) == strtolower(CheckoutapiClientConstant::STATUS_CAPTURE)) {
+          if (strtolower($charge['status']) == strtolower(
+            CheckoutapiClientConstant::STATUS_CAPTURE
+          )) {
             $toRefund = TRUE;
             $toRefundData = $charge;
             break;
@@ -444,7 +513,10 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       }
     }
     else {
-      $this->throwException('Please provide a valid charge id', array('param' => $param));
+      $this->throwException(
+        'Please provide a valid charge id',
+        array('param' => $param)
+      );
     }
 
     $hasError = FALSE;
@@ -459,19 +531,27 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
 
     if (!$isChargeIdValid) {
       $hasError = TRUE;
-      $this->throwException('Please provide a valid charge id', array('param' => $param));
-
+      $this->throwException(
+        'Please provide a valid charge id',
+        array('param' => $param)
+      );
     }
 
     if (!$isAmountValid) {
-      $this->throwException('Please provide a amount (in cents)', array('param' => $param), FALSE);
+      $this->throwException(
+        'Please provide a amount (in cents)',
+        array('param' => $param),
+        FALSE
+      );
     }
-    return $this->_responseUpdateStatus($this->request($uri, $param, !$hasError));
+    return $this->responseUpdateStatus(
+      $this->request($uri, $param, !$hasError)
+    );
 
   }
 
   /**
-   * Void  Charge.
+   * Void Charge.
    *
    * This method void a Card Charge that has previously been created.
    *
@@ -483,10 +563,11 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *   Payload param for void a charge.
    *
    * @return CheckoutapiLibRespondObj
+   *   Response of the Hub.
    *
    * @throws Exception
    */
-  public function voidCharge($param) {
+  public function voidCharge(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
     $postedParam = $param['postedParam'];
@@ -497,37 +578,48 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
 
     if (!$isChargeIdValid) {
       $hasError = TRUE;
-      $this->throwException('Please provide a valid charge id', array('param' => $param));
-
+      $this->throwException(
+        'Please provide a valid charge id',
+        array('param' => $param)
+      );
     }
     else {
 
       $uri = "$uri/{$param['chargeId']}/void";
     }
     if (!$isAmountValid) {
-      $this->throwException('Please provide a amount (in cents)', array('param' => $param), FALSE);
+      $this->throwException(
+        'Please provide a amount (in cents)',
+        array('param' => $param),
+        FALSE
+      );
     }
 
-    return $this->_responseUpdateStatus($this->request($uri, $param, !$hasError));
+    return $this->responseUpdateStatus(
+      $this->request($uri, $param, !$hasError)
+    );
 
   }
+
   /**
    * Capture Charge.
    *
-   * This method allow you to capture the payment of an existing, authorised, Card Charge.
+   * This method allow you to capture the payment
+   * of an existing, authorised, Card Charge.
    *
    * Simple usage:
-   *   $param['postedParam'] = array ( 'value'=>150 );.
-   *      CaptureCharge = $Api->captureCharge($param);.
+   *   $param['postedParam'] = array ( 'value'=>150 );
+   *      CaptureCharge = $Api->captureCharge($param);
    *
    * @param array $param
    *   Payload param for caputring a charge.
    *
    * @return CheckoutapiLibRespondObj
+   *   Respons of the hub.
    *
    * @throws Exception
    */
-  public function captureCharge($param) {
+  public function captureCharge(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
     $param['method'] = CheckoutapiClientAdapterConstant::API_POST;
@@ -550,27 +642,31 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       $this->throwException('Please provide a amount (in cents)', array('param' => $param), FALSE);
     }
 
-    return $this->_responseUpdateStatus($this->request($uri, $param, !$hasError));
+    return $this->responseUpdateStatus($this->request($uri, $param, !$hasError));
 
   }
 
   /**
    * Update Charge.
    *
-   * Updates the specified Card Charge by setting the values of the parameters passed.
+   * Updates the specified Card Charge by setting
+   * the values of the parameters passed.
    *
-   * Simple usage:.
-   *   $param['postedParam'] = array ('description'=> 'dhiraj is doing some test');.
-   *   $updateCharge = $Api->updateCharge($param);.
+   * Simple usage:
+   *   $param['postedParam'] = array (
+   *     'description'=> 'dhiraj is doing some test'
+   *   );
+   *   $updateCharge = $Api->updateCharge($param);
    *
    * @param array $param
    *   Payload param.
    *
    * @return CheckoutapiLibRespondObj
+   *   Respons of the hub.
    *
    * @throws Exception
    */
-  public function updateCharge($param) {
+  public function updateCharge(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
     $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
@@ -590,25 +686,30 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       $uri = "$uri/{$param['chargeId']}";
     }
 
-    return $this->_responseUpdateStatus($this->request($this->getUriCharge(), $param, !$hasError));
+    return $this->responseUpdateStatus($this->request($this->getUriCharge(), $param, !$hasError));
 
   }
+
   /**
    * Update MetaData of the Charge.
    *
-   * Updates the specified Card Charge by setting the values of the parameters passed.
+   * Updates the specified Card Charge by setting
+   * the values of the parameters passed.
    *
    * Simple usage:
    *   $updateCharge = $Api->updateMetadata($param array('keycode'=>$value));.
    *
-   * @param array $param
-   *   Payload param.
+   * @param object $chargeObj
+   *   The charge object.
+   * @param array $metaData
+   *   An array with the meta data.
    *
    * @return CheckoutapiLibRespondObj
+   *   Respons of the hub.
    *
    * @throws Exception
    */
-  public function updateMetadata($chargeObj, $metaData = array()) {
+  public function updateMetadata($chargeObj, array $metaData = array()) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
     $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
@@ -635,13 +736,16 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   /**
    * Update Trackid Charge.
    *
-   * Updates the specified Card Charge by setting the values of the parameters passed.
+   * Updates the specified Card Charge by setting
+   * the values of the parameters passed.
    *
    * Simple usage:
    *   $updateCharge = $Api->updateTrackId($chargeObj, $trackId);.
    *
-   * @param array $param
-   *   Payload param.
+   * @param object $chargeObj
+   *   The charge object.
+   * @param string $trackId
+   *   The track ID.
    *
    * @return object
    *   CheckoutapiLibRespondObj.
@@ -668,7 +772,8 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   /**
    * Update PaymentToken Charge.
    *
-   * Updates the specified Card Charge by setting the values of the parameters passed.
+   * Updates the specified Card Charge by setting
+   * the values of the parameters passed.
    *
    * Simple usage:
    *   $updatePaymentToken = $Api->updatePaymentToken($paymentToken);.
@@ -681,7 +786,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function updatePaymentToken($param) {
+  public function updatePaymentToken(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
     $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
@@ -697,10 +802,13 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   /**
    * Get Charge.
    *
-   * Get the specified Card Charge by setting the values of the parameters passed.
+   * Get the specified Card Charge by setting
+   * the values of the parameters passed.
    *
    * Simple usage:
-   *   $param['postedParam'] = array ('description'=> 'dhiraj is doing some test');.
+   *   $param['postedParam'] = array (
+   *     'description' => 'dhiraj is doing some test'
+   *   );.
    *   $updateCharge = $Api->updateCharge($param);.
    *
    * @param array $param
@@ -711,7 +819,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCharge($param) {
+  public function getCharge(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
     $param['method'] = CheckoutapiClientAdapterConstant::API_GET;
@@ -731,17 +839,17 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       $uri = "$uri/{$param['chargeId']}";
     }
 
-    return $this->_responseUpdateStatus($this->request($uri, $param, !$hasError));
+    return $this->responseUpdateStatus($this->request($uri, $param, !$hasError));
 
   }
 
   /**
    * GetChargeHistory.
    *
-   * @param mixed $param
-   *   Var for param.
+   * @param array $param
+   *   An array with parameters.
    */
-  public function getChargeHistory($param) {
+  public function getChargeHistory(array $param) {
 
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
@@ -777,10 +885,13 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *     'email'        =>  'dhiraj.checkout@checkout.com',
    *     'token'        =>   $Api->getSessionToken($sessionConfig),.
    *     'localPayment' =>  array(.
-   *       'lppId'  => $Api->getLocalPaymentProvider($localPaymentConfig)->getId().
+   *       'lppId'  => $Api
+   *          ->getLocalPaymentProvider($localPaymentConfig)
+   *          ->getId()
    *     ).
    *   ) ;.
-   *   $chargeLocalPaymentObj = $Api->createLocalPaymentCharge($chargeLocalPaymentConfig);.
+   *   $chargeLocalPaymentObj = $Api
+   *     ->createLocalPaymentCharge($chargeLocalPaymentConfig);
    *
    * @param array $param
    *   Payload param for creating a localpayment.
@@ -788,7 +899,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * @return object
    *   CheckoutapiLibRespondObj.
    */
-  public function createLocalPaymentCharge($param) {
+  public function createLocalPaymentCharge(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::LOCALPAYMENT_CHARGE_TYPE;
     $postedParam = $param['postedParam'];
@@ -845,7 +956,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function createCustomer($param) {
+  public function createCustomer(array $param) {
     $hasError = FALSE;
     $param['method'] = CheckoutapiClientAdapterConstant::API_POST;
     $postedParam = $param['postedParam'];
@@ -865,7 +976,8 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
         $this->throwException('unsetting card object', array('param' => $param), FALSE);
         unset($param['postedParam']['card']);
       }
-    } elseif ($isCardValid) {
+    }
+    elseif ($isCardValid) {
       if (isset($postedParam['token'])) {
         $this->throwException('unsetting token ', array('param' => $param), FALSE);
         unset($param['postedParam']['token']);
@@ -884,7 +996,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * Get Customer.
    *
    * Simple usage :
-   *   $param['customerId'] = {customerId} ;
+   *   $param['customerId'] = {customerId};
    *   $getCustomer = $Api->getCustomer($param);
    *
    * @param array $param
@@ -895,7 +1007,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCustomer($param) {
+  public function getCustomer(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_GET;
@@ -941,7 +1053,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function updateCustomer($param) {
+  public function updateCustomer(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
@@ -979,7 +1091,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getListCustomer($param) {
+  public function getListCustomer(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_GET;
@@ -1038,7 +1150,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function deleteCustomer($param) {
+  public function deleteCustomer(array $param) {
     $param['method'] = CheckoutapiClientAdapterConstant::API_DELETE;
     $this->flushState();
     $uri = $this->getUriCustomer();
@@ -1083,7 +1195,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function createCard($param) {
+  public function createCard(array $param) {
 
     $this->flushState();
     $uri = $this->getUriCustomer();
@@ -1113,18 +1225,18 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * Update a card.
    *
    * Simple usage:
-   *   $param['customerId'] = $customerId ;.
-   *   $param['cardId'] = $cardId ;.
-   *   $param['postedParam'] = array (.
-   *     'card'        =>  array(.
-   *       'name'        =>  'New name',.
-   *       'number'      => '4543474002249996',.
-   *       'expiryMonth' => 08,.
-   *       'expiryYear'  => 2017,.
-   *       'cvv'         => 956,.
-   *     ).
-   *   );.
-   *   $updateCardObj = $Api->updateCard($param);.
+   *   $param['customerId'] = $customerId ;
+   *   $param['cardId'] = $cardId ;
+   *   $param['postedParam'] = array (
+   *     'card'        =>  array(
+   *       'name'        =>  'New name',
+   *       'number'      => '4543474002249996',
+   *       'expiryMonth' => 08,
+   *       'expiryYear'  => 2017,
+   *       'cvv'         => 956,
+   *     )
+   *   );
+   *   $updateCardObj = $Api->updateCard($param);
    *
    * @param array $param
    *   Payload param for update a card.
@@ -1134,12 +1246,12 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function updateCard($param) {
+  public function updateCard(array $param) {
     $this->flushState();
     $uri = $this->getUriCustomer();
     $hasError = FALSE;
 
-    // $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
+    // $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;.
     $isCustomerIdValid = CheckoutapiClientValidationGW3::isCustomerIdValid($param);
     $isCardIdValid = CheckoutapiClientValidationGW3::isGetCardIdValid($param);
 
@@ -1147,7 +1259,8 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       $hasError = TRUE;
       $this->throwException('Please provide a valid customer id', array('param' => $param));
 
-    } elseif (!$isCardIdValid) {
+    }
+    elseif (!$isCardIdValid) {
       $hasError = TRUE;
       $this->throwException('Please provide a valid card id', array('param' => $param));
     }
@@ -1164,9 +1277,9 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * Get a card.
    *
    * Simple usage:
-   *   $param['customerId'] = $customerId ;.
-   *   $param['cardId'] = $cardId ;.
-   *   $getCardObj = $Api->getCard($param);.
+   *   $param['customerId'] = $customerId ;
+   *   $param['cardId'] = $cardId ;
+   *   $getCardObj = $Api->getCard($param);
    *
    * Required a customer id and a card id to work.
    *
@@ -1178,7 +1291,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCard($param) {
+  public function getCard(array $param) {
     $this->flushState();
     $uri = $this->getUriCustomer();
     $hasError = FALSE;
@@ -1190,7 +1303,8 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       $hasError = TRUE;
       $this->throwException('Please provide a valid customer id', array('param' => $param));
 
-    } elseif (!$isCardIdValid) {
+    }
+    elseif (!$isCardIdValid) {
       $hasError = TRUE;
       $this->throwException('Please provide a valid card id', array('param' => $param));
     }
@@ -1207,7 +1321,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * Get Card List.
    *
    * Simple usage:
-   *   $param['customerId'] = $customerId ;
+   *   $param['customerId'] = $customerId;
    *   $getCardListObj = $Api->getCardList($param);
    * Require a customer id.
    *
@@ -1219,7 +1333,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCardList($param) {
+  public function getCardList(array $param) {
     $this->flushState();
     $uri = $this->getUriCustomer();
     $hasError = FALSE;
@@ -1244,8 +1358,8 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * Delete Card List.
    *
    * Simple usage:
-   *   $param['customerId'] = $customerId ;
-   *   $param['cardId'] = $cardId ;
+   *   $param['customerId'] = $customerId;
+   *   $param['cardId'] = $cardId;
    *   $deleteCard = $Api->deleteCard($param);
    *
    * @param array $param
@@ -1256,7 +1370,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function deleteCard($param) {
+  public function deleteCard(array $param) {
     $this->flushState();
     $uri = $this->getUriCustomer();
     $hasError = FALSE;
@@ -1268,7 +1382,8 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       $hasError = TRUE;
       $this->throwException('Please provide a valid customer id', array('param' => $param));
 
-    } elseif (!$isCardIdValid) {
+    }
+    elseif (!$isCardIdValid) {
       $hasError = TRUE;
       $this->throwException('Please provide a valid card id', array('param' => $param));
     }
@@ -1297,7 +1412,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getLocalPaymentList($param) {
+  public function getLocalPaymentList(array $param) {
     $this->flushState();
     $uri = $this->getUriProvider();
     $hasError = FALSE;
@@ -1360,7 +1475,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getLocalPaymentProvider($param) {
+  public function getLocalPaymentProvider(array $param) {
     $this->flushState();
     $uri = $this->getUriProvider();
     $hasError = FALSE;
@@ -1401,7 +1516,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCardProvidersList($param) {
+  public function getCardProvidersList(array $param) {
     $this->flushState();
     $uri = $this->getUriProvider() . '/cards';
     $hasError = FALSE;
@@ -1422,7 +1537,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * @return object
    *   CheckoutapiLibRespondObj.
    */
-  public function getCardProvider($param) {
+  public function getCardProvider(array $param) {
     $this->flushState();
     $isValidProvider = CheckoutapiClientValidationGW3::isProvider($param);
     $uri = $this->getUriProvider() . '/cards';
@@ -1465,7 +1580,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function updatePaymentPlan($param) {
+  public function updatePaymentPlan(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
@@ -1484,7 +1599,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       $uri = "$uri/{$param['planId']}";
     }
 
-    return $this->_responseUpdateStatus($this->request($uri, $param, !$hasError));
+    return $this->responseUpdateStatus($this->request($uri, $param, !$hasError));
 
   }
 
@@ -1503,7 +1618,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function cancelPaymentPlan($param) {
+  public function cancelPaymentPlan(array $param) {
     $param['method'] = CheckoutapiClientAdapterConstant::API_DELETE;
     $this->flushState();
     $uri = $this->getUriRecurringPayments() . '/plans';
@@ -1537,7 +1652,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getPaymentPlan($param) {
+  public function getPaymentPlan(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_GET;
@@ -1580,7 +1695,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function updateCustomerPaymentPlan($param) {
+  public function updateCustomerPaymentPlan(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
@@ -1618,7 +1733,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function cancelCustomerPaymentPlan($param) {
+  public function cancelCustomerPaymentPlan(array $param) {
     $param['method'] = CheckoutapiClientAdapterConstant::API_DELETE;
     $this->flushState();
     $uri = $this->getUriRecurringPayments() . '/customers';
@@ -1652,7 +1767,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCustomerPaymentPlan($param) {
+  public function getCustomerPaymentPlan(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_GET;
@@ -1724,13 +1839,15 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
           foreach ($errors as $error) {
             $this->throwException($error, $respond->getErrors()->toArray());
           }
-        } elseif ($respond && isset($respond['errorCode']) && $respond->hasErrorCode()) {
+        }
+        elseif ($respond && isset($respond['errorCode']) && $respond->hasErrorCode()) {
           // @var CheckoutapiLibExceptionstate  $exceptionStateObj.
           $exceptionStateObj = $respond->getExceptionstate();
 
           $this->throwException($respond->getMessage(), $respond->toArray());
 
-        } elseif ($respond && $respond->getHttpStatus() != '200') {
+        }
+        elseif ($respond && $respond->getHttpStatus() != '200') {
           $this->throwException('Gateway is temporary down', $param);
         }
 
@@ -1748,7 +1865,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * @return array
    *   A array for  headers value.
    */
-   private function initHeader() {
+  private function initHeader() {
     $headers = array('Authorization: ' . $this->getAuthorization());
     $this->setHeaders($headers);
     return $this->getHeaders();
@@ -1818,7 +1935,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   /**
    * Get uri token.
    *
-   * @param null|string
+   * @param null|string $uri
    *   The uri for the token.
    */
   public function setUriToken($uri = NULL) {
@@ -1844,7 +1961,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   /**
    * Get customer uri.
    *
-   * @param null|string
+   * @param null|string $uri
    *   Endpoint url for customer.
    */
   public function setUriCustomer($uri = NULL) {
@@ -1870,7 +1987,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   /**
    * Get provider uri.
    *
-   * @param null|string
+   * @param null|string $uri
    *   Endpoint url for provider.
    */
   public function setUriProvider($uri = NULL) {
@@ -1896,7 +2013,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   /**
    * Get uri recurring payments.
    *
-   * @param null|string
+   * @param null|string $uri
    *   The uri for the recurring payments.
    */
   public function setUriRecurringPayments($uri = NULL) {
@@ -1931,6 +2048,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       case 'live':
         $prefix = CheckoutapiClientConstant::APIGW3_URI_PREFIX_LIVE . CheckoutapiClientConstant::VERSION . '/';
         break;
+
       default:
         $prefix = CheckoutapiClientConstant::APIGW3_URI_PREFIX_SANDBOX . CheckoutapiClientConstant::VERSION . '/';
         break;
@@ -1974,6 +2092,8 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
   }
 
   /**
+   * Get the JS configuration.
+   *
    * @param mixed $config
    *   Array of configuration.
    *
@@ -2016,7 +2136,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    */
   public function chargeToObj($charge) {
     if ($charge) {
-      $response = $this->_responseUpdateStatus($this->getParser()->parseToObj($charge));
+      $response = $this->responseUpdateStatus($this->getParser()->parseToObj($charge));
 
       return $response;
 
@@ -2034,7 +2154,7 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    * @return mixed
    *   A response.
    */
-  private function _responseUpdateStatus($response) {
+  private function responseUpdateStatus($response) {
 
     if ($response->hasStatus() && $response->hasHttpStatus() && $response->hasHttpStatus() == 200) {
       $response->setCaptured($response->getStatus() == 'Captured');
@@ -2043,7 +2163,8 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
       $response->setVoided($response->getStatus() == 'Voided');
       $response->setExpired($response->getStatus() == 'Expired');
       $response->setDecline($response->getStatus() == 'Decline');
-    } elseif ($response->hasMessage() && !$response->hasErrorCode()) {
+    }
+    elseif ($response->hasMessage() && !$response->hasErrorCode()) {
       $responseMessage = $response->getMessage();
       $responseMessage->setCaptured($responseMessage->getStatus() == 'Captured');
       $responseMessage->setAuthorised($responseMessage->getStatus() == 'Authorised');
@@ -2107,13 +2228,38 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    */
   public function valueToDecimal($amount, $currencySymbol) {
     $currency = strtoupper($currencySymbol);
-    $threeDecimalCurrencyList = array('BHD', 'LYD', 'JOD', 'IQD', 'KWD', 'OMR', 'TND');
-    $zeroDecimalCurencyList = array('BYR', 'XOF', 'BIF', 'XAF', 'KMF', 'XOF', 'DJF', 'XPF', 'GNF', 'JPY', 'KRW', 'PYG', 'RWF', 'VUV', 'VND');
+    $threeDecimalCurrencyList = array(
+      'BHD',
+      'LYD',
+      'JOD',
+      'IQD',
+      'KWD',
+      'OMR',
+      'TND',
+    );
+    $zeroDecimalCurencyList = array(
+      'BYR',
+      'XOF',
+      'BIF',
+      'XAF',
+      'KMF',
+      'XOF',
+      'DJF',
+      'XPF',
+      'GNF',
+      'JPY',
+      'KRW',
+      'PYG',
+      'RWF',
+      'VUV',
+      'VND',
+    );
 
     if (in_array($currency, $threeDecimalCurrencyList)) {
       $value = (int) ($amount * 1000);
 
-    } elseif (in_array($currency, $zeroDecimalCurencyList)) {
+    }
+    elseif (in_array($currency, $zeroDecimalCurencyList)) {
       $value = floor($amount);
 
     }
@@ -2140,13 +2286,38 @@ class CheckoutapiClientClientGW3 extends CheckoutapiClientClient {
    */
   public function decimalToValue($amount, $currencySymbol) {
     $currency = strtoupper($currencySymbol);
-    $threeDecimalCurrencyList = array('BHD', 'LYD', 'JOD', 'IQD', 'KWD', 'OMR', 'TND');
-    $zeroDecimalCurencyList = array('BYR', 'XOF', 'BIF', 'XAF', 'KMF', 'XOF', 'DJF', 'XPF', 'GNF', 'JPY', 'KRW', 'PYG', 'RWF', 'VUV', 'VND');
+    $threeDecimalCurrencyList = array(
+      'BHD',
+      'LYD',
+      'JOD',
+      'IQD',
+      'KWD',
+      'OMR',
+      'TND',
+    );
+    $zeroDecimalCurencyList = array(
+      'BYR',
+      'XOF',
+      'BIF',
+      'XAF',
+      'KMF',
+      'XOF',
+      'DJF',
+      'XPF',
+      'GNF',
+      'JPY',
+      'KRW',
+      'PYG',
+      'RWF',
+      'VUV',
+      'VND',
+    );
 
     if (in_array($currency, $threeDecimalCurrencyList)) {
       $value = $amount / 1000;
 
-    } elseif (in_array($currency, $zeroDecimalCurencyList)) {
+    }
+    elseif (in_array($currency, $zeroDecimalCurencyList)) {
       $value = $amount;
 
     }

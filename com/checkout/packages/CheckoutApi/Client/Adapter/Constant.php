@@ -24,4 +24,5 @@ final class CheckoutapiClientAdapterConstant {
   const API_GET = 'GET';
   const API_DELETE = 'DELETE';
   const API_PUT = 'PUT';
+
 }

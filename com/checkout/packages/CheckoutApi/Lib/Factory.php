@@ -34,7 +34,9 @@ final class CheckoutapiLibFactory extends CheckoutapiLibObject {
    *   CheckoutapiLibFactory::getInstance('CheckoutapiClientClientgw3');
    *
    * @param string $className
-   *   A var for className.
+   *   The name of the class which you want to initialise.
+   * @param array $arguments
+   *   Agruments to initialise the object.
    *
    * @return mixed
    *   Checkoutapi create instance.
@@ -44,7 +46,7 @@ final class CheckoutapiLibFactory extends CheckoutapiLibObject {
   }
 
   /**
-   * This helper method create a singleton object
+   * This helper method create a singleton object.
    *
    * Given the name of the class.
    * Simple usage:

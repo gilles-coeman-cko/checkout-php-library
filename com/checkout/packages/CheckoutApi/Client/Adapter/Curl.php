@@ -18,7 +18,7 @@
  * @category Client
  * @version Release: @package_version@
  */
-class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract implements CheckoutapiClientAdapterInterface{
+class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract implements CheckoutapiClientAdapterInterface {
   /**
    * Timeout time in minutes.
    *
@@ -80,20 +80,19 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
         $curlMethod = CheckoutapiClientAdapterConstant::API_POST;
         break;
 
-       case CheckoutapiClientAdapterConstant::API_GET:
+      case CheckoutapiClientAdapterConstant::API_GET:
         $curlMethod = CheckoutapiClientAdapterConstant::API_GET;
-
         break;
 
-       case CheckoutapiClientAdapterConstant::API_DELETE:
+      case CheckoutapiClientAdapterConstant::API_DELETE:
         $curlMethod = CheckoutapiClientAdapterConstant::API_DELETE;
         break;
 
-       case CheckoutapiClientAdapterConstant::API_PUT:
+      case CheckoutapiClientAdapterConstant::API_PUT:
         $curlMethod = CheckoutapiClientAdapterConstant::API_PUT;
         break;
-      default:
 
+      default:
         $this->exception("Method currently not supported", debug_backtrace());
         break;
     }
@@ -127,8 +126,8 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
         )
       );
 
-    } elseif (curl_errno($resource)) {
-
+    }
+    elseif (curl_errno($resource)) {
       $info = curl_getinfo($resource);
       $this->exception("Curl issues ", $info);
     }
@@ -140,6 +139,12 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
 
   }
 
+  /**
+   * Getter for the resource info.
+   *
+   * @return array
+   *   Array with resource info.
+   */
   public function getResourceInfo() {
     $info = curl_getinfo($this->getResource());
 

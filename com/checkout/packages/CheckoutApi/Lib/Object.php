@@ -33,18 +33,19 @@ class CheckoutapiLibObject implements ArrayAccess {
   /**
    * Method that get the configuration for an object.
    *
-   * @param null $key
+   * @param mixed|null $key
    *   Name of configuration you want to retrive.
    *
    * @return array|null
-   *   A array .
+   *   A array with configuration settings.
    */
   public function getConfig($key = NULL) {
     if ($key != NULL && isset($this->_config[$key])) {
 
       return $this->_config[$key];
 
-    } elseif ($key == NULL) {
+    }
+    elseif ($key == NULL) {
 
       return $this->_config;
 
@@ -151,6 +152,7 @@ class CheckoutapiLibObject implements ArrayAccess {
    * Get Singleton Instance of CheckoutapiLibExceptionstate object.
    *
    * @return CheckoutapiLibExceptionstate|null
+   *   Returns the exception state of the instance.
    *
    * @throws Exception
    */
@@ -213,6 +215,6 @@ class CheckoutapiLibObject implements ArrayAccess {
    */
   public function offsetGet($offset) {
     return isset($this->_config[$offset]) ? $this->_config[$offset] : NULL;
-
   }
+
 }

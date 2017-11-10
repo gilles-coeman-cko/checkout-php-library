@@ -80,6 +80,7 @@ class CheckoutapiLibValidator extends CheckoutapilibObject {
    *   CheckoutapiLibValidator::isString($var).
    *
    * @param mixed $string
+   *   A variable which could be a string.
    *
    * @return bool
    *   True if var is a string.
@@ -99,7 +100,7 @@ class CheckoutapiLibValidator extends CheckoutapilibObject {
    *   A var for string.
    *
    * @return bool
-   *    True if var is a float.
+   *   True if var is a float.
    */
   public static function isFloat($string) {
     return is_float($string);
@@ -128,10 +129,9 @@ class CheckoutapiLibValidator extends CheckoutapilibObject {
    * Helper method that check if string match length.
    *
    * @param string $var
-   *   A var for var.
-   *
-   * @param integer $length
-   *   A var for length.
+   *   A variable which has a certain length.
+   * @param int $length
+   *   The length you want to be checked.
    *
    * @return bool
    *   True if var is the same length as length.
@@ -155,12 +155,12 @@ class CheckoutapiLibValidator extends CheckoutapilibObject {
    * @param string $cvv
    *   A var for cvv.
    *
-   * @return TRUE
-   *   True if var is a formated CVV.
+   * @return bool
+   *   True if var is a formatted CVV.
    */
   public static function isValidCvvLen($cvv) {
     $pattern = '/^[0-9]{3,4}$/';
     return preg_match($pattern, $cvv) ? TRUE : FALSE;
-
   }
+
 }
