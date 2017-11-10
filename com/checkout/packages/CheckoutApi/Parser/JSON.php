@@ -30,21 +30,21 @@ class CheckoutapiParserJSON extends CheckoutapiParserParser {
   );
 
   /**
-   * Convert a json to a CheckoutapiLibRespondObj object.
+   * Convert a json to a CheckoutapiLibRespondobj object.
    *
    * @param JSON $parser
    *   A JSON string.
    *
-   * @return CheckoutapiLibRespondObj|null
+   * @return CheckoutapiLibRespondobj|null
    *   A an object converted from the JSON string.
    *
    * @throws Exception
    */
-  public function parseToObj(JSON $parser) {
+  public function parseToObj($parser) {
 
-    // @var CheckoutapiLibRespondObj $respondObj
+    // @var CheckoutapiLibRespondobj $respondObj
     $respondObj = CheckoutapiLibFactory::getInstance(
-      'CheckoutapiLibRespondObj'
+      'CheckoutapiLibRespondobj'
     );
 
     if ($parser && is_string($parser)) {
@@ -71,23 +71,23 @@ class CheckoutapiParserJSON extends CheckoutapiParserParser {
   /**
    * Prepares posted values, so they match the header of the parser.
    *
-   * @param array $postedParam
+   * @param mixed $postedParam
    *   The array or object.
    *
    * @return JSON
    *   A JSON encoded array.
    */
-  public function preparePosted(array $postedParam) {
+  public function preparePosted($postedParam) {
     return json_encode($postedParam);
   }
 
   /**
    * Set the resource info.
    *
-   * @param array $info
+   * @param mixed $info
    *   The info array.
    */
-  public function setResourceInfo(array $info) {
+  public function setResourceInfo($info) {
     $this->info = $info;
   }
 

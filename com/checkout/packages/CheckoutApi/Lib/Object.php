@@ -40,14 +40,14 @@ class CheckoutapiLibObject implements ArrayAccess {
    *   A array with configuration settings.
    */
   public function getConfig($key = NULL) {
-    if ($key != NULL && isset($this->_config[$key])) {
+    if ($key != NULL && isset($this->config[$key])) {
 
-      return $this->_config[$key];
+      return $this->config[$key];
 
     }
     elseif ($key == NULL) {
 
-      return $this->_config;
+      return $this->config;
 
     }
 
@@ -70,7 +70,7 @@ class CheckoutapiLibObject implements ArrayAccess {
       if (!empty($config)) {
         foreach ($config as $key => $value) {
 
-          $this->_config[$key] = $value;
+          $this->config[$key] = $value;
         }
       }
 
@@ -88,7 +88,7 @@ class CheckoutapiLibObject implements ArrayAccess {
    * @return $this
    */
   public function resetConfig() {
-    $this->_config = array();
+    $this->config = array();
     return $this;
 
   }
@@ -179,10 +179,10 @@ class CheckoutapiLibObject implements ArrayAccess {
    */
   public function offsetSet($offset, $value) {
     if (is_null($offset)) {
-      $this->_config[] = $value;
+      $this->config[] = $value;
     }
     else {
-      $this->_config[$offset] = $value;
+      $this->config[$offset] = $value;
     }
   }
 
@@ -193,7 +193,7 @@ class CheckoutapiLibObject implements ArrayAccess {
    *   Var for offset.
    */
   public function offsetExists($offset) {
-    return isset($this->_config[$offset]);
+    return isset($this->config[$offset]);
 
   }
 
@@ -204,7 +204,7 @@ class CheckoutapiLibObject implements ArrayAccess {
    *   Var for offset.
    */
   public function offsetUnset($offset) {
-    unset($this->_config[$offset]);
+    unset($this->config[$offset]);
   }
 
   /**
@@ -214,7 +214,7 @@ class CheckoutapiLibObject implements ArrayAccess {
    *   Var for offset.
    */
   public function offsetGet($offset) {
-    return isset($this->_config[$offset]) ? $this->_config[$offset] : NULL;
+    return isset($this->config[$offset]) ? $this->config[$offset] : NULL;
   }
 
 }

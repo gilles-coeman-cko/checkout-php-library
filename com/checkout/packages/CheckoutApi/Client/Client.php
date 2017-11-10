@@ -156,8 +156,8 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
   /**
    * Getter for $parserObje.
    *
-   * @return Checkoutapi_Parser_Parser|null
-   *   A Checkoutapi_Parser_Parser.
+   * @return CheckoutapiParserParser|null
+   *   A CheckoutapiParserParser.
    */
   public function getParser() {
     return $this->parserObj;
@@ -232,8 +232,9 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
    */
   public function getRespondType() {
     $respondType = $this->respondType;
-    if ($respondType = $this->getConfig('respondType')) {
-      $respondType = $respondType;
+    error_log('Responsetype: ' . var_export($this->getConfig('respondType'), true), 0);
+    if ($respondType2 = $this->getConfig('respondType')) {
+      $respondType = $respondType2;
     }
 
     return $respondType;
@@ -249,6 +250,7 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
     $parserType =
       CheckoutapiClientConstant::PARSER_CLASS_GROUP . $this->getRespondType();
 
+    error_log($parserType, 0);
     $parserObj = CheckoutapiLibFactory::getSingletonInstance($parserType);
     $this->setParser($parserObj);
   }

@@ -176,7 +176,7 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
   public function close() {
 
     if ($this->getResource()) {
-      curl_close($this->_resource);
+      curl_close($this->resource);
     }
 
     parent::close();
@@ -206,7 +206,7 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
    *   A int for timeout.
    */
   public function getTimeout() {
-    $timeout = $this->_timeout;
+    $timeout = $this->timeout;
     if ($this->getConfig('timeout')) {
       $timeout = $this->getConfig('timeout');
     }

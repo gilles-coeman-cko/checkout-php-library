@@ -100,7 +100,7 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
     if ($key != NULL) {
 
       $value = NULL;
-      if (isset($this->_config[$key])) {
+      if (isset($this->config[$key])) {
         $value = $this->config[$key];
       }
       elseif (isset($this->updateConfig[$key])) {
@@ -115,7 +115,7 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
         }
       }
       elseif (is_array($value)) {
-        // @var Checkoutapi_LibRespondobj.
+        // @var CheckoutapiLibRespondobj.
         $to_return = CheckoutapiLibFactory::getInstance(
           'CheckoutapiLibRespondobj'
         );
@@ -247,12 +247,12 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
   /**
    * OffsetSet.
    *
-   * @param array $offset
-   *   The array with the offset.
-   * @param array $value
-   *   The array with the value.
+   * @param mixed $offset
+   *   The mixed variable with the offset.
+   * @param mixed $value
+   *   The mixed variable with the value.
    */
-  public function offsetSet(array $offset, array $value) {
+  public function offsetSet($offset, $value) {
     if (is_null($offset)) {
       $this->config[] = $value;
     }
@@ -264,36 +264,36 @@ class CheckoutapiLibRespondobj implements ArrayAccess {
   /**
    * OffsetExists.
    *
-   * @param array $offset
-   *   The array with the offset.
+   * @param mixed $offset
+   *   The variable with the offset.
    *
    * @return bool
    *   True if offset is set.
    */
-  public function offsetExists(array $offset) {
+  public function offsetExists($offset) {
     return isset($this->config[$offset]);
   }
 
   /**
    * OffsetUnset.
    *
-   * @param array $offset
-   *   The array with the offset.
+   * @param mixed $offset
+   *   The variable with the offset.
    */
-  public function offsetUnset(array $offset) {
+  public function offsetUnset($offset) {
     unset($this->config[$offset]);
   }
 
   /**
    * OffsetGet.
    *
-   * @param array $offset
-   *   The array with the offset.
+   * @param mixed $offset
+   *   The variable with the offset.
    *
-   * @return array|null
+   * @return mixed
    *   Return the offset.
    */
-  public function offsetGet(array $offset) {
+  public function offsetGet($offset) {
     return isset($this->config[$offset]) ? $this->config[$offset] : NULL;
   }
 

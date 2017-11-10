@@ -56,7 +56,7 @@ abstract class CheckoutapiParserParser extends CheckoutapiLibObject {
    *   A CheckoutapiLibRespondobj.
    */
   public function setRespondobj($obj) {
-    $this->_respondObj = $obj;
+    $this->respondObj = $obj;
   }
 
   /**
@@ -66,7 +66,7 @@ abstract class CheckoutapiParserParser extends CheckoutapiLibObject {
    *   A CheckoutapiLibRespondobj.
    */
   public function getRespondobj() {
-    return $this->_respondObj;
+    return $this->respondObj;
   }
 
   /**
