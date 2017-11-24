@@ -24,8 +24,8 @@ namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
 
 class CardProvider extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $_id;
-    private $_name;
+    private $id;
+    private $name;
     public function __construct($response)
     {
         parent::__construct($response);
@@ -38,7 +38,7 @@ class CardProvider extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     protected function _setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**
@@ -46,7 +46,7 @@ class CardProvider extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     protected function _setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**
@@ -54,7 +54,7 @@ class CardProvider extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -62,7 +62,7 @@ class CardProvider extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
 }

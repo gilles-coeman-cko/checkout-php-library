@@ -25,14 +25,14 @@ namespace com\checkout\ApiServices\SharedModels;
 class Phone
 {
     protected $_number;
-    protected $_countryCode;
+    protected $countryCode;
 
     /**
      * @return mixed
      */
     public function getCountryCode()
     {
-        return $this->_countryCode;
+        return $this->countryCode;
     }
 
     /**
@@ -48,7 +48,7 @@ class Phone
      */
     public function setCountryCode( $countryCode )
     {
-        $this->_countryCode = $countryCode;
+        $this->countryCode = $countryCode;
     }
 
     /**
@@ -63,7 +63,7 @@ class Phone
     {
         return array(
             'number'      => $this->_number,
-            'countryCode' => $this->_countryCode
+            'countryCode' => $this->countryCode
         );
     }
 }

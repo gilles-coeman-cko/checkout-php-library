@@ -25,14 +25,14 @@ namespace com\checkout\ApiServices\Charges\RequestModels;
 class ChargeRefund
 {
     private $_chargeId;
-    private $_value;
+    private $value;
 
     /**
      * @return mixed
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -40,7 +40,7 @@ class ChargeRefund
      */
     public function setValue( $value )
     {
-        $this->_value = $value;
+        $this->value = $value;
     }
 
     /**

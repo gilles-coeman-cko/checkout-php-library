@@ -24,16 +24,16 @@ namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
 
 class LocalPaymentProviderList extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    protected $_object;
-    protected $_count;
-    protected $_data;
+    protected $object;
+    protected $count;
+    protected $data;
 
     public function __construct( $response )
     {
 
-        $this->_setCount($response->getCount());
-        $this->_setData($response->getData());
-        $this->_setObject($response->getObject());
+        $this->setCount($response->getCount());
+        $this->setData($response->getData());
+        $this->setObject($response->getObject());
     }
 
     /**
@@ -41,7 +41,7 @@ class LocalPaymentProviderList extends \com\checkout\ApiServices\SharedModels\Ba
      */
     public function getCount()
     {
-        return $this->_count;
+        return $this->count;
     }
 
     /**
@@ -49,7 +49,7 @@ class LocalPaymentProviderList extends \com\checkout\ApiServices\SharedModels\Ba
      */
     public function getData()
     {
-        return $this->_data;
+        return $this->data;
     }
 
     /**
@@ -57,25 +57,25 @@ class LocalPaymentProviderList extends \com\checkout\ApiServices\SharedModels\Ba
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
     /**
      * @param mixed $count
      */
-    private function _setCount( $count )
+    private function setCount( $count )
     {
-        $this->_count = $count;
+        $this->count = $count;
     }
 
     /**
      * @param mixed $data
      */
-    private function _setData( $data )
+    private function setData( $data )
     {
         $dataArray = $data->toArray();
         foreach ( $dataArray as $provider ) {
-            $this->_data[ ] = $this->getProvider($provider);
+            $this->data[ ] = $this->getProvider($provider);
         }
     }
 
@@ -83,9 +83,9 @@ class LocalPaymentProviderList extends \com\checkout\ApiServices\SharedModels\Ba
      * @param mixed $object
      */
 
-    private function _setObject( $object )
+    private function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
     private function getProvider( $customer )

@@ -27,7 +27,7 @@ class Address
     protected $_addressLine1;
     protected $_addressLine2;
     protected $_postcode;
-    protected $_country;
+    protected $country;
     protected $_city;
     protected $_state;
     protected $_phone;
@@ -85,7 +85,7 @@ class Address
      */
     public function getCountry()
     {
-        return $this->_country;
+        return $this->country;
     }
 
     /**
@@ -93,7 +93,7 @@ class Address
      */
     public function setCountry( $country )
     {
-        $this->_country = $country;
+        $this->country = $country;
     }
 
     /**

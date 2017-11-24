@@ -24,7 +24,7 @@ namespace com\checkout\ApiServices\Charges;
 
 class ChargesMapper
 {
-    private $_requestModel;
+    private $requestModel;
 
     public  function __construct( $requestModel)
     {
@@ -35,7 +35,7 @@ class ChargesMapper
      */
     public function getRequestModel()
     {
-        return $this->_requestModel;
+        return $this->requestModel;
     }
 
     /**
@@ -43,7 +43,7 @@ class ChargesMapper
      */
     public function setRequestModel( $requestModel )
     {
-        $this->_requestModel = $requestModel;
+        $this->requestModel = $requestModel;
     }
 
     public function requestPayloadConverter($requestModel = null )
@@ -289,49 +289,49 @@ class ChargesMapper
                 $requestPayload[ 'paymentToken' ] = $paymentToken;
             }
 
-            if(method_exists($requestModel, 'getPaymentPlans') ) {
-                $paymentPlans = $requestModel->getPaymentPlans();
+            if(method_exists($requestModel, 'getPaymentplans') ) {
+                $paymentPlans = $requestModel->getPaymentplans();
 
                 foreach($paymentPlans as $singlePlan) {
 
-                    $requestSinglePaymentPlan = array();
+                    $requestSinglePaymentplan = array();
 
                     if (method_exists($singlePlan, 'getName') && ($name = $singlePlan->getName())) {
-                        $requestSinglePaymentPlan['name'] = $name;
+                        $requestSinglePaymentplan['name'] = $name;
                     }
 
                     if (method_exists($singlePlan, 'getPlanTrackId') && ($planTrackId = $singlePlan->getPlanTrackId())) {
-                        $requestSinglePaymentPlan['planTrackId'] = $planTrackId;
+                        $requestSinglePaymentplan['planTrackId'] = $planTrackId;
                     }
 
                     if (method_exists($singlePlan, 'getAutoCapTime') && ($autoCapTime = $singlePlan->getAutoCapTime())) {
-                        $requestSinglePaymentPlan['autoCapTime'] = $autoCapTime;
+                        $requestSinglePaymentplan['autoCapTime'] = $autoCapTime;
                     }
 
                     if (method_exists($singlePlan, 'getCurrency') && ($currency = $singlePlan->getCurrency())) {
-                        $requestSinglePaymentPlan['currency'] = $currency;
+                        $requestSinglePaymentplan['currency'] = $currency;
                     }
 
                     if (method_exists($singlePlan, 'getValue') && ($value = $singlePlan->getValue())) {
-                        $requestSinglePaymentPlan['value'] = $value;
+                        $requestSinglePaymentplan['value'] = $value;
                     }
                     if (method_exists($singlePlan, 'getCycle') && ($cycle = $singlePlan->getCycle())) {
-                        $requestSinglePaymentPlan['cycle'] = $cycle;
+                        $requestSinglePaymentplan['cycle'] = $cycle;
                     }
 
                     if (method_exists($singlePlan, 'getRecurringCount') && ($recurringCount = $singlePlan->getRecurringCount())) {
-                        $requestSinglePaymentPlan['recurringCount'] = $recurringCount;
+                        $requestSinglePaymentplan['recurringCount'] = $recurringCount;
                     }
 
                     if (method_exists($singlePlan, 'getPlanId') && ($planId = $singlePlan->getPlanId())) {
-                        $requestSinglePaymentPlan['planId'] = $planId;
+                        $requestSinglePaymentplan['planId'] = $planId;
                     }
 
                     if (method_exists($singlePlan, 'getStartDate') && ($startDate = $singlePlan->getStartDate())) {
-                        $requestSinglePaymentPlan['startDate'] = $startDate;
+                        $requestSinglePaymentplan['startDate'] = $startDate;
                     }
 
-                    $requestPayload['paymentPlans'][] = $requestSinglePaymentPlan;
+                    $requestPayload['paymentPlans'][] = $requestSinglePaymentplan;
                 }
             }
 

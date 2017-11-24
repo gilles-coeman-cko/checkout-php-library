@@ -17,7 +17,7 @@ namespace com\checkout\helpers
 
     class AppSetting
     {
-        protected static $_instance = null;
+        protected static $instance = null;
         private $_secretKey = null;
         private $_requestTimeOut = 60;
         private $_debugMode = false;
@@ -59,10 +59,10 @@ namespace com\checkout\helpers
          */
         public static function getSingletonInstance()
         {
-            if (!isset(static::$_instance)) {
-                static::$_instance = new AppSetting();
+            if (!isset(static::$instance)) {
+                static::$instance = new AppSetting();
             }
-            return static::$_instance;
+            return static::$instance;
         }
 
         /**
@@ -73,7 +73,7 @@ namespace com\checkout\helpers
         {
             $instance = new  AppSetting();
             if ($override) {
-                static::$_instance = $instance;
+                static::$instance = $instance;
             }
             return $instance;
         }

@@ -24,9 +24,9 @@ namespace com\checkout\ApiServices\Charges\ResponseModels;
 
 class Refund extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $_object;
+    private $object;
     private $_amount;
-    private $_currency;
+    private $currency;
     private $_created;
     private $_balanceTransaction;
 
@@ -83,7 +83,7 @@ class Refund extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCurrency()
     {
-        return $this->_currency;
+        return $this->currency;
     }
 
     /**
@@ -91,7 +91,7 @@ class Refund extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setCurrency( $currency )
     {
-        $this->_currency = $currency;
+        $this->currency = $currency;
     }
 
     /**
@@ -99,7 +99,7 @@ class Refund extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
     /**
@@ -107,7 +107,7 @@ class Refund extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
 }

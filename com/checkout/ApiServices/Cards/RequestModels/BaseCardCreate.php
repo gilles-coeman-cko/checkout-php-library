@@ -18,7 +18,7 @@ namespace com\checkout\ApiServices\Cards\RequestModels;
 class BaseCardCreate extends BaseCard
 {
     protected $_number;
-    protected $_cvv;
+    protected $cvv;
 
     /**
      * @return mixed
@@ -41,7 +41,7 @@ class BaseCardCreate extends BaseCard
      */
     public function getCvv()
     {
-        return $this->_cvv;
+        return $this->cvv;
     }
 
     /**
@@ -49,6 +49,6 @@ class BaseCardCreate extends BaseCard
      */
     public function setCvv( $cvv )
     {
-        $this->_cvv = $cvv;
+        $this->cvv = $cvv;
     }
 }

@@ -18,7 +18,7 @@ namespace com\checkout\ApiServices\SharedModels;
 
 class Descriptor
 {
-    protected $_name;
+    protected $name;
     protected $_city;
 
     /**
@@ -26,7 +26,7 @@ class Descriptor
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -34,7 +34,7 @@ class Descriptor
      */
     public function setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**

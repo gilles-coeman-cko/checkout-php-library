@@ -1,55 +1,78 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Recurring Payments Customer Plan Update.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\RecurringPayments\RequestModels;
+namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
 
-
-class CustomerPlanUpdate extends BaseRecurringPayment
+/**
+ * Class Customer Plan Update.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Customerplanupdate extends Baserecurringpayment
 {
-    private $_customerPlanId;
-    private $_cardId;
+  private $customerPlanId;
+  private $cardId;
 
-    /**
-     * @return mixed
-     */
-    public function getCustomerPlanId()
-    {
-        return $this->_customerPlanId;
-    }
+  /**
+   * Get the ID that uniquely identifies the customer payment plan.
+   *
+   * Note: ID prefixed with cp_ .
+   *
+   * @return mixed
+   *   The customerPlanId.
+   */
+  public function getCustomerPlanId()
+  {
+    return $this->customerPlanId;
+  }
 
-    /**
-     * @param mixed $planId
-     */
-    public function setCustomerPlanId( $customerPlanId )
-    {
-        $this->_customerPlanId = $customerPlanId;
-    }
+  /**
+   * Set the ID that uniquely identifies the customer payment plan.
+   *
+   * Note: ID prefixed with cp_ .
+   *
+   * @param mixed $customerPlanId
+   *   The customerPlanId.
+   */
+  public function setCustomerPlanId($customerPlanId)
+  {
+    $this->customerPlanId = $customerPlanId;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCardId()
-    {
-        return $this->_cardId;
-    }
+  /**
+   * Get the card id that uniquely identifies the customer's card details.
+   *
+   * Note: ID prefixed with card_ .
+   *
+   * @return mixed
+   *   The customerPlanId.
+   */
+  public function getCardId()
+  {
+    return $this->cardId;
+  }
 
-    /**
-     * @param mixed $cardId
-     */
-    public function setCardId( $cardId )
-    {
-        $this->_cardId = $cardId;
-    }
+  /**
+   * Set the card id that uniquely identifies the customer's card details.
+   *
+   * Note: ID prefixed with card_ .
+   *
+   * @param mixed $cardId
+   *   The cardId.
+   */
+  public function setCardId($cardId)
+  {
+    $this->cardId = $cardId;
+  }
 }

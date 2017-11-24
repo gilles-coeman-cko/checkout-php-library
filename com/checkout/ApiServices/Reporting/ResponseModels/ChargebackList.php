@@ -1,133 +1,168 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Reporting Chargeback list.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Reporting\ResponseModels;
 
-
-class ChargebackList  extends \com\checkout\ApiServices\SharedModels\BaseHttp
+/**
+ * Class Chargeback List.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Chargebacklist extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $_count;
-    private $_pageNumber;
-    private $_pageSize;
-    private $_data;
+  private $count;
+  private $pageNumber;
+  private $pageSize;
+  private $data;
 
-    /**
-     * @param null $response
-     */
-    public function __construct($response)
-    {
-        parent::__construct($response);
-        $this->_setCount($response->getTotalRecords());
-        $this->_setData($response->getData());
-        $this->_setPageNumber($response->getPageNumber());
-        $this->_setPageSize($response->getPageSize());
+  /**
+   * Class constructor.
+   *
+   * @param null $response
+   *   The response model.
+   */
+  public function __construct($response)
+  {
+    parent::__construct($response);
+    $this->setCount($response->getTotalRecords());
+    $this->setData($response->getData());
+    $this->setPageNumber($response->getPageNumber());
+    $this->setPageSize($response->getPageSize());
+  }
+
+  /**
+   * Get the list count.
+   *
+   * @return int
+   *   The list count.
+   */
+  public function getCount()
+  {
+    return $this->count;
+  }
+
+  /**
+   * Get the list data.
+   *
+   * @return mixed
+   *   The list data.
+   */
+  public function getData()
+  {
+    return $this->data;
+  }
+
+  /**
+   * Set the list count.
+   *
+   * @param mixed $requestModel
+   *   The list count.
+   */
+  private function setCount($count)
+  {
+    $this->count = $count;
+  }
+
+  /**
+   * Set the list data.
+   *
+   * @param mixed $data
+   *   The list data.
+   */
+  private function setData($data)
+  {
+    $chargeBacksArray = $data->toArray();
+    $chargeBacksToReturn = array();
+    if ($chargeBacksArray) {
+      foreach ($chargeBacksArray as $item) {
+        $chargeBack = new \com\checkout\ApiServices\SharedModels\ChargeBack();
+        $chargeBack->setId($item['id']);
+        $chargeBack->setChargeId($item['chargeId']);
+        $chargeBack->setScheme($item['scheme']);
+        $chargeBack->setValue($item['value']);
+        $chargeBack->setCurrency($item['currency']);
+        $chargeBack->setTrackId($item['trackId']);
+        $chargeBack->setIssueDate($item['issueDate']);
+        $chargeBack->setCardNumber($item['cardNumber']);
+        $chargeBack->setIndicator($item['indicator']);
+        $chargeBack->setReasonCode($item['reasonCode']);
+        $chargeBack->setArn($item['arn']);
+        $chargeBack->setCustomerName($item['customer']['name']);
+        $chargeBack->setCustomerEmail($item['customer']['email']);
+        $chargeBack->setResponseCode($item['responseCode']);
+        $chargeBacksToReturn[] = $chargeBack;
+      }
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCount()
-    {
-        return $this->_count;
-    }
+    $this->data = $chargeBacksToReturn;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        return $this->_data;
-    }
+  /**
+   * Get a chargeback.
+   *
+   * @param $chargeback
+   *   The chargeback object.
+   *
+   * @return mixed
+   *   A chargeback object.
+   */
+  private function getChargeback($chargeback)
+  {
+    return $chargeback;
+  }
 
-    /**
-     * @param mixed $count
-     */
-    private function _setCount( $count )
-    {
-        $this->_count = $count;
-    }
+  /**
+   * Set the page number.
+   *
+   * @param mixed $requestModel
+   *   The page number.
+   */
+  private function setPageNumber($pageNumber)
+  {
+    $this->pageNumber = $pageNumber;
+  }
 
-    /**
-     * @param mixed $data
-     */
-    private function _setData( $data )
-    {
-        $chargeBacksArray = $data->toArray();
-        $chargeBacksToReturn = array();
-        if($chargeBacksArray) {
-            foreach($chargeBacksArray as $item){
-                $chargeBack  = new \com\checkout\ApiServices\SharedModels\ChargeBack();
-                $chargeBack->setId($item['id']);
-                $chargeBack->setChargeId($item['chargeId']);
-                $chargeBack->setScheme($item['scheme']);
-                $chargeBack->setValue($item['value']);
-                $chargeBack->setCurrency($item['currency']);
-                $chargeBack->setTrackId($item['trackId']);
-                $chargeBack->setIssueDate($item['issueDate']);
-                $chargeBack->setCardNumber($item['cardNumber']);
-                $chargeBack->setIndicator($item['indicator']);
-                $chargeBack->setReasonCode($item['reasonCode']);
-                $chargeBack->setArn($item['arn']);
-                $chargeBack->setCustomerName($item['customer']['name']);
-                $chargeBack->setCustomerEmail($item['customer']['email']);
-                $chargeBack->setResponseCode($item['responseCode']);
-                $chargeBacksToReturn[] = $chargeBack;
-            }
-        }
+  /**
+   * Get the page number.
+   *
+   * @return mixed
+   *   The page number.
+   */
+  public function getPageNumber()
+  {
+    return $this->pageNumber;
+  }
 
-        $this->_data = $chargeBacksToReturn;
-    }
+  /**
+   * Set the page size.
+   *
+   * @param mixed $requestModel
+   *   The page size.
+   */
+  private function setPageSize($pageSize)
+  {
+    $this->pageSize = $pageSize;
+  }
 
-    /**
-     * @param $chargeback
-     * @return mixed
-     */
-    private function _getChargeback( $chargeback )
-    {
-        return $chargeback;
-    }
-
-    /**
-     * @param $pageNumber
-     */
-    private function _setPageNumber($pageNumber) 
-    {
-        $this->_pageNumber = $pageNumber;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPageNumber() 
-    {
-        return $this->_pageNumber;
-    }
-
-    /**
-     * @param $pageSize
-     */
-    private function _setPageSize($pageSize) 
-    {
-        $this->_pageSize = $pageSize;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPageSize() 
-    {
-        return $this->_pageSize;
-    }
+  /**
+   * Get the page size.
+   *
+   * @return mixed
+   *   The page size.
+   */
+  public function getPageSize()
+  {
+    return $this->pageSize;
+  }
 }

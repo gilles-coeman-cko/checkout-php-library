@@ -27,14 +27,14 @@ class PaymentProviderService extends \com\checkout\ApiServices\BaseServices
     public function getCardProviderList()
     {
         $requestPayload = array (
-        'authorization' => $this->_apiSetting->getPublicKey(),
-        'mode'          => $this->_apiSetting->getMode(),
+        'authorization' => $this->apiSetting->getPublicKey(),
+        'mode'          => $this->apiSetting->getMode(),
 
         );
 
         $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
-            $this->_apiUrl->getCardProvidersUri(),
-            $this->_apiSetting->getPublicKey(), $requestPayload
+            $this->apiUrl->getCardProvidersUri(),
+            $this->apiSetting->getPublicKey(), $requestPayload
         );
 
         $responseModel = new ResponseModels\CardProviderList($processCharge);
@@ -45,14 +45,14 @@ class PaymentProviderService extends \com\checkout\ApiServices\BaseServices
     public function getCardProvider($id)
     {
         $requestPayload = array (
-        'authorization' => $this->_apiSetting->getPublicKey(),
-        'mode'          => $this->_apiSetting->getMode(),
+        'authorization' => $this->apiSetting->getPublicKey(),
+        'mode'          => $this->apiSetting->getMode(),
 
         );
-        $cardProviderByIdUri = $this->_apiUrl->getCardProvidersUri()."/$id";
+        $cardProviderByIdUri = $this->apiUrl->getCardProvidersUri()."/$id";
         $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
             $cardProviderByIdUri,
-            $this->_apiSetting->getPublicKey(), $requestPayload
+            $this->apiSetting->getPublicKey(), $requestPayload
         );
 
         $responseModel = new \com\checkout\ApiServices\PaymentProviders\ResponseModels\CardProvider($processCharge);

@@ -1,68 +1,84 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Reporting Service.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
-/**
- * Created by PhpStorm.
- * Date: 22.12.2015
- * Time: 12:57
- */
+
 namespace com\checkout\ApiServices\Reporting;
 
-class ReportingService extends \com\checkout\ApiServices\BaseServices
+/**
+ * Class Reporting Service.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Reportingservice extends \com\checkout\ApiServices\BaseServices
 {
-    /**
-     * @param RequestModels\TransactionFilter $requestModel
-     * @return ResponseModels\TransactionList
-     * @throws \Exception
-     */
-    public function queryTransaction(RequestModels\TransactionFilter $requestModel) 
-    {
-        $reportingMapper    = new ReportingMapper($requestModel);
-        $reportingUri       = $this->_apiUrl->getQueryTransactionApiUri();
-        $secretKey          = $this->_apiSetting->getSecretKey();
+  /**
+   * Request the transactions.
+   *
+   * @param RequestModels\Transactionfilter $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Transactionlist
+   *   Return the server response.
+   *
+   * @throws Exception
+   */
+  public function queryTransaction(RequestModels\Transactionfilter $requestModel)
+  {
+    $Reportingmapper = new Reportingmapper($requestModel);
+    $reportingUri = $this->apiUrl->getQueryTransactionApiUri();
+    $secretKey = $this->apiSetting->getSecretKey();
 
-        $requestReporting   = array (
-            'authorization' => $secretKey,
-            'mode'          => $this->_apiSetting->getMode(),
-            'postedParam'   => $reportingMapper->requestReportingConverter(),
+    $requestReporting = array(
+      'authorization' => $secretKey,
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $Reportingmapper->requestReportingConverter(),
 
-        );
+    );
 
-        $processReporting   = \com\checkout\helpers\ApiHttpClient::postRequest($reportingUri, $secretKey, $requestReporting);
-        $responseModel      = new ResponseModels\TransactionList($processReporting);
+    $processReporting = \com\checkout\helpers\ApiHttpClient::postRequest($reportingUri, $secretKey, $requestReporting);
+    $responseModel = new ResponseModels\Transactionlist($processReporting);
 
-        return $responseModel;
-    }
+    return $responseModel;
+  }
 
+  /**
+   * Request the chargebacks.
+   *
+   * @param RequestModels\Transactionfilter $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Transactionlist
+   *   Return the server response.
+   *
+   * @throws Exception
+   */
+  public function queryChargeback(RequestModels\Transactionfilter $requestModel)
+  {
+    $Reportingmapper = new Reportingmapper($requestModel);
+    $reportingUri = $this->apiUrl->getQueryChargebackApiUri();
+    $secretKey = $this->apiSetting->getSecretKey();
 
-    public function queryChargeback(RequestModels\TransactionFilter $requestModel) 
-    {
-        $reportingMapper    = new ReportingMapper($requestModel);
-        $reportingUri       = $this->_apiUrl->getQueryChargebackApiUri();
-        $secretKey          = $this->_apiSetting->getSecretKey();
+    $requestReporting = array(
+      'authorization' => $secretKey,
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $Reportingmapper->requestReportingConverter(),
 
-        $requestReporting   = array (
-            'authorization' => $secretKey,
-            'mode'          => $this->_apiSetting->getMode(),
-            'postedParam'   => $reportingMapper->requestReportingConverter(),
+    );
 
-        );
+    $processReporting = \com\checkout\helpers\ApiHttpClient::postRequest($reportingUri, $secretKey, $requestReporting);
+    $responseModel = new ResponseModels\Chargebacklist($processReporting);
 
-        $processReporting   = \com\checkout\helpers\ApiHttpClient::postRequest($reportingUri, $secretKey, $requestReporting);
-        $responseModel      = new ResponseModels\ChargebackList($processReporting);
-
-        return $responseModel;
-    }
+    return $responseModel;
+  }
 
 }

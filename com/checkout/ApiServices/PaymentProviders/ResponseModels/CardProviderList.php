@@ -24,34 +24,34 @@ namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
 
 class CardProviderList extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $_object;
-    private $_count;
-    private $_data;
+    private $object;
+    private $count;
+    private $data;
 
     public function __construct($response)
     {
         parent::__construct($response);
-        $this->_setCount($response->getCount());
-        $this->_setData($response->getData());
-        $this->_setObject($response->getObject());
+        $this->setCount($response->getCount());
+        $this->setData($response->getData());
+        $this->setObject($response->getObject());
     }
 
     /**
      * @param mixed $count
      */
-    private function _setCount( $count )
+    private function setCount( $count )
     {
-        $this->_count = $count;
+        $this->count = $count;
     }
 
     /**
      * @param mixed $data
      */
-    private function _setData( $data )
+    private function setData( $data )
     {
         $dataArray = $data->toArray();
         foreach($dataArray as $cardP){
-            $this->_data[] = $this->setCardProvider($cardP);
+            $this->data[] = $this->setCardProvider($cardP);
         }
     }
 
@@ -65,9 +65,9 @@ class CardProviderList extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $object
      */
-    private function _setObject( $object )
+    private function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
     /**
@@ -75,7 +75,7 @@ class CardProviderList extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCount()
     {
-        return $this->_count;
+        return $this->count;
     }
 
     /**
@@ -83,7 +83,7 @@ class CardProviderList extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getData()
     {
-        return $this->_data;
+        return $this->data;
     }
 
     /**
@@ -91,7 +91,7 @@ class CardProviderList extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
 }

@@ -24,7 +24,7 @@ namespace com\checkout\ApiServices\Customers;
 
 class CustomerMapper
 {
-    private $_requestModel;
+    private $requestModel;
 
     public  function __construct( $requestModel)
     {
@@ -33,7 +33,7 @@ class CustomerMapper
 
     public function getRequestModel()
     {
-        return $this->_requestModel;
+        return $this->requestModel;
     }
 
     /**
@@ -41,7 +41,7 @@ class CustomerMapper
      */
     public function setRequestModel( $requestModel )
     {
-        $this->_requestModel = $requestModel;
+        $this->requestModel = $requestModel;
     }
 
 

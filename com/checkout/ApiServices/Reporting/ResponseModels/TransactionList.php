@@ -1,139 +1,170 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Reporting Transaction list.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
-/**
- * Created by PhpStorm.
- * Date: 22.12.2015
- * Time: 12:57
- */
+
 namespace com\checkout\ApiServices\Reporting\ResponseModels;
 
-
-class TransactionList  extends \com\checkout\ApiServices\SharedModels\BaseHttp
+/**
+ * Class Transaction List.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Transactionlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $_count;
-    private $_pageNumber;
-    private $_pageSize;
-    private $_data;
+  private $count;
+  private $pageNumber;
+  private $pageSize;
+  private $data;
 
-    /**
-     * @param null $response
-     */
-    public function __construct($response)
-    {
-        parent::__construct($response);
-        $this->_setCount($response->getTotalRecords());
-        $this->_setData($response->getData());
-        $this->_setPageNumber($response->getPageNumber());
-        $this->_setPageSize($response->getPageSize());
+  /**
+   * Class constructor.
+   *
+   * @param null $response
+   *   The response model.
+   */
+  public function __construct($response)
+  {
+    parent::__construct($response);
+    $this->setCount($response->getTotalRecords());
+    $this->setData($response->getData());
+    $this->setPageNumber($response->getPageNumber());
+    $this->setPageSize($response->getPageSize());
+  }
+
+  /**
+   * Get the list count.
+   *
+   * @return int
+   *   The list count.
+   */
+  public function getCount()
+  {
+    return $this->count;
+  }
+
+  /**
+   * Get the list data.
+   *
+   * @return mixed
+   *   The list data.
+   */
+  public function getData()
+  {
+    return $this->data;
+  }
+
+  /**
+   * Set the list count.
+   *
+   * @param mixed $requestModel
+   *   The list count.
+   */
+  private function setCount($count)
+  {
+    $this->count = $count;
+  }
+
+  /**
+   * Set the list data.
+   *
+   * @param mixed $data
+   *   The list data.
+   */
+  private function setData($data)
+  {
+    $transactionsArray = $data->toArray();
+    $transactionsToReturn = array();
+    if ($transactionsArray) {
+      foreach ($transactionsArray as $item) {
+        $transaction = new \com\checkout\ApiServices\SharedModels\Transaction();
+        $transaction->setId($item['id']);
+        $transaction->setOriginId($item['originId']);
+        $transaction->setDate($item['date']);
+        $transaction->setStatus($item['status']);
+        $transaction->setType($item['type']);
+        $transaction->setAmount($item['amount']);
+        $transaction->setScheme($item['scheme']);
+        $transaction->setResponsecode($item['responseCode']);
+        $transaction->setCurrency($item['currency']);
+        $transaction->setLiveMode($item['liveMode']);
+        $transaction->setBusinessName($item['businessName']);
+        $transaction->setChannelName($item['channelName']);
+        $transaction->setTrackId($item['trackId']);
+        $transaction->setCustomerId($item['customer']['id']);
+        $transaction->setCustomerName($item['customer']['name']);
+        $transaction->setCustomerEmail($item['customer']['email']);
+        $transactionsToReturn[] = $transaction;
+      }
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCount()
-    {
-        return $this->_count;
-    }
+    $this->data = $transactionsToReturn;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        return $this->_data;
-    }
+  /**
+   * Get a transaction.
+   *
+   * @param $transaction
+   *   The transaction object.
+   *
+   * @return mixed
+   *   A transaction object.
+   */
+  private function getTransaction($transaction)
+  {
+    return $transaction;
+  }
 
-    /**
-     * @param mixed $count
-     */
-    private function _setCount( $count )
-    {
-        $this->_count = $count;
-    }
+  /**
+   * Set the page number.
+   *
+   * @param mixed $requestModel
+   *   The page number.
+   */
+  private function setPageNumber($pageNumber)
+  {
+    $this->pageNumber = $pageNumber;
+  }
 
-    /**
-     * @param mixed $data
-     */
-    private function _setData( $data )
-    {
-        $transactionsArray = $data->toArray();
-        $transactionsToReturn = array();
-        if($transactionsArray) {
-            foreach($transactionsArray as $item){
-                $transaction  = new \com\checkout\ApiServices\SharedModels\Transaction();
-                $transaction->setId($item['id']);
-                $transaction->setOriginId($item['originId']);
-                $transaction->setDate($item['date']);
-                $transaction->setStatus($item['status']);
-                $transaction->setType($item['type']);
-                $transaction->setAmount($item['amount']);
-                $transaction->setScheme($item['scheme']);
-                $transaction->setResponsecode($item['responseCode']);
-                $transaction->setCurrency($item['currency']);
-                $transaction->setLiveMode($item['liveMode']);
-                $transaction->setBusinessName($item['businessName']);
-                $transaction->setChannelName($item['channelName']);
-                $transaction->setTrackId($item['trackId']);
-                $transaction->setCustomerId($item['customer']['id']);
-                $transaction->setCustomerName($item['customer']['name']);
-                $transaction->setCustomerEmail($item['customer']['email']);
-                $transactionsToReturn[] = $transaction;
-            }
-        }
+  /**
+   * Get the page number.
+   *
+   * @return mixed
+   *   The page number.
+   */
+  public function getPageNumber()
+  {
+    return $this->pageNumber;
+  }
 
-        $this->_data = $transactionsToReturn;
-    }
+  /**
+   * Set the page size.
+   *
+   * @param mixed $requestModel
+   *   The page size.
+   */
+  private function setPageSize($pageSize)
+  {
+    $this->pageSize = $pageSize;
+  }
 
-    /**
-     * @param $transaction
-     * @return mixed
-     */
-    private function _getTransaction( $transaction )
-    {
-        return $transaction;
-    }
-
-    /**
-     * @param $pageNumber
-     */
-    private function _setPageNumber($pageNumber) 
-    {
-        $this->_pageNumber = $pageNumber;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPageNumber() 
-    {
-        return $this->_pageNumber;
-    }
-
-    /**
-     * @param $pageSize
-     */
-    private function _setPageSize($pageSize) 
-    {
-        $this->_pageSize = $pageSize;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPageSize() 
-    {
-        return $this->_pageSize;
-    }
+  /**
+   * Get the page size.
+   *
+   * @return mixed
+   *   The page size.
+   */
+  public function getPageSize()
+  {
+    return $this->pageSize;
+  }
 }

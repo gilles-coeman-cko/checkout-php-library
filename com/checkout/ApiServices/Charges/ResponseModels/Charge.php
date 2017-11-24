@@ -24,25 +24,25 @@ namespace com\checkout\ApiServices\Charges\ResponseModels;
 
 class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
 {
-    protected $_object;
-    protected $_id;
+    protected $object;
+    protected $id;
     protected $_liveMode;
     protected $_created;
-    protected $_value;
-    protected $_currency;
+    protected $value;
+    protected $currency;
     protected $_email;
     protected $_chargeMode;
     protected $_customerIp;
     protected $_description;
     protected $_responseMessage;
     protected $_responseAdvancedInfo;
-    protected $_responseCode;
+    protected $responseCode;
     protected $_refundedValue;
     protected $_balanceTransaction;
-    protected $_status;
+    protected $status;
     protected $_authCode;
     protected $_autoCapture;
-    protected $_autoCapTime;
+    protected $autoCapTime;
     protected $_paid;
     protected $_refunded;
     protected $_deferred;
@@ -56,12 +56,12 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
     protected $_localPayment;
     protected $_descriptor;
     protected $_metadata;
-    protected $_transactionIndicator;
+    protected $transactionIndicator;
     protected $_originalId;
     protected $_redirectUrl;
     protected $_paymentToken;
     protected $_response = null;
-    protected $_customerPaymentPlans;
+    protected $_Customerpaymentplans;
     protected $_responseType;
 
 
@@ -69,7 +69,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
     {
         parent::__construct($response);
         $this->setResponse($response);
-        $this->_setObject($response->getObject());
+        $this->setObject($response->getObject());
         $this->_setId($response->getId());
         $this->_setLiveMode($response->getLiveMode());
         $this->_setCreated($response->getCreated());
@@ -81,7 +81,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
         $this->_setDescription($response->getDescription());
         $this->_setResponseMessage($response->getResponseMessage());
         $this->_setResponseAdvancedInfo($response->getResponseAdvancedInfo());
-        $this->_setResponseCode($response->getResponseCode());
+        $this->setResponseCode($response->getResponseCode());
         $this->_setRefundedValue($response->getRefundedValue());
         $this->_setBalanceTransaction($response->getBalanceTransaction());
         $this->_setStatus($response->getStatus());
@@ -138,8 +138,8 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
             $this->_originalId = $response->getOriginalId();
         }
 
-        if($response->getCustomerPaymentPlans()) {
-            $this->_setCustomerPaymentPlans($response->getCustomerPaymentPlans());
+        if($response->getCustomerpaymentplans()) {
+            $this->_setCustomerpaymentplans($response->getCustomerpaymentplans());
         }
 
         if($response->getRedirectUrl()) {
@@ -184,7 +184,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
     /**
@@ -192,7 +192,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -216,7 +216,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -224,7 +224,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     public function getCurrency()
     {
-        return $this->_currency;
+        return $this->currency;
     }
 
     /**
@@ -280,7 +280,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     public function getResponseCode()
     {
-        return $this->_responseCode;
+        return $this->responseCode;
     }
 
     /**
@@ -304,7 +304,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     public function getStatus()
     {
-        return $this->_status;
+        return $this->status;
     }
 
     /**
@@ -328,7 +328,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     public function getAutoCapTime()
     {
-        return $this->_autoCapTime;
+        return $this->autoCapTime;
     }
 
     /**
@@ -424,7 +424,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     public function getTransactionIndicator()
     {
-        return $this->_transactionIndicator;
+        return $this->transactionIndicator;
     }
 
 
@@ -448,9 +448,9 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
     /**
      * @return mixed
      */
-    public function getCustomerPaymentPlans()
+    public function getCustomerpaymentplans()
     {
-        return $this->_customerPaymentPlans;
+        return $this->_Customerpaymentplans;
     }
 
     /**
@@ -480,9 +480,9 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
     /**
      * @param mixed $object
      */
-    protected function _setObject( $object )
+    protected function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
     /**
@@ -491,7 +491,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
 
     protected function _setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**
@@ -515,7 +515,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     protected function _setValue( $value )
     {
-        $this->_value = $value;
+        $this->value = $value;
     }
 
     /**
@@ -523,7 +523,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     protected function _setCurrency( $currency )
     {
-        $this->_currency = $currency;
+        $this->currency = $currency;
     }
 
     /**
@@ -576,9 +576,9 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
     /**
      * @param mixed $responseCode
      */
-    protected function _setResponseCode( $responseCode )
+    protected function setResponseCode( $responseCode )
     {
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
     }
 
     /**
@@ -602,7 +602,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     protected function _setStatus( $status )
     {
-        $this->_status = $status;
+        $this->status = $status;
     }
 
     /**
@@ -626,7 +626,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     protected function _setAutoCapTime( $autoCapTime )
     {
-        $this->_autoCapTime = $autoCapTime;
+        $this->autoCapTime = $autoCapTime;
     }
 
     /**
@@ -784,19 +784,19 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
      */
     protected function _setTransactionIndicator($transactionIndicator)
     {
-        $this->_transactionIndicator = $transactionIndicator;
+        $this->transactionIndicator = $transactionIndicator;
     }
 
     /**
-     * @param mixed $customerPaymentPlans
+     * @param mixed $Customerpaymentplans
      */
-    protected function _setCustomerPaymentPlans( $customerPaymentPlans )
+    protected function _setCustomerpaymentplans( $Customerpaymentplans )
     {
-        $paymentPlansArray = $customerPaymentPlans->toArray();
+        $paymentPlansArray = $Customerpaymentplans->toArray();
         $paymentPlansToReturn = array();
         if($paymentPlansArray) {
             foreach($paymentPlansArray as $item){
-                $paymentPlan  = new \com\checkout\ApiServices\SharedModels\CustomerPaymentPlan();
+                $paymentPlan  = new \com\checkout\ApiServices\SharedModels\Customerpaymentplan();
                 $paymentPlan->setPlanId($item['planId']);
                 $paymentPlan->setName($item['name']);
                 $paymentPlan->setPlanTrackId($item['planTrackId']);
@@ -817,7 +817,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
             }
         }
 
-        $this->_customerPaymentPlans = $paymentPlansToReturn;
+        $this->_Customerpaymentplans = $paymentPlansToReturn;
     }
 
     /**

@@ -18,16 +18,16 @@ namespace com\checkout\ApiServices\SharedModels;
 class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
 
-    protected $_object;
-    protected $_id;
+    protected $object;
+    protected $id;
     protected $_originId;
     protected $_date;
-    protected $_status;
+    protected $status;
     protected $_type;
     protected $_amount;
     protected $_scheme;
-    protected $_responseCode;
-    protected $_currency;
+    protected $responseCode;
+    protected $currency;
     protected $_liveMode;
     protected $_businessName;
     protected $_channelName;
@@ -41,7 +41,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
     /**
@@ -49,7 +49,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     
@@ -76,7 +76,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getStatus()
     {
-        return $this->_status;
+        return $this->status;
     }
 
     
@@ -112,7 +112,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getResponseCode()
     {
-        return $this->_responseCode;
+        return $this->responseCode;
     }
 
     
@@ -121,7 +121,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCurrency()
     {
-        return $this->_currency;
+        return $this->currency;
     }
 
     
@@ -193,7 +193,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
     /**
@@ -201,7 +201,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
 
@@ -228,7 +228,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setStatus( $status )
     {
-        $this->_status = $status;
+        $this->status = $status;
     }
 
 
@@ -264,7 +264,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setResponsecode( $responseCode )
     {
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
     }
 
 
@@ -273,7 +273,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setCurrency( $currency )
     {
-        $this->_currency = $currency;
+        $this->currency = $currency;
     }
 
 

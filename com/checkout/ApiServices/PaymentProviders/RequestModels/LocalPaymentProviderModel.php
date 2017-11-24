@@ -27,9 +27,9 @@ class LocalPaymentProviderModel
     private $_providerId;
     private $_paymentToken;
     private $_ip;
-    private $_countryCode;
+    private $countryCode;
     private $_limit;
-    private $_name;
+    private $name;
     private $_region;
 
     /**
@@ -37,7 +37,7 @@ class LocalPaymentProviderModel
      */
     public function getCountryCode()
     {
-        return $this->_countryCode;
+        return $this->countryCode;
     }
 
     /**
@@ -45,7 +45,7 @@ class LocalPaymentProviderModel
      */
     public function setCountryCode( $countryCode )
     {
-        $this->_countryCode = $countryCode;
+        $this->countryCode = $countryCode;
     }
 
     /**
@@ -85,7 +85,7 @@ class LocalPaymentProviderModel
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -93,7 +93,7 @@ class LocalPaymentProviderModel
      */
     public function setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**

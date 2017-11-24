@@ -17,7 +17,7 @@ namespace com\checkout\ApiServices\SharedModels;
 
 class Product
 {
-    protected $_name = '';
+    protected $name = '';
     protected $_productId = '';
     protected $_description = '';
     protected $_sku = '' ;
@@ -32,7 +32,7 @@ class Product
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -40,7 +40,7 @@ class Product
      */
     public function setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**

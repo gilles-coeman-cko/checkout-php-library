@@ -24,14 +24,14 @@ namespace com\checkout\ApiServices\PaymentProviders\RequestModels;
 
 class CardProviderModel
 {
-    protected $_id;
+    protected $id;
 
     /**
      * @return mixed
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -39,7 +39,7 @@ class CardProviderModel
      */
     public function setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
 }

@@ -40,14 +40,14 @@ class TokenService extends BaseServices
         $chargeMapper = new ChargesMapper($requestModel);
 
         $requestPayload = array(
-            'authorization' => $this->_apiSetting->getSecretKey(),
-            'mode' => $this->_apiSetting->getMode(),
+            'authorization' => $this->apiSetting->getSecretKey(),
+            'mode' => $this->apiSetting->getMode(),
             'postedParam' => $chargeMapper->requestPayloadConverter(),
         );
 
         $processCharge = ApiHttpClient::postRequest(
-            $this->_apiUrl->getPaymentTokensApiUri(),
-            $this->_apiSetting->getSecretKey(), $requestPayload
+            $this->apiUrl->getPaymentTokensApiUri(),
+            $this->apiSetting->getSecretKey(), $requestPayload
         );
 
         return new ResponseModels\PaymentToken($processCharge);
@@ -64,16 +64,16 @@ class TokenService extends BaseServices
         $chargeMapper = new ChargesMapper($requestModel);
 
         $requestPayload = array(
-            'authorization' => $this->_apiSetting->getSecretKey(),
-            'mode' => $this->_apiSetting->getMode(),
+            'authorization' => $this->apiSetting->getSecretKey(),
+            'mode' => $this->apiSetting->getMode(),
             'postedParam' => $chargeMapper->requestPayloadConverter(),
         );
 
-        $updateUri = sprintf($this->_apiUrl->getPaymentTokenUpdateApiUri(), $requestModel->getId());
+        $updateUri = sprintf($this->apiUrl->getPaymentTokenUpdateApiUri(), $requestModel->getId());
 
         $processCharge = ApiHttpClient::putRequest(
             $updateUri,
-            $this->_apiSetting->getSecretKey(), $requestPayload
+            $this->apiSetting->getSecretKey(), $requestPayload
         );
 
         return new  OkResponse($processCharge);

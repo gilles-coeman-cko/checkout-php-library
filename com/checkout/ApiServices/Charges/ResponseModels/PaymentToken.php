@@ -24,9 +24,9 @@ namespace com\checkout\ApiServices\Charges\ResponseModels;
 
 class PaymentToken extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $_id;
+    private $id;
     private $_liveMode;
-    private $_responseCode;
+    private $responseCode;
     private $_chargeMode;
     private $_response = null;
     private $_redirectUrl;
@@ -37,7 +37,7 @@ class PaymentToken extends \com\checkout\ApiServices\SharedModels\BaseHttp
         $this->_setChargeMode($response->getChargeMode());
         $this->_setId($response->getId());
         $this->_setLiveMode($response->getLiveMode());
-        $this->_setResponseCode($response->getResponseCode());
+        $this->setResponseCode($response->getResponseCode());
         $this->_setRedirectUrl($response->getRedirecturl());
         $this->_setResponse($response);
     }
@@ -79,7 +79,7 @@ class PaymentToken extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -87,7 +87,7 @@ class PaymentToken extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     private function _setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**
@@ -127,15 +127,15 @@ class PaymentToken extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getResponseCode()
     {
-        return $this->_responseCode;
+        return $this->responseCode;
     }
 
     /**
      * @param mixed $responseCode
      */
-    private function _setResponseCode( $responseCode )
+    private function setResponseCode( $responseCode )
     {
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
     }
 
 }

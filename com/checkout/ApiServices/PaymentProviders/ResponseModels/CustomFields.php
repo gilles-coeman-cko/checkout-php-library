@@ -25,7 +25,7 @@ namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
 class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
     protected $_key;
-    protected $_dataType;
+    protected $dataType;
     protected $_label;
     protected $_required;
     protected $_order;
@@ -38,7 +38,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     public function __construct($response)
     {
         parent::__construct($response);
-        $this->_setDataType($response->getDataType());
+        $this->setDataType($response->getDataType());
         $this->_setErrorCodes($response->getErrorCodes());
         $this->_sethisActive($response->gethisActive());
         $this->_setKey($response->getKey());
@@ -54,9 +54,9 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $dataType
      */
-    protected function _setDataType( $dataType )
+    protected function setDataType( $dataType )
     {
-        $this->_dataType = $dataType;
+        $this->dataType = $dataType;
     }
 
     /**
@@ -136,7 +136,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getDataType()
     {
-        return $this->_dataType;
+        return $this->dataType;
     }
 
     /**
@@ -144,7 +144,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setDataType( $dataType )
     {
-        $this->_dataType = $dataType;
+        $this->dataType = $dataType;
     }
 
     /**

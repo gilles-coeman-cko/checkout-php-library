@@ -24,20 +24,20 @@ namespace com\checkout\ApiServices\Cards\ResponseModels;
 
 class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    protected $_object;
-    protected $_id;
+    protected $object;
+    protected $id;
     protected $_last4;
     protected $_paymentMethod;
     protected $_customerId;
-    protected $_name;
+    protected $name;
     protected $_expiryMonth;
     protected $_liveMode;
     protected $_expiryYear;
     protected $_fingerprint;
     protected $_billingDetails;
-    protected $_cvvCheck;
+    protected $cvvCheck;
     protected $_avsCheck;
-    protected $_responseCode;
+    protected $responseCode;
     protected $_authCode;
     protected $_defaultCard;
 
@@ -62,9 +62,9 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
         $this->_setLast4($response->getLast4());
         $this->_setLiveMode($response->getLiveMode());
         $this->_setName($response->getName());
-        $this->_setObject($response->getObject());
+        $this->setObject($response->getObject());
         $this->_setPaymentMethod($response->getPaymentMethod());
-        $this->_setResponseCode($response->getResponseCode());
+        $this->setResponseCode($response->getResponseCode());
     }
 
     /**
@@ -104,7 +104,7 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCvvCheck()
     {
-        return $this->_cvvCheck;
+        return $this->cvvCheck;
     }
 
     /**
@@ -144,7 +144,7 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -168,7 +168,7 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -176,7 +176,7 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
     /**
@@ -192,7 +192,7 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getResponseCode()
     {
-        return $this->_responseCode;
+        return $this->responseCode;
     }
 
 
@@ -247,7 +247,7 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     private function _setCvvCheck( $cvvCheck )
     {
-        $this->_cvvCheck = $cvvCheck;
+        $this->cvvCheck = $cvvCheck;
     }
 
     /**
@@ -287,7 +287,7 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     private function _setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**
@@ -311,15 +311,15 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     private function _setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**
      * @param mixed $object
      */
-    private function _setObject( $object )
+    private function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
     /**
@@ -333,9 +333,9 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $responseCode
      */
-    private function _setResponseCode( $responseCode )
+    private function setResponseCode( $responseCode )
     {
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
     }
 
 }

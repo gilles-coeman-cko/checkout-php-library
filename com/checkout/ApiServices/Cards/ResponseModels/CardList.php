@@ -1,73 +1,80 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Recurring Payment Card List.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/18/2015
- * Time: 11:52 AM
- */
+
 namespace com\checkout\ApiServices\Cards\ResponseModels;
+
+/**
+ * Class Card List.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
 class CardList extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $_object;
-    private $_count;
-    private $_data;
-    public function __construct($response)
-    {
-        parent::__construct($response);
-        $this->_setCount($response->getCount());
-        $this->_setData($response->getData());
-        $this->_setObject($response->getObject());
+  private $object;
+  private $count;
+  private $data;
+
+  /**
+   * Class constructor.
+   *
+   * @param mixed $requestModel
+   *   The request model.
+   */
+  public function __construct($response)
+  {
+    parent::__construct($response);
+    $this->setCount($response->getCount());
+    $this->setData($response->getData());
+    $this->setObject($response->getObject());
+  }
+  /**
+   * @param mixed $count
+   */
+  private function setCount($count)
+  {
+    $this->count = $count;
+  }
+  public function getCount()
+  {
+    return $this->count;
+  }
+  /**
+   * @param mixed $data
+   */
+  private function setData($data)
+  {
+    $arrayData = $data->toArray();
+    foreach ($arrayData as $card) {
+      $this->data[] = $this->getCard($card);
     }
-    /**
-     * @param mixed $count
-     */
-    private function _setCount( $count )
-    {
-        $this->_count = $count;
-    }
-    public function getCount()
-    {
-        return $this->_count;
-    }
-    /**
-     * @param mixed $data
-     */
-    private function _setData( $data )
-    {
-        $arrayData = $data->toArray();
-        foreach($arrayData as $card){
-            $this->_data[] = $this->getCard($card);
-        }
-    }
-    public function getData()
-    {
-        return $this->_data;
-    }
-    /**
-     * @param mixed $object
-     */
-    private function _setObject( $object )
-    {
-        $this->_object = $object;
-    }
-    private function getCard( $card )
-    {
-        $dummyObjCart = new \CheckoutApi_LibrespondObj();
-        $dummyObjCart->setConfig($card);
-        $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\Card($dummyObjCart);
-        return $cardObg;
-    }
+  }
+  public function getData()
+  {
+    return $this->data;
+  }
+  /**
+   * @param mixed $object
+   */
+  private function setObject($object)
+  {
+    $this->object = $object;
+  }
+  private function getCard($card)
+  {
+    $dummyObjCart = new \CheckoutApi_LibrespondObj();
+    $dummyObjCart->setConfig($card);
+    $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\Card($dummyObjCart);
+    return $cardObg;
+  }
 }

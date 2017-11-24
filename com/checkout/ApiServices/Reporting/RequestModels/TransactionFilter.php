@@ -1,160 +1,207 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Reporting Transaction Filter.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+namespace com\checkout\ApiServices\Reporting\ResponseModels;
+
 /**
- * Created by PhpStorm.
- * Date: 22.12.2015
- * Time: 12:57
+ * Class Transaction Filter.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-namespace com\checkout\ApiServices\Reporting\RequestModels;
-
-class TransactionFilter
+class Transactionfilter
 {
-    private $_fromDate      = null;
-    private $_toDate        = null;
-    private $_pageSize      = null;
-    private $_pageNumber    = null;
-    private $_sortColumn    = null;
-    private $_sortOrder     = null;
-    private $_search        = null;
-    private $_filters       = array();
+  private $fromDate = null;
+  private $toDate = null;
+  private $pageSize = null;
+  private $pageNumber = null;
+  private $sortColumn = null;
+  private $sortOrder = null;
+  private $search = null;
+  private $filters = array();
 
-    /**
-     * @param $fromDate
-     */
-    public function setFromDate($fromDate) 
-    {
-        $this->_fromDate = $fromDate;
-    }
+  /**
+   * Set from date.
+   *
+   * @param mixed $fromDate
+   *   A date.
+   */
+  public function setFromDate($fromDate)
+  {
+    $this->fromDate = $fromDate;
+  }
 
-    /**
-     * @return null
-     */
-    public function getFromDate() 
-    {
-        return $this->_fromDate;
-    }
+  /**
+   * Get from date.
+   *
+   * @return mixed
+   *   A date.
+   */
+  public function getFromDate()
+  {
+    return $this->fromDate;
+  }
 
-    /**
-     * @param $toDate
-     */
-    public function setToDate($toDate) 
-    {
-        $this->_toDate = $toDate;
-    }
+  /**
+   * Set to date.
+   *
+   * @param mixed $toDate
+   *   A date.
+   */
+  public function setToDate($toDate)
+  {
+    $this->toDate = $toDate;
+  }
 
-    /**
-     * @return null
-     */
-    public function getToDate() 
-    {
-        return $this->_toDate;
-    }
+  /**
+   * Get to date.
+   *
+   * @return mixed
+   *   A date.
+   */
+  public function getToDate()
+  {
+    return $this->toDate;
+  }
 
-    /**
-     * @param $pageSize
-     */
-    public function setPageSize($pageSize) 
-    {
-        $this->_pageSize = $pageSize;
-    }
+  /**
+   * Set the page size.
+   *
+   * @param mixed $requestModel
+   *   The page size.
+   */
+  public function setPageSize($pageSize)
+  {
+    $this->pageSize = $pageSize;
+  }
 
-    /**
-     * @return null
-     */
-    public function getPageSize() 
-    {
-        return $this->_pageSize;
-    }
+  /**
+   * Get the page size.
+   *
+   * @return mixed
+   *   The page size.
+   */
+  public function getPageSize()
+  {
+    return $this->pageSize;
+  }
 
-    /**
-     * @param $pageNumber
-     */
-    public function setPageNumber($pageNumber) 
-    {
-        $this->_pageNumber = $pageNumber;
-    }
+  /**
+   * Set the page number.
+   *
+   * @param mixed $requestModel
+   *   The page number.
+   */
+  public function setPageNumber($pageNumber)
+  {
+    $this->pageNumber = $pageNumber;
+  }
 
-    /**
-     * @return null
-     */
-    public function getPageNumber() 
-    {
-        return $this->_pageNumber;
-    }
+  /**
+   * Get the page number.
+   *
+   * @return mixed
+   *   The page number.
+   */
+  public function getPageNumber()
+  {
+    return $this->pageNumber;
+  }
 
-    /**
-     * @param $sortColumn
-     */
-    public function setSortColumn($sortColumn) 
-    {
-        $this->_sortColumn = $sortColumn;
-    }
+  /**
+   * Set the sort column.
+   *
+   * @param mixed
+   *   The sort column.
+   */
+  public function setSortColumn($sortColumn)
+  {
+    $this->sortColumn = $sortColumn;
+  }
 
-    /**
-     * @return null
-     */
-    public function getSortColumn() 
-    {
-        return $this->_sortColumn;
-    }
+  /**
+   * Get the sort column.
+   *
+   * @return mixed
+   *   The sort column.
+   */
+  public function getSortColumn()
+  {
+    return $this->sortColumn;
+  }
 
-    /**
-     * @param $sortOrder
-     */
-    public function setSortOrder($sortOrder) 
-    {
-        $this->_sortOrder = $sortOrder;
-    }
+  /**
+   * Set the sort order.
+   *
+   * @param mixed
+   *   The sort order.
+   */
+  public function setSortOrder($sortOrder)
+  {
+    $this->sortOrder = $sortOrder;
+  }
 
-    /**
-     * @return null
-     */
-    public function getSortOrder() 
-    {
-        return $this->_sortOrder;
-    }
+  /**
+   * Get the sort order.
+   *
+   * @return mixed
+   *   The sort order.
+   */
+  public function getSortOrder()
+  {
+    return $this->sortOrder;
+  }
 
-    /**
-     * @param $search\
-     */
-    public function setSearch($search) 
-    {
-        $this->_search = $search;
-    }
+  /**
+   * Set the search.
+   *
+   * @param mixed
+   *   The search.
+   */
+  public function setSearch($search)
+  {
+    $this->search = $search;
+  }
 
-    /**
-     * @return null
-     */
-    public function getSearch() 
-    {
-        return $this->_search;
-    }
+  /**
+   * Get the search.
+   *
+   * @return mixed
+   *   The search.
+   */
+  public function getSearch()
+  {
+    return $this->search;
+  }
 
-    /**
-     * @param array $filters
-     */
-    public function setFilters(Array $filters) 
-    {
-        $this->_filters = $filters;
-    }
+  /**
+   * Set the filters.
+   *
+   * @param mixed $filters
+   *   The filters.
+   */
+  public function setFilters(array $filters)
+  {
+    $this->filters = $filters;
+  }
 
-    /**
-     * @return array
-     */
-    public function getFilters() 
-    {
-        return $this->_filters;
-    }
+  /**
+   * Get the filters.
+   *
+   * @return array
+   *   The filters.
+   */
+  public function getFilters()
+  {
+    return $this->filters;
+  }
 }

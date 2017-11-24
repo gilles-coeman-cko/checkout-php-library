@@ -16,7 +16,7 @@ namespace  com\checkout\ApiServices\Cards\RequestModels;
 
 class BaseCard
 {
-    protected $_name;
+    protected $name;
     protected $_expiryMonth;
     protected $_expiryYear;
     protected $_billingDetails;
@@ -27,7 +27,7 @@ class BaseCard
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -35,7 +35,7 @@ class BaseCard
      */
     public function setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**

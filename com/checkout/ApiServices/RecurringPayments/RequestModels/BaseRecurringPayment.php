@@ -1,189 +1,328 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Recurring payment.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
-namespace  com\checkout\ApiServices\RecurringPayments\RequestModels;
 
-class BaseRecurringPayment
+namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
+
+/**
+ * Class Recurring payment.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Baserecurringpayment
 {
-    protected $_name;
-    protected $_planTrackId;
-    protected $_autoCapTime;
-    protected $_currency;
-    protected $_value;
-    protected $_cycle;
-    protected $_recurringCount;
-    protected $_startDate;
-    protected $_status;
-    protected $_planId;
+  protected $name;
+  protected $planTrackId;
+  protected $autoCapTime;
+  protected $currency;
+  protected $value;
+  protected $cycle;
+  protected $recurringCount;
+  protected $startDate;
+  protected $status;
+  protected $planId;
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->_name;
-    }
+  /**
+   * Get the name of the paymentPlan.
+   *
+   * The name as displayed in The Hub and attached to the customer.
+   *
+   * @return string
+   *   The name.
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName( $name )
-    {
-        $this->_name = $name;
-    }
+  /**
+   * Set the name of the paymentPlan.
+   *
+   * The name as displayed in The Hub and attached to the customer.
+   *
+   * @param string $name
+   *   The name.
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getPlanTrackId()
-    {
-        return $this->_planTrackId;
-    }
+  /**
+   * Get the unique identifier for the recurring plan set by the Merchant.
+   *
+   * @return string
+   *   The plan track id.
+   */
+  public function getPlanTrackId()
+  {
+    return $this->planTrackId;
+  }
 
-    /**
-     * @param mixed $planTrackId
-     */
-    public function setPlanTrackId( $planTrackId )
-    {
-        $this->_planTrackId = $planTrackId;
-    }
+  /**
+   * Set the unique identifier for the recurring plan set by the Merchant.
+   *
+   * @param string $planTrackId
+   *   The plan track id.
+   */
+  public function setPlanTrackId($planTrackId)
+  {
+    $this->planTrackId = $planTrackId;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getAutoCapTime()
-    {
-        return $this->_autoCapTime;
-    }
+  /**
+   * Get the delayed capture time in hours.
+   *
+   * @return mixed
+   *   The auto cap time.
+   */
+  public function getAutoCapTime()
+  {
+    return $this->autoCapTime;
+  }
 
-    /**
-     * @param mixed $autoCapTime
-     */
-    public function setAutoCapTime( $autoCapTime )
-    {
-        $this->_autoCapTime = $autoCapTime;
-    }
+  /**
+   * Set the delayed capture time in hours.
+   *
+   * @param mixed $autoCapTime
+   *   The auto cap time.
+   */
+  public function setAutoCapTime($autoCapTime)
+  {
+    $this->autoCapTime = $autoCapTime;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCurrency()
-    {
-        return $this->_currency;
-    }
+  /**
+   * Get the Three-letter ISO currency code.
+   *
+   * This code is representing the currency in
+   * which the recurring charge will be made.
+   *
+   * @return mixed
+   *   The currency.
+   */
+  public function getCurrency()
+  {
+    return $this->currency;
+  }
 
-    /**
-     * @param mixed $currency
-     */
-    public function setCurrency( $currency )
-    {
-        $this->_currency = $currency;
-    }
+  /**
+   * Set the Three-letter ISO currency code.
+   *
+   * This code is representing the currency in
+   * which the recurring charge will be made.
+   *
+   * @param mixed $currency
+   *   The currency.
+   */
+  public function setCurrency($currency)
+  {
+    $this->currency = $currency;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->_value;
-    }
+  /**
+   * Get the value of the transaction.
+   *
+   * A non-zero positive integer (i.e. decimal figures not allowed).
+   * For most currencies, value is divided into 100 units
+   * (e.g. "value = 100" is equivalent to 1 US Dollar).
+   *
+   * @return mixed
+   *   The value.
+   */
+  public function getValue()
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param mixed $value
-     */
-    public function setValue( $value )
-    {
-        $this->_value = $value;
-    }
+  /**
+   * Set the value of the transaction.
+   *
+   * A non-zero positive integer (i.e. decimal figures not allowed).
+   * For most currencies, value is divided into 100 units
+   * (e.g. "value = 100" is equivalent to 1 US Dollar).
+   *
+   * @param mixed $value
+   *   The value.
+   */
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCycle()
-    {
-        return $this->_cycle;
-    }
+  /**
+   * Get the elapsed time in between the charge and the first transaction.
+   *
+   * The time in between the charge and the first transaction of the recurring
+   * plan. Maximum of 4 chars.
+   *
+   * Usage format:
+   *   Xd (X: 1 - 730 days) e.g. 7d
+   *   Xw (X: 1 - 104 weeks) e.g. 2w
+   *   Xm (X: 1 - 24 months) e.g. 1m
+   *   Xy (X: 1 - 2 years) e.g. 1y
+   *
+   * @return mixed
+   *   The value.
+   */
+  public function getCycle()
+  {
+    return $this->cycle;
+  }
 
-    /**
-     * @param mixed $cycle
-     */
-    public function setCycle( $cycle )
-    {
-        $this->_cycle = $cycle;
-    }
+  /**
+   * Set the elapsed time in between the charge and the first transaction.
+   *
+   * The time in between the charge and the first transaction of the recurring
+   * plan. Maximum of 4 chars.
+   *
+   * Usage format:
+   *   Xd (X: 1 - 730 days) e.g. 7d
+   *   Xw (X: 1 - 104 weeks) e.g. 2w
+   *   Xm (X: 1 - 24 months) e.g. 1m
+   *   Xy (X: 1 - 2 years) e.g. 1y
+   *
+   * @param mixed $cycle
+   *   The value.
+   */
+  public function setCycle($cycle)
+  {
+    $this->cycle = $cycle;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getRecurringCount()
-    {
-        return $this->_recurringCount;
-    }
+  /**
+   * Get the number of recurring transactions included in the Payment Plan.
+   *
+   * Note: recurringCount does not include the initial payment.
+   *
+   * @return mixed
+   *   The recurringCount.
+   */
+  public function getRecurringCount()
+  {
+    return $this->recurringCount;
+  }
 
-    /**
-     * @param mixed $recurringCount
-     */
-    public function setRecurringCount( $recurringCount )
-    {
-        $this->_recurringCount = $recurringCount;
-    }
+  /**
+   * Set the number of recurring transactions included in the Payment Plan.
+   *
+   * Note: recurringCount does not include the initial payment.
+   *
+   * @param mixed $recurringCount
+   *   The recurringCount.
+   */
+  public function setRecurringCount($recurringCount)
+  {
+    $this->recurringCount = $recurringCount;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getStartDate()
-    {
-        return $this->_startDate;
-    }
+  /**
+   * Get the forecasted timestamp of the first transaction.
+   *
+   * Forecasted timestamp of the first transaction generated
+   * by the recurring plan in "YYYY-MM-DD" format.
+   *
+   * @return mixed
+   *   The startDate.
+   */
+  public function getStartDate()
+  {
+    return $this->startDate;
+  }
 
-    /**
-     * @param mixed $startDate
-     */
-    public function setStartDate( $startDate )
-    {
-        $this->_startDate = $startDate;
-    }
+  /**
+   * Set the forecasted timestamp of the first transaction.
+   *
+   * Forecasted timestamp of the first transaction generated
+   * by the recurring plan in "YYYY-MM-DD" format.
+   *
+   * @param mixed $startDate
+   *   The startDate.
+   */
+  public function setStartDate($startDate)
+  {
+    $this->startDate = $startDate;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getStatus()
-    {
-        return $this->_status;
-    }
+  /**
+   * Get the status of the recurring payment plan.
+   *
+   * It is used for the endpoint that will allow to monitor the health
+   * of a recurring plan. Possible returned values are:
+   *   0, "Failed Initial" : The transaction in the main charge request failed
+   *     or was declined.
+   *   1, "Active" : Active recurring payment plan, response if
+   *     the transaction / payment plan is successful.
+   *   2, "Cancelled" : Cancelled
+   *   3, "In Arrears" : The recurring transactions failed.
+   *   4, "Suspended" : Merchant paused the service. Or If retries also failed.
+   *   5, "Completed" : Recurring payment plan completed.
+   *
+   * @return mixed
+   *   The status.
+   */
+  public function getStatus()
+  {
+    return $this->status;
+  }
 
-    /**
-     * @param mixed $status
-     */
-    public function setStatus( $status )
-    {
-        $this->_status = $status;
-    }
+  /**
+   * Set the status of the recurring payment plan.
+   *
+   * It is used for the endpoint that will allow to monitor the health
+   * of a recurring plan. Possible returned values are:
+   *   0, "Failed Initial" : The transaction in the main charge request failed
+   *     or was declined.
+   *   1, "Active" : Active recurring payment plan, response if
+   *     the transaction / payment plan is successful.
+   *   2, "Cancelled" : Cancelled
+   *   3, "In Arrears" : The recurring transactions failed.
+   *   4, "Suspended" : Merchant paused the service. Or If retries also failed.
+   *   5, "Completed" : Recurring payment plan completed.
+   *
+   * @param mixed $status
+   *   The status.
+   */
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getPlanId()
-    {
-        return $this->_planId;
-    }
+  /**
+   * Get the Payment plan ID.
+   *
+   * It is generated by Checkout.com and
+   * prefixed with rp_ for identical recurring plans.
+   *
+   * @return string
+   *   The plan Id.
+   */
+  public function getPlanId()
+  {
+    return $this->planId;
+  }
 
-    /**
-     * @param mixed $planId
-     */
-    public function setPlanId( $planId )
-    {
-        $this->_planId = $planId;
-    }
+  /**
+   * Set the Payment plan ID.
+   *
+   * It is generated by Checkout.com and
+   * prefixed with rp_ for identical recurring plans.
+   *
+   * @param string $planId
+   *   The plan Id.
+   */
+  public function setPlanId($planId)
+  {
+    $this->planId = $planId;
+  }
 }

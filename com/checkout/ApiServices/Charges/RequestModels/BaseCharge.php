@@ -21,11 +21,11 @@ class BaseCharge extends BaseChargeInfo
     protected $_customerId;
     protected $_description;
     protected $_autoCapture;
-    protected $_autoCapTime;
+    protected $autoCapTime;
     protected $_shippingDetails;
     protected $_products = array();
-    protected $_value;
-    protected $_currency;
+    protected $value;
+    protected $currency;
     protected $_customerIp;
     protected $_chargeMode;
     protected $_riskCheck;
@@ -69,7 +69,7 @@ class BaseCharge extends BaseChargeInfo
      */
     public function getCurrency()
     {
-        return $this->_currency;
+        return $this->currency;
     }
 
     /**
@@ -77,7 +77,7 @@ class BaseCharge extends BaseChargeInfo
      */
     public function setCurrency( $currency )
     {
-        $this->_currency = $currency;
+        $this->currency = $currency;
     }
 
     /**
@@ -85,7 +85,7 @@ class BaseCharge extends BaseChargeInfo
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     /**
@@ -93,7 +93,7 @@ class BaseCharge extends BaseChargeInfo
      */
     public function setValue( $value )
     {
-        $this->_value = $value;
+        $this->value = $value;
     }
 
     /**
@@ -165,7 +165,7 @@ class BaseCharge extends BaseChargeInfo
      */
     public function getAutoCapTime()
     {
-        return $this->_autoCapTime;
+        return $this->autoCapTime;
     }
 
     /**
@@ -173,7 +173,7 @@ class BaseCharge extends BaseChargeInfo
      */
     public function setAutoCapTime( $autoCapTime )
     {
-        $this->_autoCapTime = $autoCapTime;
+        $this->autoCapTime = $autoCapTime;
     }
 
     /**

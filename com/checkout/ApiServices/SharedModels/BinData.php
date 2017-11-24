@@ -18,7 +18,7 @@ namespace com\checkout\ApiServices\SharedModels;
 class BinData extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
 
-    protected $_object;
+    protected $object;
     protected $_bin;
     protected $_issuerCountryISO2;
     protected $_cardType;
@@ -29,7 +29,7 @@ class BinData extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
 
@@ -65,7 +65,7 @@ class BinData extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
 

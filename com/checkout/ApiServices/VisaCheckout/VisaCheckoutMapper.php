@@ -21,7 +21,7 @@ namespace com\checkout\ApiServices\VisaCheckout;
 
 class VisaCheckoutMapper
 {
-    private $_requestModel;
+    private $requestModel;
 
     /**
      * @param $requestModel
@@ -36,7 +36,7 @@ class VisaCheckoutMapper
      */
     public function getRequestModel()
     {
-        return $this->_requestModel;
+        return $this->requestModel;
     }
 
     /**
@@ -44,7 +44,7 @@ class VisaCheckoutMapper
      */
     public function setRequestModel($requestModel)
     {
-        $this->_requestModel = $requestModel;
+        $this->requestModel = $requestModel;
     }
 
     /**

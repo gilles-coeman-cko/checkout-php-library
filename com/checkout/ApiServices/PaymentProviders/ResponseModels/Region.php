@@ -25,7 +25,7 @@ namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
 class Region extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
     private $_regionId;
-    private $_name;
+    private $name;
 
     public function __construct($response)
     {
@@ -38,7 +38,7 @@ class Region extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     private function _setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**

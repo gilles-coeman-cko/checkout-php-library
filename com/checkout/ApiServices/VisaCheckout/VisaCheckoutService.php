@@ -25,12 +25,12 @@ class VisaCheckoutService extends \com\checkout\ApiServices\BaseServices
     public function createVisaCheckoutCardToken(RequestModels\VisaCheckoutCardTokenCreate $requestModel, $publicKey) 
     {
         $visaCheckoutMapper    = new VisaCheckoutMapper($requestModel);
-        $visaCheckoutUri       = $this->_apiUrl->getVisaCheckoutCardTokenApiUri();
+        $visaCheckoutUri       = $this->apiUrl->getVisaCheckoutCardTokenApiUri();
 
         // echo var_dump($visaCheckoutUri);
         $requestVisaCheckout   = array (
             'authorization' => $publicKey,
-            'mode'          => $this->_apiSetting->getMode(),
+            'mode'          => $this->apiSetting->getMode(),
             'postedParam'   => $visaCheckoutMapper->requestPayloadConverter(),
 
         );

@@ -1,140 +1,177 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Recurring payment.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\RecurringPayments\ResponseModels;
+namespace com\checkout\ApiServices\Recurringpayments\ResponseModels;
 
-
-class RecurringPayment extends \com\checkout\ApiServices\SharedModels\BaseHttp
+/**
+ * Class Recurring payment.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Recurringpayment extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    protected $_object;
-    protected $_id;
-    protected $_paymentPlans;
-    protected $_totalCollectionCount;
-    protected $_totalCollectionValue;
-    
+  protected $object;
+  protected $id;
+  protected $paymentPlans;
+  protected $totalCollectionCount;
+  protected $totalCollectionValue;
 
+  public function __construct($response)
+  {
+    parent::__construct($response);
 
-    public function __construct($response)
-    {
-        parent::__construct($response);
+    $this->setObject($response->getObject());
+    $this->setTotalCollectionCount($response->getTotalCollectionCount());
+    $this->setTotalCollectionValue($response->getTotalCollectionValue());
 
-        $this->_setObject($response->getObject());
-        $this->_setTotalCollectionCount($response->getTotalCollectionCount());
-        $this->_setTotalCollectionValue($response->getTotalCollectionValue());
+    if ($response->getPaymentplans()) {
+      $this->setPaymentplans($response->getPaymentplans());
+    }
+  }
 
-        if($response->getPaymentPlans()) {
-            $this->_setPaymentPlans($response->getPaymentPlans());
-        }
+  /**
+   * Get an object.
+   *
+   * @return int
+   *   The object.
+   */
+  public function getObject()
+  {
+    return $this->object;
+  }
+
+  /**
+   * Get the total number of transactions that will be applied against the card.
+   *
+   * @return mixed
+   *   The totalCollectedCount.
+   */
+  public function getTotalCollectionCount()
+  {
+    return $this->totalCollectionCount;
+  }
+
+  /**
+   * Get the total value of transactions that will be applied against the card.
+   *
+   * @return mixed
+   *   The totalCollectionValue.
+   */
+  public function getTotalCollectionValue()
+  {
+    return $this->totalCollectionValue;
+  }
+
+  /**
+   * Get an array of payment plans.
+   *
+   * Payment Plans store all the necessary information in support of implementing
+   * subscription services, membership services, and other popular recurring
+   * payment models. The fields within the Payment Plan object allow you to
+   * customise several important details, including the amount charged to the
+   * customer, currency, recurring billing cycle, and the number of recurring
+   * transactions in the plan.
+   *
+   * @return mixed
+   *   The paymentPlans.
+   */
+  public function getPaymentplans()
+  {
+    return $this->paymentPlans;
+  }
+
+  /**
+   * Set an object.
+   *
+   * @param int $object
+   *   The object.
+   */
+  private function setObject($object)
+  {
+    $this->object = $object;
+  }
+
+  /**
+   * Set an array of payment plans.
+   *
+   * Payment Plans store all the necessary information in support of implementing
+   * subscription services, membership services, and other popular recurring
+   * payment models. The fields within the Payment Plan object allow you to
+   * customise several important details, including the amount charged to the
+   * customer, currency, recurring billing cycle, and the number of recurring
+   * transactions in the plan.
+   *
+   * @param mixed $paymentPlans
+   *   The paymentPlans.
+   */
+  protected function setPaymentplans($paymentPlans)
+  {
+    $paymentPlansArray = $paymentPlans->toArray();
+    $paymentPlansToReturn = array();
+    if ($paymentPlansArray) {
+      foreach ($paymentPlansArray as $item) {
+        $paymentPlan = new \com\checkout\ApiServices\SharedModels\Paymentplan();
+        $paymentPlan->setPlanId($item['planId']);
+        $paymentPlan->setName($item['name']);
+        $paymentPlan->setPlanTrackId($item['planTrackId']);
+        $paymentPlan->setAutoCapTime($item['autoCapTime']);
+        $paymentPlan->setCurrency($item['currency']);
+        $paymentPlan->setValue($item['value']);
+        $paymentPlan->setRecurringCount($item['recurringCount']);
+        $paymentPlan->setStatus($item['status']);
+        $paymentPlansToReturn[] = $paymentPlan;
+      }
     }
 
+    $this->paymentPlans = $paymentPlansToReturn;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getObject()
-    {
-        return $this->_object;
-    }
+  /**
+   * Set the total number of transactions that will be applied against the card.
+   *
+   * @param mixed $totalCollectionCount
+   *   The totalCollectionCount.
+   */
+  public function setTotalCollectionCount($totalCollectionCount)
+  {
+    $this->totalCollectionCount = $totalCollectionCount;
+  }
 
+  /**
+   * Set the total value of transactions that will be applied against the card.
+   *
+   * @param mixed $totalCollectionValue
+   *   The totalCollectionValue.
+   */
+  public function setTotalCollectionValue($totalCollectionValue)
+  {
+    $this->totalCollectionValue = $totalCollectionValue;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getTotalCollectionCount()
-    {
-        return $this->_totalCollectionCount;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getTotalCollectionValue()
-    {
-        return $this->_totalCollectionValue;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getPaymentPlans()
-    {
-        return $this->_paymentPlans;
-    }
-
-
-    /**
-     * @param mixed $object
-     */
-    private function _setObject( $object )
-    {
-        $this->_object = $object;
-    }
-
-
-    /**
-     * @param mixed $paymentPlans
-     */
-    protected function _setPaymentPlans( $paymentPlans )
-    {
-        $paymentPlansArray = $paymentPlans->toArray();
-        $paymentPlansToReturn = array();
-        if($paymentPlansArray) {
-            foreach($paymentPlansArray as $item){
-                $paymentPlan  = new \com\checkout\ApiServices\SharedModels\PaymentPlan();
-                $paymentPlan->setPlanId($item['planId']);
-                $paymentPlan->setName($item['name']);
-                $paymentPlan->setPlanTrackId($item['planTrackId']);
-                $paymentPlan->setAutoCapTime($item['autoCapTime']);
-                $paymentPlan->setCurrency($item['currency']);
-                $paymentPlan->setValue($item['value']);
-                $paymentPlan->setRecurringCount($item['recurringCount']);
-                $paymentPlan->setStatus($item['status']);
-                $paymentPlansToReturn[] = $paymentPlan;
-            }
-        }
-
-        $this->_paymentPlans = $paymentPlansToReturn;
-    }
-
-
-    /**
-     * @param mixed
-     */
-    public function _setTotalCollectionCount( $totalCollectionCount )
-    {
-        $this->_totalCollectionCount = $totalCollectionCount;
-    }
-
-
-    /**
-     * @param mixed
-     */
-    public function _setTotalCollectionValue( $totalCollectionValue )
-    {
-        $this->_totalCollectionValue = $totalCollectionValue;
-    }
-
-
-    /**
-     * @param mixed $responseCode
-     */
-    private function _setResponseCode( $responseCode )
-    {
-        $this->_responseCode = $responseCode;
-    }
+  /**
+   * Set the response code.
+   *
+   * A responseCode is a five-digit numeric code that indicates the status
+   * of the request. Additional information on the request status may be
+   * found in the responseMessage, responseAdvancedInfo and status fields.
+   *
+   * @param mixed $responseCode
+   *   The responseCode.
+   */
+  private function setResponseCode($responseCode)
+  {
+    $this->responseCode = $responseCode;
+  }
 
 }

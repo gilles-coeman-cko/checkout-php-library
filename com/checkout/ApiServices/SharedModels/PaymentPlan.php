@@ -15,19 +15,19 @@
 
 namespace com\checkout\ApiServices\SharedModels;
 
-class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Paymentplan extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
 
-    protected $_object;
-    protected $_planId;
-    protected $_name;
-    protected $_planTrackId;
-    protected $_autoCapTime;
-    protected $_currency;
-    protected $_value;
-    protected $_cycle;
-    protected $_recurringCount;
-    protected $_status;
+    protected $object;
+    protected $planId;
+    protected $name;
+    protected $planTrackId;
+    protected $autoCapTime;
+    protected $currency;
+    protected $value;
+    protected $cycle;
+    protected $recurringCount;
+    protected $status;
 
 
     /**
@@ -35,7 +35,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
 
@@ -44,7 +44,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getPlanId()
     {
-        return $this->_planId;
+        return $this->planId;
     }
 
 
@@ -53,7 +53,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
 
@@ -62,7 +62,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getPlanTrackId()
     {
-        return $this->_planTrackId;
+        return $this->planTrackId;
     }
 
 
@@ -71,7 +71,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getAutoCapTime()
     {
-        return $this->_autoCapTime;
+        return $this->autoCapTime;
     }
 
 
@@ -80,7 +80,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCurrency()
     {
-        return $this->_currency;
+        return $this->currency;
     }
 
     
@@ -89,7 +89,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
 
@@ -98,7 +98,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCycle()
     {
-        return $this->_cycle;
+        return $this->cycle;
     }
 
 
@@ -107,7 +107,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getRecurringCount()
     {
-        return $this->_recurringCount;
+        return $this->recurringCount;
     }
 
 
@@ -116,7 +116,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getStatus()
     {
-        return $this->_status;
+        return $this->status;
     }
 
 
@@ -125,7 +125,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
 
@@ -134,7 +134,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setPlanId( $planId )
     {
-        $this->_planId = $planId;
+        $this->planId = $planId;
     }
 
     
@@ -143,7 +143,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**
@@ -151,7 +151,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setPlanTrackId( $planTrackId )
     {
-        $this->_planTrackId = $planTrackId;
+        $this->planTrackId = $planTrackId;
     }
 
 
@@ -160,7 +160,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setAutoCapTime( $autoCapTime )
     {
-        $this->_autoCapTime = $autoCapTime;
+        $this->autoCapTime = $autoCapTime;
     }
 
 
@@ -169,7 +169,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setCurrency( $currency )
     {
-        $this->_currency = $currency;
+        $this->currency = $currency;
     }
 
     
@@ -178,7 +178,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setValue( $value )
     {
-        $this->_value = $value;
+        $this->value = $value;
     }
 
 
@@ -187,7 +187,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setCycle( $cycle )
     {
-        $this->_cycle = $cycle;
+        $this->cycle = $cycle;
     }
 
 
@@ -196,7 +196,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setRecurringCount( $recurringCount )
     {
-        $this->_recurringCount = $recurringCount;
+        $this->recurringCount = $recurringCount;
     }
 
 
@@ -205,7 +205,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setStatus( $status )
     {
-        $this->_status = $status;
+        $this->status = $status;
     }
 
 
@@ -214,7 +214,7 @@ class PaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setResponseCode( $responseCode )
     {
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
     }
 
 }

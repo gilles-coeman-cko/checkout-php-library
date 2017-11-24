@@ -31,15 +31,15 @@ class CustomerService extends \com\checkout\ApiServices\BaseServices
         $customerMapper = new CustomerMapper($requestModel);
 
         $requestPayload = array (
-        'authorization' => $this->_apiSetting->getSecretKey(),
-        'mode'          => $this->_apiSetting->getMode(),
+        'authorization' => $this->apiSetting->getSecretKey(),
+        'mode'          => $this->apiSetting->getMode(),
         'postedParam'   => $customerMapper->requestPayloadConverter(),
 
         );
 
         $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-            $this->_apiUrl->getCustomersApiUri(),
-            $this->_apiSetting->getSecretKey(), $requestPayload
+            $this->apiUrl->getCustomersApiUri(),
+            $this->apiSetting->getSecretKey(), $requestPayload
         );
 
         $responseModel = new ResponseModels\Customer($processCharge);
@@ -53,15 +53,15 @@ class CustomerService extends \com\checkout\ApiServices\BaseServices
         $customerMapper = new CustomerMapper($requestModel);
 
         $requestPayload = array (
-        'authorization' => $this->_apiSetting->getSecretKey(),
-        'mode'          => $this->_apiSetting->getMode(),
+        'authorization' => $this->apiSetting->getSecretKey(),
+        'mode'          => $this->apiSetting->getMode(),
         'postedParam'   => $customerMapper->requestPayloadConverter(),
 
         );
-        $updateCustomerUri = $this->_apiUrl->getCustomersApiUri().'/'.$requestModel->getCustomerId();
+        $updateCustomerUri = $this->apiUrl->getCustomersApiUri().'/'.$requestModel->getCustomerId();
         $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
             $updateCustomerUri,
-            $this->_apiSetting->getSecretKey(), $requestPayload
+            $this->apiSetting->getSecretKey(), $requestPayload
         );
 
         $responseModel = new  \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
@@ -74,14 +74,14 @@ class CustomerService extends \com\checkout\ApiServices\BaseServices
     {
 
         $requestPayload = array (
-        'authorization' => $this->_apiSetting->getSecretKey(),
-        'mode'          => $this->_apiSetting->getMode(),
+        'authorization' => $this->apiSetting->getSecretKey(),
+        'mode'          => $this->apiSetting->getMode(),
 
         );
-        $deleteCustomerUri = $this->_apiUrl->getCustomersApiUri().'/'.$customerId;
+        $deleteCustomerUri = $this->apiUrl->getCustomersApiUri().'/'.$customerId;
         $processCharge = \com\checkout\helpers\ApiHttpClient::deleteRequest(
             $deleteCustomerUri,
-            $this->_apiSetting->getSecretKey(), $requestPayload
+            $this->apiSetting->getSecretKey(), $requestPayload
         );
 
         $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
@@ -93,14 +93,14 @@ class CustomerService extends \com\checkout\ApiServices\BaseServices
     {
 
         $requestPayload = array (
-        'authorization' => $this->_apiSetting->getSecretKey(),
-        'mode'          => $this->_apiSetting->getMode(),
+        'authorization' => $this->apiSetting->getSecretKey(),
+        'mode'          => $this->apiSetting->getMode(),
 
         );
-        $getCustomerUri = $this->_apiUrl->getCustomersApiUri().'/'.$customerId;
+        $getCustomerUri = $this->apiUrl->getCustomersApiUri().'/'.$customerId;
         $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
             $getCustomerUri,
-            $this->_apiSetting->getSecretKey(), $requestPayload
+            $this->apiSetting->getSecretKey(), $requestPayload
         );
 
         $responseModel = new ResponseModels\Customer($processCharge);
@@ -111,7 +111,7 @@ class CustomerService extends \com\checkout\ApiServices\BaseServices
     public function getCustomerList($count = null , $offset =null , $startDate = null, $endDate = null, $singleDay =
         false
     ) {
-        $customerUri = $this->_apiUrl->getCustomersApiUri();
+        $customerUri = $this->apiUrl->getCustomersApiUri();
         $delimiter = '?';
         $createdAt = 'created=';
 
@@ -146,14 +146,14 @@ class CustomerService extends \com\checkout\ApiServices\BaseServices
         }
 
         $requestPayload = array (
-        'authorization' => $this->_apiSetting->getSecretKey(),
-        'mode'          => $this->_apiSetting->getMode(),
+        'authorization' => $this->apiSetting->getSecretKey(),
+        'mode'          => $this->apiSetting->getMode(),
 
         );
 
         $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
             $customerUri,
-            $this->_apiSetting->getSecretKey(), $requestPayload
+            $this->apiSetting->getSecretKey(), $requestPayload
         );
 
         $responseModel = new ResponseModels\CustomerList($processCharge);

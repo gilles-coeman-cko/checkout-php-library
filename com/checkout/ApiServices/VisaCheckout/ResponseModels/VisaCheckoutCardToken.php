@@ -18,8 +18,8 @@ namespace com\checkout\ApiServices\VisaCheckout\ResponseModels;
 
 class VisaCheckoutCardToken
 {
-    private $_object;
-    private $_id;
+    private $object;
+    private $id;
     private $_liveMode;
     private $_created;
     private $_used;
@@ -34,7 +34,7 @@ class VisaCheckoutCardToken
         $this->_setCreated($response->getCreated());
         $this->_setId($response->getId());
         $this->_setLiveMode($response->getLiveMode());
-        $this->_setObject($response->getObject());
+        $this->setObject($response->getObject());
         $this->_setUsed($response->getUsed());
 
         if ($response->getBinData() != null) {
@@ -84,7 +84,7 @@ class VisaCheckoutCardToken
      */
     private function _setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**
@@ -98,9 +98,9 @@ class VisaCheckoutCardToken
     /**
      * @param mixed $object
      */
-    private function _setObject( $object )
+    private function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
     /**
@@ -132,7 +132,7 @@ class VisaCheckoutCardToken
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -148,7 +148,7 @@ class VisaCheckoutCardToken
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
     /**

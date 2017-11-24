@@ -25,7 +25,7 @@ namespace com\checkout\ApiServices\SharedModels;
 class DeleteResponse extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
     private $_delete;
-    private $_id;
+    private $id;
     public function __construct($response)
     {
         parent::__construct($response);
@@ -54,7 +54,7 @@ class DeleteResponse extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -62,6 +62,6 @@ class DeleteResponse extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     private function _setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 }

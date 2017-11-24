@@ -24,9 +24,9 @@ namespace com\checkout\ApiServices\Customers\ResponseModels;
 
 class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $_object;
-    private $_id;
-    private $_name;
+    private $object;
+    private $id;
+    private $name;
     private $_customerName;
     private $_created;
     private $_email;
@@ -34,7 +34,7 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
     private $_description;
     private $_ltv;
     private $_defaultCard;
-    private $_responseCode;
+    private $responseCode;
     private $_liveMode;
     private $_cards;
     private $_metadata;
@@ -42,7 +42,7 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
     public function __construct($response)
     {
         parent::__construct($response);
-        $this->_setObject($response->getObject());
+        $this->setObject($response->getObject());
         $this->_setCards($response->getCards());
         $this->_setCreated($response->getCreated());
         $this->_setDefaultCard($response->getdDefaultCard());
@@ -54,7 +54,7 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
         $this->_setMetadata($response->getMetadata());
         $this->_setName($response->getName());
         $this->_setPhoneNumber($response->getPhoneNumber());
-        $this->_setResponseCode($response->getResponseCode());
+        $this->setResponseCode($response->getResponseCode());
         $this->_setCustomerName($response->getCustomerName());
     }
 
@@ -117,7 +117,7 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -149,7 +149,7 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -157,7 +157,7 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
     /**
@@ -173,15 +173,15 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getResponseCode()
     {
-        return $this->_responseCode;
+        return $this->responseCode;
     }
 
     /**
      * @param mixed $object
      */
-    private function _setObject( $object )
+    private function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
 
@@ -242,7 +242,7 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     private function _setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }/**
       * @param mixed $liveMode
       */
@@ -274,7 +274,7 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     private function _setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**
@@ -289,9 +289,9 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $responseCode
      */
-    private function _setResponseCode( $responseCode )
+    private function setResponseCode( $responseCode )
     {
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
     }
 
 }

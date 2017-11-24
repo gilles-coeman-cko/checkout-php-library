@@ -16,7 +16,7 @@ namespace com\checkout\ApiServices\Cards\RequestModels;
 
 class CardUpdate
 {
-    private  $_cardId;
+    private  $cardId;
     private  $_customerId;
     private  $_baseCard;
 
@@ -25,7 +25,7 @@ class CardUpdate
      */
     public function getCardId()
     {
-        return $this->_cardId;
+        return $this->cardId;
     }
 
     /**
@@ -33,7 +33,7 @@ class CardUpdate
      */
     public function setCardId( $cardId )
     {
-        $this->_cardId = $cardId;
+        $this->cardId = $cardId;
     }
 
     /**

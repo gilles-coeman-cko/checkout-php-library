@@ -18,8 +18,8 @@ namespace com\checkout\ApiServices\Charges\ResponseModels;
 
 class ChargeHistory extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    protected $_object;
-    protected $_id;
+    protected $object;
+    protected $id;
     protected $_charges;
 
 
@@ -27,7 +27,7 @@ class ChargeHistory extends \com\checkout\ApiServices\SharedModels\BaseHttp
     {
         parent::__construct($response);
 
-        $this->_setObject($response->getObject());
+        $this->setObject($response->getObject());
         
         if($response->getCharges()) {
             $this->_setCharges($response->getCharges());
@@ -40,7 +40,7 @@ class ChargeHistory extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
 
@@ -56,9 +56,9 @@ class ChargeHistory extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $object
      */
-    private function _setObject( $object )
+    private function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
 
@@ -93,9 +93,9 @@ class ChargeHistory extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $responseCode
      */
-    private function _setResponseCode( $responseCode )
+    private function setResponseCode( $responseCode )
     {
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
     }
 
 }

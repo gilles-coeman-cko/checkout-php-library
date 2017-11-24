@@ -1,55 +1,93 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Recurring Payment Plan With Payment Token Create.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
 
-namespace com\checkout\ApiServices\RecurringPayments\RequestModels;
-
-
-class PlanWithPaymentTokenCreate extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
+/**
+ * Class Plan With Payment Token Create.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Planwithpaymenttokencreate extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
 {
-    protected $_transactionIndicator;
-    protected $_paymentPlans = array();
+  protected $transactionIndicator;
+  protected $paymentPlans = array();
 
-    /**
-     * @return mixed
-     */
-    public function getTransactionIndicator()
-    {
-        return $this->_transactionIndicator;
-    }
+  /**
+   * Get the transaction indicator.
+   * 
+   * Transaction indicator.
+   *   Set to 1 for regular.
+   *   Set to 2 for recurring.
+   *   Set to 3 for MOTO.
+   *
+   * @return mixed
+   *   The transactionIndicator.
+   */
+  public function getTransactionIndicator()
+  {
+    return $this->transactionIndicator;
+  }
 
-    /**
-     * @param mixed $transactionIndicator
-     */
-    public function setTransactionIndicator($transactionIndicator)
-    {
-        $this->_transactionIndicator = $transactionIndicator;
-    }
+  /**
+   * Set the transaction indicator.
+   * 
+   * Transaction indicator.
+   *   Set to 1 for regular.
+   *   Set to 2 for recurring.
+   *   Set to 3 for MOTO.
+   *
+   * @return mixed
+   *   The transactionIndicator.
+   */
+  public function setTransactionIndicator($transactionIndicator)
+  {
+    $this->transactionIndicator = $transactionIndicator;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getPaymentPlans()
-    {
-        return $this->_paymentPlans;
-    }
+  /**
+   * Get an array of payment plans.
+   *
+   * Payment Plans store all the necessary information in support of implementing
+   * subscription services, membership services, and other popular recurring
+   * payment models. The fields within the Payment Plan object allow you to
+   * customise several important details, including the amount charged to the
+   * customer, currency, recurring billing cycle, and the number of recurring
+   * transactions in the plan.
+   *
+   * @return mixed
+   *   The paymentPlans.
+   */
+  public function getPaymentplans()
+  {
+    return $this->paymentPlans;
+  }
 
-    /**
-     * @param mixed $paymentPlans
-     */
-    public function setPaymentPlans( BaseRecurringPayment $paymentPlans )
-    {
-        $this->_paymentPlans[] = $paymentPlans;
-    }
+  /**
+   * Set an array of payment plans.
+   *
+   * Payment Plans store all the necessary information in support of implementing
+   * subscription services, membership services, and other popular recurring
+   * payment models. The fields within the Payment Plan object allow you to
+   * customise several important details, including the amount charged to the
+   * customer, currency, recurring billing cycle, and the number of recurring
+   * transactions in the plan.
+   *
+   * @param mixed $paymentPlans
+   *   The paymentPlans.
+   */
+  public function setPaymentplans(Baserecurringpayment $paymentPlans)
+  {
+    $this->paymentPlans[] = $paymentPlans;
+  }
 }

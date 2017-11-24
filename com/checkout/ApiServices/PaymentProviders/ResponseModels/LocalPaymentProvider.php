@@ -24,19 +24,19 @@ namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
 
 class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    protected $_id;
+    protected $id;
     protected $_type;
-    protected $_name;
+    protected $name;
     protected $_iframe;
     protected $_regions;
-    protected $_CountryCodes;
+    protected $countryCodes;
     protected $_dimensions;
     protected $_customerFields;
 
     public function __construct($response)
     {
         parent::__construct($response);
-        $this->_setCountryCodes($response->getCountryCodes());
+        $this->setCountryCodes($response->getCountryCodes());
         $this->_setCustomerFields($response->getCustomerFields());
         $this->_setDimensions($response->getDimensions());
         $this->_setId($response->getId());
@@ -48,9 +48,9 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
     }    /**
           * @param mixed $CountryCodes
           */
-    protected function _setCountryCodes( $CountryCodes )
+    protected function setCountryCodes( $CountryCodes )
     {
-        $this->_CountryCodes = $CountryCodes->toArray();
+        $this->countryCodes = $CountryCodes->toArray();
     }
 
     /**
@@ -84,7 +84,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
      */
     protected function _setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**
@@ -100,7 +100,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
      */
     protected function _setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**
@@ -134,7 +134,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
      */
     public function getCountryCodes()
     {
-        return $this->_CountryCodes;
+        return $this->countryCodes;
     }
 
     /**
@@ -158,7 +158,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -174,7 +174,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**

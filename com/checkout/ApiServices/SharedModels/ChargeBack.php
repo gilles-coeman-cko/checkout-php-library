@@ -18,12 +18,12 @@ namespace com\checkout\ApiServices\SharedModels;
 class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
 
-    protected $_object;
-    protected $_id;
+    protected $object;
+    protected $id;
     protected $_chargeId;
     protected $_scheme;
-    protected $_value;
-    protected $_currency;
+    protected $value;
+    protected $currency;
     protected $_trackId;
     protected $_issueDate;
     protected $_cardNumber;
@@ -38,7 +38,7 @@ class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
     /**
@@ -46,7 +46,7 @@ class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     
@@ -73,7 +73,7 @@ class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
     
@@ -82,7 +82,7 @@ class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCurrency()
     {
-        return $this->_currency;
+        return $this->currency;
     }
 
     
@@ -163,7 +163,7 @@ class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
 
@@ -172,7 +172,7 @@ class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
 
@@ -199,7 +199,7 @@ class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setValue( $value )
     {
-        $this->_value = $value;
+        $this->value = $value;
     }
 
 
@@ -208,7 +208,7 @@ class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setCurrency( $currency )
     {
-        $this->_currency = $currency;
+        $this->currency = $currency;
     }
 
 
@@ -288,7 +288,7 @@ class ChargeBack extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setResponseCode( $responseCode )
     {
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
     }
 
 }

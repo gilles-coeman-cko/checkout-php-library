@@ -24,16 +24,16 @@ namespace com\checkout\ApiServices\Charges\RequestModels;
 
 class CardIdChargeCreate extends BaseCharge
 {
-    protected $_cardId;
-    protected $_cvv;
-    protected $_transactionIndicator;
+    protected $cardId;
+    protected $cvv;
+    protected $transactionIndicator;
 
     /**
      * @return mixed
      */
     public function getCardId()
     {
-        return $this->_cardId;
+        return $this->cardId;
     }
 
     /**
@@ -41,7 +41,7 @@ class CardIdChargeCreate extends BaseCharge
      */
     public function setCardId( $cardId )
     {
-        $this->_cardId = $cardId;
+        $this->cardId = $cardId;
     }
     
     /**
@@ -49,7 +49,7 @@ class CardIdChargeCreate extends BaseCharge
      */
     public function getCvv()
     {
-        return $this->_cvv;
+        return $this->cvv;
     }
 
     /**
@@ -57,7 +57,7 @@ class CardIdChargeCreate extends BaseCharge
      */
     public function setCvv( $cvv )
     {
-        $this->_cvv = $cvv;
+        $this->cvv = $cvv;
     }
 
     /**
@@ -65,7 +65,7 @@ class CardIdChargeCreate extends BaseCharge
      */
     public function getTransactionIndicator()
     {
-        return $this->_transactionIndicator;
+        return $this->transactionIndicator;
     }
 
     /**
@@ -73,6 +73,6 @@ class CardIdChargeCreate extends BaseCharge
      */
     public function setTransactionIndicator($transactionIndicator)
     {
-        $this->_transactionIndicator = $transactionIndicator;
+        $this->transactionIndicator = $transactionIndicator;
     }
 }

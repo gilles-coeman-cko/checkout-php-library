@@ -1,40 +1,65 @@
 <?php
-
 /**
- * CheckoutapiApi
+ * CheckoutapiApi.
  *
  * PHP Version 5.6
  *
  * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\packages;
 
 /**
- * Autoloader
+ * Class final  CheckoutapiApi.
+ *
+ * This class is responsible in creating instance of payment gateway interface.
+ * (CheckoutapiClientClient).
+ *
+ * The simplest usage would be:
+ *   $Api = CheckoutapiApi::getApi();
+ *
+ * This will create an instance a singleton instance of CheckoutapiClientClient
+ * the default gateway is CheckoutapiClientClientgw3
+ *
+ * If you need create instance of other gateways, you can do do those steps:
+ *   $Api = CheckoutapiApi::getApi(array(),
+ *     'CheckoutapiClientClient[GATEWAYNAME]');
+ *
+ * If you need initialise some configuration before hand:
+ *   $config = array('config1' => 'value1', 'config2' => 'value2');
+ *   $Api = CheckoutapiApi::getApi($config);
  *
  * @category Utility
- * @version  Release: @package_version@
+ * @version Release: @package_version@
  */
 class Autoloader
 {
+  private static $instance;
 
-  private static $_instance;
-
+  /**
+   * Get an instance of a class.
+   *
+   * @return mixed
+   *   The instance.
+   */
   public static function instance()
   {
-    if (!self::$_instance) {
+    if (!self::$instance) {
       $class = __class__;
-      self::$_instance = new $class();
+      self::$instance = new $class();
     }
-    return self::$_instance;
+    return self::$instance;
   }
 
+  /**
+   * Autoload the instance.
+   *
+   * @param mixed $class
+   *   The class.
+   */
   public function autoload($class)
   {
     $realclassName = ltrim($class, '\\');
@@ -61,6 +86,9 @@ class Autoloader
 
   }
 
+  /**
+   * Register the instance.
+   */
   public static function register()
   {
     spl_autoload_extensions('.php');

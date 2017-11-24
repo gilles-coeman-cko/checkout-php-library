@@ -16,7 +16,7 @@ namespace com\checkout\ApiServices\Tokens\RequestModels;
 
 class PaymentTokenUpdate
 {
-    private $_id;
+    private $id;
     protected $_trackId;
     protected $_udf1;
     protected $_udf2;
@@ -40,7 +40,7 @@ class PaymentTokenUpdate
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -48,7 +48,7 @@ class PaymentTokenUpdate
      */
     public function setId($id)
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**

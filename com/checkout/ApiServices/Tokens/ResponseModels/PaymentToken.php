@@ -24,7 +24,7 @@ namespace com\checkout\ApiServices\Tokens\ResponseModels;
 
 class PaymentToken
 {
-    private $_id;
+    private $id;
     private $_liveMode;
 
 
@@ -38,7 +38,7 @@ class PaymentToken
      */
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -46,7 +46,7 @@ class PaymentToken
      */
     private function _setId( $id )
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**

@@ -15,26 +15,26 @@
 
 namespace com\checkout\ApiServices\SharedModels;
 
-class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Customerpaymentplan extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
 
-    protected $_object;
-    protected $_planId;
-    protected $_name;
-    protected $_planTrackId;
-    protected $_autoCapTime;
-    protected $_currency;
-    protected $_value;
-    protected $_cycle;
-    protected $_recurringCount;
-    protected $_status;
-    protected $_customerPlanId;
-    protected $_recurringCountLeft;
-    protected $_totalCollectedValue;
-    protected $_totalCollectedCount;
-    protected $_startDate;
-    protected $_previousRecurringDate;
-    protected $_nextRecurringDate;
+    protected $object;
+    protected $planId;
+    protected $name;
+    protected $planTrackId;
+    protected $autoCapTime;
+    protected $currency;
+    protected $value;
+    protected $cycle;
+    protected $recurringCount;
+    protected $status;
+    protected $customerPlanId;
+    protected $recurringCountLeft;
+    protected $totalCollectedValue;
+    protected $totalCollectedCount;
+    protected $startDate;
+    protected $previousRecurringDate;
+    protected $nextRecurringDate;
 
 
     /**
@@ -42,7 +42,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getObject()
     {
-        return $this->_object;
+        return $this->object;
     }
 
 
@@ -51,7 +51,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getPlanId()
     {
-        return $this->_planId;
+        return $this->planId;
     }
 
 
@@ -60,7 +60,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
 
@@ -69,7 +69,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getPlanTrackId()
     {
-        return $this->_planTrackId;
+        return $this->planTrackId;
     }
 
 
@@ -78,7 +78,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getAutoCapTime()
     {
-        return $this->_autoCapTime;
+        return $this->autoCapTime;
     }
 
 
@@ -87,7 +87,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getCurrency()
     {
-        return $this->_currency;
+        return $this->currency;
     }
 
     
@@ -96,7 +96,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getValue()
     {
-        return $this->_value;
+        return $this->value;
     }
 
 
@@ -105,7 +105,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getCycle()
     {
-        return $this->_cycle;
+        return $this->cycle;
     }
 
 
@@ -114,7 +114,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getRecurringCount()
     {
-        return $this->_recurringCount;
+        return $this->recurringCount;
     }
 
 
@@ -123,7 +123,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getStatus()
     {
-        return $this->_status;
+        return $this->status;
     }
 
 
@@ -132,7 +132,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getCustomerPlanId()
     {
-        return $this->_customerPlanId;
+        return $this->customerPlanId;
     }
 
 
@@ -141,7 +141,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getRecurringCountLeft()
     {
-        return $this->_recurringCountLeft;
+        return $this->recurringCountLeft;
     }
 
 
@@ -150,7 +150,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getTotalCollectedValue()
     {
-        return $this->_totalCollectedValue;
+        return $this->totalCollectedValue;
     }
 
 
@@ -159,7 +159,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getTotalCollectedCount()
     {
-        return $this->_totalCollectedCount;
+        return $this->totalCollectedCount;
     }
 
 
@@ -168,7 +168,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getStartDate()
     {
-        return $this->_startDate;
+        return $this->startDate;
     }
 
 
@@ -177,7 +177,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getPreviousRecurringDate()
     {
-        return $this->_previousRecurringDate;
+        return $this->previousRecurringDate;
     }
 
 
@@ -186,7 +186,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function getNextRecurringDate()
     {
-        return $this->_nextRecurringDate;
+        return $this->nextRecurringDate;
     }
 
 
@@ -195,7 +195,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setObject( $object )
     {
-        $this->_object = $object;
+        $this->object = $object;
     }
 
     
@@ -204,7 +204,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setPlanId( $planId )
     {
-        $this->_planId = $planId;
+        $this->planId = $planId;
     }
 
     
@@ -213,7 +213,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setName( $name )
     {
-        $this->_name = $name;
+        $this->name = $name;
     }
 
     /**
@@ -221,7 +221,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setPlanTrackId( $planTrackId )
     {
-        $this->_planTrackId = $planTrackId;
+        $this->planTrackId = $planTrackId;
     }
 
 
@@ -230,7 +230,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setAutoCapTime( $autoCapTime )
     {
-        $this->_autoCapTime = $autoCapTime;
+        $this->autoCapTime = $autoCapTime;
     }
 
 
@@ -239,7 +239,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setCurrency( $currency )
     {
-        $this->_currency = $currency;
+        $this->currency = $currency;
     }
 
     
@@ -248,7 +248,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setValue( $value )
     {
-        $this->_value = $value;
+        $this->value = $value;
     }
 
 
@@ -257,7 +257,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setCycle( $cycle )
     {
-        $this->_cycle = $cycle;
+        $this->cycle = $cycle;
     }
 
 
@@ -266,7 +266,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setRecurringCount( $recurringCount )
     {
-        $this->_recurringCount = $recurringCount;
+        $this->recurringCount = $recurringCount;
     }
 
 
@@ -275,7 +275,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setStatus( $status )
     {
-        $this->_status = $status;
+        $this->status = $status;
     }
 
 
@@ -284,7 +284,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setCustomerPlanId( $customerPlanId )
     {
-        $this->_customerPlanId = $customerPlanId;
+        $this->customerPlanId = $customerPlanId;
     }
 
 
@@ -293,7 +293,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setRecurringCountLeft( $recurringCountLeft )
     {
-        $this->_recurringCountLeft = $recurringCountLeft;
+        $this->recurringCountLeft = $recurringCountLeft;
     }
 
 
@@ -302,7 +302,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setTotalCollectedValue( $totalCollectedValue )
     {
-        $this->_totalCollectedValue = $totalCollectedValue;
+        $this->totalCollectedValue = $totalCollectedValue;
     }
 
 
@@ -311,7 +311,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setTotalCollectedCount( $totalCollectedCount )
     {
-        $this->_totalCollectedCount = $totalCollectedCount;
+        $this->totalCollectedCount = $totalCollectedCount;
     }
 
 
@@ -320,7 +320,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setStartDate( $startDate )
     {
-        $this->_startDate = $startDate;
+        $this->startDate = $startDate;
     }
 
 
@@ -329,7 +329,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setPreviousRecurringDate( $previousRecurringDate )
     {
-        $this->_previousRecurringDate = $previousRecurringDate;
+        $this->previousRecurringDate = $previousRecurringDate;
     }
 
 
@@ -338,7 +338,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setNextRecurringDate( $nextRecurringDate )
     {
-        $this->_nextRecurringDate = $nextRecurringDate;
+        $this->nextRecurringDate = $nextRecurringDate;
     }
 
     /**
@@ -346,7 +346,7 @@ class CustomerPaymentPlan extends \com\checkout\ApiServices\SharedModels\BaseHtt
      */
     public function setResponseCode( $responseCode )
     {
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
     }
 
 }

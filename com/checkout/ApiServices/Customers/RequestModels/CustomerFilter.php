@@ -24,8 +24,8 @@ namespace com\checkout\ApiServices\Customers\RequestModels;
 
 class CustomerFilter
 {
-    private $_count;
-    private $_offset;
+    private $count;
+    private $offset;
     /**
     Holds created start and end dates separated by |
      */
@@ -52,7 +52,7 @@ class CustomerFilter
      */
     public function getOffset()
     {
-        return $this->_offset;
+        return $this->offset;
     }
 
     /**
@@ -60,7 +60,7 @@ class CustomerFilter
      */
     public function setOffset( $offset )
     {
-        $this->_offset = $offset;
+        $this->offset = $offset;
     }
 
     /**
@@ -68,7 +68,7 @@ class CustomerFilter
      */
     public function getCount()
     {
-        return $this->_count;
+        return $this->count;
     }
 
     /**
@@ -76,6 +76,6 @@ class CustomerFilter
      */
     public function setCount( $count )
     {
-        $this->_count = $count;
+        $this->count = $count;
     }
 }

@@ -109,7 +109,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
     $this->setUriToken();
     $this->setUriCustomer();
     $this->setUriProvider();
-    $this->setUriRecurringPayments();
+    $this->setUriRecurringpayments();
   }
 
   /**
@@ -1580,13 +1580,13 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function updatePaymentPlan(array $param) {
+  public function updatePaymentplan(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
     $this->flushState();
 
-    $uri = $this->getUriRecurringPayments() . '/plans';
+    $uri = $this->getUriRecurringpayments() . '/plans';
     $isPlanIdValid = CheckoutapiClientValidationGw3::isPlanIdValid($param);
 
     if (!$isPlanIdValid) {
@@ -1608,7 +1608,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * This method can be call this way:
    *   $param['planId'] = {$planId};
-   *   CancelPaymentPlan = $Api->cancelPaymentPlan($param);
+   *   CancelPaymentplan = $Api->cancelPaymentplan($param);
    *
    * @param array $param
    *   Payload param for deleting a payment plan.
@@ -1618,10 +1618,10 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function cancelPaymentPlan(array $param) {
+  public function cancelPaymentplan(array $param) {
     $param['method'] = CheckoutapiClientAdapterConstant::API_DELETE;
     $this->flushState();
-    $uri = $this->getUriRecurringPayments() . '/plans';
+    $uri = $this->getUriRecurringpayments() . '/plans';
     $hasError = FALSE;
     $isPlanIdValid = CheckoutapiClientValidationGw3::isPlanIdValid($param);
     if (!$isPlanIdValid) {
@@ -1642,7 +1642,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * Simple usage:
    *   $param['planId'] = {planId};
-   *   $getPaymentPlan = $Api->getPaymentPlan($param);
+   *   $getPaymentplan = $Api->getPaymentplan($param);
    *
    * @param array $param
    *   Payload param for returning a payment plan.
@@ -1652,12 +1652,12 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getPaymentPlan(array $param) {
+  public function getPaymentplan(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_GET;
     $this->flushState();
-    $uri = $this->getUriRecurringPayments() . '/plans';
+    $uri = $this->getUriRecurringpayments() . '/plans';
     $isPlanIdValid = CheckoutapiClientValidationGw3::isPlanIdValid($param);
 
     if (!$isPlanIdValid) {
@@ -1695,13 +1695,13 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function updateCustomerPaymentPlan(array $param) {
+  public function updateCustomerpaymentplan(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
     $this->flushState();
 
-    $uri = $this->getUriRecurringPayments() . '/customers';
+    $uri = $this->getUriRecurringpayments() . '/customers';
     $isCustomerPlanIdValid = CheckoutapiClientValidationGw3::isCustomerPlanIdValid($param);
 
     if (!$isCustomerPlanIdValid) {
@@ -1723,7 +1723,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * This method can be call this way:
    *   $param['customerPlanId'] = {$customerPlanId};
-   *   CancelCustomerPaymentPlan = $Api->cancelCustomerPaymentPlan($param);
+   *   CancelCustomerpaymentplan = $Api->cancelCustomerpaymentplan($param);
    *
    * @param array $param
    *   Payload param for deleting a payment plan.
@@ -1733,10 +1733,10 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function cancelCustomerPaymentPlan(array $param) {
+  public function cancelCustomerpaymentplan(array $param) {
     $param['method'] = CheckoutapiClientAdapterConstant::API_DELETE;
     $this->flushState();
-    $uri = $this->getUriRecurringPayments() . '/customers';
+    $uri = $this->getUriRecurringpayments() . '/customers';
     $hasError = FALSE;
     $isCustomerPlanIdValid = CheckoutapiClientValidationGw3::isCustomerPlanIdValid($param);
     if (!$isCustomerPlanIdValid) {
@@ -1757,7 +1757,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * Simple usage:
    *   $param['customerPlanId'] = {customerPlanId};
-   *   $getCustomerPaymentPlan = $Api->getCustomerPaymentPlan($param);
+   *   $getCustomerpaymentplan = $Api->getCustomerpaymentplan($param);
    *
    * @param array $param
    *   Payload param for returning a payment plan.
@@ -1767,12 +1767,12 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCustomerPaymentPlan(array $param) {
+  public function getCustomerpaymentplan(array $param) {
     $hasError = FALSE;
 
     $param['method'] = CheckoutapiClientAdapterConstant::API_GET;
     $this->flushState();
-    $uri = $this->getUriRecurringPayments() . '/customers';
+    $uri = $this->getUriRecurringpayments() . '/customers';
     $isCustomerPlanIdValid = CheckoutapiClientValidationGw3::isCustomerPlanIdValid($param);
 
     if (!$isCustomerPlanIdValid) {
@@ -2016,13 +2016,13 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    * @param null|string $uri
    *   The uri for the recurring payments.
    */
-  public function setUriRecurringPayments($uri = NULL) {
+  public function setUriRecurringpayments($uri = NULL) {
     $toSetUri = $uri;
     if (!$uri) {
       $toSetUri = $this->getUriPrefix() . 'recurringPayments';
     }
 
-    $this->uriRecurringPayments = $toSetUri;
+    $this->uriRecurringpayments = $toSetUri;
   }
 
   /**
@@ -2031,8 +2031,8 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    * @return string
    *   A string.
    */
-  public function getUriRecurringPayments() {
-    return $this->uriRecurringPayments;
+  public function getUriRecurringpayments() {
+    return $this->uriRecurringpayments;
 
   }
 
@@ -2087,7 +2087,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
     $this->setUriToken();
     $this->setUriCustomer();
     $this->setUriProvider();
-    $this->setUriRecurringPayments();
+    $this->setUriRecurringpayments();
 
   }
 

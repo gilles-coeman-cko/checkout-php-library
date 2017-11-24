@@ -112,13 +112,13 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     curl_setopt($resource, CURLOPT_SSL_VERIFYPEER, FALSE);
 
     $response = curl_exec($resource);
-    $http_status = curl_getinfo($resource, CURLINFO_HTTP_CODE);
+    $httpstatus = curl_getinfo($resource, CURLINFO_HTTP_CODE);
 
-    if ($http_status != 200) {
+    if ($httpstatus != 200) {
       $this->exception(
         "An error has occurred while processing your transaction",
         array(
-          'respond_code' => $http_status,
+          'respond_code' => $httpstatus,
           'curl_info' => curl_getinfo($resource),
           'respondBody' => $response,
           'postedParam' => $this->getPostedParam(),
