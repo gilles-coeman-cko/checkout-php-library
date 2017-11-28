@@ -22,7 +22,7 @@
 namespace com\checkout\ApiServices\Tokens;
 
 
-class PaymentTokenMapper
+class PaymenttokenMapper
 {
 
 

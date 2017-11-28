@@ -1,141 +1,200 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\ResponseModels\Paymenttoken
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 1:54 PM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Charges\ResponseModels;
 
-
-class PaymentToken extends \com\checkout\ApiServices\SharedModels\BaseHttp
+/**
+ * Class Payment Token.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Paymenttoken extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $id;
-    private $_liveMode;
-    private $responseCode;
-    private $_chargeMode;
-    private $_response = null;
-    private $_redirectUrl;
+  private $id;
+  private $liveMode;
+  private $responseCode;
+  private $chargeMode;
+  private $response = null;
+  private $redirectUrl;
 
-    public function __construct($response)
-    {
-        parent::__construct($response);
-        $this->_setChargeMode($response->getChargeMode());
-        $this->_setId($response->getId());
-        $this->_setLiveMode($response->getLiveMode());
-        $this->setResponseCode($response->getResponseCode());
-        $this->_setRedirectUrl($response->getRedirecturl());
-        $this->_setResponse($response);
-    }
+  /**
+   * Class constructor.
+   *
+   * @param mixed $response
+   *   The request model.
+   */
+  public function __construct($response)
+  {
+    parent::__construct($response);
+    $this->setChargeMode($response->getChargeMode());
+    $this->setId($response->getId());
+    $this->setLiveMode($response->getLiveMode());
+    $this->setResponseCode($response->getResponseCode());
+    $this->setRedirectUrl($response->getRedirecturl());
+    $this->setResponse($response);
+  }
 
-    /**
-     * @return null
-     */
-    public function getResponse()
-    {
-        return $this->_response;
-    }
+  /**
+   * Get the response.
+   *
+   * @return mixed
+   *   The response.
+   */
+  public function getResponse()
+  {
+    return $this->response;
+  }
 
-    /**
-     * @param null $response
-     */
-    private function _setResponse( $response )
-    {
-        $this->_response = $response;
-    }
+  /**
+   * Set the response.
+   *
+   * @param mixed $response
+   *   The response.
+   */
+  private function setResponse($response)
+  {
+    $this->response = $response;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getChargeMode()
-    {
-        return $this->_chargeMode;
-    }
+  /**
+   * Get a valid charge mode.
+   *
+   * Options:
+   *   1 for No 3D.
+   *   2 for 3D.
+   *   3 for Local Payment.
+   *
+   * @return mixed
+   *   The chargeMode.
+   */
+  public function getChargeMode()
+  {
+    return $this->chargeMode;
+  }
 
-    /**
-     * @param mixed $chargeMode
-     */
-    private function _setChargeMode( $chargeMode )
-    {
-        $this->_chargeMode = $chargeMode;
-    }
+  /**
+   * Set a valid charge mode.
+   *
+   * Options:
+   *   1 for No 3D.
+   *   2 for 3D.
+   *   3 for Local Payment.
+   *
+   * @param mixed $chargeMode
+   *   The chargeMode.
+   */
+  private function setChargeMode($chargeMode)
+  {
+    $this->chargeMode = $chargeMode;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+   * Get the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @return mixed
+   *   The chargeId.
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    /**
-     * @param mixed $id
-     */
-    private function _setId( $id )
-    {
-        $this->id = $id;
-    }
+  /**
+   * Set the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @param mixed $id
+   *   The chargeId.
+   */
+  private function setId($id)
+  {
+    $this->id = $id;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getLiveMode()
-    {
-        return $this->_liveMode;
-    }
+  /**
+   * Get the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @return mixed
+   *   The LiveMode.
+   */
+  public function getLiveMode()
+  {
+    return $this->liveMode;
+  }
 
-    /**
-     * @param mixed $liveMode
-     */
-    private function _setLiveMode( $liveMode )
-    {
-        $this->_liveMode = $liveMode;
-    }
+  /**
+   * Set the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @param mixed $liveMode
+   *   The LiveMode.
+   */
+  private function setLiveMode($liveMode)
+  {
+    $this->liveMode = $liveMode;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getRedirectUrl()
-    {
-        return $this->_redirectUrl;
-    }
+  /**
+   * Get the redirectUrl.
+   *
+   * @return mixed
+   *   The redirectUrl.
+   */
+  public function getRedirectUrl()
+  {
+    return $this->redirectUrl;
+  }
 
-    /**
-     * @param mixed $redirectUrl
-     */
-    private function _setRedirectUrl( $redirectUrl )
-    {
-        $this->_redirectUrl = $redirectUrl;
-    }
+  /**
+   * Set the redirectUrl.
+   *
+   * @param mixed $redirectUrl
+   *   The redirectUrl.
+   */
+  private function setRedirectUrl($redirectUrl)
+  {
+    $this->redirectUrl = $redirectUrl;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getResponseCode()
-    {
-        return $this->responseCode;
-    }
+  /**
+   * Get a response code indicating the status of the request.
+   *
+   * @return mixed
+   *   The responseCode.
+   */
+  public function getResponseCode()
+  {
+    return $this->responseCode;
+  }
 
-    /**
-     * @param mixed $responseCode
-     */
-    private function setResponseCode( $responseCode )
-    {
-        $this->responseCode = $responseCode;
-    }
+  /**
+   * Set a response code indicating the status of the request.
+   *
+   * @param mixed $responseCode
+   *   The responseCode.
+   */
+  private function setResponseCode($responseCode)
+  {
+    $this->responseCode = $responseCode;
+  }
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring Payment Query Customer Plan.
+ * Checkout.com ApiServices\Recurringpayments\RequestModels\Querycustomerplan.
  *
  * PHP Version 5.6
  *
@@ -26,7 +26,7 @@ class Querycustomerplan
   private $count = null;
   private $planId = null;
   private $cardId = null;
-  private $_customerId = null;
+  private $customerId = null;
   private $name = null;
   private $planTrackId = null;
   private $autoCapTime = null;
@@ -341,7 +341,7 @@ class Querycustomerplan
    */
   public function setCustomerId($customerId)
   {
-    $this->_customerId = $customerId;
+    $this->customerId = $customerId;
   }
 
   /**
@@ -354,7 +354,7 @@ class Querycustomerplan
    */
   public function getCustomerId()
   {
-    return $this->_customerId;
+    return $this->customerId;
   }
 
   /**

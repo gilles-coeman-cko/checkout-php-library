@@ -25,16 +25,16 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
     protected $status;
     protected $_type;
     protected $_amount;
-    protected $_scheme;
+    protected $scheme;
     protected $responseCode;
     protected $currency;
-    protected $_liveMode;
+    protected $liveMode;
     protected $_businessName;
     protected $_channelName;
-    protected $_trackId;
-    protected $_customerId;
-    protected $_customerName;
-    protected $_customerEmail;
+    protected $trackId;
+    protected $customerId;
+    protected $customerName;
+    protected $customerEmail;
 
     /**
      * @return mixed
@@ -103,7 +103,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getScheme()
     {
-        return $this->_scheme;
+        return $this->scheme;
     }
 
     
@@ -130,7 +130,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getLiveMode()
     {
-        return $this->_liveMode;
+        return $this->liveMode;
     }
 
     
@@ -157,7 +157,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getTrackId()
     {
-        return $this->_trackId;
+        return $this->trackId;
     }
 
     
@@ -166,7 +166,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCustomerId()
     {
-        return $this->_customerId;
+        return $this->customerId;
     }
 
     
@@ -175,7 +175,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCustomerName()
     {
-        return $this->_customerName;
+        return $this->customerName;
     }
 
     
@@ -184,7 +184,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function getCustomerEmail()
     {
-        return $this->_customerEmail;
+        return $this->customerEmail;
     }
 
     
@@ -255,7 +255,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setScheme( $scheme )
     {
-        $this->_scheme = $scheme;
+        $this->scheme = $scheme;
     }
 
 
@@ -282,7 +282,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setLiveMode( $liveMode )
     {
-        $this->_liveMode = $liveMode;
+        $this->liveMode = $liveMode;
     }
 
 
@@ -309,7 +309,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setTrackId( $trackId )
     {
-        $this->_trackId = $trackId;
+        $this->trackId = $trackId;
     }
 
 
@@ -318,7 +318,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setCustomerId( $customerId )
     {
-        $this->_customerId = $customerId;
+        $this->customerId = $customerId;
     }
 
 
@@ -327,7 +327,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setCustomerName( $customerName )
     {
-        $this->_customerName = $customerName;
+        $this->customerName = $customerName;
     }
 
 
@@ -336,7 +336,7 @@ class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
      */
     public function setCustomerEmail( $customerEmail )
     {
-        $this->_customerEmail = $customerEmail;
+        $this->customerEmail = $customerEmail;
     }
 
 }

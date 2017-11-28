@@ -1,67 +1,83 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\SharedModels\DeleteResponse.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/18/2015
- * Time: 11:49 AM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\SharedModels;
 
-
+/**
+ * Class Delete Response.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
 class DeleteResponse extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $_delete;
-    private $id;
-    public function __construct($response)
-    {
-        parent::__construct($response);
-        $this->_setDelete($response->getDeleted());
-        $this->_setId($response->getId());
-    }
+  private $delete;
+  private $id;
 
-    /**
-     * @return mixed
-     */
-    public function getDelete()
-    {
-        return $this->_delete;
-    }
+  /**
+   * Class constructor.
+   *
+   * @param null $response
+   *   The response model.
+   */
+  public function __construct($response)
+  {
+    parent::__construct($response);
+    $this->setDelete($response->getDeleted());
+    $this->setId($response->getId());
+  }
 
-    /**
-     * @param mixed $delete
-     */
-    private function _setDelete( $delete )
-    {
-        $this->_delete = $delete;
-    }
+  /**
+   * Get a delete object.
+   *
+   * @return mixed
+   *   The delete.
+   */
+  public function getDelete()
+  {
+    return $this->delete;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+   * Set a delete object.
+   *
+   * @param mixed $delete
+   *   The delete.
+   */
+  private function setDelete($delete)
+  {
+    $this->delete = $delete;
+  }
 
-    /**
-     * @param mixed $id
-     */
-    private function _setId( $id )
-    {
-        $this->id = $id;
-    }
+  /**
+   * Get the uniquely identifier of the deleted object.
+   *
+   * @return mixed
+   *   The id.
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  /**
+   * Set the uniquely identifier of the deleted object.
+   *
+   * @param mixed $id
+   *   The id.
+   */
+  private function setId($id)
+  {
+    $this->id = $id;
+  }
 }

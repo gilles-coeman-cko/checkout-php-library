@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring Payment Card Service.
+ * Checkout.com ApiServices\Cards\CardService.
  *
  * PHP Version 5.6
  *
@@ -19,21 +19,21 @@ namespace com\checkout\ApiServices\Cards;
  * @category Api Services
  * @version Release: @package_version@
  */
-class CardService extends \com\checkout\ApiServices\BaseServices
+class Cardservice extends \com\checkout\ApiServices\Baseservices
 {
 
   /**
    * Create a new card.
    *
-   * @param RequestModels\CardCreate $requestModel
+   * @param RequestModels\Cardcreate $requestModel
    *   The request model.
    *
    * @return ResponseModels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function createCard(RequestModels\CardCreate $requestModel)
+  public function createCard(RequestModels\Cardcreate $requestModel)
   {
-    $cardMapper = new CardMapper($requestModel);
+    $cardMapper = new Cardmapper($requestModel);
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -91,9 +91,9 @@ class CardService extends \com\checkout\ApiServices\BaseServices
    * @return ResponseModels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function updateCard(\com\checkout\ApiServices\Cards\RequestModels\CardUpdate $requestModel)
+  public function updateCard(\com\checkout\ApiServices\Cards\RequestModels\Cardupdate $requestModel)
   {
-    $cardMapper = new CardMapper($requestModel);
+    $cardMapper = new Cardmapper($requestModel);
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
       'mode' => $this->apiSetting->getMode(),
@@ -164,7 +164,7 @@ class CardService extends \com\checkout\ApiServices\BaseServices
       $this->apiSetting->getSecretKey(), $requestPayload
     );
 
-    $responseModel = new ResponseModels\CardList($processCharge);
+    $responseModel = new ResponseModels\Cardlist($processCharge);
     return $responseModel;
   }
 }

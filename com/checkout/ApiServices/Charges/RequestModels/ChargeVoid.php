@@ -1,41 +1,49 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\RequestModels\Chargevoid.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
-
 
 namespace com\checkout\ApiServices\Charges\RequestModels;
 
-
-class ChargeVoid extends BaseChargeInfo
+/**
+ * Class Charge Void.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Chargevoid extends Basechargeinfo
 {
-    protected $_products = array();
+  protected $products = array();
 
-    /**
-     * @return mixed
-     */
-    public function getProducts()
-    {
-        return $this->_products;
-    }
+  /**
+   * Get the array of Product information.
+   *
+   * @return mixed
+   *   The products.
+   */
+  public function getProducts()
+  {
+    return $this->products;
+  }
 
-    /**
-     * @param mixed $products
-     */
-    public function setProducts( \com\checkout\ApiServices\SharedModels\Product $products )
-    {
+  /**
+   * Set the array of Product information.
+   *
+   * @param mixed $products
+   *   The products.
+   */
+  public function setProducts(\com\checkout\ApiServices\SharedModels\Product $products)
+  {
 
-        $this->_products[] = $products;
-    }
+    $this->products[] = $products;
+  }
 
 }

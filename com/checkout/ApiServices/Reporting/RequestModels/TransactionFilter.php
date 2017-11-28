@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Reporting Transaction Filter.
+ * Checkout.com ApiServices\Reporting\RequestModels\Transactionfilter.
  *
  * PHP Version 5.6
  *

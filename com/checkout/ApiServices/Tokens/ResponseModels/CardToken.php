@@ -26,23 +26,23 @@ class CardToken
 {
     private $object;
     private $id;
-    private $_liveMode;
-    private $_created;
+    private $liveMode;
+    private $created;
     private $_used;
     private $_paymentType;
-    private $_card;
+    private $card;
 
 
     public  function __construct($response)
     {
 
-        $this->_setCard($response->getCard());
-        $this->_setCreated($response->getCreated());
-        $this->_setId($response->getId());
-        $this->_setLiveMode($response->getLiveMode());
+        $this->setCard($response->getCard());
+        $this->setCreated($response->getCreated());
+        $this->setId($response->getId());
+        $this->setLiveMode($response->getLiveMode());
         $this->setObject($response->getObject());
-        $this->_setPaymentType($response->getPaymentType());
-        $this->_setUsed($response->getUsed());
+        $this->setPaymentType($response->getPaymentType());
+        $this->setUsed($response->getUsed());
 
     }
 
@@ -51,7 +51,7 @@ class CardToken
     /**
      * @param mixed $Card
      */
-    private function _setCard( $card )
+    private function setCard( $card )
     {
         $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\Card();
         $billingDetails  = new \com\checkout\ApiServices\SharedModels\Address();
@@ -79,22 +79,22 @@ class CardToken
         $cardObg->setAuthCode($card->getAuthCode());
         $cardObg->setDefaultCard($card->getDefaultCard());
         $cardObg->setLiveMode($card->getLiveMode());
-        $this->_card = $cardObg;
+        $this->card = $cardObg;
 
     }
 
     /**
      * @param mixed $created
      */
-    private function _setCreated( $created )
+    private function setCreated( $created )
     {
-        $this->_created = $created;
+        $this->created = $created;
     }
 
     /**
      * @param mixed $id
      */
-    private function _setId( $id )
+    private function setId( $id )
     {
         $this->id = $id;
     }
@@ -102,9 +102,9 @@ class CardToken
     /**
      * @param mixed $liveMode
      */
-    private function _setLiveMode( $liveMode )
+    private function setLiveMode( $liveMode )
     {
-        $this->_liveMode = $liveMode;
+        $this->liveMode = $liveMode;
     }
 
     /**
@@ -118,7 +118,7 @@ class CardToken
     /**
      * @param mixed $paymentType
      */
-    private function _setPaymentType( $paymentType )
+    private function setPaymentType( $paymentType )
     {
         $this->_paymentType = $paymentType;
     }
@@ -126,7 +126,7 @@ class CardToken
     /**
      * @param mixed $used
      */
-    private function _setUsed( $used )
+    private function setUsed( $used )
     {
         $this->_used = $used;
     }
@@ -136,7 +136,7 @@ class CardToken
      */
     public function getCard()
     {
-        return $this->_card;
+        return $this->card;
     }
 
     /**
@@ -144,7 +144,7 @@ class CardToken
      */
     public function getCreated()
     {
-        return $this->_created;
+        return $this->created;
     }
 
     /**
@@ -160,7 +160,7 @@ class CardToken
      */
     public function getLiveMode()
     {
-        return $this->_liveMode;
+        return $this->liveMode;
     }
 
     /**

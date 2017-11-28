@@ -22,23 +22,23 @@
 namespace com\checkout\ApiServices\Tokens\RequestModels;
 
 
-class CardTokenCreate extends BaseCharge
+class CardTokenCreate extends Basecharge
 {
-    protected $_baseCardCreate;
+    protected $baseCardcreate;
 
     /**
      * @return mixed
      */
-    public function getBaseCardCreate()
+    public function getBasecardcreate()
     {
-        return $this->_baseCardCreate;
+        return $this->baseCardcreate;
     }
 
     /**
-     * @param mixed $baseCardCreate
+     * @param mixed $baseCardcreate
      */
-    public function setBaseCardCreate( BaseCardCreate $baseCardCreate )
+    public function setBasecardcreate( Basecardcreate $baseCardcreate )
     {
-        $this->_baseCardCreate = $baseCardCreate;
+        $this->baseCardcreate = $baseCardcreate;
     }
 }

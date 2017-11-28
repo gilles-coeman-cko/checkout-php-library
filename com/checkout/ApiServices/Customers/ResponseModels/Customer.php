@@ -1,297 +1,422 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Customers\ResponseModels\Customer.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/19/2015
- * Time: 7:47 AM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Customers\ResponseModels;
 
-
+/**
+ * Class Customer.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
 class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $object;
-    private $id;
-    private $name;
-    private $_customerName;
-    private $_created;
-    private $_email;
-    private $_phoneNumber;
-    private $_description;
-    private $_ltv;
-    private $_defaultCard;
-    private $responseCode;
-    private $_liveMode;
-    private $_cards;
-    private $_metadata;
+  private $object;
+  private $id;
+  private $name;
+  private $customerName;
+  private $created;
+  private $email;
+  private $phoneNumber;
+  private $description;
+  private $ltv;
+  private $defaultCard;
+  private $responseCode;
+  private $liveMode;
+  private $cards;
+  private $metadata;
 
-    public function __construct($response)
-    {
-        parent::__construct($response);
-        $this->setObject($response->getObject());
-        $this->_setCards($response->getCards());
-        $this->_setCreated($response->getCreated());
-        $this->_setDefaultCard($response->getdDefaultCard());
-        $this->_setDescription($response->getdDescription());
-        $this->_setEmail($response->getEmail());
-        $this->_setId($response->getId());
-        $this->_setLiveMode($response->getLiveMode());
-        $this->_setLtv($response->getLtv());
-        $this->_setMetadata($response->getMetadata());
-        $this->_setName($response->getName());
-        $this->_setPhoneNumber($response->getPhoneNumber());
-        $this->setResponseCode($response->getResponseCode());
-        $this->_setCustomerName($response->getCustomerName());
+  public function __construct($response)
+  {
+    parent::__construct($response);
+    $this->setObject($response->getObject());
+    $this->setCards($response->getCards());
+    $this->setCreated($response->getCreated());
+    $this->setDefaultCard($response->getdDefaultCard());
+    $this->setDescription($response->getdDescription());
+    $this->setEmail($response->getEmail());
+    $this->setId($response->getId());
+    $this->setLiveMode($response->getLiveMode());
+    $this->setLtv($response->getLtv());
+    $this->setMetadata($response->getMetadata());
+    $this->setName($response->getName());
+    $this->setPhoneNumber($response->getPhoneNumber());
+    $this->setResponseCode($response->getResponseCode());
+    $this->setCustomerName($response->getCustomerName());
+  }
+
+  /**
+   * Get all customer cards.
+   *
+   * A hash containing an array of cards.
+   *
+   * @return mixed
+   *   The array of cards.
+   */
+  public function getCards()
+  {
+    return $this->cards;
+  }
+
+  /**
+   * Get a card.
+   *
+   * @param mixed $card
+   *   The card.
+   */
+  private function getCard($card)
+  {
+
+    $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\Cardlist($card);
+    return $cardObg;
+  }
+
+  /**
+   * Get the UTC date and time based on ISO 8601 profile.
+   *
+   * @return mixed
+   *   The created date.
+   */
+  public function getCreated()
+  {
+    return $this->created;
+  }
+
+  /**
+   * Get the cardId of the customer's default card.
+   *
+   * Note: The card id is prefixed with card_.
+   *
+   * @return mixed
+   *   The defaultCard.
+   */
+  public function getDefaultCard()
+  {
+    return $this->defaultCard;
+  }
+
+  /**
+   * Get a description that can be added to this object.
+   *
+   * @return mixed
+   *   The description.
+   */
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  /**
+   * Get the email address of the customer.
+   *
+   * @return mixed
+   *   The email.
+   */
+  public function getEmail()
+  {
+    return $this->email;
+  }
+
+  /**
+   * Get the customer name.
+   *
+   * @return mixed
+   *   The customerName.
+   */
+  public function getCustomerName()
+  {
+    return $this->customerName;
+  }
+
+  /**
+   * Get the customer ID.
+   *
+   * Note: The customer id is prefixed with cust_.
+   *
+   * @return mixed
+   *   The CustomerId.
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  /**
+   * Get the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @return mixed
+   *   The LiveMode.
+   */
+  public function getLiveMode()
+  {
+    return $this->liveMode;
+  }
+
+  /**
+   * Get the lifetime value of the customer.
+   *
+   * Sum of all captured transactions made by the customer.
+   * Refunded transactions do not have an effect on LTV.
+   *
+   * @return mixed
+   *   The ltv.
+   */
+  public function getLtv()
+  {
+    return $this->ltv;
+  }
+
+  /**
+   * Get a hash of FieldName and value pairs.
+   *
+   * A hash of FieldName and value pairs e.g. {'keys1': 'Value1'}.
+   * Max length of key(s) and value(s) is 100 each. A max. of 10 KVP are allowed.
+   *
+   * @return mixed
+   *   The metadata.
+   */
+  public function getMetadata()
+  {
+    return $this->metadata;
+  }
+
+  /**
+   * Get the customer name.
+   *
+   * @return mixed
+   *   The customerName.
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  /**
+   * Get an object.
+   *
+   * @return mixed
+   *   The object.
+   */
+  public function getObject()
+  {
+    return $this->object;
+  }
+
+  /**
+   * Get the phone number object of the customer/cardholder.
+   *
+   * It contains:
+   *   countryCode: Valid country code for the phone number
+   *   number: Phone number.
+   *
+   * @return mixed
+   *   The phoneNumber.
+   */
+  public function getPhoneNumber()
+  {
+    return $this->phoneNumber;
+  }
+
+  /**
+   * Get the response Code indicating the status of the request.
+   *
+   * @return mixed
+   *   The responseCode.
+   */
+  public function getResponseCode()
+  {
+    return $this->responseCode;
+  }
+
+  /**
+   * Set an object.
+   *
+   * @param int $object
+   *   The object.
+   */
+  private function setObject($object)
+  {
+    $this->object = $object;
+  }
+
+  /**
+   * Set the customer cards.
+   *
+   * A hash containing an array of cards.
+   *
+   * @param mixed $cards
+   *   The array of cards.
+   */
+  private function setCards($cards)
+  {
+    if ($cards) {
+      $cardsArray = $cards->toArray();
+      $this->cards = $this->getCard($cards);
     }
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCards()
-    {
-        return $this->_cards;
+  /**
+   * Set the UTC date and time based on ISO 8601 profile.
+   *
+   * @param mixed $created
+   *   The created date.
+   */
+  private function setCreated($created)
+  {
+    $this->created = $created;
+  }
+
+  /**
+   * Set the cardId of the customer's default card.
+   *
+   * Note: The card id is prefixed with card_.
+   *
+   * @param mixed $defaultCard
+   *   The defaultCard.
+   */
+  private function setDefaultCard($defaultCard)
+  {
+    $this->defaultCard = $defaultCard;
+  }
+
+  /**
+   * Set a description that can be added to this object.
+   *
+   * @param mixed $description
+   *   The description.
+   */
+  private function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  /**
+   * Set the email address of the customer.
+   *
+   * @param mixed $email
+   *   The email.
+   */
+  private function setEmail($email)
+  {
+    $this->email = $email;
+  }
+
+  /**
+   * Set the customer name.
+   *
+   * @param mixed $customerName
+   *   The customerName.
+   */
+  private function setCustomerName($customerName)
+  {
+    $this->customerName = $customerName;
+  }
+
+  /**
+   * Set the customer ID.
+   *
+   * Note: The customer id is prefixed with cust_.
+   *
+   * @param mixed $id
+   *   The CustomerId.
+   */
+  private function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  /**
+   * Set the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @param mixed $liveMode
+   *   The LiveMode.
+   */
+  private function setLiveMode($liveMode)
+  {
+    $this->liveMode = $liveMode;
+  }
+
+  /**
+   * Set the lifetime value of the customer.
+   *
+   * Sum of all captured transactions made by the customer.
+   * Refunded transactions do not have an effect on LTV.
+   *
+   * @param mixed $ltv
+   *   The ltv.
+   */
+  private function setLtv($ltv)
+  {
+    $this->ltv = $ltv;
+  }
+
+  /**
+   * Set a hash of FieldName and value pairs.
+   *
+   * A hash of FieldName and value pairs e.g. {'keys1': 'Value1'}.
+   * Max length of key(s) and value(s) is 100 each. A max. of 10 KVP are allowed.
+   *
+   * @param mixed $metadata
+   *   The metadata.
+   */
+  private function setMetadata($metadata)
+  {
+    if ($metadata) {
+      $this->metadata = $metadata->toArray();
     }
+  }
 
-    private function getCard( $card )
-    {
+  /**
+   * Set the customer name.
+   *
+   * @param mixed $name
+   *   The customerName.
+   */
+  private function setName($name)
+  {
+    $this->name = $name;
+  }
 
-        $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\CardList($card);
-        return $cardObg;
-    }
-    /**
-     * @return mixed
-     */
-    public function getCreated()
-    {
-        return $this->_created;
-    }
+  /**
+   * Set the phone number object of the customer/cardholder.
+   *
+   * It contains:
+   *   countryCode: Valid country code for the phone number
+   *   number: Phone number.
+   *
+   * @return mixed $phoneNumber
+   *   The phoneNumber.
+   */
+  private function setPhoneNumber($phoneNumber)
+  {
+    $this->phoneNumber = $phoneNumber;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getDefaultCard()
-    {
-        return $this->_defaultCard;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->_description;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->_email;
-    }
-    
-    /**
-     * @return mixed
-     */
-    public function getCustomerName()
-    {
-        return $this->_customerName;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLiveMode()
-    {
-        return $this->_liveMode;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLtv()
-    {
-        return $this->_ltv;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMetadata()
-    {
-        return $this->_metadata;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPhoneNumber()
-    {
-        return $this->_phoneNumber;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getResponseCode()
-    {
-        return $this->responseCode;
-    }
-
-    /**
-     * @param mixed $object
-     */
-    private function setObject( $object )
-    {
-        $this->object = $object;
-    }
-
-
-    /**
-     * @param mixed $cards
-     */
-    private function _setCards( $cards )
-    {
-
-        if($cards) {
-            $cardsArray = $cards->toArray();
-            $this->_cards = $this->getCard($cards);
-        }
-
-    }
-    /**
-     * @param mixed $created
-     */
-    private function _setCreated( $created )
-    {
-        $this->_created = $created;
-    }
-
-    /**
-     * @param mixed $defaultCard
-     */
-    private function _setDefaultCard( $defaultCard )
-    {
-        $this->_defaultCard = $defaultCard;
-    }
-
-    /**
-     * @param mixed $description
-     */
-    private function _setDescription( $description )
-    {
-        $this->_description = $description;
-    }
-
-    /**
-     * @param mixed $email
-     */
-    private function _setEmail( $email )
-    {
-        $this->_email = $email;
-    }
-    
-    /**
-     * @param mixed $customerName
-     */
-    private function _setCustomerName( $customerName )
-    {
-        $this->_customerName = $customerName;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    private function _setId( $id )
-    {
-        $this->id = $id;
-    }/**
-      * @param mixed $liveMode
-      */
-    private function _setLiveMode( $liveMode )
-    {
-        $this->_liveMode = $liveMode;
-    }
-
-    /**
-     * @param mixed $ltv
-     */
-    private function _setLtv( $ltv )
-    {
-        $this->_ltv = $ltv;
-    }
-
-    /**
-     * @param mixed $metadata
-     */
-    private function _setMetadata( $metadata )
-    {
-        if($metadata) {
-            $this->_metadata = $metadata->toArray();
-        }
-    }
-
-    /**
-     * @param mixed $name
-     */
-    private function _setName( $name )
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @param mixed $phoneNumber
-     */
-
-    private function _setPhoneNumber( $phoneNumber )
-    {
-        $this->_phoneNumber = $phoneNumber;
-    }
-
-    /**
-     * @param mixed $responseCode
-     */
-    private function setResponseCode( $responseCode )
-    {
-        $this->responseCode = $responseCode;
-    }
+  /**
+   * Set the response Code indicating the status of the request.
+   *
+   * @return mixed $responseCode
+   *   The responseCode.
+   */
+  private function setResponseCode($responseCode)
+  {
+    $this->responseCode = $responseCode;
+  }
 
 }

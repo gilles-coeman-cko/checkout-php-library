@@ -19,7 +19,7 @@ class Product
 {
     protected $name = '';
     protected $_productId = '';
-    protected $_description = '';
+    protected $description = '';
     protected $_sku = '' ;
     protected $_price = '' ;
     protected $_quantity = '' ;
@@ -64,7 +64,7 @@ class Product
      */
     public function getDescription()
     {
-        return $this->_description;
+        return $this->description;
     }
 
     /**
@@ -72,7 +72,7 @@ class Product
      */
     public function setDescription( $description )
     {
-        $this->_description = $description;
+        $this->description = $description;
     }
 
     /**

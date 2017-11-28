@@ -1,61 +1,82 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\RequestModels\Chargecapture.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 12:17 PM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Charges\RequestModels;
 
-
-class ChargeCapture
+/**
+ * Class Charge Capture.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Chargecapture
 {
-    private $_chargeId;
-    private $value;
+  private $chargeId;
+  private $value;
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
+  /**
+   * Get the value of the transaction.
+   *
+   * A non-zero positive integer (i.e. decimal figures not allowed).
+   * For most currencies, value is divided into 100 units
+   * (e.g. "value = 100" is equivalent to 1 US Dollar).
+   *
+   * @return mixed
+   *   The value.
+   */
+  public function getValue()
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param mixed $value
-     */
-    public function setValue( $value )
-    {
-        $this->value = $value;
-    }
+  /**
+   * Set the value of the transaction.
+   *
+   * A non-zero positive integer (i.e. decimal figures not allowed).
+   * For most currencies, value is divided into 100 units
+   * (e.g. "value = 100" is equivalent to 1 US Dollar).
+   *
+   * @param mixed $value
+   *   The value.
+   */
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getChargeId()
-    {
-        return $this->_chargeId;
-    }
+  /**
+   * Get the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @return mixed
+   *   The chargeId.
+   */
+  public function getChargeId()
+  {
+    return $this->chargeId;
+  }
 
-    /**
-     * @param mixed $chargeId
-     */
-    public function setChargeId( $chargeId )
-    {
-        $this->_chargeId = $chargeId;
-    }
+  /**
+   * Set the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @param mixed $id
+   *   The chargeId.
+   */
+  public function setChargeId($chargeId)
+  {
+    $this->chargeId = $chargeId;
+  }
 }

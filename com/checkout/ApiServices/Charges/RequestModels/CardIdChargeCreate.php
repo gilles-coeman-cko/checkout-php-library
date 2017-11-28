@@ -1,78 +1,117 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\RequestModels\Cardidchargecreate.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 11:09 AM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Charges\RequestModels;
 
-
-class CardIdChargeCreate extends BaseCharge
+/**
+ * Class Card Id Charge Create.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Cardidchargecreate extends Basecharge
 {
-    protected $cardId;
-    protected $cvv;
-    protected $transactionIndicator;
+  protected $cardId;
+  protected $cvv;
+  protected $transactionIndicator;
 
-    /**
-     * @return mixed
-     */
-    public function getCardId()
-    {
-        return $this->cardId;
-    }
+  /**
+   * Get the string that uniquely identifies a card per customer.
+   *
+   * Each time the same card is used by a different customer,
+   * a new cardId will be generated.
+   *
+   * Note: The card id is prefixed with card_.
+   *
+   * @return mixed
+   *   The cardId.
+   */
+  public function getCardId()
+  {
+    return $this->cardId;
+  }
 
-    /**
-     * @param mixed $cardId
-     */
-    public function setCardId( $cardId )
-    {
-        $this->cardId = $cardId;
-    }
-    
-    /**
-     * @return mixed
-     */
-    public function getCvv()
-    {
-        return $this->cvv;
-    }
+  /**
+   * Set the string that uniquely identifies a card per customer.
+   *
+   * Each time the same card is used by a different customer,
+   * a new cardId will be generated.
+   *
+   * Note: The card id is prefixed with card_.
+   *
+   * @param mixed $cardId
+   *   The cardId.
+   */
+  public function setCardId($cardId)
+  {
+    $this->cardId = $cardId;
+  }
 
-    /**
-     * @param mixed $cvv
-     */
-    public function setCvv( $cvv )
-    {
-        $this->cvv = $cvv;
-    }
+  /**
+   * Get a Card security code.
+   *
+   * Four-digits for Amex, three-digits for all other cards.
+   *
+   * @return mixed
+   *   The cvv.
+   */
+  public function getCvv()
+  {
+    return $this->cvv;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getTransactionIndicator()
-    {
-        return $this->transactionIndicator;
-    }
+  /**
+   * Set a Card security code.
+   *
+   * Four-digits for Amex, three-digits for all other cards.
+   *
+   * @param mixed $cvv
+   *   The cvv.
+   */
+  public function setCvv($cvv)
+  {
+    $this->cvv = $cvv;
+  }
 
-    /**
-     * @param mixed $transactionIndicator
-     */
-    public function setTransactionIndicator($transactionIndicator)
-    {
-        $this->transactionIndicator = $transactionIndicator;
-    }
+  /**
+   * Get the transaction indicator.
+   *
+   * Options:
+   *   Set to 1 for regular.
+   *   Set to 2 for recurring.
+   *   Set to 3 for MOTO.
+   *
+   * @return mixed
+   *   The transactionIndicator.
+   */
+  public function getTransactionIndicator()
+  {
+    return $this->transactionIndicator;
+  }
+
+  /**
+   * Set the transaction indicator.
+   *
+   * Options:
+   *   Set to 1 for regular.
+   *   Set to 2 for recurring.
+   *   Set to 3 for MOTO.
+   *
+   * @param mixed $transactionIndicator
+   *   The transactionIndicator.
+   */
+  public function setTransactionIndicator($transactionIndicator)
+  {
+    $this->transactionIndicator = $transactionIndicator;
+  }
 }

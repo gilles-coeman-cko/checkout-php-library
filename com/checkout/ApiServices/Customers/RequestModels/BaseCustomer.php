@@ -1,131 +1,179 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Customers\ResponseModels\Basecustomer.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/19/2015
- * Time: 7:49 AM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Customers\RequestModels;
 
-
-class BaseCustomer
+/**
+ * Class Base Customer.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Basecustomer
 {
-    protected $name;
-    protected $_customerName;
-    protected $_email;
-    protected $_phoneNumber;
-    protected $_description;
-    protected $_metadata = array();
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->_description;
-    }
+  protected $name;
+  protected $customerName;
+  protected $email;
+  protected $phoneNumber;
+  protected $description;
+  protected $metadata = array();
 
-    /**
-     * @param mixed $description
-     */
-    public function setDescription( $description )
-    {
-        $this->_description = $description;
-    }
+  /**
+   * Get a description that can be added to this object.
+   *
+   * @return mixed
+   *   The description.
+   */
+  public function getDescription()
+  {
+    return $this->description;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->_email;
-    }
+  /**
+   * Set a description that can be added to this object.
+   *
+   * @param mixed $description
+   *   The description.
+   */
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
 
-    /**
-     * @param mixed $email
-     */
-    public function setEmail( $email )
-    {
-        $this->_email = $email;
-    }
+  /**
+   * Get the email address of the customer.
+   *
+   * @return mixed
+   *   The email.
+   */
+  public function getEmail()
+  {
+    return $this->email;
+  }
 
-    /**
-     * @return array
-     */
-    public function getMetadata()
-    {
-        return $this->_metadata;
-    }
+  /**
+   * Set the email address of the customer.
+   *
+   * @param mixed $email
+   *   The email.
+   */
+  public function setEmail($email)
+  {
+    $this->email = $email;
+  }
 
-    /**
-     * @param array $metadata
-     */
-    public function setMetadata( $metadata )
-    {
-        if(!empty($metadata) && is_array($metadata)) {
-            $this->_metadata = array_merge_recursive($this->_metadata, $metadata);
-        }
-    }
+  /**
+   * Get a hash of FieldName and value pairs.
+   *
+   * A hash of FieldName and value pairs e.g. {'keys1': 'Value1'}.
+   * Max length of key(s) and value(s) is 100 each. A max. of 10 KVP are allowed.
+   *
+   * @return mixed
+   *   The metadata.
+   */
+  public function getMetadata()
+  {
+    return $this->metadata;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
+  /**
+   * Set a hash of FieldName and value pairs.
+   *
+   * A hash of FieldName and value pairs e.g. {'keys1': 'Value1'}.
+   * Max length of key(s) and value(s) is 100 each. A max. of 10 KVP are allowed.
+   *
+   * @param mixed $metadata
+   *   The metadata.
+   */
+  public function setMetadata($metadata)
+  {
+    if (!empty($metadata) && is_array($metadata)) {
+      $this->metadata = array_merge_recursive($this->metadata, $metadata);
     }
+  }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName( $name )
-    {
-        $this->name = $name;
-    }
-    
-    /**
-     * @return mixed
-     */
-    public function getCustomerName()
-    {
-        return $this->_customerName;
-    }
+  /**
+   * Get the customer name.
+   *
+   * @return mixed
+   *   The customerName.
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param mixed $customerName
-     */
-    public function setCustomerName( $customerName )
-    {
-        $this->_customerName = $customerName;
-    }
+  /**
+   * Set the customer name.
+   *
+   * @param mixed $name
+   *   The customerName.
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getPhoneNumber()
-    {
-        return $this->_phoneNumber;
-    }
+  /**
+   * Get the customer name.
+   *
+   * @return mixed
+   *   The customerName.
+   */
+  public function getCustomerName()
+  {
+    return $this->customerName;
+  }
 
-    /**
-     * @param mixed $phoneNumber
-     */
-    public function setPhoneNumber( \com\checkout\ApiServices\SharedModels\Phone $phoneNumber )
-    {
-        $this->_phoneNumber = $phoneNumber;
-    }
+  /**
+   * Set the customer name.
+   *
+   * @param mixed $customerName
+   *   The customerName.
+   */
+  public function setCustomerName($customerName)
+  {
+    $this->customerName = $customerName;
+  }
+
+  /**
+   * Get the phone number object of the customer/cardholder.
+   *
+   * It contains:
+   *   countryCode: Valid country code for the phone number
+   *   number: Phone number.
+   *
+   * @return mixed
+   *   The phoneNumber.
+   */
+  public function getPhoneNumber()
+  {
+    return $this->phoneNumber;
+  }
+
+  /**
+   * Set the phone number object of the customer/cardholder.
+   *
+   * It contains:
+   *   countryCode: Valid country code for the phone number
+   *   number: Phone number.
+   *
+   * @return mixed $phoneNumber
+   *   The phoneNumber.
+   */
+  public function setPhoneNumber(\com\checkout\ApiServices\SharedModels\Phone $phoneNumber)
+  {
+    $this->phoneNumber = $phoneNumber;
+  }
 
 }

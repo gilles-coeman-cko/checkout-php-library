@@ -1,44 +1,53 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\RequestModels\Chargeretrievewithpaymenttoken.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 1:34 PM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Charges\RequestModels;
 
-
-class ChargeRetrieveWithPaymentToken
+/**
+ * Class Charge Retrieve With Payment Token.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Chargeretrievewithpaymenttoken
 {
-    private  $_paymentToken;
+  private $paymentToken;
 
-    /**
-     * @return mixed
-     */
-    public function getPaymentToken()
-    {
-        return $this->_paymentToken;
-    }
+  /**
+   * Get a card token.
+   *
+   * Note: The card token is prefix card_tok_.
+   * Note: A cardToken can only be used once and will expire after 15 minutes.
+   *
+   * @return mixed
+   *   The cardToken.
+   */
+  public function getPaymenttoken()
+  {
+    return $this->paymentToken;
+  }
 
-    /**
-     * @param mixed $paymentToken
-     */
-    public function setPaymentToken( $paymentToken )
-    {
-        $this->_paymentToken = $paymentToken;
-    }
+  /**
+   * Set a card token.
+   *
+   * Note: The card token is prefix card_tok_.
+   * Note: A cardToken can only be used once and will expire after 15 minutes.
+   *
+   * @param mixed $cardToken
+   *   The cardToken.
+   */
+  public function setPaymenttoken($paymentToken)
+  {
+    $this->paymentToken = $paymentToken;
+  }
 }

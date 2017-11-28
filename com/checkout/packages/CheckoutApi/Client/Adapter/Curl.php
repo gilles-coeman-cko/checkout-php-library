@@ -64,12 +64,12 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     }
 
     $resource = $this->getResource();
-    curl_setopt($resource, CURLOPT_URL, $this->getUri());
+    curlsetopt($resource, CURLOPT_URL, $this->getUri());
 
     $headers = $this->getHeaders();
 
     if (!empty($headers)) {
-      curl_setopt($resource, CURLOPT_HTTPHEADER, $headers);
+      curlsetopt($resource, CURLOPT_HTTPHEADER, $headers);
     }
 
     $method = $this->getMethod();
@@ -98,18 +98,18 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
     }
 
     if ($curlMethod != CheckoutapiClientAdapterConstant::API_GET) {
-      curl_setopt($resource, CURLOPT_CUSTOMREQUEST, $curlMethod);
+      curlsetopt($resource, CURLOPT_CUSTOMREQUEST, $curlMethod);
     }
 
     if (
       $method == CheckoutapiClientAdapterConstant::API_POST ||
       $method == CheckoutapiClientAdapterConstant::API_PUT
     ) {
-      curl_setopt($resource, CURLOPT_POSTFIELDS, $this->getPostedParam());
+      curlsetopt($resource, CURLOPT_POSTFIELDS, $this->getPostedParam());
     }
 
-    curl_setopt($resource, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($resource, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curlsetopt($resource, CURLOPT_RETURNTRANSFER, TRUE);
+    curlsetopt($resource, CURLOPT_SSL_VERIFYPEER, FALSE);
 
     $response = curl_exec($resource);
     $httpstatus = curl_getinfo($resource, CURLINFO_HTTP_CODE);
@@ -162,7 +162,7 @@ class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract impl
 
     $resource = curl_init();
 
-    curl_setopt($resource, CURLOPT_CONNECTTIMEOUT, $this->getTimeout());
+    curlsetopt($resource, CURLOPT_CONNECTTIMEOUT, $this->getTimeout());
 
     $this->setResource($resource);
     parent::connect();

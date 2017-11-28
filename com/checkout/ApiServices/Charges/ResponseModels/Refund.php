@@ -1,113 +1,154 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Api Services Recurring Payment Refund.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 11:59 AM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Charges\ResponseModels;
 
-
+/**
+ * Class Refund.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
 class Refund extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
-    private $object;
-    private $_amount;
-    private $currency;
-    private $_created;
-    private $_balanceTransaction;
+  private $object;
+  private $_amount;
+  private $currency;
+  private $created;
+  private $balanceTransaction;
 
-    /**
-     * @return mixed
-     */
-    public function getAmount()
-    {
-        return $this->_amount;
-    }
+  /**
+   * Get a positive non-zero integer representing the refund amount.
+   *
+   * Cannot be greater than the original capture amount. Multiple refunds
+   * up to the original capture amount are allowed. Defaults to the captured
+   * amount if not specified.
+   *
+   * @return mixed
+   *   The refundedValue.
+   */
+  public function getAmount()
+  {
+    return $this->_amount;
+  }
 
-    /**
-     * @param mixed $amount
-     */
-    public function setAmount( $amount )
-    {
-        $this->_amount = $amount;
-    }
+  /**
+   * Set a positive non-zero integer representing the refund amount.
+   *
+   * Cannot be greater than the original capture amount. Multiple refunds
+   * up to the original capture amount are allowed. Defaults to the captured
+   * amount if not specified.
+   *
+   * @param mixed $refundedValue
+   *   The refundedValue.
+   */
+  public function setAmount($amount)
+  {
+    $this->_amount = $amount;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getBalanceTransaction()
-    {
-        return $this->_balanceTransaction;
-    }
+  /**
+   * Get the balance of the transaction.
+   *
+   * @return mixed
+   *   The balanceTransaction.
+   */
+  public function getBalanceTransaction()
+  {
+    return $this->balanceTransaction;
+  }
 
-    /**
-     * @param mixed $balanceTransaction
-     */
-    public function setBalanceTransaction( $balanceTransaction )
-    {
-        $this->_balanceTransaction = $balanceTransaction;
-    }
+  /**
+   * Set the balance of the transaction.
+   *
+   * @param mixed $balanceTransaction
+   *   The balanceTransaction.
+   */
+  public function setBalanceTransaction($balanceTransaction)
+  {
+    $this->balanceTransaction = $balanceTransaction;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCreated()
-    {
-        return $this->_created;
-    }
+  /**
+   * Get the UTC date and time based on ISO 8601 profile.
+   *
+   * @return mixed
+   *   The created date.
+   */
+  public function getCreated()
+  {
+    return $this->created;
+  }
 
-    /**
-     * @param mixed $created
-     */
-    public function setCreated( $created )
-    {
-        $this->_created = $created;
-    }
+  /**
+   * Set the UTC date and time based on ISO 8601 profile.
+   *
+   * @param mixed $created
+   *   The created date.
+   */
+  public function setCreated($created)
+  {
+    $this->created = $created;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
+  /**
+   * Get the Three-letter ISO currency code.
+   *
+   * This code is representing the currency in
+   * which the recurring charge will be made.
+   *
+   * @return mixed
+   *   The currency.
+   */
+  public function getCurrency()
+  {
+    return $this->currency;
+  }
 
-    /**
-     * @param mixed $currency
-     */
-    public function setCurrency( $currency )
-    {
-        $this->currency = $currency;
-    }
+  /**
+   * Set the Three-letter ISO currency code.
+   *
+   * This code is representing the currency in
+   * which the recurring charge will be made.
+   *
+   * @param mixed $currency
+   *   The currency.
+   */
+  public function setCurrency($currency)
+  {
+    $this->currency = $currency;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
+  /**
+   * Get an object.
+   *
+   * @return mixed
+   *   The object.
+   */
+  public function getObject()
+  {
+    return $this->object;
+  }
 
-    /**
-     * @param mixed $object
-     */
-    public function setObject( $object )
-    {
-        $this->object = $object;
-    }
+  /**
+   * Set an object.
+   *
+   * @param int $object
+   *   The object.
+   */
+  public function setObject($object)
+  {
+    $this->object = $object;
+  }
 
 }

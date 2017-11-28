@@ -22,7 +22,7 @@
 namespace com\checkout\ApiServices\PaymentProviders;
 
 
-class PaymentProviderService extends \com\checkout\ApiServices\BaseServices
+class PaymentProviderService extends \com\checkout\ApiServices\Baseservices
 {
     public function getCardProviderList()
     {

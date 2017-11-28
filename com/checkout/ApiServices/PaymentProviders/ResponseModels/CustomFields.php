@@ -39,15 +39,15 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     {
         parent::__construct($response);
         $this->setDataType($response->getDataType());
-        $this->_setErrorCodes($response->getErrorCodes());
-        $this->_sethisActive($response->gethisActive());
-        $this->_setKey($response->getKey());
-        $this->_setLabel($response->getLabel());
-        $this->_setLookupValues($response->getLookupValues());
-        $this->_setMaxLength($response->getMaxLength());
-        $this->_setMinLength($response->getMinLength());
-        $this->_setOrder($response->getOrder());
-        $this->_setRequired($response->getRequired());
+        $this->setErrorCodes($response->getErrorCodes());
+        $this->sethisActive($response->gethisActive());
+        $this->setKey($response->getKey());
+        $this->setLabel($response->getLabel());
+        $this->setLookupValues($response->getLookupValues());
+        $this->setMaxLength($response->getMaxLength());
+        $this->setMinLength($response->getMinLength());
+        $this->setOrder($response->getOrder());
+        $this->setRequired($response->getRequired());
 
     }
 
@@ -62,7 +62,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $errorCodes
      */
-    protected function _setErrorCodes( $errorCodes )
+    protected function setErrorCodes( $errorCodes )
     {
         $this->_errorCodes = $errorCodes->toArray();
     }
@@ -70,7 +70,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $isActive
      */
-    protected function _setIsActive( $isActive )
+    protected function setIsActive( $isActive )
     {
         $this->_isActive = $isActive;
     }
@@ -78,7 +78,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $key
      */
-    protected function _setKey( $key )
+    protected function setKey( $key )
     {
         $this->_key = $key;
     }
@@ -86,7 +86,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $label
      */
-    protected function _setLabel( $label )
+    protected function setLabel( $label )
     {
         $this->_label = $label;
     }
@@ -94,7 +94,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $lookupValues
      */
-    protected function _setLookupValues( $lookupValues )
+    protected function setLookupValues( $lookupValues )
     {
         $this->_lookupValues = $lookupValues->toArray();
     }
@@ -102,7 +102,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $maxLength
      */
-    protected function _setMaxLength( $maxLength )
+    protected function setMaxLength( $maxLength )
     {
         $this->_maxLength = $maxLength;
     }
@@ -110,7 +110,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $minLength
      */
-    protected function _setMinLength( $minLength )
+    protected function setMinLength( $minLength )
     {
         $this->_minLength = $minLength;
     }
@@ -118,7 +118,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $order
      */
-    protected function _setOrder( $order )
+    protected function setOrder( $order )
     {
         $this->_order = $order;
     }
@@ -126,7 +126,7 @@ class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $required
      */
-    protected function _setRequired( $required )
+    protected function setRequired( $required )
     {
         $this->_required = $required;
     }

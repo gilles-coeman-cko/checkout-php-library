@@ -14,19 +14,19 @@
  */
 namespace com\checkout\ApiServices\Tokens\RequestModels;
 
-class PaymentTokenUpdate
+class PaymenttokenUpdate
 {
     private $id;
-    protected $_trackId;
-    protected $_udf1;
-    protected $_udf2;
-    protected $_udf3;
-    protected $_udf4;
-    protected $_udf5;
-    protected $_metadata = [];
+    protected $trackId;
+    protected $udf1;
+    protected $udf2;
+    protected $udf3;
+    protected $udf4;
+    protected $udf5;
+    protected $metadata = [];
 
     /**
-     * PaymentTokenUpdate constructor.
+     * PaymenttokenUpdate constructor.
      *
      * @param string $id
      */
@@ -56,7 +56,7 @@ class PaymentTokenUpdate
      */
     public function getUdf1()
     {
-        return $this->_udf1;
+        return $this->udf1;
     }
 
     /**
@@ -64,7 +64,7 @@ class PaymentTokenUpdate
      */
     public function setUdf1($udf1)
     {
-        $this->_udf1 = $udf1;
+        $this->udf1 = $udf1;
     }
 
     /**
@@ -72,7 +72,7 @@ class PaymentTokenUpdate
      */
     public function getUdf2()
     {
-        return $this->_udf2;
+        return $this->udf2;
     }
 
     /**
@@ -80,7 +80,7 @@ class PaymentTokenUpdate
      */
     public function setUdf2($udf2)
     {
-        $this->_udf2 = $udf2;
+        $this->udf2 = $udf2;
     }
 
     /**
@@ -88,7 +88,7 @@ class PaymentTokenUpdate
      */
     public function getUdf3()
     {
-        return $this->_udf3;
+        return $this->udf3;
     }
 
     /**
@@ -96,7 +96,7 @@ class PaymentTokenUpdate
      */
     public function setUdf3($udf3)
     {
-        $this->_udf3 = $udf3;
+        $this->udf3 = $udf3;
     }
 
     /**
@@ -104,7 +104,7 @@ class PaymentTokenUpdate
      */
     public function getUdf4()
     {
-        return $this->_udf4;
+        return $this->udf4;
     }
 
     /**
@@ -112,7 +112,7 @@ class PaymentTokenUpdate
      */
     public function setUdf4($udf4)
     {
-        $this->_udf4 = $udf4;
+        $this->udf4 = $udf4;
     }
 
     /**
@@ -120,7 +120,7 @@ class PaymentTokenUpdate
      */
     public function getUdf5()
     {
-        return $this->_udf5;
+        return $this->udf5;
     }
 
     /**
@@ -128,7 +128,7 @@ class PaymentTokenUpdate
      */
     public function setUdf5($udf5)
     {
-        $this->_udf5 = $udf5;
+        $this->udf5 = $udf5;
     }
 
     /**
@@ -136,7 +136,7 @@ class PaymentTokenUpdate
      */
     public function getMetadata()
     {
-        return $this->_metadata;
+        return $this->metadata;
     }
 
     /**
@@ -144,7 +144,7 @@ class PaymentTokenUpdate
      */
     public function setMetadata($metadata)
     {
-        $this->_metadata = $metadata;
+        $this->metadata = $metadata;
     }
 
     /**
@@ -152,7 +152,7 @@ class PaymentTokenUpdate
      */
     public function getTrackId()
     {
-        return $this->_trackId;
+        return $this->trackId;
     }
 
     /**
@@ -160,6 +160,6 @@ class PaymentTokenUpdate
      */
     public function setTrackId($trackId)
     {
-        $this->_trackId = $trackId;
+        $this->trackId = $trackId;
     }
 }

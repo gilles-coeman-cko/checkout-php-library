@@ -22,7 +22,7 @@
 namespace com\checkout\ApiServices\Tokens\RequestModels;
 
 
-class PaymentTokenCreate extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
+class PaymenttokenCreate extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
 {
     protected $transactionIndicator;
 

@@ -1,165 +1,200 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Customers\Customerservice.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/19/2015
- * Time: 7:40 AM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Customers;
 
-
-class CustomerService extends \com\checkout\ApiServices\BaseServices
+/**
+ * Class Customer.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Customerservice extends \com\checkout\ApiServices\Baseservices
 {
 
-    public function createCustomer(RequestModels\CustomerCreate $requestModel)
-    {
+  /**
+   * Creates a new customer.
+   *
+   * @param RequestModels\Customercreate $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Customer
+   *   The response models or Customer.
+   */
+  public function createCustomer(RequestModels\Customercreate $requestModel)
+  {
+    $customerMapper = new Customermapper($requestModel);
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $customerMapper->requestPayloadConverter(),
 
-        $customerMapper = new CustomerMapper($requestModel);
+    );
+    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $this->apiUrl->getCustomersApiUri(),
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+    $responseModel = new ResponseModels\Customer($processCharge);
+    return $responseModel;
+  }
 
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'postedParam'   => $customerMapper->requestPayloadConverter(),
+  /**
+   * Update a customer.
+   *
+   * @param RequestModels\Customerupdate $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\OkResponse
+   *   The response models or an OK.
+   */
+  public function updateCustomer(RequestModels\Customerupdate $requestModel)
+  {
 
-        );
+    $customerMapper = new Customermapper($requestModel);
 
-        $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-            $this->apiUrl->getCustomersApiUri(),
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $customerMapper->requestPayloadConverter(),
 
-        $responseModel = new ResponseModels\Customer($processCharge);
+    );
+    $updateCustomerUri = $this->apiUrl->getCustomersApiUri() . '/' . $requestModel->getCustomerId();
+    $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
+      $updateCustomerUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
 
-        return $responseModel;
+    $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
+
+    return $responseModel;
+
+  }
+
+  /**
+   * Delete a customer.
+   *
+   * @param string $customerId
+   *   The customer id.
+   *
+   * @return ResponseModels\OkResponse
+   *   The response models or an OK.
+   */
+  public function deleteCustomer($customerId)
+  {
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+
+    );
+    $deleteCustomerUri = $this->apiUrl->getCustomersApiUri() . '/' . $customerId;
+    $processCharge = \com\checkout\helpers\ApiHttpClient::deleteRequest(
+      $deleteCustomerUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Get a customer.
+   *
+   * @param string $customerId
+   *   The customer id.
+   *
+   * @return ResponseModels\OkResponse
+   *   The response models or an OK.
+   */
+  public function getCustomer($customerId)
+  {
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+
+    );
+    $getCustomerUri = $this->apiUrl->getCustomersApiUri() . '/' . $customerId;
+    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+      $getCustomerUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Customer($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Search in customer and return a list.
+   *
+   * @param string|null $count
+   *   The count of the list.
+   * @param string|null $offset
+   *   The page offset of the search.
+   * @param string|null $startDate
+   *   The start date of the search.
+   * @param string|null $endDate
+   *   The end date of the search.
+   * @param bool $singleDay
+   *   False if you want multiple days.
+   *
+   * @return ResponseModels\Customerlist
+   *   The response models or an customer list.
+   */
+  public function getCustomerlist($count = null, $offset = null, $startDate = null, $endDate = null, $singleDay =
+    false
+  ) {
+    $customerUri = $this->apiUrl->getCustomersApiUri();
+    $delimiter = '?';
+    $createdAt = 'created=';
+
+    $startDateUnix = ($startDate) ? time($startDate) : null;
+    $endDateUnix = ($endDate) ? time($endDate) : null;
+
+    if ($count) {
+      $customerUri = "{$customerUri}{$delimiter}count={$count}";
+      $delimiter = '&';
     }
-
-    public function updateCustomer(RequestModels\CustomerUpdate $requestModel)
-    {
-
-        $customerMapper = new CustomerMapper($requestModel);
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'postedParam'   => $customerMapper->requestPayloadConverter(),
-
-        );
-        $updateCustomerUri = $this->apiUrl->getCustomersApiUri().'/'.$requestModel->getCustomerId();
-        $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
-            $updateCustomerUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new  \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
-
-        return $responseModel;
-
+    if ($offset) {
+      $customerUri = "{$customerUri}{$delimiter}offset={$offset}";
+      $delimiter = '&';
     }
+    if ($singleDay && $startDateUnix) {
+      $customerUri = "{$customerUri}{$delimiter}{$createdAt}{$startDateUnix}|";
 
-    public function deleteCustomer($customerId)
-    {
+    } else {
+      if ($startDateUnix) {
+        $customerUri = "{$customerUri}{$delimiter}{$createdAt}{$startDateUnix}";
+        $createdAt = '|';
+      }
+      if ($endDateUnix) {
+        $customerUri = "{$customerUri}{$createdAt}{$endDateUnix}";
 
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-
-        );
-        $deleteCustomerUri = $this->apiUrl->getCustomersApiUri().'/'.$customerId;
-        $processCharge = \com\checkout\helpers\ApiHttpClient::deleteRequest(
-            $deleteCustomerUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
-
-        return $responseModel;
+      }
     }
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
 
-    public function getCustomer($customerId)
-    {
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-
-        );
-        $getCustomerUri = $this->apiUrl->getCustomersApiUri().'/'.$customerId;
-        $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
-            $getCustomerUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\Customer($processCharge);
-
-        return $responseModel;
-    }
-
-    public function getCustomerList($count = null , $offset =null , $startDate = null, $endDate = null, $singleDay =
-        false
-    ) {
-        $customerUri = $this->apiUrl->getCustomersApiUri();
-        $delimiter = '?';
-        $createdAt = 'created=';
-
-        $startDateUnix = ($startDate)?time($startDate):null;
-        $endDateUnix = ($endDate)?time($endDate):null;
-
-        if($count) {
-            $customerUri = "{$customerUri}{$delimiter}count={$count}";
-            $delimiter = '&';
-        }
-
-        if($offset) {
-            $customerUri =  "{$customerUri}{$delimiter}offset={$offset}";
-            $delimiter = '&';
-        }
-
-        if($singleDay && $startDateUnix) {
-            $customerUri="{$customerUri}{$delimiter}{$createdAt}{$startDateUnix}|";
-
-
-        } else {
-            if ($startDateUnix) {
-
-                $customerUri = "{$customerUri}{$delimiter}{$createdAt}{$startDateUnix}";
-                $createdAt = '|';
-            }
-
-            if ($endDateUnix) {
-                $customerUri = "{$customerUri}{$createdAt}{$endDateUnix}";
-
-            }
-        }
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-
-        );
-
-        $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
-            $customerUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\CustomerList($processCharge);
-
-        return $responseModel;
-
-    }
+    );
+    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+      $customerUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+    $responseModel = new ResponseModels\Customerlist($processCharge);
+    return $responseModel;
+  }
 
 }

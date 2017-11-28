@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring Payment payment plan.
+ * Checkout.com ApiServices\Recurringpayments\ResponseModels\Paymentplan.
  *
  * PHP Version 5.6
  *

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Cards\CardMapper.
+ * Checkout.com ApiServices\SharedModels\BinData.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Cards;
+namespace com\checkout\ApiServices\SharedModels;
 
 /**
  * Class Card Mapper.

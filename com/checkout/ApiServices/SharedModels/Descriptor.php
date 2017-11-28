@@ -1,55 +1,70 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\SharedModels\Descriptor.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\SharedModels;
 
-
+/**
+ * Class Descriptor.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
 class Descriptor
 {
-    protected $name;
-    protected $_city;
+  protected $name;
+  protected $city;
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+  /**
+   * Get the descriptor name.
+   *
+   * @return mixed
+   *   The name.
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName( $name )
-    {
-        $this->name = $name;
-    }
+  /**
+   * Set the descriptor name.
+   *
+   * @param mixed $name
+   *   The name.
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCity()
-    {
-        return $this->_city;
-    }
+  /**
+   * Get the descriptor city.
+   *
+   * @return mixed
+   *   The city.
+   */
+  public function getCity()
+  {
+    return $this->city;
+  }
 
-    /**
-     * @param mixed $city
-     */
-    public function setCity( $city )
-    {
-        $this->_city = $city;
-    }
+  /**
+   * Set the descriptor city.
+   *
+   * @param mixed $city
+   *   The city.
+   */
+  public function setCity($city)
+  {
+    $this->city = $city;
+  }
 }

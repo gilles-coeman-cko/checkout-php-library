@@ -159,7 +159,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * Simple usage:
    *   $sessionConfig['postedParam'] = array( "value"=>100, "currency"=>"GBP");
-   *     $sessionTokenObj = $Api->getPaymentToken($sessionConfig);
+   *     $sessionTokenObj = $Api->getPaymenttoken($sessionConfig);
    *
    * Use by having, first an instance of the gateway 3.0 and
    * set of argument base on documentation for creating a session token.
@@ -172,7 +172,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getPaymentToken(array $param) {
+  public function getPaymenttoken(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::TOKEN_SESSION_TYPE;
     $postedParam = $param['postedParam'];
@@ -382,13 +382,13 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    * @return bool
    *   True if it is a valid charge payment token.
    */
-  public function verifyChargePaymentToken(array $param) {
+  public function verifyChargePaymenttoken(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
     $param['method'] = CheckoutapiClientAdapterConstant::API_GET;
     $this->flushState();
 
-    $isTokenValid = CheckoutapiClientValidationGw3::isPaymentToken($param);
+    $isTokenValid = CheckoutapiClientValidationGw3::isPaymenttoken($param);
     $uri = $this->getUriCharge();
 
     if (!$isTokenValid) {
@@ -425,7 +425,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    */
   public function getRefundAmountInfo(array $param) {
 
-    $chargeHistory = $this->getChargeHistory($param);
+    $chargeHistory = $this->getChargehistory($param);
     $charges = $chargeHistory->getCharges();
     $chargesArray = $charges->toArray();
     $totalRefunded = 0;
@@ -471,7 +471,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    * @throws Exception
    */
   public function refundCharge(array $param) {
-    $chargeHistory = $this->getChargeHistory($param);
+    $chargeHistory = $this->getChargehistory($param);
     $charges = $chargeHistory->getCharges();
     $uri = $this->getUriCharge();
 
@@ -770,13 +770,13 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
   }
 
   /**
-   * Update PaymentToken Charge.
+   * Update Paymenttoken Charge.
    *
    * Updates the specified Card Charge by setting
    * the values of the parameters passed.
    *
    * Simple usage:
-   *   $updatePaymentToken = $Api->updatePaymentToken($paymentToken);.
+   *   $updatePaymenttoken = $Api->updatePaymenttoken($paymentToken);.
    *
    * @param array $param
    *   Payload param.
@@ -786,7 +786,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function updatePaymentToken(array $param) {
+  public function updatePaymenttoken(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
     $param['method'] = CheckoutapiClientAdapterConstant::API_PUT;
@@ -844,12 +844,12 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
   }
 
   /**
-   * GetChargeHistory.
+   * GetChargehistory.
    *
    * @param array $param
    *   An array with parameters.
    */
-  public function getChargeHistory(array $param) {
+  public function getChargehistory(array $param) {
 
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::CHARGE_TYPE;
@@ -1322,7 +1322,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * Simple usage:
    *   $param['customerId'] = $customerId;
-   *   $getCardListObj = $Api->getCardList($param);
+   *   $getCardlistObj = $Api->getCardlist($param);
    * Require a customer id.
    *
    * @param array $param
@@ -1333,7 +1333,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCardList(array $param) {
+  public function getCardlist(array $param) {
     $this->flushState();
     $uri = $this->getUriCustomer();
     $hasError = FALSE;

@@ -18,23 +18,23 @@ namespace com\checkout\helpers;
 class ApiUrls
 {
     private $_baseApiUri = null;
-    private $_cardTokensApiUri = null;
-    private $_paymentTokensApiUri = null;
-    private $_paymentTokenUpdateApiUri = null;
-    private $_cardProvidersUri = null;
-    private $_localPaymentProvidersUri = null;
+    private $cardTokensApiUri = null;
+    private $paymentTokensApiUri = null;
+    private $paymentTokenUpdateApiUri = null;
+    private $cardProvidersUri = null;
+    private $localPaymentProvidersUri = null;
     private $_customersApiUri = null;
-    private $_cardsApiUri = null;
-    private $_cardChargesApiUri = null;
-    private $_cardTokenChargesApiUri = null;
-    private $_defaultCardChargesApiUri = null;
+    private $cardsApiUri = null;
+    private $cardChargesApiUri = null;
+    private $cardTokenChargesApiUri = null;
+    private $defaultCardChargesApiUri = null;
     private $_chargeRefundsApiUri = null;
     private $_captureChargesApiUri = null;
     private $_updateChargesApiUri = null;
     private $_retrieveChargesApiUri = null;
-    private $_retrieveChargeHistoryApiUri = null;
+    private $_retrieveChargehistoryApiUri = null;
     private $_verifyChargesApiUri = null;
-    private $_chargeWithPaymentTokenUri = null;
+    private $_chargeWithPaymenttokenUri = null;
     private $_voidChargesApiUri = null;
     private $_queryTransactionApiUri = null;
     private $_queryChargebackApiUri = null;
@@ -100,10 +100,10 @@ class ApiUrls
      */
     public function getCardTokensApiUri()
     {
-        if (!$this->_cardTokensApiUri) {
+        if (!$this->cardTokensApiUri) {
             $this->setCardTokensApiUri($this->getBaseApiUri() . "/charges/token");
         }
-        return $this->_cardTokensApiUri;
+        return $this->cardTokensApiUri;
     }
 
     /**
@@ -113,7 +113,7 @@ class ApiUrls
      */
     public function setCardTokensApiUri($cardTokensApiUri)
     {
-        $this->_cardTokensApiUri = $cardTokensApiUri;
+        $this->cardTokensApiUri = $cardTokensApiUri;
     }
 
     /**
@@ -121,12 +121,12 @@ class ApiUrls
      *
      * @return string
      */
-    public function getPaymentTokensApiUri()
+    public function getPaymenttokensApiUri()
     {
-        if (!$this->_paymentTokensApiUri) {
-            $this->setPaymentTokensApiUri($this->getBaseApiUri() . "/tokens/payment");
+        if (!$this->paymentTokensApiUri) {
+            $this->setPaymenttokensApiUri($this->getBaseApiUri() . "/tokens/payment");
         }
-        return $this->_paymentTokensApiUri;
+        return $this->paymentTokensApiUri;
     }
 
     /**
@@ -134,9 +134,9 @@ class ApiUrls
      *
      * @param string $paymentTokensApiUri
      */
-    public function setPaymentTokensApiUri($paymentTokensApiUri)
+    public function setPaymenttokensApiUri($paymentTokensApiUri)
     {
-        $this->_paymentTokensApiUri = $paymentTokensApiUri;
+        $this->paymentTokensApiUri = $paymentTokensApiUri;
     }
 
     /**
@@ -144,12 +144,12 @@ class ApiUrls
      *
      * @return string
      */
-    public function getPaymentTokenUpdateApiUri()
+    public function getPaymenttokenUpdateApiUri()
     {
-        if (!$this->_paymentTokenUpdateApiUri) {
-            $this->setPaymentTokenUpdateApiUri($this->getBaseApiUri() . "/tokens/payment/%s");
+        if (!$this->paymentTokenUpdateApiUri) {
+            $this->setPaymenttokenUpdateApiUri($this->getBaseApiUri() . "/tokens/payment/%s");
         }
-        return $this->_paymentTokenUpdateApiUri;
+        return $this->paymentTokenUpdateApiUri;
     }
 
     /**
@@ -157,9 +157,9 @@ class ApiUrls
      *
      * @param string $paymentTokenUpdateApiUri
      */
-    public function setPaymentTokenUpdateApiUri($paymentTokenUpdateApiUri)
+    public function setPaymenttokenUpdateApiUri($paymentTokenUpdateApiUri)
     {
-        $this->_paymentTokenUpdateApiUri = $paymentTokenUpdateApiUri;
+        $this->paymentTokenUpdateApiUri = $paymentTokenUpdateApiUri;
     }
 
     /**
@@ -169,10 +169,10 @@ class ApiUrls
      */
     public function getCardProvidersUri()
     {
-        if (!$this->_cardProvidersUri) {
+        if (!$this->cardProvidersUri) {
             $this->setCardProvidersUri($this->getBaseApiUri() . "/providers/cards");
         }
-        return $this->_cardProvidersUri;
+        return $this->cardProvidersUri;
     }
 
     /**
@@ -182,7 +182,7 @@ class ApiUrls
      */
     public function setCardProvidersUri($cardProvidersUri)
     {
-        $this->_cardProvidersUri = $cardProvidersUri;
+        $this->cardProvidersUri = $cardProvidersUri;
     }
 
     /**
@@ -192,11 +192,11 @@ class ApiUrls
      */
     public function getLocalPaymentProvidersUri()
     {
-        if (!$this->_localPaymentProvidersUri) {
+        if (!$this->localPaymentProvidersUri) {
             $this->setLocalPaymentProvidersUri($this->getBaseApiUri() . "/providers/localpayments");
         }
 
-        return $this->_localPaymentProvidersUri;
+        return $this->localPaymentProvidersUri;
     }
 
     /**
@@ -206,7 +206,7 @@ class ApiUrls
      */
     public function setLocalPaymentProvidersUri($localPaymentProvidersUri)
     {
-        $this->_localPaymentProvidersUri = $localPaymentProvidersUri;
+        $this->localPaymentProvidersUri = $localPaymentProvidersUri;
     }
 
     /**
@@ -240,10 +240,10 @@ class ApiUrls
      */
     public function getCardsApiUri()
     {
-        if (!$this->_cardsApiUri) {
+        if (!$this->cardsApiUri) {
             $this->setCardsApiUri($this->getBaseApiUri() . "/customers/%s/cards");
         }
-        return $this->_cardsApiUri;
+        return $this->cardsApiUri;
     }
 
     /**
@@ -253,7 +253,7 @@ class ApiUrls
      */
     public function setCardsApiUri($cardsApiUri)
     {
-        $this->_cardsApiUri = $cardsApiUri;
+        $this->cardsApiUri = $cardsApiUri;
     }
 
     /**
@@ -263,10 +263,10 @@ class ApiUrls
      */
     public function getCardChargesApiUri()
     {
-        if (!$this->_cardChargesApiUri) {
+        if (!$this->cardChargesApiUri) {
             $this->setCardChargesApiUri($this->getBaseApiUri() . "/charges/card");
         }
-        return $this->_cardChargesApiUri;
+        return $this->cardChargesApiUri;
     }
 
     /**
@@ -276,7 +276,7 @@ class ApiUrls
      */
     public function setCardChargesApiUri($cardChargesApiUri)
     {
-        $this->_cardChargesApiUri = $cardChargesApiUri;
+        $this->cardChargesApiUri = $cardChargesApiUri;
     }
 
     /**
@@ -286,10 +286,10 @@ class ApiUrls
      */
     public function getCardTokenChargesApiUri()
     {
-        if (!$this->_cardTokenChargesApiUri) {
+        if (!$this->cardTokenChargesApiUri) {
             $this->setCardTokenChargesApiUri($this->getBaseApiUri() . "/charges/token");
         }
-        return $this->_cardTokenChargesApiUri;
+        return $this->cardTokenChargesApiUri;
     }
 
     /**
@@ -299,7 +299,7 @@ class ApiUrls
      */
     public function setCardTokenChargesApiUri($cardTokenChargesApiUri)
     {
-        $this->_cardTokenChargesApiUri = $cardTokenChargesApiUri;
+        $this->cardTokenChargesApiUri = $cardTokenChargesApiUri;
     }
 
     /**
@@ -307,23 +307,23 @@ class ApiUrls
      *
      * @return string
      */
-    public function getChargeWithPaymentTokenUri()
+    public function getChargeWithPaymenttokenUri()
     {
-        if (!$this->_chargeWithPaymentTokenUri) {
-            $this->setChargeWithPaymentTokenUri($this->getBaseApiUri() . "/charges/js/card");
+        if (!$this->_chargeWithPaymenttokenUri) {
+            $this->setChargeWithPaymenttokenUri($this->getBaseApiUri() . "/charges/js/card");
         }
 
-        return $this->_chargeWithPaymentTokenUri;
+        return $this->_chargeWithPaymenttokenUri;
     }
 
     /**
      * set the charge payment token url
      *
-     * @param string $chargeWithPaymentTokenUri
+     * @param string $chargeWithPaymenttokenUri
      */
-    public function setChargeWithPaymentTokenUri($chargeWithPaymentTokenUri)
+    public function setChargeWithPaymenttokenUri($chargeWithPaymenttokenUri)
     {
-        $this->_chargeWithPaymentTokenUri = $chargeWithPaymentTokenUri;
+        $this->_chargeWithPaymenttokenUri = $chargeWithPaymenttokenUri;
     }
 
     /**
@@ -331,10 +331,10 @@ class ApiUrls
      */
     public function getDefaultCardChargesApiUri()
     {
-        if (!$this->_defaultCardChargesApiUri) {
+        if (!$this->defaultCardChargesApiUri) {
             $this->setDefaultCardChargesApiUri($this->getBaseApiUri() . "/charges/customer");
         }
-        return $this->_defaultCardChargesApiUri;
+        return $this->defaultCardChargesApiUri;
     }
 
     /**
@@ -342,16 +342,16 @@ class ApiUrls
      */
     public function setDefaultCardChargesApiUri($defaultCardChargesApiUri)
     {
-        $this->_defaultCardChargesApiUri = $defaultCardChargesApiUri;
+        $this->defaultCardChargesApiUri = $defaultCardChargesApiUri;
     }
 
     /**
      * @return string
      */
-    public function getChargeRefundsApiUri()
+    public function getChargerefundsApiUri()
     {
         if (!$this->_chargeRefundsApiUri) {
-            $this->setChargeRefundsApiUri($this->getBaseApiUri() . "/charges/%s/refund");
+            $this->setChargerefundsApiUri($this->getBaseApiUri() . "/charges/%s/refund");
         }
         return $this->_chargeRefundsApiUri;
     }
@@ -359,7 +359,7 @@ class ApiUrls
     /**
      * @param string $chargeRefundsApiUri
      */
-    public function setChargeRefundsApiUri($chargeRefundsApiUri)
+    public function setChargerefundsApiUri($chargeRefundsApiUri)
     {
         $this->_chargeRefundsApiUri = $chargeRefundsApiUri;
     }
@@ -477,22 +477,22 @@ class ApiUrls
     /**
      * @return string
      */
-    public function getRetrieveChargeHistoryApiUri()
+    public function getRetrieveChargehistoryApiUri()
     {
 
-        if (!$this->_retrieveChargeHistoryApiUri) {
-            $this->setRetrieveChargeHistoryApiUri($this->getBaseApiUri() . "/charges/%s/history");
+        if (!$this->_retrieveChargehistoryApiUri) {
+            $this->setRetrieveChargehistoryApiUri($this->getBaseApiUri() . "/charges/%s/history");
         }
 
-        return $this->_retrieveChargeHistoryApiUri;
+        return $this->_retrieveChargehistoryApiUri;
     }
 
     /**
-     * @param string $retrieveChargeHistoryApiUri
+     * @param string $retrieveChargehistoryApiUri
      */
-    public function setRetrieveChargeHistoryApiUri($retrieveChargeHistoryApiUri)
+    public function setRetrieveChargehistoryApiUri($retrieveChargehistoryApiUri)
     {
-        $this->_retrieveChargeHistoryApiUri = $retrieveChargeHistoryApiUri;
+        $this->_retrieveChargehistoryApiUri = $retrieveChargehistoryApiUri;
     }
 
     /**

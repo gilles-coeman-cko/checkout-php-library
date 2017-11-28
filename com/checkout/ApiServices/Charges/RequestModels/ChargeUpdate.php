@@ -1,79 +1,104 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\RequestModels\Chargeupdate.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 12:23 PM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Charges\RequestModels;
 
-
-class ChargeUpdate
+/**
+ * Class Charge Update.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Chargeupdate
 {
-    private $_chargeId;
-    private $_description;
-    private $_metadata = array();
+  private $chargeId;
+  private $description;
+  private $metadata = array();
 
-    /**
-     * @return mixed
-     */
-    public function getChargeId()
-    {
-        return $this->_chargeId;
-    }
+  /**
+   * Get the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @return mixed
+   *   The chargeId.
+   */
+  public function getChargeId()
+  {
+    return $this->chargeId;
+  }
 
-    /**
-     * @param mixed $chargeId
-     */
-    public function setChargeId( $chargeId )
-    {
-        $this->_chargeId = $chargeId;
-    }
+  /**
+   * Set the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @param mixed $id
+   *   The chargeId.
+   */
+  public function setChargeId($chargeId)
+  {
+    $this->chargeId = $chargeId;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->_description;
-    }
+  /**
+   * Get a description that can be added to this object.
+   *
+   * @return mixed
+   *   The description.
+   */
+  public function getDescription()
+  {
+    return $this->description;
+  }
 
-    /**
-     * @param mixed $description
-     */
-    public function setDescription( $description )
-    {
-        $this->_description = $description;
-    }
+  /**
+   * Set a description that can be added to this object.
+   *
+   * @param mixed $description
+   *   The description.
+   */
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
 
-    /**
-     * @return array
-     */
-    public function getMetadata()
-    {
-        return $this->_metadata;
-    }
+  /**
+   * Get a hash of FieldName and value pairs.
+   *
+   * A hash of FieldName and value pairs e.g. {'keys1': 'Value1'}.
+   * Max length of key(s) and value(s) is 100 each. A max. of 10 KVP are allowed.
+   *
+   * @return mixed
+   *   The metadata.
+   */
+  public function getMetadata()
+  {
+    return $this->metadata;
+  }
 
-    /**
-     * @param array $metadata
-     */
-    public function setMetadata( $metadata )
-    {
-        $this->_metadata = $metadata;
-    }
+  /**
+   * Set a hash of FieldName and value pairs.
+   *
+   * A hash of FieldName and value pairs e.g. {'keys1': 'Value1'}.
+   * Max length of key(s) and value(s) is 100 each. A max. of 10 KVP are allowed.
+   *
+   * @param mixed $metadata
+   *   The metadata.
+   */
+  public function setMetadata($metadata)
+  {
+    $this->metadata = $metadata;
+  }
 
 }

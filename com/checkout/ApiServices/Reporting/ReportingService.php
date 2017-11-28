@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Reporting Service.
+ * Checkout.com ApiServices\Reporting\Reportingservice.
  *
  * PHP Version 5.6
  *
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Reporting;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Reportingservice extends \com\checkout\ApiServices\BaseServices
+class Reportingservice extends \com\checkout\ApiServices\Baseservices
 {
   /**
    * Request the transactions.

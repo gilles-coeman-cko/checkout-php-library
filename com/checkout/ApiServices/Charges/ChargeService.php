@@ -1,358 +1,371 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\Chargeservice.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
 namespace com\checkout\ApiServices\Charges;
 
-class ChargeService extends \com\checkout\ApiServices\BaseServices
+/**
+ * Class Charges Service.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Chargeservice extends \com\checkout\ApiServices\Baseservices
 {
 
-
-    /**
-     * @param String
-     * @return ResponseModels\Charge
-     */
-
-    public function verifyCharge($paymentToken)
-    {
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'method'        => 'GET',
-
-
-        );
-
-
-        $retrieveChargeWithChargeUri = sprintf(
-            $this->apiUrl->getRetrieveChargesApiUri(),
-            $paymentToken
-        );
-
-        $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
-            $retrieveChargeWithChargeUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\Charge($processCharge);
-        return $responseModel;
-    }
-
-    /**
-     * Creates a charge with full card details.
-     *
-     * @param  RequestModels\CardChargeCreate $requestModel
-     * @return ResponseModels\Charge
-     */
-
-    public function chargeWithCard(RequestModels\CardChargeCreate $requestModel)
-    {
-
-        $chargeMapper = new ChargesMapper($requestModel);
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'postedParam'   => $chargeMapper->requestPayloadConverter(),
-
-        );
-        $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-            $this->apiUrl->getCardChargesApiUri(),
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-      
-        $responseModel = new ResponseModels\Charge($processCharge);
-
-        return $responseModel;
-    }
-
-    /**
-     * Creates a charge with full card id.
-     *
-     * @param  RequestModels\CardIdChargeCreate $requestModel
-     * @return ResponseModels\Charge
-     */
-
-    public function chargeWithCardId(RequestModels\CardIdChargeCreate $requestModel)
-    {
-
-        $chargeMapper = new ChargesMapper($requestModel);
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'postedParam'   => $chargeMapper->requestPayloadConverter(),
-
-        );
-        $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-            $this->apiUrl->getCardChargesApiUri(),
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\Charge($processCharge);
-
-
-        return $responseModel;
-    }
-
-    /**
-     * Creates a charge with cardToken.
-     *
-     * @param  RequestModels\CardTokenChargeCreate $requestModel
-     * @return ResponseModels\Charge
-     */
-
-    public function chargeWithCardToken(RequestModels\CardTokenChargeCreate
-        $requestModel
-    ) {
-
-        $chargeMapper = new ChargesMapper($requestModel);
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'postedParam'   => $chargeMapper->requestPayloadConverter(),
-
-        );
-
-        $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-            $this->apiUrl->getCardTokensApiUri(),
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\Charge($processCharge);
-
-
-        return $responseModel;
-    }
-
-
-
-    /**
-     * Creates a charge with Default Customer Card.
-     *
-     * @param  RequestModels\BaseCharge $requestModel
-     * @return ResponseModels\Charge
-     */
-
-    public function chargeWithDefaultCustomerCard(RequestModels\BaseCharge
-        $requestModel
-    ) {
-
-        $chargeMapper = new ChargesMapper($requestModel);
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'postedParam'   => $chargeMapper->requestPayloadConverter(),
-
-        );
-        $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-            $this->apiUrl->getDefaultCardChargesApiUri(),
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\Charge($processCharge);
-
-
-        return $responseModel;
-    }
-    /**
-     * refund a charge
-     *
-     * @param  RequestModels\ChargeRefund $requestModel
-     * @return ResponseModels\Charge
-     */
-
-    public function refundCardChargeRequest(RequestModels\ChargeRefund
-        $requestModel
-    ) {
-
-        $chargeMapper = new ChargesMapper($requestModel);
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'postedParam'   => $chargeMapper->requestPayloadConverter(),
-
-        );
-        $refundUri = sprintf($this->apiUrl->getChargeRefundsApiUri(), $requestModel->getChargeId());
-
-        $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-            $refundUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\Charge($processCharge);
-
-
-        return $responseModel;
-    }
-
-    /**
-     * void a charge
-     *
-     * @param  RequestModels\ChargeVoid $requestModel
-     * @return ResponseModels\Charge
-     */
-
-    public function voidCharge($chargeId , RequestModels\ChargeVoid
-        $requestModel
-    ) {
-
-        $chargeMapper = new ChargesMapper($requestModel);
-
-        $requestPayload = array (
-            'authorization' => $this->apiSetting->getSecretKey(),
-            'mode'          => $this->apiSetting->getMode(),
-            'postedParam'   => $chargeMapper->requestPayloadConverter(),
-
-        );
-        $refundUri = sprintf($this->apiUrl->getVoidChargesApiUri(), $chargeId);
-
-        $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-            $refundUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\Charge($processCharge);
-
-
-        return $responseModel;
-    }
-
-    /**
-     * Capture a charge
-     *
-     * @param  RequestModels\ChargeCapture $requestModel
-     * @return ResponseModels\Charge
-     */
-
-    public function CaptureCardCharge(RequestModels\ChargeCapture
-        $requestModel
-    ) {
-
-        $chargeMapper = new ChargesMapper($requestModel);
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'postedParam'   => $chargeMapper->requestPayloadConverter(),
-
-        );
-        $refundUri = sprintf($this->apiUrl->getCaptureChargesApiUri(), $requestModel->getChargeId());
-
-        $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-            $refundUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\Charge($processCharge);
-
-
-        return $responseModel;
-    }
-
-    /**
-     * Update a charge
-     *
-     * @param  RequestModels\ChargeUpdate $requestModel
-     * @return ResponseModels\Charge
-     */
-
-    public function UpdateCardCharge(RequestModels\ChargeUpdate
-        $requestModel
-    ) {
-
-        $chargeMapper = new ChargesMapper($requestModel);
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'postedParam'   => $chargeMapper->requestPayloadConverter(),
-
-        );
-        $updateUri = sprintf($this->apiUrl->getUpdateChargesApiUri(), $requestModel->getChargeId());
-
-        $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
-            $updateUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
-
-
-        return $responseModel;
-    }
-
-
-    /**
-     * retrieve a Charge With a ChargeId
-     *
-     * @param  RequestModels\ChargeRetrieve $requestModel
-     * @return ResponseModels\Charge
-     */
-
-    public function getCharge($chargeId)
-    {
-
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'method'         => 'GET',
-        );
-
-        $retrieveChargeWithChargeUri = sprintf($this->apiUrl->getRetrieveChargesApiUri(), $chargeId);
-
-        $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
-            $retrieveChargeWithChargeUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\Charge($processCharge);
-        return $responseModel;
-    }
-
-
-    /**
-     * retrieve a Charge History With a ChargeId
-     *
-     * @param  RequestModels\ChargeRetrieve $requestModel
-     * @return ResponseModels\ChargeHistory
-     */
-
-    public function getChargeHistory($chargeId)
-    {
-
-
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getSecretKey(),
-        'mode'          => $this->apiSetting->getMode(),
-        'method'         => 'GET',
-        );
-
-        $retrieveChargeHistoryWithChargeUri = sprintf($this->apiUrl->getRetrieveChargeHistoryApiUri(), $chargeId);
-
-        $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
-            $retrieveChargeHistoryWithChargeUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
-
-        $responseModel = new ResponseModels\ChargeHistory($processCharge);
-        return $responseModel;
-    }
-
+  /**
+   * Verify the charge by its token
+   *
+   * @param String $paymentToken
+   *   The payment token.
+   *
+   * @return ResponseModels\Charge
+   *   The response model.
+   */
+  public function verifyCharge($paymentToken)
+  {
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'method' => 'GET',
+
+    );
+
+    $retrieveChargeWithChargeUri = sprintf(
+      $this->apiUrl->getRetrieveChargesApiUri(),
+      $paymentToken
+    );
+
+    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+      $retrieveChargeWithChargeUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Charge($processCharge);
+    return $responseModel;
+  }
+
+  /**
+   * Creates a charge with full card details.
+   *
+   * @param RequestModels\CardChargeCreate $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+  public function chargeWithCard(RequestModels\CardChargeCreate $requestModel)
+  {
+
+    $chargeMapper = new Chargesmapper($requestModel);
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+
+    );
+    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $this->apiUrl->getCardChargesApiUri(),
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Charge($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Creates a charge with full card id.
+   *
+   * @param RequestModels\Cardidchargecreate $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+
+  public function chargeWithCardId(RequestModels\Cardidchargecreate $requestModel)
+  {
+
+    $chargeMapper = new Chargesmapper($requestModel);
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+
+    );
+    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $this->apiUrl->getCardChargesApiUri(),
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Charge($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Creates a charge with cardToken.
+   *
+   * @param RequestModels\Cardtokenchargecreate $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+  public function chargeWithCardToken(RequestModels\Cardtokenchargecreate $requestModel)
+  {
+
+    $chargeMapper = new Chargesmapper($requestModel);
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+
+    );
+
+    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $this->apiUrl->getCardTokensApiUri(),
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Charge($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Creates a charge with Default Customer Card.
+   *
+   * @param RequestModels\Basecharge $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+  public function chargeWithDefaultCustomerCard(RequestModels\Basecharge
+     $requestModel
+  ) {
+
+    $chargeMapper = new Chargesmapper($requestModel);
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+
+    );
+    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $this->apiUrl->getDefaultCardChargesApiUri(),
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Charge($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Refund a charge.
+   *
+   * @param RequestModels\Chargerefund $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+  public function refundCardChargeRequest(RequestModels\Chargerefund
+     $requestModel
+  ) {
+
+    $chargeMapper = new Chargesmapper($requestModel);
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+
+    );
+    $refundUri = sprintf($this->apiUrl->getChargerefundsApiUri(), $requestModel->getChargeId());
+
+    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $refundUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Charge($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Void a charge.
+   *
+   * @param RequestModels\Chargevoid $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+  public function voidCharge($chargeId, RequestModels\Chargevoid
+     $requestModel
+  ) {
+
+    $chargeMapper = new Chargesmapper($requestModel);
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+
+    );
+    $refundUri = sprintf($this->apiUrl->getVoidChargesApiUri(), $chargeId);
+
+    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $refundUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Charge($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Capture a charge.
+   *
+   * @param RequestModels\Chargecapture $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+  public function CaptureCardCharge(RequestModels\Chargecapture
+     $requestModel
+  ) {
+
+    $chargeMapper = new Chargesmapper($requestModel);
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+
+    );
+    $refundUri = sprintf($this->apiUrl->getCaptureChargesApiUri(), $requestModel->getChargeId());
+
+    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $refundUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Charge($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Update a charge.
+   *
+   * @param RequestModels\Chargeupdate $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+  public function UpdateCardCharge(RequestModels\Chargeupdate
+     $requestModel
+  ) {
+
+    $chargeMapper = new Chargesmapper($requestModel);
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+
+    );
+    $updateUri = sprintf($this->apiUrl->getUpdateChargesApiUri(), $requestModel->getChargeId());
+
+    $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
+      $updateUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
+
+    return $responseModel;
+  }
+
+  /**
+   * Get a Charge With a ChargeId.
+   *
+   * @param RequestModels\ChargeRetrieve $chargeId
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+  public function getCharge($chargeId)
+  {
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'method' => 'GET',
+    );
+
+    $retrieveChargeWithChargeUri = sprintf($this->apiUrl->getRetrieveChargesApiUri(), $chargeId);
+
+    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+      $retrieveChargeWithChargeUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Charge($processCharge);
+    return $responseModel;
+  }
+
+  /**
+   * Retrieve a Charge History With a ChargeId.
+   *
+   * @param RequestModels\ChargeRetrieve $requestModel
+   *   The request model.
+   *
+   * @return ResponseModels\Charge
+   *   The response models or charge objects.
+   */
+  public function getChargehistory($chargeId)
+  {
+
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'method' => 'GET',
+    );
+
+    $retrieveChargehistoryWithChargeUri = sprintf($this->apiUrl->getRetrieveChargehistoryApiUri(), $chargeId);
+
+    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+      $retrieveChargehistoryWithChargeUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    $responseModel = new ResponseModels\Chargehistory($processCharge);
+    return $responseModel;
+  }
 
 }

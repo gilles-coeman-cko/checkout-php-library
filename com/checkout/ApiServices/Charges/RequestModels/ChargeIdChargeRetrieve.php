@@ -1,43 +1,50 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\RequestModels\Chargeidchargeretrieve.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 1:25 PM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Charges\RequestModels;
 
-
-class ChargeIdChargeRetrieve
+/**
+ * Class Charge Id Charge Retrieve.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Chargeidchargeretrieve
 {
-    /**
-     * @return mixed
-     */
-    public function getChargeId()
-    {
-        return $this->_chargeId;
-    }
+  /**
+   * Get the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @return mixed
+   *   The chargeId.
+   */
+  public function getChargeId()
+  {
+    return $this->chargeId;
+  }
 
-    /**
-     * @param mixed $chargeId
-     */
-    public function setChargeId( $chargeId )
-    {
-        $this->_chargeId = $chargeId;
-    }
-    private  $_chargeId;
+  /**
+   * Set the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @param mixed $id
+   *   The chargeId.
+   */
+  public function setChargeId($chargeId)
+  {
+    $this->chargeId = $chargeId;
+  }
+  private $chargeId;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring Payment Plan With Payment Token Create.
+ * Checkout.com ApiServices\Recurringpayments\RequestModels\Planwithpaymenttokencreate.
  *
  * PHP Version 5.6
  *
@@ -18,7 +18,7 @@ namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planwithpaymenttokencreate extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
+class Planwithpaymenttokencreate extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
 {
   protected $transactionIndicator;
   protected $paymentPlans = array();

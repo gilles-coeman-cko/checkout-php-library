@@ -22,16 +22,16 @@
 namespace com\checkout\ApiServices\Tokens\ResponseModels;
 
 
-class PaymentToken
+class Paymenttoken
 {
     private $id;
-    private $_liveMode;
+    private $liveMode;
 
 
     public  function __construct($response)
     {
-        $this->_setId($response->getId());
-        $this->_setLiveMode($response->getLiveMode());
+        $this->setId($response->getId());
+        $this->setLiveMode($response->getLiveMode());
     }
     /**
      * @return mixed
@@ -44,7 +44,7 @@ class PaymentToken
     /**
      * @param mixed $id
      */
-    private function _setId( $id )
+    private function setId( $id )
     {
         $this->id = $id;
     }
@@ -54,15 +54,15 @@ class PaymentToken
      */
     public function getLiveMode()
     {
-        return $this->_liveMode;
+        return $this->liveMode;
     }
 
     /**
      * @param mixed $liveMode
      */
-    private function _setLiveMode( $liveMode )
+    private function setLiveMode( $liveMode )
     {
-        $this->_liveMode = $liveMode;
+        $this->liveMode = $liveMode;
     }
 
 

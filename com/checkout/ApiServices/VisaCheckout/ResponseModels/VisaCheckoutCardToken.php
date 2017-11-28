@@ -20,25 +20,25 @@ class VisaCheckoutCardToken
 {
     private $object;
     private $id;
-    private $_liveMode;
-    private $_created;
+    private $liveMode;
+    private $created;
     private $_used;
-    private $_card;
-    private $_binData;
+    private $card;
+    private $binData;
 
 
     public  function __construct($response)
     {
 
-        $this->_setCard($response->getCard());
-        $this->_setCreated($response->getCreated());
-        $this->_setId($response->getId());
-        $this->_setLiveMode($response->getLiveMode());
+        $this->setCard($response->getCard());
+        $this->setCreated($response->getCreated());
+        $this->setId($response->getId());
+        $this->setLiveMode($response->getLiveMode());
         $this->setObject($response->getObject());
-        $this->_setUsed($response->getUsed());
+        $this->setUsed($response->getUsed());
 
         if ($response->getBinData() != null) {
-            $this->_setBinData($response->getBinData());
+            $this->setBinData($response->getBinData());
         }
 
     }
@@ -48,18 +48,18 @@ class VisaCheckoutCardToken
     /**
      * @param mixed $Card
      */
-    private function _setCard( $card )
+    private function setCard( $card )
     {
         
         $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\Card($card);
-        $this->_card = $cardObg;
+        $this->card = $cardObg;
 
     }
 
     /**
      * @param mixed $BinData
      */
-    private function _setBinData( $binData )
+    private function setBinData( $binData )
     {
         $binDataObg = new \com\checkout\ApiServices\SharedModels\BinData();
         
@@ -67,22 +67,22 @@ class VisaCheckoutCardToken
         $binDataObg->setObject($binData->getObject());
         $binDataObg->setIssuerCountryISO2($binData->getIssuerCountryISO2());
         $binDataObg->setCardType($binData->getCardType());
-        $this->_binData = $binDataObg;
+        $this->binData = $binDataObg;
 
     }
 
     /**
      * @param mixed $created
      */
-    private function _setCreated( $created )
+    private function setCreated( $created )
     {
-        $this->_created = $created;
+        $this->created = $created;
     }
 
     /**
      * @param mixed $id
      */
-    private function _setId( $id )
+    private function setId( $id )
     {
         $this->id = $id;
     }
@@ -90,9 +90,9 @@ class VisaCheckoutCardToken
     /**
      * @param mixed $liveMode
      */
-    private function _setLiveMode( $liveMode )
+    private function setLiveMode( $liveMode )
     {
-        $this->_liveMode = $liveMode;
+        $this->liveMode = $liveMode;
     }
 
     /**
@@ -106,7 +106,7 @@ class VisaCheckoutCardToken
     /**
      * @param mixed $used
      */
-    private function _setUsed( $used )
+    private function setUsed( $used )
     {
         $this->_used = $used;
     }
@@ -116,7 +116,7 @@ class VisaCheckoutCardToken
      */
     public function getCard()
     {
-        return $this->_card;
+        return $this->card;
     }
 
     /**
@@ -124,7 +124,7 @@ class VisaCheckoutCardToken
      */
     public function getCreated()
     {
-        return $this->_created;
+        return $this->created;
     }
 
     /**
@@ -140,7 +140,7 @@ class VisaCheckoutCardToken
      */
     public function getLiveMode()
     {
-        return $this->_liveMode;
+        return $this->liveMode;
     }
 
     /**
@@ -164,7 +164,7 @@ class VisaCheckoutCardToken
      */
     public function getBinData()
     {
-        return $this->_binData;
+        return $this->binData;
     }
 
 }

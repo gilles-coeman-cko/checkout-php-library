@@ -24,7 +24,7 @@ namespace com\checkout\ApiServices\SharedModels;
 
 class Phone
 {
-    protected $_number;
+    protected $number;
     protected $countryCode;
 
     /**
@@ -40,7 +40,7 @@ class Phone
      */
     public function getNumber()
     {
-        return $this->_number;
+        return $this->number;
     }
 
     /**
@@ -56,13 +56,13 @@ class Phone
      */
     public function setNumber( $number )
     {
-        $this->_number = $number;
+        $this->number = $number;
     }
 
     public function getPhoneDetails()
     {
         return array(
-            'number'      => $this->_number,
+            'number'      => $this->number,
             'countryCode' => $this->countryCode
         );
     }

@@ -29,14 +29,14 @@ class CardProvider extends \com\checkout\ApiServices\SharedModels\BaseHttp
     public function __construct($response)
     {
         parent::__construct($response);
-        $this->_setId($response->getId());
-        $this->_setName($response->getName());
+        $this->setId($response->getId());
+        $this->setName($response->getName());
     }
 
     /**
      * @param mixed $id
      */
-    protected function _setId( $id )
+    protected function setId( $id )
     {
         $this->id = $id;
     }
@@ -44,7 +44,7 @@ class CardProvider extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $name
      */
-    protected function _setName( $name )
+    protected function setName( $name )
     {
         $this->name = $name;
     }

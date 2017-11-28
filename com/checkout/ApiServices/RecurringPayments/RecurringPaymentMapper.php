@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring Payment Mapper.
+ * Checkout.com ApiServices\Recurringpayments\Recurringpaymentmapper.
  *
  * PHP Version 5.6
  *

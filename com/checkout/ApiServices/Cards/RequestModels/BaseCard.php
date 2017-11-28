@@ -1,104 +1,173 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Cards\RequestModels\BaseCard.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
-namespace  com\checkout\ApiServices\Cards\RequestModels;
 
-class BaseCard
+namespace com\checkout\ApiServices\Cards\RequestModels;
+
+/**
+ * Class base card.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Basecard
 {
-    protected $name;
-    protected $_expiryMonth;
-    protected $_expiryYear;
-    protected $_billingDetails;
-    protected $_defaultCard;
-    
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+  protected $name;
+  protected $expiryMonth;
+  protected $expiryYear;
+  protected $billingDetails;
+  protected $defaultCard;
 
-    /**
-     * @param mixed $name
-     */
-    public function setName( $name )
-    {
-        $this->name = $name;
-    }
+  /**
+   * Get the customer name.
+   *
+   * @return mixed
+   *   The name.
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getExpiryMonth()
-    {
-        return $this->_expiryMonth;
-    }
+  /**
+   * Set the customer name.
+   *
+   * @param mixed $name
+   *   The name.
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
 
-    /**
-     * @param mixed $expiryMonth
-     */
-    public function setExpiryMonth( $expiryMonth )
-    {
-        $this->_expiryMonth = $expiryMonth;
-    }
+  /**
+   * Get the two-digit number representing the expiry month of the card.
+   *
+   * @return mixed
+   *   The expiryMonth.
+   */
+  public function getExpiryMonth()
+  {
+    return $this->expiryMonth;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getExpiryYear()
-    {
-        return $this->_expiryYear;
-    }
+  /**
+   * Set the two-digit number representing the expiry month of the card.
+   *
+   * @param mixed $expiryMonth
+   *   The expiryMonth.
+   */
+  public function setExpiryMonth($expiryMonth)
+  {
+    $this->expiryMonth = $expiryMonth;
+  }
 
-    /**
-     * @param mixed $expiryYear
-     */
-    public function setExpiryYear( $expiryYear )
-    {
-        $this->_expiryYear = $expiryYear;
-    }
+  /**
+   * Get the two or four-digit number representing the expiry year of the card.
+   *
+   * @return mixed
+   *   The expiryYear.
+   */
+  public function getExpiryYear()
+  {
+    return $this->expiryYear;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getBillingDetails()
-    {
-        return $this->_billingDetails;
-    }
+  /**
+   * Set the two or four-digit number representing the expiry year of the card.
+   *
+   * @param mixed $expiryYear
+   *   The expiryYear.
+   */
+  public function setExpiryYear($expiryYear)
+  {
+    $this->expiryYear = $expiryYear;
+  }
 
-    /**
-     * @param mixed $billingDetails
-     */
-    public function setBillingDetails( \com\checkout\ApiServices\SharedModels\Address $billingDetails )
-    {
-        $this->_billingDetails = $billingDetails;
-    }
-           
-    /**
-     * @return mixed
-     */
-    public function getDefaultCard()
-    {
-        return $this->_defaultCard;
-    }
-    
-    /**
-     * @param mixed $defaultCard
-     */
-    public function setDefaultCard( $defaultCard )
-    {
-        $this->_defaultCard = $defaultCard;
-    }
+  /**
+   * Get the Billing Details object.
+   *
+   * It contains address details along with an associated phone number (optional).
+   *
+   * "billingDetails": {
+   *   "addressLine1": "333 Cormier Bypass",
+   *   "addressLine2": "Rolfson Alley",
+   *   "postcode": "ue0 2ou",
+   *   "country": "US",
+   *   "city": "Schmittchester",
+   *   "state": "Jakubowskiton",
+   *   "phone": {
+   *       "countryCode": "44",
+   *       "number": "12345678"
+   *     }
+   *   }
+   *
+   * @return mixed
+   *   The BillingDetails .
+   */
+  public function getBillingDetails()
+  {
+    return $this->billingDetails;
+  }
+
+  /**
+   * Set the Billing Details object.
+   *
+   * It contains address details along with an associated phone number (optional).
+   *
+   * "billingDetails": {
+   *   "addressLine1": "333 Cormier Bypass",
+   *   "addressLine2": "Rolfson Alley",
+   *   "postcode": "ue0 2ou",
+   *   "country": "US",
+   *   "city": "Schmittchester",
+   *   "state": "Jakubowskiton",
+   *   "phone": {
+   *       "countryCode": "44",
+   *       "number": "12345678"
+   *     }
+   *   }
+   *
+   * @param mixed $billingDetails
+   *   The BillingDetails .
+   */
+  public function setBillingDetails(\com\checkout\ApiServices\SharedModels\Address $billingDetails)
+  {
+    $this->billingDetails = $billingDetails;
+  }
+
+  /**
+   * Get the cardId of the customer's default card.
+   *
+   * Note: The card id is prefixed with card_.
+   *
+   * @return mixed
+   *   The defaultCard.
+   */
+  public function getDefaultCard()
+  {
+    return $this->defaultCard;
+  }
+
+  /**
+   * Set the cardId of the customer's default card.
+   *
+   * Note: The card id is prefixed with card_.
+   *
+   * @param mixed $defaultCard
+   *   The defaultCard.
+   */
+  public function setDefaultCard($defaultCard)
+  {
+    $this->defaultCard = $defaultCard;
+  }
 }

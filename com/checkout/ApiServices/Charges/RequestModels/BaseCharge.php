@@ -1,263 +1,460 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\RequestModels\Basecharge.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
 namespace com\checkout\ApiServices\Charges\RequestModels;
 
-class BaseCharge extends BaseChargeInfo
+/**
+ * Class Base Charge.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Basecharge extends Basechargeinfo
 {
-    protected $_email;
-    protected $_customerName;
-    protected $_customerId;
-    protected $_description;
-    protected $_autoCapture;
-    protected $autoCapTime;
-    protected $_shippingDetails;
-    protected $_products = array();
-    protected $value;
-    protected $currency;
-    protected $_customerIp;
-    protected $_chargeMode;
-    protected $_riskCheck;
-    protected $_attemptN3D;
-    protected $_billingDetails;
+  protected $email;
+  protected $customerName;
+  protected $customerId;
+  protected $description;
+  protected $autoCapture;
+  protected $autoCapTime;
+  protected $shippingDetails;
+  protected $products = array();
+  protected $value;
+  protected $currency;
+  protected $customerIp;
+  protected $chargeMode;
+  protected $riskCheck;
+  protected $attemptN3D;
+  protected $billingDetails;
 
-    /**
-     * @return mixed
-     */
-    public function getCustomerIp()
-    {
-        return $this->_customerIp;
-    }
+  /**
+   * Get the IP address of the Customer.
+   *
+   * @return mixed
+   *   The customerIp.
+   */
+  public function getCustomerIp()
+  {
+    return $this->customerIp;
+  }
 
-    /**
-     * @param mixed $customerIp
-     */
-    public function setCustomerIp( $customerIp )
-    {
-        $this->_customerIp = $customerIp;
-    }
-    
-    /**
-     * @return mixed
-     */
-    public function getCustomerName()
-    {
-        return $this->_customerName;
-    }
+  /**
+   * Set the IP address of the Customer.
+   *
+   * @param mixed $customerIp
+   *   The customerIp.
+   */
+  public function setCustomerIp($customerIp)
+  {
+    $this->customerIp = $customerIp;
+  }
 
-    /**
-     * @param mixed $customerName
-     */
-    public function setCustomerName( $customerName )
-    {
-        $this->_customerName = $customerName;
-    }
+  /**
+   * Get the customer name.
+   *
+   * @return mixed
+   *   The customerName.
+   */
+  public function getCustomerName()
+  {
+    return $this->customerName;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
+  /**
+   * Set the customer name.
+   *
+   * @param mixed $customerName
+   *   The customerName.
+   */
+  public function setCustomerName($customerName)
+  {
+    $this->customerName = $customerName;
+  }
 
-    /**
-     * @param mixed $currency
-     */
-    public function setCurrency( $currency )
-    {
-        $this->currency = $currency;
-    }
+  /**
+   * Get the Three-letter ISO currency code.
+   *
+   * This code is representing the currency in
+   * which the recurring charge will be made.
+   *
+   * @return mixed
+   *   The currency.
+   */
+  public function getCurrency()
+  {
+    return $this->currency;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
+  /**
+   * Set the Three-letter ISO currency code.
+   *
+   * This code is representing the currency in
+   * which the recurring charge will be made.
+   *
+   * @param mixed $currency
+   *   The currency.
+   */
+  public function setCurrency($currency)
+  {
+    $this->currency = $currency;
+  }
 
-    /**
-     * @param mixed $value
-     */
-    public function setValue( $value )
-    {
-        $this->value = $value;
-    }
+  /**
+   * Get the value of the transaction.
+   *
+   * A non-zero positive integer (i.e. decimal figures not allowed).
+   * For most currencies, value is divided into 100 units
+   * (e.g. "value = 100" is equivalent to 1 US Dollar).
+   *
+   * @return mixed
+   *   The value.
+   */
+  public function getValue()
+  {
+    return $this->value;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->_email;
-    }
+  /**
+   * Set the value of the transaction.
+   *
+   * A non-zero positive integer (i.e. decimal figures not allowed).
+   * For most currencies, value is divided into 100 units
+   * (e.g. "value = 100" is equivalent to 1 US Dollar).
+   *
+   * @param mixed $value
+   *   The value.
+   */
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
 
-    /**
-     * @param mixed $email
-     */
-    public function setEmail( $email )
-    {
-        $this->_email = $email;
-    }
+  /**
+   * Get the email address of the customer.
+   *
+   * @return mixed
+   *   The email.
+   */
+  public function getEmail()
+  {
+    return $this->email;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCustomerId()
-    {
-        return $this->_customerId;
-    }
+  /**
+   * Set the email address of the customer.
+   *
+   * @param mixed $email
+   *   The email.
+   */
+  public function setEmail($email)
+  {
+    $this->email = $email;
+  }
 
-    /**
-     * @param mixed $customerId
-     */
-    public function setCustomerId( $customerId )
-    {
-        $this->_customerId = $customerId;
-    }
+  /**
+   * Get the customer ID.
+   *
+   * Note: The customer id is prefixed with cust_.
+   *
+   * @return mixed
+   *   The CustomerId.
+   */
+  public function getCustomerId()
+  {
+    return $this->customerId;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->_description;
-    }
+  /**
+   * Set the customer ID.
+   *
+   * Note: The customer id is prefixed with cust_.
+   *
+   * @param mixed $customerId
+   *   The CustomerId.
+   */
+  public function setCustomerId($customerId)
+  {
+    $this->customerId = $customerId;
+  }
 
-    /**
-     * @param mixed $description
-     */
-    public function setDescription( $description )
-    {
-        $this->_description = $description;
-    }
+  /**
+   * Get a description that can be added to this object.
+   *
+   * @return mixed
+   *   The description.
+   */
+  public function getDescription()
+  {
+    return $this->description;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getAutoCapture()
-    {
-        return $this->_autoCapture;
-    }
+  /**
+   * Set a description that can be added to this object.
+   *
+   * @param mixed $description
+   *   The description.
+   */
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
 
-    /**
-     * @param mixed $autoCapture
-     */
-    public function setAutoCapture( $autoCapture )
-    {
-        $this->_autoCapture = $autoCapture;
-    }
+  /**
+   * Get the auto capture.
+   *
+   * Accepted values either 'y' or 'n'. Default is is set to 'y'.
+   * Defines if the charge will be authorised ('n') or captured ('y').
+   * Authorisations will expire in 7 days.
+   *
+   * @return mixed
+   *   The autoCapture.
+   */
+  public function getAutoCapture()
+  {
+    return $this->autoCapture;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getAutoCapTime()
-    {
-        return $this->autoCapTime;
-    }
+  /**
+   * Set the auto capture.
+   *
+   * Accepted values either 'y' or 'n'. Default is is set to 'y'.
+   * Defines if the charge will be authorised ('n') or captured ('y').
+   * Authorisations will expire in 7 days.
+   *
+   * @param mixed $autoCapture
+   *   The autoCapture.
+   */
+  public function setAutoCapture($autoCapture)
+  {
+    $this->autoCapture = $autoCapture;
+  }
 
-    /**
-     * @param mixed $autoCapTime
-     */
-    public function setAutoCapTime( $autoCapTime )
-    {
-        $this->autoCapTime = $autoCapTime;
-    }
+  /**
+   * Get the delayed capture time.
+   *
+   * The delayed capture time (1-168 inclusive) expressed in hours.
+   * Interpret decimal values as fractions of an hour.
+   *
+   * @return mixed
+   *   The autoCapTime.
+   */
+  public function getAutoCapTime()
+  {
+    return $this->autoCapTime;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getShippingDetails()
-    {
-        return $this->_shippingDetails;
-    }
+  /**
+   * Set the delayed capture time.
+   *
+   * The delayed capture time (1-168 inclusive) expressed in hours.
+   * Interpret decimal values as fractions of an hour.
+   *
+   * @param mixed $autoCapTime
+   *   The autoCapTime.
+   */
+  public function setAutoCapTime($autoCapTime)
+  {
+    $this->autoCapTime = $autoCapTime;
+  }
 
-    /**
-     * @param mixed $shippingDetails
-     */
-    public function setShippingDetails( \com\checkout\ApiServices\SharedModels\Address $shippingDetails )
-    {
-        $this->_shippingDetails = $shippingDetails;
-    }
+  /**
+   * Get the shipping address information.
+   *
+   * @return mixed
+   *   The shippingDetails.
+   */
+  public function getShippingDetails()
+  {
+    return $this->shippingDetails;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getProducts()
-    {
-        return $this->_products;
-    }
+  /**
+   * Set the shipping address information.
+   *
+   * @param mixed $shippingDetails
+   *   The shippingDetails.
+   */
+  public function setShippingDetails(\com\checkout\ApiServices\SharedModels\Address $shippingDetails)
+  {
+    $this->shippingDetails = $shippingDetails;
+  }
 
-    /**
-     * @param mixed $products
-     */
-    public function setProducts( \com\checkout\ApiServices\SharedModels\Product $products )
-    {
+  /**
+   * Get the array of Product information.
+   *
+   * @return mixed
+   *   The products.
+   */
+  public function getProducts()
+  {
+    return $this->products;
+  }
 
-        $this->_products[] = $products;
-    }
+  /**
+   * Set the array of Product information.
+   *
+   * @param mixed $products
+   *   The products.
+   */
+  public function setProducts(\com\checkout\ApiServices\SharedModels\Product $products)
+  {
 
-    public function getChargeMode()
-    {
-        return $this->_chargeMode;
-    }
+    $this->products[] = $products;
+  }
 
-    /**
-     * @param mixed $chargeMode
-     */
-    public function setChargeMode( $chargeMode )
-    {
-        $this->_chargeMode = $chargeMode;
-    }
+  /**
+   * Get a valid charge mode.
+   *
+   * Options:
+   *   1 for No 3D.
+   *   2 for 3D.
+   *   3 for Local Payment.
+   *
+   * @return mixed
+   *   The chargeMode.
+   */
+  public function getChargeMode()
+  {
+    return $this->chargeMode;
+  }
 
-    public function getRiskCheck()
-    {
-        return $this->_riskCheck;
-    }
+  /**
+   * Set a valid charge mode.
+   *
+   * Options:
+   *   1 for No 3D.
+   *   2 for 3D.
+   *   3 for Local Payment.
+   *
+   * @param mixed $chargeMode
+   *   The chargeMode.
+   */
+  public function setChargeMode($chargeMode)
+  {
+    $this->chargeMode = $chargeMode;
+  }
 
-    /**
-     * @param mixed $riskCheck
-     */
-    public function setRiskCheck( $riskCheck)
-    {
-        $this->_riskCheck= $riskCheck;
-    }
+  /**
+   * Get the indicator to check for risks.
+   *
+   * If set to 'false', allows the merchant to bypass all risk checks
+   * configured on the system (including blacklist).
+   *
+   * Note: The ability to set riskCheck is not available by default to
+   * all merchants. Please contact your relationship manager for more information.
+   *
+   * @return mixed
+   *   The riskCheck.
+   */
+  public function getRiskCheck()
+  {
+    return $this->riskCheck;
+  }
 
-    /**
-     * @param mixed $attemptN3D
-     */
-    public function setAttemptN3D( $attemptN3D)
-    {
-        $this->_attemptN3D= $attemptN3D;
-    }
+  /**
+   * Set the indicator to check for risks.
+   *
+   * If set to 'false', allows the merchant to bypass all risk checks
+   * configured on the system (including blacklist).
+   *
+   * Note: The ability to set riskCheck is not available by default to
+   * all merchants. Please contact your relationship manager for more information.
+   *
+   * @param mixed $riskCheck
+   *   The riskCheck.
+   */
+  public function setRiskCheck($riskCheck)
+  {
+    $this->riskCheck = $riskCheck;
+  }
 
-    public function getAttemptN3D()
-    {
-        return $this->_attemptN3D;
-    }
+  /**
+   * Set the indicator to attempt to skip 3D checks.
+   *
+   * If set to 'false', allows the merchant to bypass the 3D security,
+   * if they are set in the risks settings.
+   *
+   * @param mixed $attemptN3D
+   *   The attemptN3D.
+   */
+  public function setAttemptN3D($attemptN3D)
+  {
+    $this->attemptN3D = $attemptN3D;
+  }
 
-    /**
-     * @param mixed billingDetails
-     */
-    public function setBillingDetails( $billingDetails)
-    {
-        $this->_billingDetails= $billingDetails;
-    }
- 
-    public function getBillingDetails()
-    {
-        return $this->_billingDetails;
-    }
+  /**
+   * Get the indicator to attempt to skip 3D checks.
+   *
+   * If set to 'false', allows the merchant to bypass the 3D security,
+   * if they are set in the risks settings.
+   *
+   * @return mixed
+   *   The attemptN3D.
+   */
+  public function getAttemptN3D()
+  {
+    return $this->attemptN3D;
+  }
+
+  /**
+   * Set the Billing Details object.
+   *
+   * It contains address details along with an associated phone number (optional).
+   *
+   * "billingDetails": {
+   *   "addressLine1": "333 Cormier Bypass",
+   *   "addressLine2": "Rolfson Alley",
+   *   "postcode": "ue0 2ou",
+   *   "country": "US",
+   *   "city": "Schmittchester",
+   *   "state": "Jakubowskiton",
+   *   "phone": {
+   *       "countryCode": "44",
+   *       "number": "12345678"
+   *     }
+   *   }
+   *
+   * @param mixed $billingDetails
+   *   The BillingDetails .
+   */
+  public function setBillingDetails($billingDetails)
+  {
+    $this->billingDetails = $billingDetails;
+  }
+
+  /**
+   * Get the Billing Details object.
+   *
+   * It contains address details along with an associated phone number (optional).
+   *
+   * "billingDetails": {
+   *   "addressLine1": "333 Cormier Bypass",
+   *   "addressLine2": "Rolfson Alley",
+   *   "postcode": "ue0 2ou",
+   *   "country": "US",
+   *   "city": "Schmittchester",
+   *   "state": "Jakubowskiton",
+   *   "phone": {
+   *       "countryCode": "44",
+   *       "number": "12345678"
+   *     }
+   *   }
+   *
+   * @return mixed
+   *   The BillingDetails .
+   */
+  public function getBillingDetails()
+  {
+    return $this->billingDetails;
+  }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Base Services.
+ * Checkout.com ApiServices\Baseservices.
  *
  * PHP Version 5.6
  *
@@ -22,7 +22,7 @@ use com\checkout\helpers\AppSetting;
  * @category Api Services
  * @version Release: @package_version@
  */
-class BaseServices
+class Baseservices
 {
   protected $apiSetting = null;
   protected $apiUrl = null;

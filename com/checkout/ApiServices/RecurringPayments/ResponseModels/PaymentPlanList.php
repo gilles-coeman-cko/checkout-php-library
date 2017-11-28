@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring Payment Customer payment plan.
+ * Checkout.com ApiServices\Recurringpayments\ResponseModels\Paymentplanlist.
  *
  * PHP Version 5.6
  *
@@ -63,7 +63,7 @@ class Paymentplanlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
   /**
    * Set the list count.
    *
-   * @param mixed $requestModel
+   * @param mixed $count
    *   The list count.
    */
   private function setCount($count)

@@ -1,44 +1,47 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Customers\ResponseModels\Customercreate.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/19/2015
- * Time: 7:43 AM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Customers\RequestModels;
 
-
-class CustomerCreate extends BaseCustomer
+/**
+ * Class Customer Create.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Customercreate extends Basecustomer
 {
-    protected $_baseCardCreate;
+  protected $baseCardcreate;
 
-    /**
-     * @return mixed
-     */
-    public function getBaseCardCreate()
-    {
-        return $this->_baseCardCreate;
-    }
+  /**
+   * Get the base card create object.
+   *
+   * @return mixed
+   *   The baseCardcreate.
+   */
+  public function getBasecardcreate()
+  {
+    return $this->baseCardcreate;
+  }
 
-    /**
-     * @param mixed $baseCardCreate
-     */
-    public function setBaseCardCreate( \com\checkout\ApiServices\Cards\RequestModels\BaseCardCreate $baseCardCreate )
-    {
-        $this->_baseCardCreate = $baseCardCreate;
-    }
+  /**
+   * Set the base card create object.
+   *
+   * @param mixed $baseCardcreate
+   *   The baseCardcreate.
+   */
+  public function setBasecardcreate(\com\checkout\ApiServices\Cards\RequestModels\Basecardcreate $baseCardcreate)
+  {
+    $this->baseCardcreate = $baseCardcreate;
+  }
 }

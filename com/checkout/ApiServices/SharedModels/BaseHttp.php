@@ -1,64 +1,84 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\SharedModels\BaseHttp.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 11/06/2015
- * Time: 08:42
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\SharedModels;
 
-
+/**
+ * Class Base Http.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
 class BaseHttp
 {
-    protected  $_httpStatus;
-    protected  $_hasError;
+  protected $httpStatus;
+  protected $hasError;
 
-    public function __construct($response = null)
-    {
-        if($response) {
-            $this->_setHttpStatus($response->getHttpStatus());
-            $this->_setHasError($response->hasError()?true:false);
-        }
+  /**
+   * Class constructor.
+   *
+   * @param mixed $requestModel
+   *   The request model.
+   */
+  public function __construct($response = null)
+  {
+    if ($response) {
+      $this->setHttpStatus($response->getHttpStatus());
+      $this->setHasError($response->hasError() ? true : false);
     }
-    /**
-     * @return mixed
-     */
-    public function getHttpStatus()
-    {
-        return $this->_httpStatus;
-    }
+  }
 
-    /**
-     * @return mixed
-     */
-    public function hasError()
-    {
-        return $this->_hasError;
-    }
-    /**
-     * @param mixed $httpStatus
-     */
-    private function _setHttpStatus($httpStatus)
-    {
-        $this->_httpStatus = $httpStatus;
-    }
+  /**
+   * Get the http status.
+   *
+   * @return mixed
+   *   The http status.
+   */
+  public function getHttpStatus()
+  {
+    return $this->httpStatus;
+  }
 
-    private function _setHasError($hasError)
-    {
-        $this->_hasError = $hasError;
-    }
+  /**
+   * Check if the http request has returned an error.
+   *
+   * @return mixed
+   *   The http error.
+   */
+  public function hasError()
+  {
+    return $this->hasError;
+  }
+
+  /**
+   * Get a http status.
+   *
+   * @param mixed $httpStatus
+   *   The http status.
+   */
+  private function setHttpStatus($httpStatus)
+  {
+    $this->httpStatus = $httpStatus;
+  }
+
+  /**
+   * Set a http error.
+   *
+   * @param mixed $hasError
+   *   The http error.
+   */
+  private function setHasError($hasError)
+  {
+    $this->hasError = $hasError;
+  }
 }

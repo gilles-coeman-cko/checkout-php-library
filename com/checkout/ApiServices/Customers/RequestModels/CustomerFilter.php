@@ -1,81 +1,93 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Customers\ResponseModels\Customerfilter.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/19/2015
- * Time: 7:49 AM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Customers\RequestModels;
 
-
-class CustomerFilter
+/**
+ * Class Customer Filter.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Customerfilter
 {
-    private $count;
-    private $offset;
-    /**
-    Holds created start and end dates separated by |
-     */
-    private $_created;
+  private $count;
+  private $offset;
+  private $created;
 
-    /**
-     * @return mixed
-     */
-    public function getCreated()
-    {
-        return $this->_created;
-    }
+  /**
+   * Get the UTC date and time based on ISO 8601 profile.
+   *
+   * @return mixed
+   *   The created date.
+   */
+  public function getCreated()
+  {
+    return $this->created;
+  }
 
-    /**
-     * @param mixed $created
-     */
-    public function setCreated( $created )
-    {
-        $this->_created = $created;
-    }
+  /**
+   * Set the UTC date and time based on ISO 8601 profile.
+   *
+   * @param mixed $created
+   *   The created date.
+   */
+  public function setCreated($created)
+  {
+    $this->created = $created;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getOffset()
-    {
-        return $this->offset;
-    }
+  /**
+   * Set the page offset.
+   *
+   * @param mixed $offset
+   *   The page offset.
+   */
+  public function getOffset()
+  {
+    return $this->offset;
+  }
 
-    /**
-     * @param mixed $offset
-     */
-    public function setOffset( $offset )
-    {
-        $this->offset = $offset;
-    }
+  /**
+   * Set the page offset.
+   *
+   * @param mixed $offset
+   *   The page offset.
+   */
+  public function setOffset($offset)
+  {
+    $this->offset = $offset;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
+  /**
+   * Get the page data.
+   *
+   * @return mixed
+   *   The page data.
+   */
+  public function getCount()
+  {
+    return $this->count;
+  }
 
-    /**
-     * @param mixed $count
-     */
-    public function setCount( $count )
-    {
-        $this->count = $count;
-    }
+  /**
+   * Set the page count.
+   *
+   * @param mixed $requestModel
+   *   The page count.
+   */
+  public function setCount($count)
+  {
+    $this->count = $count;
+  }
 }

@@ -1,61 +1,86 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Charges\RequestModels\Cardtokenchargecreate.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 11:31 AM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Charges\RequestModels;
 
-
-class CardTokenChargeCreate extends BaseCharge
+/**
+ * Class Card Token Charge Create.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Cardtokenchargecreate extends Basecharge
 {
-    private $_cardToken;
-    protected $transactionIndicator;
+  private $cardToken;
+  protected $transactionIndicator;
 
-    /**
-     * @return mixed
-     */
-    public function getCardToken()
-    {
-        return $this->_cardToken;
-    }
+  /**
+   * Get a card token.
+   *
+   * Note: The card token is prefix card_tok_.
+   * Note: A cardToken can only be used once and will expire after 15 minutes.
+   *
+   * @return mixed
+   *   The cardToken.
+   */
+  public function getCardToken()
+  {
+    return $this->cardToken;
+  }
 
-    /**
-     * @param mixed $cardToken
-     */
-    public function setCardToken( $cardToken )
-    {
-        $this->_cardToken = $cardToken;
-    }
+  /**
+   * Set a card token.
+   *
+   * Note: The card token is prefix card_tok_.
+   * Note: A cardToken can only be used once and will expire after 15 minutes.
+   *
+   * @param mixed $cardToken
+   *   The cardToken.
+   */
+  public function setCardToken($cardToken)
+  {
+    $this->cardToken = $cardToken;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getTransactionIndicator()
-    {
-        return $this->transactionIndicator;
-    }
+  /**
+   * Get the transaction indicator.
+   *
+   * Options:
+   *   Set to 1 for regular.
+   *   Set to 2 for recurring.
+   *   Set to 3 for MOTO.
+   *
+   * @return mixed
+   *   The transactionIndicator.
+   */
+  public function getTransactionIndicator()
+  {
+    return $this->transactionIndicator;
+  }
 
-    /**
-     * @param mixed $transactionIndicator
-     */
-    public function setTransactionIndicator($transactionIndicator)
-    {
-        $this->transactionIndicator = $transactionIndicator;
-    }
+  /**
+   * Set the transaction indicator.
+   *
+   * Options:
+   *   Set to 1 for regular.
+   *   Set to 2 for recurring.
+   *   Set to 3 for MOTO.
+   *
+   * @param mixed $transactionIndicator
+   *   The transactionIndicator.
+   */
+  public function setTransactionIndicator($transactionIndicator)
+  {
+    $this->transactionIndicator = $transactionIndicator;
+  }
 }

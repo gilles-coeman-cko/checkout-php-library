@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Reporting Chargeback list.
+ * Checkout.com ApiServices\Reporting\ResponseModels\Chargebacklist.
  *
  * PHP Version 5.6
  *

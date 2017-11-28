@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring Payment Service.
+ * Checkout.com ApiServices\Recurringpayments\Recurringpaymentservice.
  *
  * PHP Version 5.6
  *
@@ -18,7 +18,7 @@ namespace com\checkout\ApiServices\Recurringpayments;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Recurringpaymentservice extends \com\checkout\ApiServices\BaseServices
+class Recurringpaymentservice extends \com\checkout\ApiServices\Baseservices
 {
 
   /**
@@ -189,7 +189,7 @@ class Recurringpaymentservice extends \com\checkout\ApiServices\BaseServices
    */
   public function createPlanWithFullCard(RequestModels\Planwithfullcardcreate $requestModel)
   {
-    $chargesMapper = new \com\checkout\ApiServices\Charges\ChargesMapper($requestModel);
+    $chargesMapper = new \com\checkout\ApiServices\Charges\Chargesmapper($requestModel);
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -218,7 +218,7 @@ class Recurringpaymentservice extends \com\checkout\ApiServices\BaseServices
    */
   public function createPlanWithCardId(RequestModels\Planwithcardidcreate $requestModel)
   {
-    $chargesMapper = new \com\checkout\ApiServices\Charges\ChargesMapper($requestModel);
+    $chargesMapper = new \com\checkout\ApiServices\Charges\Chargesmapper($requestModel);
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -247,7 +247,7 @@ class Recurringpaymentservice extends \com\checkout\ApiServices\BaseServices
    */
   public function createPlanWithCardToken(RequestModels\Planwithcardtokencreate $requestModel)
   {
-    $chargesMapper = new \com\checkout\ApiServices\Charges\ChargesMapper($requestModel);
+    $chargesMapper = new \com\checkout\ApiServices\Charges\Chargesmapper($requestModel);
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -274,9 +274,9 @@ class Recurringpaymentservice extends \com\checkout\ApiServices\BaseServices
    * @return ResponseModels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function createPlanWithPaymentToken(RequestModels\Planwithpaymenttokencreate $requestModel)
+  public function createPlanWithPaymenttoken(RequestModels\Planwithpaymenttokencreate $requestModel)
   {
-    $chargesMapper = new \com\checkout\ApiServices\Charges\ChargesMapper($requestModel);
+    $chargesMapper = new \com\checkout\ApiServices\Charges\Chargesmapper($requestModel);
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -285,11 +285,11 @@ class Recurringpaymentservice extends \com\checkout\ApiServices\BaseServices
 
     );
     $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
-      $this->apiUrl->getPaymentTokensApiUri(),
+      $this->apiUrl->getPaymenttokensApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
 
-    $responseModel = new \com\checkout\ApiServices\Tokens\ResponseModels\PaymentToken($processCharge);
+    $responseModel = new \com\checkout\ApiServices\Tokens\ResponseModels\Paymenttoken($processCharge);
 
     return $responseModel;
   }
@@ -305,7 +305,7 @@ class Recurringpaymentservice extends \com\checkout\ApiServices\BaseServices
    */
   public function updateCustomerPlan(RequestModels\Customerplanupdate $requestModel)
   {
-    $chargesMapper = new \com\checkout\ApiServices\Charges\ChargesMapper($requestModel);
+    $chargesMapper = new \com\checkout\ApiServices\Charges\Chargesmapper($requestModel);
 
     $_requestPayloadConverter = $chargesMapper->requestPayloadConverter();
 

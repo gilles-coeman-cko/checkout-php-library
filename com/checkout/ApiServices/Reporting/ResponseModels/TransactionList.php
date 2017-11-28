@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Reporting Transaction list.
+ * Checkout.com ApiServices\Reporting\ResponseModels\Transactionlist.
  *
  * PHP Version 5.6
  *

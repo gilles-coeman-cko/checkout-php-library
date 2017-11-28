@@ -30,13 +30,13 @@ class Region extends \com\checkout\ApiServices\SharedModels\BaseHttp
     public function __construct($response)
     {
         parent::__construct($response);
-        $this->_setName($response->getName());
-        $this->_setRegionId($response->getRegionId());
+        $this->setName($response->getName());
+        $this->setRegionId($response->getRegionId());
     }
     /**
      * @param mixed $name
      */
-    private function _setName( $name )
+    private function setName( $name )
     {
         $this->name = $name;
     }
@@ -44,7 +44,7 @@ class Region extends \com\checkout\ApiServices\SharedModels\BaseHttp
     /**
      * @param mixed $regionId
      */
-    private function _setRegionId( $regionId )
+    private function setRegionId( $regionId )
     {
         $this->_regionId = $regionId;
     }

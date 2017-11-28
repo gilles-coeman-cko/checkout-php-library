@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Reporting Mapper.
+ * Checkout.com ApiServices\Reporting\Reportingmapper.
  *
  * PHP Version 5.6
  *

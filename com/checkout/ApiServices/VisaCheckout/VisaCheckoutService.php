@@ -15,7 +15,7 @@
 
 namespace com\checkout\ApiServices\VisaCheckout;
 
-class VisaCheckoutService extends \com\checkout\ApiServices\BaseServices
+class VisaCheckoutService extends \com\checkout\ApiServices\Baseservices
 {
     /**
      * @param RequestModels\VisaCheckoutCardTokenCreate $requestModel

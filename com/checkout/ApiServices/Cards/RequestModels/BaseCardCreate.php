@@ -1,54 +1,74 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\Cards\RequestModels\BaseCardCreate.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\Cards\RequestModels;
 
-class BaseCardCreate extends BaseCard
+/**
+ * Class Base Card Creates.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Basecardcreate extends Basecard
 {
-    protected $_number;
-    protected $cvv;
+  protected $number;
+  protected $cvv;
 
-    /**
-     * @return mixed
-     */
-    public function getNumber()
-    {
-        return $this->_number;
-    }
+  /**
+   * Get a card number.
+   *
+   * @return mixed
+   *   The number.
+   */
+  public function getNumber()
+  {
+    return $this->number;
+  }
 
-    /**
-     * @param mixed $number
-     */
-    public function setNumber( $number )
-    {
-        $this->_number = $number;
-    }
+  /**
+   * Set a card number.
+   *
+   * @param mixed $number
+   *   The number.
+   */
+  public function setNumber($number)
+  {
+    $this->number = $number;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCvv()
-    {
-        return $this->cvv;
-    }
+  /**
+   * Get a Card security code.
+   *
+   * Four-digits for Amex, three-digits for all other cards.
+   *
+   * @return mixed
+   *   The cvv.
+   */
+  public function getCvv()
+  {
+    return $this->cvv;
+  }
 
-    /**
-     * @param mixed $cvv
-     */
-    public function setCvv( $cvv )
-    {
-        $this->cvv = $cvv;
-    }
+  /**
+   * Set a Card security code.
+   *
+   * Four-digits for Amex, three-digits for all other cards.
+   *
+   * @param mixed $cvv
+   *   The cvv.
+   */
+  public function setCvv($cvv)
+  {
+    $this->cvv = $cvv;
+  }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring payments Plan Update.
+ * Checkout.com ApiServices\Recurringpayments\RequestModels\Planupdate.
  *
  * PHP Version 5.6
  *

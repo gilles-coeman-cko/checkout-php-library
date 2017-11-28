@@ -21,23 +21,23 @@
 
 namespace com\checkout\ApiServices\Tokens;
 
-use com\checkout\ApiServices\BaseServices;
-use com\checkout\ApiServices\Charges\ChargesMapper;
+use com\checkout\ApiServices\Baseservices;
+use com\checkout\ApiServices\Charges\Chargesmapper;
 use com\checkout\ApiServices\SharedModels\OkResponse;
-use com\checkout\ApiServices\Tokens\RequestModels\PaymentTokenUpdate;
+use com\checkout\ApiServices\Tokens\RequestModels\PaymenttokenUpdate;
 use com\checkout\helpers\ApiHttpClient;
 use com\checkout\helpers\ApiHttpClientCustomException;
 
-class TokenService extends BaseServices
+class TokenService extends Baseservices
 {
     /**
-     * @param RequestModels\PaymentTokenCreate $requestModel
-     * @return ResponseModels\PaymentToken
+     * @param RequestModels\PaymenttokenCreate $requestModel
+     * @return ResponseModels\Paymenttoken
      * @throws ApiHttpClientCustomException
      */
-    public function createPaymentToken(RequestModels\PaymentTokenCreate $requestModel)
+    public function createPaymenttoken(RequestModels\PaymenttokenCreate $requestModel)
     {
-        $chargeMapper = new ChargesMapper($requestModel);
+        $chargeMapper = new Chargesmapper($requestModel);
 
         $requestPayload = array(
             'authorization' => $this->apiSetting->getSecretKey(),
@@ -46,22 +46,22 @@ class TokenService extends BaseServices
         );
 
         $processCharge = ApiHttpClient::postRequest(
-            $this->apiUrl->getPaymentTokensApiUri(),
+            $this->apiUrl->getPaymenttokensApiUri(),
             $this->apiSetting->getSecretKey(), $requestPayload
         );
 
-        return new ResponseModels\PaymentToken($processCharge);
+        return new ResponseModels\Paymenttoken($processCharge);
     }
 
     /**
-     * @param PaymentTokenUpdate $requestModel
-     * @return PaymentTokenUpdate
+     * @param PaymenttokenUpdate $requestModel
+     * @return PaymenttokenUpdate
      * @throws ApiHttpClientCustomException
      */
-    public function updatePaymentToken(RequestModels\PaymentTokenUpdate $requestModel)
+    public function updatePaymenttoken(RequestModels\PaymenttokenUpdate $requestModel)
     {
 
-        $chargeMapper = new ChargesMapper($requestModel);
+        $chargeMapper = new Chargesmapper($requestModel);
 
         $requestPayload = array(
             'authorization' => $this->apiSetting->getSecretKey(),
@@ -69,7 +69,7 @@ class TokenService extends BaseServices
             'postedParam' => $chargeMapper->requestPayloadConverter(),
         );
 
-        $updateUri = sprintf($this->apiUrl->getPaymentTokenUpdateApiUri(), $requestModel->getId());
+        $updateUri = sprintf($this->apiUrl->getPaymenttokenUpdateApiUri(), $requestModel->getId());
 
         $processCharge = ApiHttpClient::putRequest(
             $updateUri,

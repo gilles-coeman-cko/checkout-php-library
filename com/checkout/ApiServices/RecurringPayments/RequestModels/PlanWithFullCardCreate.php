@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring Payments Plan With Full Card Create.
+ * Checkout.com ApiServices\Recurringpayments\RequestModels\Planwithfullcardcreate.
  *
  * PHP Version 5.6
  *
@@ -19,9 +19,9 @@ namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planwithfullcardcreate extends \com\checkout\ApiServices\Charges\RequestModels\BaseCharge
+class Planwithfullcardcreate extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
 {
-  protected $_baseCardCreate;
+  protected $baseCardcreate;
   protected $transactionIndicator;
   protected $paymentPlans;
 
@@ -31,20 +31,20 @@ class Planwithfullcardcreate extends \com\checkout\ApiServices\Charges\RequestMo
    * @return mixed
    *   The base card.
    */
-  public function getBaseCardCreate()
+  public function getBasecardcreate()
   {
-    return $this->_baseCardCreate;
+    return $this->baseCardcreate;
   }
 
   /**
    * Set the base card.
    * 
-   * @param mixed $baseCardCreate
+   * @param mixed $baseCardcreate
    *   The base card.
    */
-  public function setBaseCardCreate(\com\checkout\ApiServices\Cards\RequestModels\BaseCardCreate $baseCardCreate)
+  public function setBasecardcreate(\com\checkout\ApiServices\Cards\RequestModels\Basecardcreate $baseCardcreate)
   {
-    $this->_baseCardCreate = $baseCardCreate;
+    $this->baseCardcreate = $baseCardcreate;
   }
 
   /**

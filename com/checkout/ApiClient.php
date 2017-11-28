@@ -18,14 +18,14 @@ class ApiClient
 {
     private  $_tokenService;
     private  $_chargeService;
-    private  $_cardService;
+    private  $cardService;
     private  $_customerService;
     private  $_Reportingservice;
     private  $_Recurringpaymentservice;
     private  $_visaCheckoutService;
 
     /**
-     * @return ApiServices\Customers\CustomerService
+     * @return ApiServices\Customers\Customerservice
      */
     public function customerService()
     {
@@ -33,7 +33,7 @@ class ApiClient
     }
 
     /**
-     * @return ApiServices\Charges\ChargeService
+     * @return ApiServices\Charges\Chargeservice
      */
     public function chargeService()
     {
@@ -49,11 +49,11 @@ class ApiClient
     }
 
     /**
-     * @return ApiServices\Cards\CardService
+     * @return ApiServices\Cards\Cardservice
      */
     public function cardService()
     {
-        return $this->_cardService;
+        return $this->cardService;
     }
 
     /**
@@ -91,9 +91,9 @@ class ApiClient
         $appSetting->setMode($env);
 
         $this->_tokenService = new ApiServices\Tokens\TokenService($appSetting);
-        $this->_chargeService = new ApiServices\Charges\ChargeService($appSetting);
-        $this->_cardService = new ApiServices\Cards\CardService($appSetting);
-        $this->_customerService = new ApiServices\Customers\CustomerService($appSetting);
+        $this->_chargeService = new ApiServices\Charges\Chargeservice($appSetting);
+        $this->cardService = new ApiServices\Cards\Cardservice($appSetting);
+        $this->_customerService = new ApiServices\Customers\Customerservice($appSetting);
         $this->_Reportingservice = new ApiServices\Reporting\Reportingservice($appSetting);
         $this->_Recurringpaymentservice = new ApiServices\Recurringpayments\Recurringpaymentservice($appSetting);
         $this->_visaCheckoutService = new ApiServices\VisaCheckout\VisaCheckoutService($appSetting);

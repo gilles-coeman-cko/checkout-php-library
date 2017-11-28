@@ -25,7 +25,7 @@ namespace com\checkout\ApiServices\PaymentProviders\RequestModels;
 class LocalPaymentProviderModel
 {
     private $_providerId;
-    private $_paymentToken;
+    private $paymentToken;
     private $_ip;
     private $countryCode;
     private $_limit;
@@ -99,17 +99,17 @@ class LocalPaymentProviderModel
     /**
      * @return mixed
      */
-    public function getPaymentToken()
+    public function getPaymenttoken()
     {
-        return $this->_paymentToken;
+        return $this->paymentToken;
     }
 
     /**
      * @param mixed $paymentToken
      */
-    public function setPaymentToken( $paymentToken )
+    public function setPaymenttoken( $paymentToken )
     {
-        $this->_paymentToken = $paymentToken;
+        $this->paymentToken = $paymentToken;
     }
 
     /**

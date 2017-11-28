@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com Api Services Recurring Payment Customer payment plan.
+ * Checkout.com ApiServices\Recurringpayments\ResponseModels\Customerpaymentplan.
  *
  * PHP Version 5.6
  *
@@ -48,7 +48,6 @@ class Customerpaymentplan extends \com\checkout\ApiServices\SharedModels\BaseHtt
   public function __construct($response)
   {
     parent::__construct($response);
-
     $this->setObject($response->getObject());
     $this->setPlanId($response->getPlanId());
     $this->setName($response->getName());
@@ -66,7 +65,6 @@ class Customerpaymentplan extends \com\checkout\ApiServices\SharedModels\BaseHtt
     $this->setStartDate($response->getStartDate());
     $this->setPreviousRecurringDate($response->getPreviousRecurringDate());
     $this->setNextRecurringDate($response->getNextRecurringDate());
-
   }
 
   /**

@@ -1,97 +1,127 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com ApiServices\SharedModels\BinData.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\ApiServices\SharedModels;
 
+/**
+ * Class Bin Data.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
 class BinData extends \com\checkout\ApiServices\SharedModels\BaseHttp
 {
+  protected $object;
+  protected $bin;
+  protected $issuerCountryISO2;
+  protected $cardType;
 
-    protected $object;
-    protected $_bin;
-    protected $_issuerCountryISO2;
-    protected $_cardType;
+  /**
+   * Get an object.
+   *
+   * @return mixed
+   *   The object.
+   */
+  public function getObject()
+  {
+    return $this->object;
+  }
 
+  /**
+   * Get the first 4-6 digits of cardNumber.
+   *
+   * The exact number of digits required in the
+   * request is dependent on the card association.
+   *
+   * @return mixed
+   *   The bin.
+   */
+  public function getBin()
+  {
+    return $this->bin;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
+  /**
+   * Get a ISO2 country code.
+   *
+   * @return mixed
+   *   The issuerCountryISO2.
+   */
+  public function getIssuerCountryISO2()
+  {
+    return $this->issuerCountryISO2;
+  }
 
+  /**
+   * Get a card type.
+   *
+   * Either debit or credit.
+   *
+   * @return mixed
+   *   The cardType.
+   */
+  public function getCardType()
+  {
+    return $this->cardType;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getBin()
-    {
-        return $this->_bin;
-    }
+  /**
+   * Set an object.
+   *
+   * @param int $object
+   *   The object.
+   */
+  public function setObject($object)
+  {
+    $this->object = $object;
+  }
 
+  /**
+   * Set the first 4-6 digits of cardNumber.
+   *
+   * The exact number of digits required in the
+   * request is dependent on the card association.
+   *
+   * @param mixed $bin
+   *   The bin.
+   */
+  public function setBin($bin)
+  {
+    $this->bin = $bin;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getIssuerCountryISO2()
-    {
-        return $this->_issuerCountryISO2;
-    }
+  /**
+   * Set a ISO2 country code.
+   *
+   * @param mixed $issuerCountryISO2
+   *   The issuerCountryISO2.
+   */
+  public function setIssuerCountryISO2($issuerCountryISO2)
+  {
+    $this->issuerCountryISO2 = $issuerCountryISO2;
+  }
 
-
-    /**
-     * @return mixed
-     */
-    public function getCardType()
-    {
-        return $this->_cardType;
-    }
-
-
-    /**
-     * @param mixed $object
-     */
-    public function setObject( $object )
-    {
-        $this->object = $object;
-    }
-
-
-    /**
-     * @param mixed $bin
-     */
-    public function setBin( $bin )
-    {
-        $this->_bin = $bin;
-    }
-
-    
-    /**
-     * @param mixed $issuerCountryISO2
-     */
-    public function setIssuerCountryISO2( $issuerCountryISO2 )
-    {
-        $this->_issuerCountryISO2 = $issuerCountryISO2;
-    }
-
-    /**
-     * @param mixed $cardType
-     */
-    public function setCardType( $cardType )
-    {
-        $this->_cardType = $cardType;
-    }
+  /**
+   * Set a card type.
+   *
+   * Either debit or credit.
+   *
+   * @param mixed $cardType
+   *   The cardType.
+   */
+  public function setCardType($cardType)
+  {
+    $this->cardType = $cardType;
+  }
 
 }

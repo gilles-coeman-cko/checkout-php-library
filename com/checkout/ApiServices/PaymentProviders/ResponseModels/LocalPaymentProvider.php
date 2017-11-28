@@ -37,13 +37,13 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
     {
         parent::__construct($response);
         $this->setCountryCodes($response->getCountryCodes());
-        $this->_setCustomerFields($response->getCustomerFields());
-        $this->_setDimensions($response->getDimensions());
-        $this->_setId($response->getId());
-        $this->_setIframe($response->getIframe());
-        $this->_setName($response->getName());
-        $this->_setRegions($response->getRegions());
-        $this->_setType($response->getType());
+        $this->setCustomerFields($response->getCustomerFields());
+        $this->setDimensions($response->getDimensions());
+        $this->setId($response->getId());
+        $this->setIframe($response->getIframe());
+        $this->setName($response->getName());
+        $this->setRegions($response->getRegions());
+        $this->setType($response->getType());
 
     }    /**
           * @param mixed $CountryCodes
@@ -56,7 +56,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
     /**
      * @param mixed $customerFields
      */
-    protected function _setCustomerFields( $customerFields )
+    protected function setCustomerFields( $customerFields )
     {
 
         $dataArray = $customerFields->toArray();
@@ -74,7 +74,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
     /**
      * @param mixed $dimensions
      */
-    protected function _setDimensions( $dimensions )
+    protected function setDimensions( $dimensions )
     {
         $this->_dimensions = $dimensions->toArray();
     }
@@ -82,7 +82,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
     /**
      * @param mixed $id
      */
-    protected function _setId( $id )
+    protected function setId( $id )
     {
         $this->id = $id;
     }
@@ -90,7 +90,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
     /**
      * @param mixed $iframe
      */
-    protected function _setIframe( $iframe )
+    protected function setIframe( $iframe )
     {
         $this->_iframe = $iframe;
     }
@@ -98,7 +98,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
     /**
      * @param mixed $name
      */
-    protected function _setName( $name )
+    protected function setName( $name )
     {
         $this->name = $name;
     }
@@ -106,7 +106,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
     /**
      * @param mixed $regions
      */
-    protected function _setRegions( $regions )
+    protected function setRegions( $regions )
     {
 
         $dataArray = $regions->toArray();
@@ -124,7 +124,7 @@ class LocalPaymentProvider extends \com\checkout\ApiServices\SharedModels\BaseHt
     /**
      * @param mixed $type
      */
-    protected function _setType( $type )
+    protected function setType( $type )
     {
         $this->_type = $type;
     }
