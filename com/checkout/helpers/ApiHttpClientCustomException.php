@@ -1,60 +1,75 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com helpers\ApiHttpClientCustomException.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Helpers
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
 namespace com\checkout\helpers;
 
 /**
- * final class ApiHttpClientCustomException
+ * Final class Api Http Client Custom Exception.
  *
- * Below are the tags commonly used for classes. @category through @version
- * are required.  The remainder should only be used when necessary.
- * Please use them in the order they appear here.  phpDocumentor has
- * several other tags available, feel free to use them.
- *
- * @category Api
- * @version  Release: @package_version@
+ * @category Helpers
+ * @version Release: @package_version@
  */
 final class ApiHttpClientCustomException extends \Exception
 {
-    private $errorMessage = '';
-    private $errorCode = '';
-    private $eventId = '';
+  private $errorMessage = '';
+  private $errorCode = '';
+  private $eventId = '';
 
+  /**
+   * Class constructor.
+   *
+   * @param mixed $requestModel
+   *   The request model.
+   */
+  public function __construct($errorMessage, $errorCode, $eventId)
+  {
 
-    function __construct($errorMessage, $errorCode, $eventId) 
-    {
+    $this->errorMessage = $errorMessage;
+    $this->errorCode = $errorCode;
+    $this->eventId = $eventId;
+  }
 
-        $this->errorMessage = $errorMessage;
-        $this->errorCode = $errorCode;
-                $this->eventId = $eventId;
-    }
+  /**
+   * Get the error message.
+   *
+   * @return mixed
+   *   The errorMessage.
+   */
+  public function getErrorMessage()
+  {
+    return $this->errorMessage;
+  }
 
+  /**
+   * Get the error code.
+   *
+   * @return mixed
+   *   The errorCode.
+   */
+  public function getErrorCode()
+  {
+    return $this->errorCode;
+  }
 
-    function getErrorMessage() 
-    {
-            return $this->errorMessage;
-    }
+  /**
+   * Get the event id.
+   *
+   * @return mixed
+   *   The eventId.
+   */
+  public function getEventId()
+  {
+    return $this->eventId;
+  }
 
-    function getErrorCode() 
-    {
-            return $this->errorCode;
-    }
-
-    function getEventId() 
-    {
-            return $this->eventId;
-    }
-    
 }

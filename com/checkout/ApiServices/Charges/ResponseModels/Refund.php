@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\ResponseModels;
+namespace com\checkout\Apiservices\Charges\Responsemodels;
 
 /**
  * Class Refund.
@@ -19,10 +19,10 @@ namespace com\checkout\ApiServices\Charges\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Refund extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   private $object;
-  private $_amount;
+  private $amount;
   private $currency;
   private $created;
   private $balanceTransaction;
@@ -39,7 +39,7 @@ class Refund extends \com\checkout\ApiServices\SharedModels\BaseHttp
    */
   public function getAmount()
   {
-    return $this->_amount;
+    return $this->amount;
   }
 
   /**
@@ -54,7 +54,7 @@ class Refund extends \com\checkout\ApiServices\SharedModels\BaseHttp
    */
   public function setAmount($amount)
   {
-    $this->_amount = $amount;
+    $this->amount = $amount;
   }
 
   /**

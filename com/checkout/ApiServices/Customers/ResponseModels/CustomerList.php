@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Customers\ResponseModels\Customerlist.
+ * Checkout.com Apiservices\Customers\Responsemodels\Customerlist.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Customers\ResponseModels;
+namespace com\checkout\Apiservices\Customers\Responsemodels;
 
 /**
  * Class Customer List.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Customers\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customerlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   private $object;
   private $count;
@@ -51,9 +51,9 @@ class Customerlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
   }
 
   /**
-   * Set the list data.
+   * Get the list data.
    *
-   * @param mixed $data
+   * @return mixed
    *   The list data.
    */
   public function getData()
@@ -62,9 +62,9 @@ class Customerlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
   }
 
   /**
-   * Set an object.
+   * Get an object.
    *
-   * @param int $object
+   * @return int
    *   The object.
    */
   public function getObject()
@@ -108,6 +108,12 @@ class Customerlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
     $this->object = $object;
   }
 
+  /**
+   * Get the customer.
+   *
+   * @return mixed
+   *   The customer.
+   */
   private function getCustomer($customer)
   {
     $dummyObjCart = new \CheckoutApi_LibrespondObj();

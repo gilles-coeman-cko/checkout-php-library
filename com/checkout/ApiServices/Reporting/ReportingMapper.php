@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Reporting\Reportingmapper.
+ * Checkout.com Apiservices\Reporting\Reportingmapper.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Reporting;
+namespace com\checkout\Apiservices\Reporting;
 
 /**
  * Class Reporting Mapper.
@@ -75,35 +75,59 @@ class Reportingmapper
     if ($requestModel) {
       $requestReporting = array();
 
-      if (method_exists($requestModel, 'getFromDate') && ($fromDate = $requestModel->getFromDate())) {
+      if (
+        method_exists($requestModel, 'getFromDate') &&
+        ($fromDate = $requestModel->getFromDate())
+      ) {
         $requestReporting['fromDate'] = $fromDate;
       }
 
-      if (method_exists($requestModel, 'getToDate') && ($toDate = $requestModel->getToDate())) {
+      if (
+        method_exists($requestModel, 'getToDate') &&
+        ($toDate = $requestModel->getToDate())
+      ) {
         $requestReporting['toDate'] = $toDate;
       }
 
-      if (method_exists($requestModel, 'getPageSize') && ($pageSize = $requestModel->getPageSize())) {
+      if (
+        method_exists($requestModel, 'getPageSize') &&
+        ($pageSize = $requestModel->getPageSize())
+      ) {
         $requestReporting['pageSize'] = $pageSize;
       }
 
-      if (method_exists($requestModel, 'getPageNumber') && ($pageNumber = $requestModel->getPageNumber())) {
+      if (
+        method_exists($requestModel, 'getPageNumber') &&
+        ($pageNumber = $requestModel->getPageNumber())
+      ) {
         $requestReporting['pageNumber'] = $pageNumber;
       }
 
-      if (method_exists($requestModel, 'getSortColumn') && ($sortColumn = $requestModel->getSortColumn())) {
+      if (
+        method_exists($requestModel, 'getSortColumn') &&
+        ($sortColumn = $requestModel->getSortColumn())
+      ) {
         $requestReporting['sortColumn'] = $sortColumn;
       }
 
-      if (method_exists($requestModel, 'getSortOrder') && ($sortOrder = $requestModel->getSortOrder())) {
+      if (
+        method_exists($requestModel, 'getSortOrder') &&
+        ($sortOrder = $requestModel->getSortOrder())
+      ) {
         $requestReporting['sortOrder'] = $sortOrder;
       }
 
-      if (method_exists($requestModel, 'getSearch') && ($search = $requestModel->getSearch())) {
+      if (
+        method_exists($requestModel, 'getSearch') &&
+        ($search = $requestModel->getSearch())
+      ) {
         $requestReporting['search'] = $search;
       }
 
-      if (method_exists($requestModel, 'getFilters') && ($filters = $requestModel->getFilters())) {
+      if (
+        method_exists($requestModel, 'getFilters') &&
+        ($filters = $requestModel->getFilters())
+      ) {
         $requestReporting['filters'] = $filters;
       }
     }

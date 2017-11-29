@@ -1,147 +1,186 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout Apiservices\Paymentproviders\Requestmodels\Localpaymentprovidermodel.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Paymentproviders\Requestmodels;
+
 /**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/23/2015
- * Time: 9:23 AM
+ * Class Local Payment Provider Model.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-
-namespace com\checkout\ApiServices\PaymentProviders\RequestModels;
-
-
-class LocalPaymentProviderModel
+class Localpaymentprovidermodel
 {
-    private $_providerId;
-    private $paymentToken;
-    private $_ip;
-    private $countryCode;
-    private $_limit;
-    private $name;
-    private $_region;
+  private $providerId;
+  private $paymentToken;
+  private $ip;
+  private $countryCode;
+  private $limit;
+  private $name;
+  private $region;
 
-    /**
-     * @return mixed
-     */
-    public function getCountryCode()
-    {
-        return $this->countryCode;
-    }
+  /**
+   * Get the countryCode.
+   *
+   * @return mixed
+   *   The countryCode.
+   */
+  public function getCountryCode()
+  {
+    return $this->countryCode;
+  }
 
-    /**
-     * @param mixed $countryCode
-     */
-    public function setCountryCode( $countryCode )
-    {
-        $this->countryCode = $countryCode;
-    }
+  /**
+   * Set the country code.
+   *
+   * @param mixed $countryCode
+   *   The countryCode.
+   */
+  public function setCountryCode($countryCode)
+  {
+    $this->countryCode = $countryCode;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getIp()
-    {
-        return $this->_ip;
-    }
+  /**
+   * Get the ip.
+   *
+   * @return mixed
+   *   The ip.
+   */
+  public function getIp()
+  {
+    return $this->ip;
+  }
 
-    /**
-     * @param mixed $ip
-     */
-    public function setIp( $ip )
-    {
-        $this->_ip = $ip;
-    }
+  /**
+   * Set the ip.
+   *
+   * @param mixed $ip
+   *   The ip.
+   */
+  public function setIp($ip)
+  {
+    $this->ip = $ip;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getLimit()
-    {
-        return $this->_limit;
-    }
+  /**
+   * Get the limit.
+   *
+   * @return mixed
+   *   The limit.
+   */
+  public function getLimit()
+  {
+    return $this->limit;
+  }
 
-    /**
-     * @param mixed $limit
-     */
-    public function setLimit( $limit )
-    {
-        $this->_limit = $limit;
-    }
+  /**
+   * Set the limit.
+   *
+   * @param mixed $limit
+   *   The limit.
+   */
+  public function setLimit($limit)
+  {
+    $this->limit = $limit;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+  /**
+   * Get the name.
+   *
+   * @return mixed
+   *   The name.
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName( $name )
-    {
-        $this->name = $name;
-    }
+  /**
+   * Set the name.
+   *
+   * @param mixed $name
+   *   The name.
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getPaymenttoken()
-    {
-        return $this->paymentToken;
-    }
+  /**
+   * Get the paymentToken.
+   *
+   * @return mixed
+   *   The paymentToken.
+   */
+  public function getPaymenttoken()
+  {
+    return $this->paymentToken;
+  }
 
-    /**
-     * @param mixed $paymentToken
-     */
-    public function setPaymenttoken( $paymentToken )
-    {
-        $this->paymentToken = $paymentToken;
-    }
+  /**
+   * Set the payment token.
+   *
+   * @param mixed $paymentToken
+   *   The paymentToken.
+   */
+  public function setPaymenttoken($paymentToken)
+  {
+    $this->paymentToken = $paymentToken;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getProviderId()
-    {
-        return $this->_providerId;
-    }
+  /**
+   * Get the provider id.
+   *
+   * @return mixed
+   *   The providerId.
+   */
+  public function getProviderId()
+  {
+    return $this->providerId;
+  }
 
-    /**
-     * @param mixed $providerId
-     */
-    public function setProviderId( $providerId )
-    {
-        $this->_providerId = $providerId;
-    }
+  /**
+   * Set the provider id.
+   *
+   * @param mixed $providerId
+   *   The providerId.
+   */
+  public function setProviderId($providerId)
+  {
+    $this->providerId = $providerId;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getRegion()
-    {
-        return $this->_region;
-    }
+  /**
+   * Get the region.
+   *
+   * @return mixed
+   *   The region.
+   */
+  public function getRegion()
+  {
+    return $this->region;
+  }
 
-    /**
-     * @param mixed $region
-     */
-    public function setRegion( $region )
-    {
-        $this->_region = $region;
-    }
+  /**
+   * Set the region.
+   *
+   * @param mixed $region
+   *   The region.
+   */
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
 
 }

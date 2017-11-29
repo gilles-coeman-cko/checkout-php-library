@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\RequestModels\Basecharge.
+ * Checkout.com Apiservices\Charges\Requestmodels\Basecharge.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\RequestModels;
+namespace com\checkout\Apiservices\Charges\Requestmodels;
 
 /**
  * Class Base Charge.
@@ -284,8 +284,9 @@ class Basecharge extends Basechargeinfo
    * @param mixed $shippingDetails
    *   The shippingDetails.
    */
-  public function setShippingDetails(\com\checkout\ApiServices\SharedModels\Address $shippingDetails)
-  {
+  public function setShippingDetails(
+    \com\checkout\Apiservices\Sharedmodels\Address $shippingDetails
+  ) {
     $this->shippingDetails = $shippingDetails;
   }
 
@@ -306,8 +307,9 @@ class Basecharge extends Basechargeinfo
    * @param mixed $products
    *   The products.
    */
-  public function setProducts(\com\checkout\ApiServices\SharedModels\Product $products)
-  {
+  public function setProducts(
+    \com\checkout\Apiservices\Sharedmodels\Product $products
+  ) {
 
     $this->products[] = $products;
   }

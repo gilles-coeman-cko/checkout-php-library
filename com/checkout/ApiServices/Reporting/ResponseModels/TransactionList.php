@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Reporting\ResponseModels\Transactionlist.
+ * Checkout.com Apiservices\Reporting\Responsemodels\Transactionlist.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Reporting\ResponseModels;
+namespace com\checkout\Apiservices\Reporting\Responsemodels;
 
 /**
  * Class Transaction List.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Reporting\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Transactionlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   private $count;
   private $pageNumber;
@@ -86,7 +86,7 @@ class Transactionlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
     $transactionsToReturn = array();
     if ($transactionsArray) {
       foreach ($transactionsArray as $item) {
-        $transaction = new \com\checkout\ApiServices\SharedModels\Transaction();
+        $transaction = new \com\checkout\Apiservices\Sharedmodels\Transaction();
         $transaction->setId($item['id']);
         $transaction->setOriginId($item['originId']);
         $transaction->setDate($item['date']);

@@ -1,97 +1,128 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Paymentproviders\Responsemodels\Cardproviderlist.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Paymentproviders\Responsemodels;
+
 /**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/23/2015
- * Time: 9:23 AM
+ * Class Card Provider List.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-
-namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
-
-
-class CardProviderList extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
-    private $object;
-    private $count;
-    private $data;
+  private $object;
+  private $count;
+  private $data;
 
-    public function __construct($response)
-    {
-        parent::__construct($response);
-        $this->setCount($response->getCount());
-        $this->setData($response->getData());
-        $this->setObject($response->getObject());
-    }
+  /**
+   * Class constructor.
+   *
+   * @param mixed $response
+   *   The request model.
+   */
+  public function __construct($response)
+  {
+    parent::__construct($response);
+    $this->setCount($response->getCount());
+    $this->setData($response->getData());
+    $this->setObject($response->getObject());
+  }
 
-    /**
-     * @param mixed $count
-     */
-    private function setCount( $count )
-    {
-        $this->count = $count;
-    }
+  /**
+   * Set the list count.
+   *
+   * @param mixed $count
+   *   The list count.
+   */
+  private function setCount($count)
+  {
+    $this->count = $count;
+  }
 
-    /**
-     * @param mixed $data
-     */
-    private function setData( $data )
-    {
-        $dataArray = $data->toArray();
-        foreach($dataArray as $cardP){
-            $this->data[] = $this->setCardProvider($cardP);
-        }
+  /**
+   * Set an object.
+   *
+   * @param int $object
+   *   The object.
+   */
+  private function setData($data)
+  {
+    $dataArray = $data->toArray();
+    foreach ($dataArray as $cardP) {
+      $this->data[] = $this->setCardprovider($cardP);
     }
+  }
 
-    private function setCardProvider($cardP)
-    {
-        $dummyObjCart = new \CheckoutApi_LibrespondObj();
-        $dummyObjCart->setConfig($cardP);
-        $cardObg = new \PHPPlugin\ApiServices\PaymentProviders\ResponseModels\CardProvider($dummyObjCart);
-        return $cardObg;
-    }
-    /**
-     * @param mixed $object
-     */
-    private function setObject( $object )
-    {
-        $this->object = $object;
-    }
+  /**
+   * Set the card provider.
+   *
+   * @param mixed $cardP
+   *   The card provider.
+   *
+   * @return Cardprovider
+   *   The return the provider object.
+   */
+  private function setCardprovider($cardP)
+  {
+    $dummyObjCart = new \CheckoutApi_LibrespondObj();
+    $dummyObjCart->setConfig($cardP);
+    $cardObg = new \PHPPlugin\Apiservices\Paymentproviders\Responsemodels\Cardprovider($dummyObjCart);
+    return $cardObg;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
+  /**
+   * Set the list data.
+   *
+   * @param mixed $data
+   *   The list data.
+   */
+  private function setObject($object)
+  {
+    $this->object = $object;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
+  /**
+   * Get the list count.
+   *
+   * @return int
+   *   The list count.
+   */
+  public function getCount()
+  {
+    return $this->count;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
+  /**
+   * Set the list data.
+   *
+   * @param mixed $data
+   *   The list data.
+   */
+  public function getData()
+  {
+    return $this->data;
+  }
+
+  /**
+   * Set an object.
+   *
+   * @param int $object
+   *   The object.
+   */
+  public function getObject()
+  {
+    return $this->object;
+  }
 
 }

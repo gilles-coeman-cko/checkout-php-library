@@ -1,81 +1,97 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Tokens\Tokenservice.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
- */
-/**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 2:41 PM
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Tokens;
+namespace com\checkout\Apiservices\Tokens;
 
-use com\checkout\ApiServices\Baseservices;
-use com\checkout\ApiServices\Charges\Chargesmapper;
-use com\checkout\ApiServices\SharedModels\OkResponse;
-use com\checkout\ApiServices\Tokens\RequestModels\PaymenttokenUpdate;
+use com\checkout\Apiservices\Baseservices;
+use com\checkout\Apiservices\Charges\Chargesmapper;
+use com\checkout\Apiservices\Sharedmodels\Okresponse;
+use com\checkout\Apiservices\Tokens\Requestmodels\Paymenttokenupdate;
 use com\checkout\helpers\ApiHttpClient;
 use com\checkout\helpers\ApiHttpClientCustomException;
 
-class TokenService extends Baseservices
+/**
+ * Class Token Service.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Tokenservice extends Baseservices
 {
-    /**
-     * @param RequestModels\PaymenttokenCreate $requestModel
-     * @return ResponseModels\Paymenttoken
-     * @throws ApiHttpClientCustomException
-     */
-    public function createPaymenttoken(RequestModels\PaymenttokenCreate $requestModel)
-    {
-        $chargeMapper = new Chargesmapper($requestModel);
 
-        $requestPayload = array(
-            'authorization' => $this->apiSetting->getSecretKey(),
-            'mode' => $this->apiSetting->getMode(),
-            'postedParam' => $chargeMapper->requestPayloadConverter(),
-        );
+  /**
+   * Create a payment token object.
+   *
+   * @param Requestmodels\Paymenttokencreate $requestModel
+   *   The request model.
+   *
+   * @return Responsemodels\Paymenttoken
+   *   The response model or payment token object.
+   *
+   * @throws ApiHttpClientCustomException
+   */
+  public function createPaymenttoken(
+    Requestmodels\Paymenttokencreate $requestModel
+  ) {
+    $chargeMapper = new Chargesmapper($requestModel);
 
-        $processCharge = ApiHttpClient::postRequest(
-            $this->apiUrl->getPaymenttokensApiUri(),
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+    );
 
-        return new ResponseModels\Paymenttoken($processCharge);
-    }
+    $processCharge = ApiHttpClient::postRequest(
+      $this->apiUrl->getPaymenttokensApiUri(),
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
 
-    /**
-     * @param PaymenttokenUpdate $requestModel
-     * @return PaymenttokenUpdate
-     * @throws ApiHttpClientCustomException
-     */
-    public function updatePaymenttoken(RequestModels\PaymenttokenUpdate $requestModel)
-    {
+    return new Responsemodels\Paymenttoken($processCharge);
+  }
 
-        $chargeMapper = new Chargesmapper($requestModel);
+  /**
+   * Update a payment token object.
+   *
+   * @param Requestmodels\Paymenttokenupdate $requestModel
+   *   The request model.
+   *
+   * @return Responsemodels\Paymenttokenupdate
+   *   The response model or payment token object.
+   *
+   * @throws ApiHttpClientCustomException
+   */
+  public function updatePaymenttoken(
+    Requestmodels\Paymenttokenupdate $requestModel
+  ) {
 
-        $requestPayload = array(
-            'authorization' => $this->apiSetting->getSecretKey(),
-            'mode' => $this->apiSetting->getMode(),
-            'postedParam' => $chargeMapper->requestPayloadConverter(),
-        );
+    $chargeMapper = new Chargesmapper($requestModel);
 
-        $updateUri = sprintf($this->apiUrl->getPaymenttokenUpdateApiUri(), $requestModel->getId());
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getSecretKey(),
+      'mode' => $this->apiSetting->getMode(),
+      'postedParam' => $chargeMapper->requestPayloadConverter(),
+    );
 
-        $processCharge = ApiHttpClient::putRequest(
-            $updateUri,
-            $this->apiSetting->getSecretKey(), $requestPayload
-        );
+    $updateUri = sprintf(
+      $this->apiUrl->getPaymenttokenupdateApiUri(),
+      $requestModel->getId()
+    );
 
-        return new  OkResponse($processCharge);
-    }
+    $processCharge = ApiHttpClient::putRequest(
+      $updateUri,
+      $this->apiSetting->getSecretKey(), $requestPayload
+    );
+
+    return new Okresponse($processCharge);
+  }
 }

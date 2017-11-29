@@ -35,12 +35,12 @@
  *         'cvv' => 956,
  *       )
  *     );
- *     $respondCardToken = $Api->getCardToken( $cardTokenConfig );
- *     If($respondCardToken->isValid()) {
- *        Echo $respondCardToken->getId();
+ *     $respondCardtoken = $Api->getCardtoken( $cardTokenConfig );
+ *     If($respondCardtoken->isValid()) {
+ *        Echo $respondCardtoken->getId();
  *     }
  *     else {
- *          Echo $respondCardToken->printError();
+ *          Echo $respondCardtoken->printError();
  *      }
  *
  *   Those couple of lines , will create an instance of the .
@@ -126,7 +126,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *       'cvv'              => 956
    *     )
    *   );
-   *   $respondCardToken = $Api->getCardToken( $param );
+   *   $respondCardtoken = $Api->getCardtoken( $param );
    *
    * Use by having, first an instance of the gateway 3.0
    * and set of arguments as above.
@@ -139,7 +139,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCardToken(array $param) {
+  public function getCardtoken(array $param) {
     $hasError = FALSE;
     $param['postedParam']['type'] = CheckoutapiClientConstant::TOKEN_CARD_TYPE;
     $postedParam = $param['postedParam'];
@@ -267,7 +267,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
     $isCustomerIdValid = CheckoutapiClientValidationGw3::isCustomerIdValid($postedParam);
     $isCardValid = CheckoutapiClientValidationGw3::isCardValid($postedParam);
     $isCardIdValid = CheckoutapiClientValidationGw3::isCardIdValid($postedParam);
-    $isCardTokenValid = CheckoutapiClientValidationGw3::isCardToken($postedParam);
+    $isCardtokenValid = CheckoutapiClientValidationGw3::isCardtoken($postedParam);
 
     if (!$isEmailValid && !$isCustomerIdValid) {
       $hasError = TRUE;
@@ -277,7 +277,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
       );
     }
 
-    if ($isCardTokenValid) {
+    if ($isCardtokenValid) {
       if (isset($postedParam['card'])) {
         $this->throwException(
           'unset card object',
@@ -886,7 +886,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *     'token'        =>   $Api->getSessionToken($sessionConfig),.
    *     'localPayment' =>  array(.
    *       'lppId'  => $Api
-   *          ->getLocalPaymentProvider($localPaymentConfig)
+   *          ->getLocalpaymentprovider($localPaymentConfig)
    *          ->getId()
    *     ).
    *   ) ;.
@@ -964,7 +964,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
     $uri = $this->getUriCustomer();
     $isValidEmail = CheckoutapiClientValidationGw3::isEmailValid($postedParam);
     $isCardValid = CheckoutapiClientValidationGw3::isCardValid($postedParam);
-    $isTokenValid = CheckoutapiClientValidationGw3::isCardToken($postedParam);
+    $isTokenValid = CheckoutapiClientValidationGw3::isCardtoken($postedParam);
 
     if (!$isValidEmail) {
       $hasError = TRUE;
@@ -1079,8 +1079,8 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * Simple usage:
    *   $param['count']     = 100;
-   *   $param['from_date'] = '09/30/2014';
-   *   $param['to_date']   = '10/02/2014';
+   *   $param['fromdate'] = '09/30/2014';
+   *   $param['todate']   = '10/02/2014';
    *   $customerUpdate     = $Api->getListCustomer($param);
    *
    * @param array $param
@@ -1106,15 +1106,15 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
 
     }
     else {
-      if (isset($param['from_date'])) {
-        $fromDate = time($param['from_date']);
+      if (isset($param['fromdate'])) {
+        $fromDate = time($param['fromdate']);
         $uri = "{$uri}{$delimiter}{$createdAt}{$fromDate}";
         $delimiter = '&';
         $createdAt = '|';
       }
 
-      if (isset($param['to_date'])) {
-        $toDate = time($param['to_date']);
+      if (isset($param['todate'])) {
+        $toDate = time($param['todate']);
         $uri = "{$uri}{$createdAt}{$toDate}";
         $delimiter = '&';
 
@@ -1465,7 +1465,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    * Simple usage:
    *   $param['token'] = $sessionToken;
    *   $param['providerId'] = $providerId;
-   *   $localPaymentObj = $Api->getLocalPaymentProvider($param);
+   *   $localPaymentObj = $Api->getLocalpaymentprovider($param);
    *
    * @param array $param
    *   PPyload param for getting a local payment provider detail.
@@ -1475,7 +1475,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getLocalPaymentProvider(array $param) {
+  public function getLocalpaymentprovider(array $param) {
     $this->flushState();
     $uri = $this->getUriProvider();
     $hasError = FALSE;
@@ -1506,7 +1506,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    * Get Card Provider list.
    *
    * Simple usage:
-   *   $cardProviderListObj = $Api->getCardProvidersList($param);
+   *   $cardProviderListObj = $Api->getCardprovidersList($param);
    *
    * @param array $param
    *   Payload param.
@@ -1516,7 +1516,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * @throws Exception
    */
-  public function getCardProvidersList(array $param) {
+  public function getCardprovidersList(array $param) {
     $this->flushState();
     $uri = $this->getUriProvider() . '/cards';
     $hasError = FALSE;
@@ -1529,7 +1529,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    *
    * Simple usage:
    *   $param['providerId'] = $providerId ;
-   *   $cardProvidersObj = $Api->getCardProvider($param);
+   *   $cardProvidersObj = $Api->getCardprovider($param);
    *
    * @param array $param
    *   Payload param for retriving a list of card by providers.
@@ -1537,7 +1537,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
    * @return object
    *   CheckoutapiLibRespondobj.
    */
-  public function getCardProvider(array $param) {
+  public function getCardprovider(array $param) {
     $this->flushState();
     $isValidProvider = CheckoutapiClientValidationGw3::isProvider($param);
     $uri = $this->getUriProvider() . '/cards';

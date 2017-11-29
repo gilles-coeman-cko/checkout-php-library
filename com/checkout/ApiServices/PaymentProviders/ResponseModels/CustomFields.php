@@ -1,294 +1,278 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Paymentproviders\Responsemodels\Customfields.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Paymentproviders\Responsemodels;
+
 /**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/23/2015
- * Time: 9:23 AM
+ * Class Custom Fields.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-
-namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
-
-
-class CustomFields extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
-    protected $_key;
-    protected $dataType;
-    protected $_label;
-    protected $_required;
-    protected $_order;
-    protected $_minLength;
-    protected $_maxLength;
-    protected $_isActive;
-    protected $_errorCodes;
-    protected $_lookupValues;
+  protected $key;
+  protected $dataType;
+  protected $label;
+  protected $required;
+  protected $order;
+  protected $minLength;
+  protected $maxLength;
+  protected $isActive;
+  protected $errorCodes;
+  protected $lookupValues;
 
-    public function __construct($response)
-    {
-        parent::__construct($response);
-        $this->setDataType($response->getDataType());
-        $this->setErrorCodes($response->getErrorCodes());
-        $this->sethisActive($response->gethisActive());
-        $this->setKey($response->getKey());
-        $this->setLabel($response->getLabel());
-        $this->setLookupValues($response->getLookupValues());
-        $this->setMaxLength($response->getMaxLength());
-        $this->setMinLength($response->getMinLength());
-        $this->setOrder($response->getOrder());
-        $this->setRequired($response->getRequired());
+  /**
+   * Class constructor.
+   *
+   * @param mixed $response
+   *   The request model.
+   */
+  public function __construct($response)
+  {
+    parent::__construct($response);
+    $this->setDataType($response->getDataType());
+    $this->setErrorCodes($response->getErrorCodes());
+    $this->sethisActive($response->gethisActive());
+    $this->setKey($response->getKey());
+    $this->setLabel($response->getLabel());
+    $this->setLookupValues($response->getLookupValues());
+    $this->setMaxLength($response->getMaxLength());
+    $this->setMinLength($response->getMinLength());
+    $this->setOrder($response->getOrder());
+    $this->setRequired($response->getRequired());
 
-    }
+  }
 
-    /**
-     * @param mixed $dataType
-     */
-    protected function setDataType( $dataType )
-    {
-        $this->dataType = $dataType;
-    }
+  /**
+   * Set the dataType of the field.
+   *
+   * @param mixed $dataType
+   *   The dataType.
+   */
+  protected function setDataType($dataType)
+  {
+    $this->dataType = $dataType;
+  }
 
-    /**
-     * @param mixed $errorCodes
-     */
-    protected function setErrorCodes( $errorCodes )
-    {
-        $this->_errorCodes = $errorCodes->toArray();
-    }
+  /**
+   * Set the error codes.
+   *
+   * @param mixed $errorCodes
+   *   The errorCodes.
+   */
+  protected function setErrorCodes($errorCodes)
+  {
+    $this->errorCodes = $errorCodes->toArray();
+  }
 
-    /**
-     * @param mixed $isActive
-     */
-    protected function setIsActive( $isActive )
-    {
-        $this->_isActive = $isActive;
-    }
+  /**
+   * Check if the field is active.
+   *
+   * @param mixed $isActive
+   *   The isActive.
+   */
+  protected function setIsActive($isActive)
+  {
+    $this->isActive = $isActive;
+  }
 
-    /**
-     * @param mixed $key
-     */
-    protected function setKey( $key )
-    {
-        $this->_key = $key;
-    }
+  /**
+   * Set the key.
+   *
+   * @param mixed $key
+   *   The key.
+   */
+  protected function setKey($key)
+  {
+    $this->key = $key;
+  }
 
-    /**
-     * @param mixed $label
-     */
-    protected function setLabel( $label )
-    {
-        $this->_label = $label;
-    }
+  /**
+   * Set the label.
+   *
+   * @param mixed $label
+   *   The label.
+   */
+  protected function setLabel($label)
+  {
+    $this->label = $label;
+  }
 
-    /**
-     * @param mixed $lookupValues
-     */
-    protected function setLookupValues( $lookupValues )
-    {
-        $this->_lookupValues = $lookupValues->toArray();
-    }
+  /**
+   * Set the lookup values.
+   *
+   * @param mixed $lookupValues
+   *   The lookupValues.
+   */
+  protected function setLookupValues($lookupValues)
+  {
+    $this->lookupValues = $lookupValues->toArray();
+  }
 
-    /**
-     * @param mixed $maxLength
-     */
-    protected function setMaxLength( $maxLength )
-    {
-        $this->_maxLength = $maxLength;
-    }
+  /**
+   * Set the max length.
+   *
+   * @param mixed $maxLength
+   *   The maxLength.
+   */
+  protected function setMaxLength($maxLength)
+  {
+    $this->maxLength = $maxLength;
+  }
 
-    /**
-     * @param mixed $minLength
-     */
-    protected function setMinLength( $minLength )
-    {
-        $this->_minLength = $minLength;
-    }
+  /**
+   * Set the min length.
+   *
+   * @param mixed $minLength
+   *   The minLength.
+   */
+  protected function setMinLength($minLength)
+  {
+    $this->minLength = $minLength;
+  }
 
-    /**
-     * @param mixed $order
-     */
-    protected function setOrder( $order )
-    {
-        $this->_order = $order;
-    }
+  /**
+   * Set the order.
+   *
+   * @param mixed $order
+   *   The order.
+   */
+  protected function setOrder($order)
+  {
+    $this->order = $order;
+  }
 
-    /**
-     * @param mixed $required
-     */
-    protected function setRequired( $required )
-    {
-        $this->_required = $required;
-    }
+  /**
+   * Set if the field is required.
+   *
+   * @param mixed $required
+   *   The required.
+   */
+  protected function setRequired($required)
+  {
+    $this->required = $required;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getDataType()
-    {
-        return $this->dataType;
-    }
+  /**
+   * Get the dataType of the field.
+   *
+   * @return mixed
+   *   The dataType.
+   */
+  public function getDataType()
+  {
+    return $this->dataType;
+  }
 
-    /**
-     * @param mixed $dataType
-     */
-    public function setDataType( $dataType )
-    {
-        $this->dataType = $dataType;
-    }
+  /**
+   * Get the error codes.
+   *
+   * @return mixed
+   *   The errorCodes.
+   */
+  public function getErrorCodes()
+  {
+    return $this->errorCodes;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getErrorCodes()
-    {
-        return $this->_errorCodes;
-    }
+  /**
+   * Get the check of field is active.
+   *
+   * @return mixed
+   *   The isActive.
+   */
+  public function getIsActive()
+  {
+    return $this->isActive;
+  }
 
-    /**
-     * @param mixed $errorCodes
-     */
-    public function setErrorCodes( $errorCodes )
-    {
-        $this->_errorCodes = $errorCodes;
-    }
+  /**
+   * Get the key.
+   *
+   * @return mixed
+   *   The key.
+   */
+  public function getKey()
+  {
+    return $this->key;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getIsActive()
-    {
-        return $this->_isActive;
-    }
+  /**
+   * Get the label.
+   *
+   * @return mixed
+   *   The label.
+   */
+  public function getLabel()
+  {
+    return $this->label;
+  }
 
-    /**
-     * @param mixed $isActive
-     */
-    public function setIsActive( $isActive )
-    {
-        $this->_isActive = $isActive;
-    }
+  /**
+   * Get the lookup values.
+   *
+   * @return mixed
 
-    /**
-     * @return mixed
-     */
-    public function getKey()
-    {
-        return $this->_key;
-    }
+   *   The lookupValues.
+   */
+  public function getLookupValues()
+  {
+    return $this->lookupValues;
+  }
 
-    /**
-     * @param mixed $key
-     */
-    public function setKey( $key )
-    {
-        $this->_key = $key;
-    }
+  /**
+   * Get the max length.
+   *
+   * @return mixed
+   *   The maxLength.
+   */
+  public function getMaxLength()
+  {
+    return $this->maxLength;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getLabel()
-    {
-        return $this->_label;
-    }
+  /**
+   * Get the min length.
+   *
+   * @return mixed
+   *   The minLength.
+   */
+  public function getMinLength()
+  {
+    return $this->minLength;
+  }
 
-    /**
-     * @param mixed $label
-     */
-    public function setLabel( $label )
-    {
-        $this->_label = $label;
-    }
+  /**
+   * Get the order.
+   *
+   * @return mixed
+   *   The order.
+   */
+  public function getOrder()
+  {
+    return $this->order;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getLookupValues()
-    {
-        return $this->_lookupValues;
-    }
-
-    /**
-     * @param mixed $lookupValues
-     */
-    public function setLookupValues( $lookupValues )
-    {
-        $this->_lookupValues = $lookupValues;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMaxLength()
-    {
-        return $this->_maxLength;
-    }
-
-    /**
-     * @param mixed $maxLength
-     */
-    public function setMaxLength( $maxLength )
-    {
-        $this->_maxLength = $maxLength;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMinLength()
-    {
-        return $this->_minLength;
-    }
-
-    /**
-     * @param mixed $minLength
-     */
-    public function setMinLength( $minLength )
-    {
-        $this->_minLength = $minLength;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOrder()
-    {
-        return $this->_order;
-    }
-
-    /**
-     * @param mixed $order
-     */
-    public function setOrder( $order )
-    {
-        $this->_order = $order;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRequired()
-    {
-        return $this->_required;
-    }
-
-    /**
-     * @param mixed $required
-     */
-    public function setRequired( $required )
-    {
-        $this->_required = $required;
-    }
+  /**
+   * Get if the field is required.
+   *
+   * @return mixed
+   *   The required.
+   */
+  public function getRequired()
+  {
+    return $this->required;
+  }
 
 }

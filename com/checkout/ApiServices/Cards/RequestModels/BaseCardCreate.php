@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Cards\RequestModels\BaseCardCreate.
+ * Checkout.com Apiservices\Cards\Requestmodels\BaseCardCreate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Cards\RequestModels;
+namespace com\checkout\Apiservices\Cards\Requestmodels;
 
 /**
  * Class Base Card Creates.

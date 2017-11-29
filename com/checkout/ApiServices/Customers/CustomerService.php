@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Customers\Customerservice.
+ * Checkout.com Apiservices\Customers\Customerservice.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Customers;
+namespace com\checkout\Apiservices\Customers;
 
 /**
  * Class Customer.
@@ -19,19 +19,19 @@ namespace com\checkout\ApiServices\Customers;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customerservice extends \com\checkout\ApiServices\Baseservices
+class Customerservice extends \com\checkout\Apiservices\Baseservices
 {
 
   /**
    * Creates a new customer.
    *
-   * @param RequestModels\Customercreate $requestModel
+   * @param Requestmodels\Customercreate $requestModel
    *   The request model.
    *
-   * @return ResponseModels\Customer
+   * @return Responsemodels\Customer
    *   The response models or Customer.
    */
-  public function createCustomer(RequestModels\Customercreate $requestModel)
+  public function createCustomer(Requestmodels\Customercreate $requestModel)
   {
     $customerMapper = new Customermapper($requestModel);
     $requestPayload = array(
@@ -44,20 +44,20 @@ class Customerservice extends \com\checkout\ApiServices\Baseservices
       $this->apiUrl->getCustomersApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
-    $responseModel = new ResponseModels\Customer($processCharge);
+    $responseModel = new Responsemodels\Customer($processCharge);
     return $responseModel;
   }
 
   /**
    * Update a customer.
    *
-   * @param RequestModels\Customerupdate $requestModel
+   * @param Requestmodels\Customerupdate $requestModel
    *   The request model.
    *
-   * @return ResponseModels\OkResponse
+   * @return Responsemodels\Okresponse
    *   The response models or an OK.
    */
-  public function updateCustomer(RequestModels\Customerupdate $requestModel)
+  public function updateCustomer(Requestmodels\Customerupdate $requestModel)
   {
 
     $customerMapper = new Customermapper($requestModel);
@@ -68,13 +68,18 @@ class Customerservice extends \com\checkout\ApiServices\Baseservices
       'postedParam' => $customerMapper->requestPayloadConverter(),
 
     );
-    $updateCustomerUri = $this->apiUrl->getCustomersApiUri() . '/' . $requestModel->getCustomerId();
+    $updateCustomerUri = $this
+      ->apiUrl
+      ->getCustomersApiUri() . '/' . $requestModel
+      ->getCustomerId();
     $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
       $updateCustomerUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
 
-    $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
+    $responseModel = new \com\checkout\Apiservices\Sharedmodels\Okresponse(
+      $processCharge
+    );
 
     return $responseModel;
 
@@ -86,7 +91,7 @@ class Customerservice extends \com\checkout\ApiServices\Baseservices
    * @param string $customerId
    *   The customer id.
    *
-   * @return ResponseModels\OkResponse
+   * @return Responsemodels\Okresponse
    *   The response models or an OK.
    */
   public function deleteCustomer($customerId)
@@ -103,7 +108,9 @@ class Customerservice extends \com\checkout\ApiServices\Baseservices
       $this->apiSetting->getSecretKey(), $requestPayload
     );
 
-    $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
+    $responseModel = new \com\checkout\Apiservices\Sharedmodels\Okresponse(
+      $processCharge
+    );
 
     return $responseModel;
   }
@@ -114,7 +121,7 @@ class Customerservice extends \com\checkout\ApiServices\Baseservices
    * @param string $customerId
    *   The customer id.
    *
-   * @return ResponseModels\OkResponse
+   * @return Responsemodels\Okresponse
    *   The response models or an OK.
    */
   public function getCustomer($customerId)
@@ -131,7 +138,7 @@ class Customerservice extends \com\checkout\ApiServices\Baseservices
       $this->apiSetting->getSecretKey(), $requestPayload
     );
 
-    $responseModel = new ResponseModels\Customer($processCharge);
+    $responseModel = new Responsemodels\Customer($processCharge);
 
     return $responseModel;
   }
@@ -150,11 +157,15 @@ class Customerservice extends \com\checkout\ApiServices\Baseservices
    * @param bool $singleDay
    *   False if you want multiple days.
    *
-   * @return ResponseModels\Customerlist
+   * @return Responsemodels\Customerlist
    *   The response models or an customer list.
    */
-  public function getCustomerlist($count = null, $offset = null, $startDate = null, $endDate = null, $singleDay =
-    false
+  public function getCustomerlist(
+    $count = null,
+    $offset = null,
+    $startDate = null,
+    $endDate = null,
+    $singleDay = false
   ) {
     $customerUri = $this->apiUrl->getCustomersApiUri();
     $delimiter = '?';
@@ -193,7 +204,7 @@ class Customerservice extends \com\checkout\ApiServices\Baseservices
       $customerUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
-    $responseModel = new ResponseModels\Customerlist($processCharge);
+    $responseModel = new Responsemodels\Customerlist($processCharge);
     return $responseModel;
   }
 

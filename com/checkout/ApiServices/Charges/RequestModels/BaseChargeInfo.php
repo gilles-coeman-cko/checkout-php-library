@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\RequestModels\Basechargeinfo.
+ * Checkout.com Apiservices\Charges\Requestmodels\Basechargeinfo.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\RequestModels;
+namespace com\checkout\Apiservices\Charges\Requestmodels;
 
 /**
  * Class Basecharge Info.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Charges\RequestModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Basechargeinfo extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Basechargeinfo extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   protected $description;
   protected $trackId;
@@ -257,8 +257,9 @@ class Basechargeinfo extends \com\checkout\ApiServices\SharedModels\BaseHttp
    * @param mixed $descriptor
    *   The descriptor.
    */
-  public function setDescriptor(\com\checkout\ApiServices\SharedModels\Descriptor $descriptor)
-  {
+  public function setDescriptor(
+    \com\checkout\Apiservices\Sharedmodels\Descriptor $descriptor
+  ) {
     $this->descriptor = $descriptor;
   }
 }

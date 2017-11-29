@@ -472,7 +472,7 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
    * Helper method that check that check if token is set in payload.
    *
    * Simple usage:
-   *   CheckoutapiClientValidationGw3::isCardToken($param).
+   *   CheckoutapiClientValidationGw3::isCardtoken($param).
    *
    * @param array $param
    *   A var for param.
@@ -480,7 +480,7 @@ final class CheckoutapiClientValidationGw3 extends CheckoutapiLibObject {
    * @return bool
    *   True if the card token is valid.
    */
-  public static function isCardToken(array $param) {
+  public static function isCardtoken(array $param) {
     $isValid = FALSE;
 
     if (isset($param['cardToken'])) {

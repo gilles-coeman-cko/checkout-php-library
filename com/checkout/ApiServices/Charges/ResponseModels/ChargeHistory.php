@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\ResponseModels\Chargehistory.
+ * Checkout.com Apiservices\Charges\Responsemodels\Chargehistory.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\ResponseModels;
+namespace com\checkout\Apiservices\Charges\Responsemodels;
 
 /**
  * Class Charge History.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Charges\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargehistory extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Chargehistory extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   protected $object;
   protected $id;
@@ -87,7 +87,7 @@ class Chargehistory extends \com\checkout\ApiServices\SharedModels\BaseHttp
     $chargesToReturn = array();
     if ($chargesArray) {
       foreach ($chargesArray as $item) {
-        $charge = new \com\checkout\ApiServices\SharedModels\Charge();
+        $charge = new \com\checkout\Apiservices\Sharedmodels\Charge();
         $charge->setId($item['id']);
         $charge->setChargeMode($item['chargeMode']);
         $charge->setCreated($item['created']);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Customers\RequestModels\Customerupdate.
+ * Checkout.com Apiservices\Customers\Requestmodels\Customerupdate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Customers\RequestModels;
+namespace com\checkout\Apiservices\Customers\Requestmodels;
 
 /**
  * Class Customer.

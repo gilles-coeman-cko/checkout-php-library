@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Recurringpayments\ResponseModels\Paymentplanlist.
+ * Checkout.com Apiservices\Recurringpayments\Responsemodels\Paymentplanlist.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Recurringpayments\ResponseModels;
+namespace com\checkout\Apiservices\Recurringpayments\Responsemodels;
 
 /**
  * Class Customer payment plan list.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Recurringpayments\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Paymentplanlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   private $_totalRows;
   private $_offSet;

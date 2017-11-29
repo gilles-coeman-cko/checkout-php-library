@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\ResponseModels\Paymenttoken
+ * Checkout.com Apiservices\Charges\Responsemodels\Paymenttoken
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\ResponseModels;
+namespace com\checkout\Apiservices\Charges\Responsemodels;
 
 /**
  * Class Payment Token.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Charges\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Paymenttoken extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Paymenttoken extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   private $id;
   private $liveMode;

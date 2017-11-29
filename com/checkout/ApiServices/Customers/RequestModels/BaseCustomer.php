@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Customers\ResponseModels\Basecustomer.
+ * Checkout.com Apiservices\Customers\Responsemodels\Basecustomer.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Customers\RequestModels;
+namespace com\checkout\Apiservices\Customers\Requestmodels;
 
 /**
  * Class Base Customer.
@@ -171,8 +171,9 @@ class Basecustomer
    * @return mixed $phoneNumber
    *   The phoneNumber.
    */
-  public function setPhoneNumber(\com\checkout\ApiServices\SharedModels\Phone $phoneNumber)
-  {
+  public function setPhoneNumber(
+    \com\checkout\Apiservices\Sharedmodels\Phone $phoneNumber
+  ) {
     $this->phoneNumber = $phoneNumber;
   }
 

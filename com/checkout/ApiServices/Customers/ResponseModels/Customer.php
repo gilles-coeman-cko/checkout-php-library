@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Customers\ResponseModels\Customer.
+ * Checkout.com Apiservices\Customers\Responsemodels\Customer.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Customers\ResponseModels;
+namespace com\checkout\Apiservices\Customers\Responsemodels;
 
 /**
  * Class Customer.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Customers\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   private $object;
   private $id;
@@ -36,6 +36,12 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
   private $cards;
   private $metadata;
 
+  /**
+   * Class constructor.
+   *
+   * @param mixed $response
+   *   The request model.
+   */
   public function __construct($response)
   {
     parent::__construct($response);
@@ -77,7 +83,7 @@ class Customer extends \com\checkout\ApiServices\SharedModels\BaseHttp
   private function getCard($card)
   {
 
-    $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\Cardlist($card);
+    $cardObg = new \com\checkout\Apiservices\Cards\Responsemodels\Cardlist($card);
     return $cardObg;
   }
 

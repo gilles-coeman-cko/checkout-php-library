@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Reporting\RequestModels\Transactionfilter.
+ * Checkout.com Apiservices\Reporting\Requestmodels\Transactionfilter.
  *
  * PHP Version 5.6
  *
@@ -10,7 +10,7 @@
  * @license https://checkout.com/terms/ MIT License
  * @link https://www.checkout.com/
  */
-namespace com\checkout\ApiServices\Reporting\ResponseModels;
+namespace com\checkout\Apiservices\Reporting\Responsemodels;
 
 /**
  * Class Transaction Filter.

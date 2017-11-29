@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\RequestModels\CardChargeCreate.
+ * Checkout.com Apiservices\Charges\Requestmodels\CardChargeCreate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\RequestModels;
+namespace com\checkout\Apiservices\Charges\Requestmodels;
 
 /**
  * Class Card Charge Create.
@@ -41,8 +41,9 @@ class CardChargeCreate extends Basecharge
    * @param mixed $baseCardcreate
    *   The baseCardcreate.
    */
-  public function setBasecardcreate(\com\checkout\ApiServices\Cards\RequestModels\Basecardcreate $baseCardcreate)
-  {
+  public function setBasecardcreate(
+    \com\checkout\Apiservices\Cards\Requestmodels\Basecardcreate $baseCardcreate
+  ) {
     $this->baseCardcreate = $baseCardcreate;
   }
 

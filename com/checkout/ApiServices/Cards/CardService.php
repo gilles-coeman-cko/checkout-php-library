@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Cards\CardService.
+ * Checkout.com Apiservices\Cards\CardService.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Cards;
+namespace com\checkout\Apiservices\Cards;
 
 /**
  * Class Card Service.
@@ -19,19 +19,19 @@ namespace com\checkout\ApiServices\Cards;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardservice extends \com\checkout\ApiServices\Baseservices
+class Cardservice extends \com\checkout\Apiservices\Baseservices
 {
 
   /**
    * Create a new card.
    *
-   * @param RequestModels\Cardcreate $requestModel
+   * @param Requestmodels\Cardcreate $requestModel
    *   The request model.
    *
-   * @return ResponseModels\Recurringpayment
+   * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function createCard(RequestModels\Cardcreate $requestModel)
+  public function createCard(Requestmodels\Cardcreate $requestModel)
   {
     $cardMapper = new Cardmapper($requestModel);
 
@@ -42,13 +42,17 @@ class Cardservice extends \com\checkout\ApiServices\Baseservices
 
     );
 
-    $createCardUri = sprintf($this->apiUrl->getCardsApiUri(), $requestModel->getCustomerId());
+    $createCardUri = sprintf(
+      $this->apiUrl->getCardsApiUri(),
+      $requestModel->getCustomerId()
+    );
     $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
       $createCardUri,
-      $this->apiSetting->getSecretKey(), $requestPayload
+      $this->apiSetting->getSecretKey(),
+      $requestPayload
     );
 
-    $responseModel = new ResponseModels\Card($processCharge);
+    $responseModel = new Responsemodels\Card($processCharge);
     return $responseModel;
   }
 
@@ -60,7 +64,7 @@ class Cardservice extends \com\checkout\ApiServices\Baseservices
    * @param mixed $cardId
    *   The card id prefixed with card_ .
    *
-   * @return ResponseModels\Recurringpayment
+   * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
   public function getCard($customerId, $cardId)
@@ -71,28 +75,32 @@ class Cardservice extends \com\checkout\ApiServices\Baseservices
 
     );
 
-    $getCardUri = sprintf($this->apiUrl->getCardsApiUri(), $customerId) . '/' . $cardId;
+    $getCardUri = sprintf(
+      $this->apiUrl->getCardsApiUri(),
+      $customerId
+    ) . '/' . $cardId;
 
     $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
       $getCardUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
 
-    $responseModel = new ResponseModels\Card($processCharge);
+    $responseModel = new Responsemodels\Card($processCharge);
     return $responseModel;
   }
 
   /**
    * Update a card.
    *
-   * @param RequestModels\Baserecurringpayment $requestModel
+   * @param Requestmodels\Baserecurringpayment $requestModel
    *   A request model.
    *
-   * @return ResponseModels\Recurringpayment
+   * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function updateCard(\com\checkout\ApiServices\Cards\RequestModels\Cardupdate $requestModel)
-  {
+  public function updateCard(
+    \com\checkout\Apiservices\Cards\Requestmodels\Cardupdate $requestModel
+  ) {
     $cardMapper = new Cardmapper($requestModel);
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -101,13 +109,16 @@ class Cardservice extends \com\checkout\ApiServices\Baseservices
 
     );
 
-    $getCardUri = sprintf($this->apiUrl->getCardsApiUri(), $requestModel->getCustomerId()) . '/' . $requestModel->getCardId();
+    $getCardUri = sprintf(
+      $this->apiUrl->getCardsApiUri(),
+      $requestModel->getCustomerId()
+    ) . '/' . $requestModel->getCardId();
 
     $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
       $getCardUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
-    $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
+    $responseModel = new \com\checkout\Apiservices\Sharedmodels\Okresponse($processCharge);
     return $responseModel;
   }
 
@@ -119,7 +130,7 @@ class Cardservice extends \com\checkout\ApiServices\Baseservices
    * @param mixed $cardId
    *   The card id prefixed with card_ .
    *
-   * @return ResponseModels\Recurringpayment
+   * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
   public function deleteCard($customerId, $cardId)
@@ -129,14 +140,19 @@ class Cardservice extends \com\checkout\ApiServices\Baseservices
       'mode' => $this->apiSetting->getMode(),
     );
 
-    $getCardUri = sprintf($this->apiUrl->getCardsApiUri(), $customerId) . '/' . $cardId;
+    $getCardUri = sprintf(
+      $this->apiUrl->getCardsApiUri(),
+      $customerId
+    ) . '/' . $cardId;
 
     $processCharge = \com\checkout\helpers\ApiHttpClient::deleteRequest(
       $getCardUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
 
-    $responseModel = new \com\checkout\ApiServices\SharedModels\OkResponse($processCharge);
+    $responseModel = new \com\checkout\Apiservices\Sharedmodels\Okresponse(
+      $processCharge
+    );
     return $responseModel;
   }
 
@@ -146,7 +162,7 @@ class Cardservice extends \com\checkout\ApiServices\Baseservices
    * @param mixed $customerId
    *   The customer id prefixed with cust_ .
    *
-   * @return ResponseModels\Recurringpayment
+   * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
   public function getCartList($customerId)
@@ -164,7 +180,7 @@ class Cardservice extends \com\checkout\ApiServices\Baseservices
       $this->apiSetting->getSecretKey(), $requestPayload
     );
 
-    $responseModel = new ResponseModels\Cardlist($processCharge);
+    $responseModel = new Responsemodels\Cardlist($processCharge);
     return $responseModel;
   }
 }

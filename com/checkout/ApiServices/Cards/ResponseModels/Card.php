@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Cards\ResponseModels\Card.
+ * Checkout.com Apiservices\Cards\Responsemodels\Card.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Cards\ResponseModels;
+namespace com\checkout\Apiservices\Cards\Responsemodels;
 
 /**
  * Class Card.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Cards\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   protected $object;
   protected $id;
@@ -325,8 +325,8 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
   private function setBillingDetails($billingDetails)
   {
 
-    $billingAddress = new \com\checkout\ApiServices\SharedModels\Address();
-    $phone = new \com\checkout\ApiServices\SharedModels\Phone();
+    $billingAddress = new \com\checkout\Apiservices\Sharedmodels\Address();
+    $phone = new \com\checkout\Apiservices\Sharedmodels\Phone();
 
     $billingAddress->setAddressLine1($billingDetails->getAddressLine1());
     $billingAddress->setAddressLine2($billingDetails->getAddressLine2());
@@ -446,6 +446,9 @@ class Card extends \com\checkout\ApiServices\SharedModels\BaseHttp
 
   /**
    * Set the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
    *
    * @param mixed $liveMode
    *   The LiveMode.

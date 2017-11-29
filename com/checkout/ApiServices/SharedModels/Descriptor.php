@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\SharedModels\Descriptor.
+ * Checkout.com Apiservices\Sharedmodels\Descriptor.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\SharedModels;
+namespace com\checkout\Apiservices\Sharedmodels;
 
 /**
  * Class Descriptor.

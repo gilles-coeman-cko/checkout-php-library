@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Cards\RequestModels\CardUpdate.
+ * Checkout.com Apiservices\Cards\Requestmodels\CardUpdate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Cards\RequestModels;
+namespace com\checkout\Apiservices\Cards\Requestmodels;
 
 /**
  * Class Card Update.
@@ -100,8 +100,9 @@ class Cardupdate
    * @param mixed $baseCardcreate
    *   The baseCardcreate.
    */
-  public function setBasecard(\com\checkout\ApiServices\Cards\RequestModels\Basecard $baseCard)
-  {
+  public function setBasecard(
+    \com\checkout\Apiservices\Cards\Requestmodels\Basecard $baseCard
+  ) {
     $this->baseCard = $baseCard;
   }
 }

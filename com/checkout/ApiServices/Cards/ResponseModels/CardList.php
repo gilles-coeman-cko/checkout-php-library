@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Cards\ResponseModels\CardList.
+ * Checkout.com Apiservices\Cards\Responsemodels\CardList.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Cards\ResponseModels;
+namespace com\checkout\Apiservices\Cards\Responsemodels;
 
 /**
  * Class Card List.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Cards\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   private $object;
   private $count;
@@ -110,7 +110,9 @@ class Cardlist extends \com\checkout\ApiServices\SharedModels\BaseHttp
   {
     $dummyObjCart = new \CheckoutApi_LibrespondObj();
     $dummyObjCart->setConfig($card);
-    $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\Card($dummyObjCart);
+    $cardObg = new \com\checkout\Apiservices\Cards\Responsemodels\Card(
+      $dummyObjCart
+    );
     return $cardObg;
   }
 }

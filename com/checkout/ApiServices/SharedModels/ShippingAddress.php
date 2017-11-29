@@ -1,38 +1,47 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Sharedmodels\ShippingAddress.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\SharedModels;
+namespace com\checkout\Apiservices\Sharedmodels;
 
-
+/**
+ * Class ShippingAddress.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
 class ShippingAddress extends Address
 {
-    protected $_recipientName;
+  protected $recipientName;
 
-    /**
-     * @return mixed
-     */
-    public function getRecipientName()
-    {
-        return $this->_recipientName;
-    }
+  /**
+   * Get recipients name.
+   *
+   * @return mixed
+   *   The recipientName.
+   */
+  public function getRecipientName()
+  {
+    return $this->recipientName;
+  }
 
-    /**
-     * @param mixed $recipientName
-     */
-    public function setRecipientName( $recipientName )
-    {
-        $this->_recipientName = $recipientName;
-    }
+  /**
+   * Set recipients name.
+   *
+   * @param mixed $recipientName
+   *   The recipientName.
+   */
+  public function setRecipientName($recipientName)
+  {
+    $this->recipientName = $recipientName;
+  }
 }

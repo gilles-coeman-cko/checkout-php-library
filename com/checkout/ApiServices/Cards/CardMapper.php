@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Cards\CardMapper.
+ * Checkout.com Apiservices\Cards\CardMapper.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Cards;
+namespace com\checkout\Apiservices\Cards;
 
 /**
  * Class Card Mapper.
@@ -74,7 +74,10 @@ class Cardmapper
     if ($requestModel) {
       $requestPayload = array();
 
-      if (method_exists($requestModel, 'getCustomerId') && ($customerId = $requestModel->getCustomerId())) {
+      if (
+        method_exists($requestModel, 'getCustomerId') &&
+        ($customerId = $requestModel->getCustomerId())
+      ) {
         $requestPayload['customerId'] = $customerId;
       }
 
@@ -101,23 +104,38 @@ class Cardmapper
           $requestPayload['billingDetails'] = $billingAddressConfig;
         }
 
-        if (method_exists($cardBase, 'getName') && $name = $cardBase->getName()) {
+        if (
+          method_exists($cardBase, 'getName') &&
+          $name = $cardBase->getName()
+        ) {
           $requestPayload['name'] = $name;
         }
 
-        if (method_exists($cardBase, 'getNumber') && $number = $cardBase->getNumber()) {
+        if (
+          method_exists($cardBase, 'getNumber') &&
+          $number = $cardBase->getNumber()
+        ) {
           $requestPayload['number'] = $number;
         }
 
-        if (method_exists($cardBase, 'getExpiryMonth') && $expiryMonth = $cardBase->getExpiryMonth()) {
+        if (
+          method_exists($cardBase, 'getExpiryMonth') &&
+          $expiryMonth = $cardBase->getExpiryMonth()
+        ) {
           $requestPayload['expiryMonth'] = $expiryMonth;
         }
 
-        if (method_exists($cardBase, 'getExpiryYear') && $expiryYear = $cardBase->getExpiryYear()) {
+        if (
+          method_exists($cardBase, 'getExpiryYear') &&
+          $expiryYear = $cardBase->getExpiryYear()
+        ) {
           $requestPayload['expiryYear'] = $expiryYear;
         }
 
-        if (method_exists($cardBase, 'getCvv') && $cvv = $cardBase->getCvv()) {
+        if (
+          method_exists($cardBase, 'getCvv') &&
+          $cvv = $cardBase->getCvv()
+        ) {
           $requestPayload['cvv'] = $cvv;
         }
       }
@@ -174,15 +192,24 @@ class Cardmapper
         if ($name = $cardBase->getName()) {
           $requestPayload['name'] = $name;
         }
-        if (method_exists($cardBase, 'getExpiryMonth') && $expiryMonth = $cardBase->getExpiryMonth()) {
+        if (
+          method_exists($cardBase, 'getExpiryMonth') &&
+          $expiryMonth = $cardBase->getExpiryMonth()
+        ) {
           $requestPayload['expiryMonth'] = $expiryMonth;
         }
 
-        if (method_exists($cardBase, 'getExpiryYear') && $expiryYear = $cardBase->getExpiryYear()) {
+        if (
+          method_exists($cardBase, 'getExpiryYear') &&
+          $expiryYear = $cardBase->getExpiryYear()
+        ) {
           $requestPayload['expiryYear'] = $expiryYear;
         }
 
-        if (method_exists($cardBase, 'getDefaultCard') && $defaultCard = $cardBase->getDefaultCard()) {
+        if (
+          method_exists($cardBase, 'getDefaultCard') &&
+          $defaultCard = $cardBase->getDefaultCard()
+        ) {
           $requestPayload['defaultCard'] = $defaultCard;
         }
       }

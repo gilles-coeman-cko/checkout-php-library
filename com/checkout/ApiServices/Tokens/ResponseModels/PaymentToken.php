@@ -1,69 +1,93 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Tokens\Responsemodels\Paymenttoken.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Tokens\Responsemodels;
+
 /**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/17/2015
- * Time: 4:27 PM
+ * Class Payment Token.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-
-namespace com\checkout\ApiServices\Tokens\ResponseModels;
-
-
 class Paymenttoken
 {
-    private $id;
-    private $liveMode;
+  private $id;
+  private $liveMode;
 
+  /**
+   * Class constructor.
+   *
+   * @param mixed $response
+   *   The request model.
+   */
+  public function __construct($response)
+  {
+    $this->setId($response->getId());
+    $this->setLiveMode($response->getLiveMode());
+  }
 
-    public  function __construct($response)
-    {
-        $this->setId($response->getId());
-        $this->setLiveMode($response->getLiveMode());
-    }
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+   * Get the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @return mixed
+   *   The chargeId.
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    /**
-     * @param mixed $id
-     */
-    private function setId( $id )
-    {
-        $this->id = $id;
-    }
+  /**
+   * Set the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @param mixed $id
+   *   The chargeId.
+   */
+  private function setId($id)
+  {
+    $this->id = $id;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getLiveMode()
-    {
-        return $this->liveMode;
-    }
+  /**
+   * Get the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @return mixed
+   *   The LiveMode.
+   */
+  public function getLiveMode()
+  {
+    return $this->liveMode;
+  }
 
-    /**
-     * @param mixed $liveMode
-     */
-    private function setLiveMode( $liveMode )
-    {
-        $this->liveMode = $liveMode;
-    }
-
+  /**
+   * Set the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @param mixed $liveMode
+   *   The LiveMode.
+   */
+  private function setLiveMode($liveMode)
+  {
+    $this->liveMode = $liveMode;
+  }
 
 }

@@ -1,173 +1,231 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Sharedmodels\Product.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\SharedModels;
+namespace com\checkout\Apiservices\Sharedmodels;
 
+/**
+ * Class Product.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
 class Product
 {
-    protected $name = '';
-    protected $_productId = '';
-    protected $description = '';
-    protected $_sku = '' ;
-    protected $_price = '' ;
-    protected $_quantity = '' ;
-    protected $_image = '';
-    protected $_shippingCost = '' ;
-    protected $_trackingUrl = '' ;
+  protected $name = '';
+  protected $productId = '';
+  protected $description = '';
+  protected $sku = '';
+  protected $price = '';
+  protected $quantity = '';
+  protected $image = '';
+  protected $shippingCost = '';
+  protected $trackingUrl = '';
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+  /**
+   * Get a product name.
+   *
+   * @return mixed
+   *   The name.
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName( $name )
-    {
-        $this->name = $name;
-    }
+  /**
+   * Set a product name.
+   *
+   * @param mixed $name
+   *   The name.
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getProductId()
-    {
-        return $this->_productId;
-    }
+  /**
+   * Get a product id.
+   *
+   * @return mixed
+   *   The productId.
+   */
+  public function getProductId()
+  {
+    return $this->productId;
+  }
 
-    /**
-     * @param mixed $productId
-     */
-    public function setProductId( $productId )
-    {
-        $this->_productId = $productId;
-    }
+  /**
+   * Set a product id.
+   *
+   * @param mixed $productId
+   *   The productId.
+   */
+  public function setProductId($productId)
+  {
+    $this->productId = $productId;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+  /**
+   * Get a product description.
+   *
+   * @return mixed
+   *   The description.
+   */
+  public function getDescription()
+  {
+    return $this->description;
+  }
 
-    /**
-     * @param mixed $description
-     */
-    public function setDescription( $description )
-    {
-        $this->description = $description;
-    }
+  /**
+   * Set a product description.
+   *
+   * @param mixed $description
+   *   The description.
+   */
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getSku()
-    {
-        return $this->_sku;
-    }
+  /**
+   * Get a product stock keeping unit.
+   *
+   * @return mixed
+   *   The sku.
+   */
+  public function getSku()
+  {
+    return $this->sku;
+  }
 
-    /**
-     * @param mixed $sku
-     */
-    public function setSku( $sku )
-    {
-        $this->_sku = $sku;
-    }
+  /**
+   * Set a product stock keeping unit.
+   *
+   * @param mixed $sku
+   *   The sku.
+   */
+  public function setSku($sku)
+  {
+    $this->sku = $sku;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getPrice()
-    {
-        return $this->_price;
-    }
+  /**
+   * Get a product price.
+   *
+   * @return mixed
+   *   The price.
+   */
+  public function getPrice()
+  {
+    return $this->price;
+  }
 
-    /**
-     * @param mixed $price
-     */
-    public function setPrice( $price )
-    {
-        $this->_price = $price;
-    }
+  /**
+   * Set a product price.
+   *
+   * @param mixed $price
+   *   The price.
+   */
+  public function setPrice($price)
+  {
+    $this->price = $price;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getQuantity()
-    {
-        return $this->_quantity;
-    }
+  /**
+   * Get a product quantity.
+   *
+   * @return mixed
+   *   The quantity.
+   */
+  public function getQuantity()
+  {
+    return $this->quantity;
+  }
 
-    /**
-     * @param mixed $quantity
-     */
-    public function setQuantity( $quantity )
-    {
-        $this->_quantity = $quantity;
-    }
+  /**
+   * Set a product quantity.
+   *
+   * @param mixed $quantity
+   *   The quantity.
+   */
+  public function setQuantity($quantity)
+  {
+    $this->quantity = $quantity;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getImage()
-    {
-        return $this->_image;
-    }
+  /**
+   * Get a product's image.
+   *
+   * @return mixed
+   *   The image.
+   */
+  public function getImage()
+  {
+    return $this->image;
+  }
 
-    /**
-     * @param mixed $image
-     */
-    public function setImage( $image )
-    {
-        $this->_image = $image;
-    }
+  /**
+   * Set a product's image.
+   *
+   * @param mixed $image
+   *   The image.
+   */
+  public function setImage($image)
+  {
+    $this->image = $image;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getShippingCost()
-    {
-        return $this->_shippingCost;
-    }
+  /**
+   * Get a product's shipping cost.
+   *
+   * @return mixed
+   *   The shippingCost.
+   */
+  public function getShippingCost()
+  {
+    return $this->shippingCost;
+  }
 
-    /**
-     * @param mixed $shippingCost
-     */
-    public function setShippingCost( $shippingCost )
-    {
-        $this->_shippingCost = $shippingCost;
-    }
+  /**
+   * Set a product's shipping cost.
+   *
+   * @param mixed $shippingCost
+   *   The shippingCost.
+   */
+  public function setShippingCost($shippingCost)
+  {
+    $this->shippingCost = $shippingCost;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getTrackingUrl()
-    {
-        return $this->_trackingUrl;
-    }
+  /**
+   * Get a product's tracking url.
+   *
+   * @return mixed
+   *   The trackingUrl.
+   */
+  public function getTrackingUrl()
+  {
+    return $this->trackingUrl;
+  }
 
-    /**
-     * @param mixed $trackingUrl
-     */
-    public function setTrackingUrl( $trackingUrl )
-    {
-        $this->_trackingUrl = $trackingUrl;
-    }
+  /**
+   * Set a product's tracking url.
+   *
+   * @param mixed $trackingUrl
+   *   The trackingUrl.
+   */
+  public function setTrackingUrl($trackingUrl)
+  {
+    $this->trackingUrl = $trackingUrl;
+  }
 }

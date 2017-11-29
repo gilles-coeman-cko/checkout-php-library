@@ -1,55 +1,70 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Visacheckout\Requestmodels\Visacheckoutcardtokencreate.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\VisaCheckout\RequestModels;
+namespace com\checkout\Apiservices\Visacheckout\Requestmodels;
 
-class VisaCheckoutCardTokenCreate
+/**
+ * Class Visa Checkout Card Token Create.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Visacheckoutcardtokencreate
 {
-    private $_callId            = null;
-    private $_includeBinData    = null;
-    
+  private $callId = null;
+  private $includeBindata = null;
 
-    /**
-     * @param $callId
-     */
-    public function setCallId($callId) 
-    {
-        $this->_callId = $callId;
-    }
+  /**
+   * Set the call id.
+   *
+   * @param mixed $callId
+   *   The callId.
+   */
+  public function setCallId($callId)
+  {
+    $this->callId = $callId;
+  }
 
-    /**
-     * @return null
-     */
-    public function getCallId() 
-    {
-        return $this->_callId;
-    }
+  /**
+   * Get the call id.
+   *
+   * @return mixed
+   *   The callId.
+   */
+  public function getCallId()
+  {
+    return $this->callId;
+  }
 
-    /**
-     * @param $includeBinData
-     */
-    public function setIncludeBinData($includeBinData) 
-    {
-        $this->_includeBinData = $includeBinData;
-    }
+  /**
+   * Set the include bin data.
+   *
+   * @param mixed $includeBindata
+   *   The includeBindata.
+   */
+  public function setIncludeBindata($includeBindata)
+  {
+    $this->includeBindata = $includeBindata;
+  }
 
-    /**
-     * @return null
-     */
-    public function getIncludeBinData() 
-    {
-        return $this->_includeBinData;
-    }
+  /**
+   * Get the include bin data.
+   *
+   * @return mixed
+   *   The includeBindata.
+   */
+  public function getIncludeBindata()
+  {
+    return $this->includeBindata;
+  }
 }

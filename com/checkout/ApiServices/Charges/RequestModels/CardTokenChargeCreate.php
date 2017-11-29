@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\RequestModels\Cardtokenchargecreate.
+ * Checkout.com Apiservices\Charges\Requestmodels\Cardtokenchargecreate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\RequestModels;
+namespace com\checkout\Apiservices\Charges\Requestmodels;
 
 /**
  * Class Card Token Charge Create.
@@ -33,7 +33,7 @@ class Cardtokenchargecreate extends Basecharge
    * @return mixed
    *   The cardToken.
    */
-  public function getCardToken()
+  public function getCardtoken()
   {
     return $this->cardToken;
   }
@@ -47,7 +47,7 @@ class Cardtokenchargecreate extends Basecharge
    * @param mixed $cardToken
    *   The cardToken.
    */
-  public function setCardToken($cardToken)
+  public function setCardtoken($cardToken)
   {
     $this->cardToken = $cardToken;
   }

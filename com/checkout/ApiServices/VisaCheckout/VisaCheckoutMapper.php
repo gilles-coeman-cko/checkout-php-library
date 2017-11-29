@@ -1,76 +1,101 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Visacheckout\Visacheckoutmapper.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Visacheckout;
+
 /**
- * Created by PhpStorm.
- * Date: 22.12.2015
- * Time: 12:57
+ * Class Visa Checkout Mapper.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-namespace com\checkout\ApiServices\VisaCheckout;
-
-class VisaCheckoutMapper
+class Visacheckoutmapper
 {
-    private $requestModel;
+  private $requestModel;
 
-    /**
-     * @param $requestModel
-     */
-    public  function __construct($requestModel)
-    {
-        $this->setRequestModel($requestModel);
+  /**
+   * Class constructor.
+   *
+   * @param mixed $requestModel
+   *   The request model.
+   */
+  public function __construct($requestModel)
+  {
+    $this->setRequestModel($requestModel);
+  }
+
+  /**
+   * Get a request model.
+   *
+   * @return mixed
+   *   The request model.
+   */
+  public function getRequestModel()
+  {
+    return $this->requestModel;
+  }
+
+  /**
+   * Set a request model.
+   *
+   * @param mixed $requestModel
+   *   The request model.
+   */
+  public function setRequestModel($requestModel)
+  {
+    $this->requestModel = $requestModel;
+  }
+
+  /**
+   * Request a converted request model.
+   *
+   * @param mixed|null $requestModel
+   *   The request model.
+   *
+   * @return array|null
+   *   The reporting array.
+   */
+  public function requestPayloadConverter($requestModel = null)
+  {
+    $requestVisacheckout = null;
+    if (!$requestModel) {
+      $requestModel = $this->getRequestModel();
     }
 
-    /**
-     * @return mixed
-     */
-    public function getRequestModel()
-    {
-        return $this->requestModel;
+    if ($requestModel) {
+      $requestVisacheckout = array();
+
+      if (
+        method_exists(
+          $requestModel,
+          'getCallId'
+        ) && ($callId = $requestModel
+          ->getCallId()
+        )) {
+        $requestVisacheckout['callId'] = $callId;
+      }
+
+      if (
+        method_exists(
+          $requestModel,
+          'getIncludeBindata') && ($includeBindata = $requestModel
+          ->getIncludeBindata())
+      ) {
+        $requestVisacheckout['includeBindata'] = $includeBindata;
+      }
     }
 
-    /**
-     * @param mixed $requestModel
-     */
-    public function setRequestModel($requestModel)
-    {
-        $this->requestModel = $requestModel;
-    }
-
-    /**
-     * @param null $requestModel
-     * @return array|null
-     */
-    public function requestPayloadConverter($requestModel = null )
-    {
-        $requestVisaCheckout = null;
-        if(!$requestModel) {
-            $requestModel = $this->getRequestModel();
-        }
-
-        if($requestModel) {
-            $requestVisaCheckout = array();
-
-            if(method_exists($requestModel, 'getCallId') && ($callId = $requestModel->getCallId())) {
-                $requestVisaCheckout['callId'] = $callId;
-            }
-
-            if(method_exists($requestModel, 'getIncludeBinData') && ($includeBinData = $requestModel->getIncludeBinData())) {
-                $requestVisaCheckout['includeBinData'] = $includeBinData;
-            }
-        }
-
-        return $requestVisaCheckout;
-    }
+    return $requestVisacheckout;
+  }
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\SharedModels\OkResponse.
+ * Checkout.com Apiservices\Sharedmodels\Okresponse.
  *
  * PHP Version 5.6
  *
@@ -11,15 +11,15 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\SharedModels;
+namespace com\checkout\Apiservices\Sharedmodels;
 
 /**
- * Class OkResponse.
+ * Class Okresponse.
  *
  * @category Api Services
  * @version Release: @package_version@
  */
-class OkResponse extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Okresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   /**
    * Class constructor.

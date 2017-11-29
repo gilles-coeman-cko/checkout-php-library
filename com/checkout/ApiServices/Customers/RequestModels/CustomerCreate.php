@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Customers\ResponseModels\Customercreate.
+ * Checkout.com Apiservices\Customers\Responsemodels\Customercreate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Customers\RequestModels;
+namespace com\checkout\Apiservices\Customers\Requestmodels;
 
 /**
  * Class Customer Create.
@@ -40,8 +40,9 @@ class Customercreate extends Basecustomer
    * @param mixed $baseCardcreate
    *   The baseCardcreate.
    */
-  public function setBasecardcreate(\com\checkout\ApiServices\Cards\RequestModels\Basecardcreate $baseCardcreate)
-  {
+  public function setBasecardcreate(
+    \com\checkout\Apiservices\Cards\Requestmodels\Basecardcreate $baseCardcreate
+  ) {
     $this->baseCardcreate = $baseCardcreate;
   }
 }

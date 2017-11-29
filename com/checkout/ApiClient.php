@@ -25,7 +25,7 @@ class ApiClient
     private  $_visaCheckoutService;
 
     /**
-     * @return ApiServices\Customers\Customerservice
+     * @return Apiservices\Customers\Customerservice
      */
     public function customerService()
     {
@@ -33,7 +33,7 @@ class ApiClient
     }
 
     /**
-     * @return ApiServices\Charges\Chargeservice
+     * @return Apiservices\Charges\Chargeservice
      */
     public function chargeService()
     {
@@ -41,7 +41,7 @@ class ApiClient
     }
 
     /**
-     * @return ApiServices\Tokens\TokenService
+     * @return Apiservices\Tokens\Tokenservice
      */
     public function tokenService()
     {
@@ -49,7 +49,7 @@ class ApiClient
     }
 
     /**
-     * @return ApiServices\Cards\Cardservice
+     * @return Apiservices\Cards\Cardservice
      */
     public function cardService()
     {
@@ -57,7 +57,7 @@ class ApiClient
     }
 
     /**
-     * @return ApiServices\Reporting\Reportingservice
+     * @return Apiservices\Reporting\Reportingservice
      */
     public function Reportingservice()
     {
@@ -65,7 +65,7 @@ class ApiClient
     }
 
     /**
-     * @return ApiServices\Recurringpayments\Recurringpaymentservice
+     * @return Apiservices\Recurringpayments\Recurringpaymentservice
      */
     public function Recurringpaymentservice()
     {
@@ -73,7 +73,7 @@ class ApiClient
     }
 
     /**
-     * @return ApiServices\VisaCheckout\VisaCheckoutService
+     * @return Apiservices\Visacheckout\Visacheckoutservice
      */
     public function visaCheckoutService()
     {
@@ -90,13 +90,13 @@ class ApiClient
         $appSetting->setDebugMode($debugMode);
         $appSetting->setMode($env);
 
-        $this->_tokenService = new ApiServices\Tokens\TokenService($appSetting);
-        $this->_chargeService = new ApiServices\Charges\Chargeservice($appSetting);
-        $this->cardService = new ApiServices\Cards\Cardservice($appSetting);
-        $this->_customerService = new ApiServices\Customers\Customerservice($appSetting);
-        $this->_Reportingservice = new ApiServices\Reporting\Reportingservice($appSetting);
-        $this->_Recurringpaymentservice = new ApiServices\Recurringpayments\Recurringpaymentservice($appSetting);
-        $this->_visaCheckoutService = new ApiServices\VisaCheckout\VisaCheckoutService($appSetting);
+        $this->_tokenService = new Apiservices\Tokens\Tokenservice($appSetting);
+        $this->_chargeService = new Apiservices\Charges\Chargeservice($appSetting);
+        $this->cardService = new Apiservices\Cards\Cardservice($appSetting);
+        $this->_customerService = new Apiservices\Customers\Customerservice($appSetting);
+        $this->_Reportingservice = new Apiservices\Reporting\Reportingservice($appSetting);
+        $this->_Recurringpaymentservice = new Apiservices\Recurringpayments\Recurringpaymentservice($appSetting);
+        $this->_visaCheckoutService = new Apiservices\Visacheckout\Visacheckoutservice($appSetting);
 
     }
 }

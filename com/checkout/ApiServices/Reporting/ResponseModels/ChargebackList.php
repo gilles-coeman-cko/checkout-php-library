@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Reporting\ResponseModels\Chargebacklist.
+ * Checkout.com Apiservices\Reporting\Responsemodels\Chargebacklist.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Reporting\ResponseModels;
+namespace com\checkout\Apiservices\Reporting\Responsemodels;
 
 /**
  * Class Chargeback List.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Reporting\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargebacklist extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   private $count;
   private $pageNumber;
@@ -86,7 +86,7 @@ class Chargebacklist extends \com\checkout\ApiServices\SharedModels\BaseHttp
     $chargeBacksToReturn = array();
     if ($chargeBacksArray) {
       foreach ($chargeBacksArray as $item) {
-        $chargeBack = new \com\checkout\ApiServices\SharedModels\ChargeBack();
+        $chargeBack = new \com\checkout\Apiservices\Sharedmodels\Chargeback();
         $chargeBack->setId($item['id']);
         $chargeBack->setChargeId($item['chargeId']);
         $chargeBack->setScheme($item['scheme']);

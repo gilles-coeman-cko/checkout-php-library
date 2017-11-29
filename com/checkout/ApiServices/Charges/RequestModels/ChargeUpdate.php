@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\RequestModels\Chargeupdate.
+ * Checkout.com Apiservices\Charges\Requestmodels\Chargeupdate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\RequestModels;
+namespace com\checkout\Apiservices\Charges\Requestmodels;
 
 /**
  * Class Charge Update.

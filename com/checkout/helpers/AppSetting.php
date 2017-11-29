@@ -1,237 +1,308 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com helpers\AppSetting.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Helpers
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
-namespace com\checkout\helpers
-{
+namespace com\checkout\helpers {
 
-    class AppSetting
+  /**
+   * Class App Setting.
+   *
+   * @category Helpers
+   * @version Release: @package_version@
+   */
+  class AppSetting
+  {
+    protected static $instance = null;
+    private $secretKey = null;
+    private $requestTimeOut = 60;
+    private $debugMode = false;
+    private $clientVersion = 1.0;
+    private $defaultContentType = 'JSON';
+    private $readTimeout = '60';
+    private $mode = 'sandbox';
+    private $baseApiUri = "https://sandbox.checkout.com/v2/";
+
+    /**
+     * Get the app mode.
+     *
+     * @return string
+     *   The mode.
+     */
+    public function getMode()
     {
-        protected static $instance = null;
-        private $_secretKey = null;
-        private $_requestTimeOut = 60;
-        private $_debugMode = false;
-        private $_clientVersion = 1.0;
-        private $_defaultContentType = 'JSON';
-        private $_readTimeout = '60';
-        private $_mode = 'sandbox';
-        private  $_baseApiUri = "https://sandbox.checkout.com/v2/";
-
-
-
-        /**
-         * @return string
-         */
-        public function getMode()
-        {
-            return $this->_mode;
-        }
-
-        /**
-         * @param string $mode
-         */
-        public function setMode( $mode )
-        {
-            $this->_mode = $mode;
-        }
-
-
-        protected function __construct()
-        {
-            if(isset($_SERVER) && isset($_SERVER['HTTP_USER_AGENT'])) {
-                $this->setClientUserAgentName($_SERVER['HTTP_USER_AGENT']);
-            }
-        }
-        /**
-         * Create/return original instance
-         *
-         * @return self
-         */
-        public static function getSingletonInstance()
-        {
-            if (!isset(static::$instance)) {
-                static::$instance = new AppSetting();
-            }
-            return static::$instance;
-        }
-
-        /**
-         * @param bool $override
-         * @return AppSetting
-         */
-        public static function getInstance($override = false)
-        {
-            $instance = new  AppSetting();
-            if ($override) {
-                static::$instance = $instance;
-            }
-            return $instance;
-        }
-
-        /**
-         * @return null
-         */
-        public function getSecretKey()
-        {
-            return $this->_secretKey;
-        }
-
-        /**
-         * @param null $secretKey
-         */
-        public function setSecretKey( $secretKey )
-        {
-            $this->_secretKey = $secretKey;
-        }
-
-
-
-        /**
-         * @return null
-         */
-        public function getPublicKey()
-        {
-            return $this->_publicKey;
-        }
-
-        /**
-         * @param null $publicKey
-         */
-        public function setPublicKey( $publicKey )
-        {
-            $this->_publicKey = $publicKey;
-        }
-
-        /**
-         * @return null
-         */
-        public function getRequestTimeOut()
-        {
-            return $this->_requestTimeOut;
-        }
-
-        /**
-         * @param null $requestTimeOut
-         */
-        public function setRequestTimeOut( $requestTimeOut )
-        {
-            $this->_requestTimeOut = $requestTimeOut;
-        }
-
-        /**
-         * @return string
-         */
-        public function getReadTimeout()
-        {
-            return $this->_readTimeout;
-        }
-
-        /**
-         * @param string $readTimeout
-         */
-        public function setReadTimeout( $readTimeout )
-        {
-            $this->_readTimeout = $readTimeout;
-        }
-
-        /**
-         * @return null
-         */
-        public function getDebugMode()
-        {
-            return $this->_debugMode;
-        }
-
-        /**
-         * @param null $debugMode
-         */
-        public function setDebugMode( $debugMode )
-        {
-            $this->_debugMode = $debugMode;
-        }
-
-        /**
-         * @return null
-         */
-        public function getBaseApiUri()
-        {
-
-            if($this->_mode == 'sandbox') {
-
-                $this->_baseApiUri = "https://sandbox.checkout.com/api2/v2";
-            }else {
-
-                $this->_baseApiUri =  'https://api2.checkout.com/v2';
-            }
-
-            return $this->_baseApiUri;
-        }
-
-        /**
-         * @param null $baseApiUri
-         */
-        public function setBaseApiUri( $baseApiUri )
-        {
-            $this->_baseApiUri = $baseApiUri;
-        }
-
-        /**
-         * @return null
-         */
-        public function getClientVersion()
-        {
-            return $this->_clientVersion;
-        }
-
-        /**
-         * @param null $clientVersion
-         */
-        public function setClientVersion( $clientVersion )
-        {
-            $this->_clientVersion = $clientVersion;
-        }
-
-        /**
-         * @return null
-         */
-        public function getClientUserAgentName()
-        {
-            return $this->_clientUserAgentName;
-        }
-
-        /**
-         * @param null $clientUserAgentName
-         */
-        public function setClientUserAgentName( $clientUserAgentName )
-        {
-            $this->_clientUserAgentName = $clientUserAgentName;
-        }
-
-        /**
-         * @return null
-         */
-        public function getDefaultContentType()
-        {
-            return $this->_defaultContentType;
-        }
-
-        /**
-         * @param null $defaultContentType
-         */
-        public function setDefaultContentType( $defaultContentType )
-        {
-            $this->_defaultContentType = $defaultContentType;
-        }
-
+      return $this->mode;
     }
+
+    /**
+     * Set the app mode.
+     *
+     * @param string $mode
+     *   The mode.
+     */
+    public function setMode($mode)
+    {
+      $this->mode = $mode;
+    }
+
+    /**
+     * Class constructor.
+     *
+     * @param mixed $requestModel
+     *   The request model.
+     */
+    protected function __construct()
+    {
+      if (isset($_SERVER) && isset($_SERVER['HTTP_USER_AGENT'])) {
+        $this->setClientUserAgentName($_SERVER['HTTP_USER_AGENT']);
+      }
+    }
+
+    /**
+     * Create/return original instance
+     *
+     * @return self
+     *   The instance.
+     */
+    public static function getSingletonInstance()
+    {
+      if (!isset(static::$instance)) {
+        static::$instance = new AppSetting();
+      }
+      return static::$instance;
+    }
+
+    /**
+     * Get the instance.
+     *
+     * @param bool|false $override
+     *   The override.
+     *
+     * @return AppSetting
+     *   The instance.
+     */
+    public static function getInstance($override = false)
+    {
+      $instance = new AppSetting();
+      if ($override) {
+        static::$instance = $instance;
+      }
+      return $instance;
+    }
+
+    /**
+     * Get the secret key.
+     *
+     * @return null
+     *   The secretKey.
+     */
+    public function getSecretKey()
+    {
+      return $this->secretKey;
+    }
+
+    /**
+     * Set the secret key.
+     *
+     * @param null $secretKey
+     *   The secretKey.
+     */
+    public function setSecretKey($secretKey)
+    {
+      $this->secretKey = $secretKey;
+    }
+
+    /**
+     * Get the public key.
+     *
+     * @return null
+     *   The pucblicKey.
+     */
+    public function getPublicKey()
+    {
+      return $this->publicKey;
+    }
+
+    /**
+     * Set the public key.
+     *
+     * @param null $publicKey
+     *   The pucblicKey.
+     */
+    public function setPublicKey($publicKey)
+    {
+      $this->publicKey = $publicKey;
+    }
+
+    /**
+     * Get the request time out.
+     *
+     * @return null
+     *   The requestTimeOut.
+     */
+    public function getRequestTimeOut()
+    {
+      return $this->requestTimeOut;
+    }
+
+    /**
+     * Set the request time out.
+     *
+     * @param null $requestTimeOut
+     *   The requestTimeOut.
+     */
+    public function setRequestTimeOut($requestTimeOut)
+    {
+      $this->requestTimeOut = $requestTimeOut;
+    }
+
+    /**
+     * Get the read timeout.
+     *
+     * @return string
+     *   The readTimeout.
+     */
+    public function getReadTimeout()
+    {
+      return $this->readTimeout;
+    }
+
+    /**
+     * Set the read timeout.
+     *
+     * @param string $readTimeout
+     *   The readTimeout.
+     */
+    public function setReadTimeout($readTimeout)
+    {
+      $this->readTimeout = $readTimeout;
+    }
+
+    /**
+     * Get the debug mode.
+     *
+     * @return null
+     *   The debugMode.
+     */
+    public function getDebugMode()
+    {
+      return $this->debugMode;
+    }
+
+    /**
+     * Set the debug mode.
+     *
+     * @param null $debugMode
+     *   The debugMode.
+     */
+    public function setDebugMode($debugMode)
+    {
+      $this->debugMode = $debugMode;
+    }
+
+    /**
+     * Get the base api uri.
+     *
+     * @return null
+     *   The baseApiUri.
+     */
+    public function getBaseApiUri()
+    {
+
+      if ($this->mode == 'sandbox') {
+
+        $this->baseApiUri = "https://sandbox.checkout.com/api2/v2";
+      } else {
+
+        $this->baseApiUri = 'https://api2.checkout.com/v2';
+      }
+
+      return $this->baseApiUri;
+    }
+
+    /**
+     * Set the base api uri.
+     *
+     * @param null $baseApiUri
+     *   The baseApiUri.
+     */
+    public function setBaseApiUri($baseApiUri)
+    {
+      $this->baseApiUri = $baseApiUri;
+    }
+
+    /**
+     * Get the client version.
+     *
+     * @return null
+     *   The clientVersion.
+     */
+    public function getClientVersion()
+    {
+      return $this->clientVersion;
+    }
+
+    /**
+     * Set the client version.
+     *
+     * @param null $clientVersion
+     *   The clientVersion.
+     */
+    public function setClientVersion($clientVersion)
+    {
+      $this->clientVersion = $clientVersion;
+    }
+
+    /**
+     * Get the client user agent name.
+     *
+     * @return null
+     *   The clientUserAgentName.
+     */
+    public function getClientUserAgentName()
+    {
+      return $this->clientUserAgentName;
+    }
+
+    /**
+     * Set the client user agent name.
+     *
+     * @param null $clientUserAgentName
+     *   The clientUserAgentName.
+     */
+    public function setClientUserAgentName($clientUserAgentName)
+    {
+      $this->clientUserAgentName = $clientUserAgentName;
+    }
+
+    /**
+     * Get the default content type.
+     *
+     * @return null
+     *   The defaultContentType.
+     */
+    public function getDefaultContentType()
+    {
+      return $this->defaultContentType;
+    }
+
+    /**
+     * Set the default content type.
+     *
+     * @param null $defaultContentType
+     *   The defaultContentType.
+     */
+    public function setDefaultContentType($defaultContentType)
+    {
+      $this->defaultContentType = $defaultContentType;
+    }
+
+  }
 }

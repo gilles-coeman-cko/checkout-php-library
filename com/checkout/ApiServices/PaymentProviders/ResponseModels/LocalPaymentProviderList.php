@@ -1,98 +1,123 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Paymentproviders\Responsemodels\Localpaymentproviderlist.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Paymentproviders\Responsemodels;
+
 /**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/23/2015
- * Time: 9:24 AM
+ * Class Local Payment Provider List.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-
-namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
-
-
-class LocalPaymentProviderList extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
-    protected $object;
-    protected $count;
-    protected $data;
+  protected $object;
+  protected $count;
+  protected $data;
 
-    public function __construct( $response )
-    {
+  /**
+   * Class constructor.
+   *
+   * @param mixed $response
+   *   The request model.
+   */
+  public function __construct($response)
+  {
+    $this->setCount($response->getCount());
+    $this->setData($response->getData());
+    $this->setObject($response->getObject());
+  }
 
-        $this->setCount($response->getCount());
-        $this->setData($response->getData());
-        $this->setObject($response->getObject());
+  /**
+   * Get the list count.
+   *
+   * @return int
+   *   The list count.
+   */
+  public function getCount()
+  {
+    return $this->count;
+  }
+
+  /**
+   * Get the list data.
+   *
+   * @return mixed
+   *   The list data.
+   */
+  public function getData()
+  {
+    return $this->data;
+  }
+
+  /**
+   * Get an object.
+   *
+   * @return int
+   *   The object.
+   */
+  public function getObject()
+  {
+    return $this->object;
+  }
+
+  /**
+   * Set the list count.
+   *
+   * @param mixed $count
+   *   The list count.
+   */
+  private function setCount($count)
+  {
+    $this->count = $count;
+  }
+
+  /**
+   * Set the list data.
+   *
+   * @param mixed $data
+   *   The list data.
+   */
+  private function setData($data)
+  {
+    $dataArray = $data->toArray();
+    foreach ($dataArray as $provider) {
+      $this->data[] = $this->getProvider($provider);
     }
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
+  /**
+   * Set an object.
+   *
+   * @param int $object
+   *   The object.
+   */
+  private function setObject($object)
+  {
+    $this->object = $object;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
+  /**
+   * Get the provider.
+   *
+   * @return mixed
+   *   The provider.
+   */
+  private function getProvider($customer)
+  {
+    $dummyObjCart = new \CheckoutApi_LibrespondObj();
+    $dummyObjCart->setConfig($customer);
+    $cardObg = new \PHPPlugin\Apiservices\Paymentproviders\Responsemodels\Localpaymentprovider($dummyObjCart);
 
-    /**
-     * @return mixed
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
-
-    /**
-     * @param mixed $count
-     */
-    private function setCount( $count )
-    {
-        $this->count = $count;
-    }
-
-    /**
-     * @param mixed $data
-     */
-    private function setData( $data )
-    {
-        $dataArray = $data->toArray();
-        foreach ( $dataArray as $provider ) {
-            $this->data[ ] = $this->getProvider($provider);
-        }
-    }
-
-    /**
-     * @param mixed $object
-     */
-
-    private function setObject( $object )
-    {
-        $this->object = $object;
-    }
-
-    private function getProvider( $customer )
-    {
-        $dummyObjCart = new \CheckoutApi_LibrespondObj();
-        $dummyObjCart->setConfig($customer);
-        $cardObg = new \PHPPlugin\ApiServices\PaymentProviders\ResponseModels\LocalPaymentProvider($dummyObjCart);
-
-    }
+  }
 }

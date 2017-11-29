@@ -1,51 +1,61 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Paymentproviders\Responsemodels\Region.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Paymentproviders\Responsemodels;
+
 /**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/23/2015
- * Time: 9:24 AM
+ * Class Region.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-
-namespace com\checkout\ApiServices\PaymentProviders\ResponseModels;
-
-
-class Region extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Region extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
-    private $_regionId;
-    private $name;
+  private $regionId;
+  private $name;
 
-    public function __construct($response)
-    {
-        parent::__construct($response);
-        $this->setName($response->getName());
-        $this->setRegionId($response->getRegionId());
-    }
-    /**
-     * @param mixed $name
-     */
-    private function setName( $name )
-    {
-        $this->name = $name;
-    }
+  /**
+   * Class constructor.
+   *
+   * @param mixed $response
+   *   The request model.
+   */
+  public function __construct($response)
+  {
+    parent::__construct($response);
+    $this->setName($response->getName());
+    $this->setRegionId($response->getRegionId());
+  }
 
-    /**
-     * @param mixed $regionId
-     */
-    private function setRegionId( $regionId )
-    {
-        $this->_regionId = $regionId;
-    }
+  /**
+   * Set the name of the region.
+   *
+   * @param mixed $name
+   *   The region name.
+   */
+  private function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  /**
+   * Set the id of the region.
+   *
+   * @param mixed $regionId
+   *   The region id.
+   */
+  private function setRegionId($regionId)
+  {
+    $this->regionId = $regionId;
+  }
 }

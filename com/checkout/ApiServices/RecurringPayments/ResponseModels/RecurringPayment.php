@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Recurringpayments\ResponseModels\Recurringpayment.
+ * Checkout.com Apiservices\Recurringpayments\Responsemodels\Recurringpayment.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Recurringpayments\ResponseModels;
+namespace com\checkout\Apiservices\Recurringpayments\Responsemodels;
 
 /**
  * Class Recurring payment.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Recurringpayments\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Recurringpayment extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   protected $object;
   protected $id;
@@ -121,7 +121,7 @@ class Recurringpayment extends \com\checkout\ApiServices\SharedModels\BaseHttp
     $paymentPlansToReturn = array();
     if ($paymentPlansArray) {
       foreach ($paymentPlansArray as $item) {
-        $paymentPlan = new \com\checkout\ApiServices\SharedModels\Paymentplan();
+        $paymentPlan = new \com\checkout\Apiservices\Sharedmodels\Paymentplan();
         $paymentPlan->setPlanId($item['planId']);
         $paymentPlan->setName($item['name']);
         $paymentPlan->setPlanTrackId($item['planTrackId']);

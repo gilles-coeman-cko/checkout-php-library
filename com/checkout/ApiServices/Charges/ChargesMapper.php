@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\Chargesmapper.
+ * Checkout.com Apiservices\Charges\Chargesmapper.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges;
+namespace com\checkout\Apiservices\Charges;
 
 /**
  * Class Charges Mapper.
@@ -74,79 +74,137 @@ class Chargesmapper
     if ($requestModel) {
       $requestPayload = array();
 
-      if (method_exists($requestModel, 'getEmail') && $requestModel->getEmail()) {
+      if (
+        method_exists($requestModel, 'getEmail') &&
+        $requestModel->getEmail()
+      ) {
         $requestPayload['email'] = $requestModel->getEmail();
       }
 
-      if (method_exists($requestModel, 'getCustomerName') && $requestModel->getCustomerName()) {
+      if (
+        method_exists($requestModel, 'getCustomerName') &&
+        $requestModel->getCustomerName()
+      ) {
         $requestPayload['customerName'] = $requestModel->getCustomerName();
       }
 
-      if (method_exists($requestModel, 'getCustomerId') && $requestModel->getCustomerId()) {
+      if (
+        method_exists($requestModel, 'getCustomerId') &&
+        $requestModel->getCustomerId()
+      ) {
         $requestPayload['customerId'] = $requestModel->getCustomerId();
       }
 
-      if (method_exists($requestModel, 'getValue') && $requestModel->getValue()) {
+      if (
+        method_exists($requestModel, 'getValue') &&
+        $requestModel->getValue(
+
+        )) {
         $requestPayload['value'] = $requestModel->getValue();
       }
 
-      if (method_exists($requestModel, 'getCurrency') && $requestModel->getCurrency()) {
+      if (
+        method_exists($requestModel, 'getCurrency') &&
+        $requestModel->getCurrency()
+      ) {
         $requestPayload['currency'] = $requestModel->getCurrency();
       }
 
-      if (method_exists($requestModel, 'getDescription') && $requestModel->getDescription()) {
+      if (
+        method_exists($requestModel, 'getDescription') &&
+        $requestModel->getDescription()
+      ) {
         $requestPayload['description'] = $requestModel->getDescription();
       }
 
-      if (method_exists($requestModel, 'getChargeMode') && $requestModel->getChargeMode()) {
+      if (
+        method_exists($requestModel, 'getChargeMode') &&
+        $requestModel->getChargeMode()
+      ) {
         $requestPayload['chargeMode'] = $requestModel->getChargeMode();
       }
 
-      if (method_exists($requestModel, 'getRiskCheck') && $requestModel->getRiskCheck()) {
+      if (
+        method_exists($requestModel, 'getRiskCheck') &&
+        $requestModel->getRiskCheck()
+      ) {
         $requestPayload['riskCheck'] = $requestModel->getRiskCheck();
       }
 
-      if (method_exists($requestModel, 'getAttemptN3D') && $requestModel->getAttemptN3D()) {
+      if (
+        method_exists($requestModel, 'getAttemptN3D') &&
+        $requestModel->getAttemptN3D()
+      ) {
         $requestPayload['attemptN3D'] = $requestModel->getAttemptN3D();
       }
 
-      if (method_exists($requestModel, 'getChargeId') && $requestModel->getChargeId()) {
+      if (
+        method_exists($requestModel, 'getChargeId') &&
+        $requestModel->getChargeId()
+      ) {
         $requestPayload['chargeId'] = $requestModel->getChargeId();
       }
 
-      if (method_exists($requestModel, 'getMetadata') && $metadata = $requestModel->getMetadata()) {
+      if (
+        method_exists($requestModel, 'getMetadata') &&
+        $metadata = $requestModel->getMetadata()
+      ) {
         $requestPayload['metadata'] = $metadata;
       }
 
-      if (method_exists($requestModel, 'getCustomerIp') && $customerIp = $requestModel->getCustomerIp()) {
+      if (
+        method_exists($requestModel, 'getCustomerIp') &&
+        $customerIp = $requestModel->getCustomerIp()
+      ) {
         $requestPayload['customerIp'] = $customerIp;
       }
 
-      if (method_exists($requestModel, 'getTrackId') && $trackId = $requestModel->getTrackId()) {
+      if (
+        method_exists($requestModel, 'getTrackId') &&
+        $trackId = $requestModel->getTrackId()
+      ) {
         $requestPayload['trackId'] = $trackId;
       }
 
-      if (method_exists($requestModel, 'getUdf1') && $udf1 = $requestModel->getUdf1()) {
+      if (
+        method_exists($requestModel, 'getUdf1') &&
+        $udf1 = $requestModel->getUdf1()
+      ) {
         $requestPayload['udf1'] = $udf1;
       }
 
-      if (method_exists($requestModel, 'getUdf2') && $udf2 = $requestModel->getUdf2()) {
+      if (
+        method_exists($requestModel, 'getUdf2') &&
+        $udf2 = $requestModel->getUdf2()
+      ) {
         $requestPayload['udf2'] = $udf2;
       }
 
-      if (method_exists($requestModel, 'getUdf3') && $udf3 = $requestModel->getUdf3()) {
+      if (
+        method_exists($requestModel, 'getUdf3') &&
+        $udf3 = $requestModel->getUdf3()
+      ) {
         $requestPayload['udf3'] = $udf3;
       }
 
-      if (method_exists($requestModel, 'getUdf4') && $udf4 = $requestModel->getUdf4()) {
+      if (
+        method_exists($requestModel, 'getUdf4') &&
+        $udf4 = $requestModel->getUdf4()
+      ) {
         $requestPayload['udf4'] = $udf4;
       }
 
-      if (method_exists($requestModel, 'getUdf5') && $udf5 = $requestModel->getUdf5()) {
+      if (
+        method_exists($requestModel, 'getUdf5') &&
+        $udf5 = $requestModel->getUdf5()
+      ) {
         $requestPayload['udf5'] = $udf5;
       }
 
-      if (method_exists($requestModel, 'getDescriptor') && $descriptor = $requestModel->getDescriptor()) {
+      if (
+        method_exists($requestModel, 'getDescriptor') &&
+        $descriptor = $requestModel->getDescriptor()
+      ) {
         $descriptorConfig = array(
           'name' => $descriptor->getName(),
           'city' => $descriptor->getCity(),
@@ -155,19 +213,30 @@ class Chargesmapper
         $requestPayload['descriptor'] = $descriptorConfig;
       }
 
-      if (method_exists($requestModel, 'getAutoCapTime') && $autoCapTime = $requestModel->getAutoCapTime()) {
+      if (
+        method_exists($requestModel, 'getAutoCapTime') &&
+        $autoCapTime = $requestModel->getAutoCapTime()
+      ) {
         $requestPayload['autoCapTime'] = $autoCapTime;
       }
 
-      if (method_exists($requestModel, 'getAutoCapture') && $autoCapture = $requestModel->getAutoCapture()) {
+      if (
+        method_exists($requestModel, 'getAutoCapture') &&
+        $autoCapture = $requestModel->getAutoCapture()
+      ) {
         $requestPayload['autoCapture'] = $autoCapture;
       }
 
-      if (method_exists($requestModel, 'getTransactionIndicator') && $transactionIndicator = $requestModel->getTransactionIndicator()) {
+      if (
+        method_exists($requestModel, 'getTransactionIndicator') &&
+        $transactionIndicator = $requestModel->getTransactionIndicator()
+      ) {
         $requestPayload['transactionIndicator'] = $transactionIndicator;
       }
 
-      if (method_exists($requestModel, 'getShippingDetails') && $shippingAddress = $requestModel->getShippingDetails()) {
+      if (
+        method_exists($requestModel, 'getShippingDetails') &&
+        $shippingAddress = $requestModel->getShippingDetails()) {
         $shippingAddressConfig = array(
           'addressLine1' => $shippingAddress->getAddressLine1(),
           'addressLine2' => $shippingAddress->getAddressLine2(),
@@ -189,7 +258,9 @@ class Chargesmapper
         $requestPayload['shippingDetails'] = $shippingAddressConfig;
       }
 
-      if (method_exists($requestModel, 'getBillingDetails') && $billingAddress = $requestModel->getBillingDetails()) {
+      if (
+        method_exists($requestModel, 'getBillingDetails') &&
+        $billingAddress = $requestModel->getBillingDetails()) {
         $billingAddressConfig = array(
           'addressLine1' => $billingAddress->getAddressLine1(),
           'addressLine2' => $billingAddress->getAddressLine2(),
@@ -210,7 +281,9 @@ class Chargesmapper
         $requestPayload['billingDetails'] = $billingAddressConfig;
       }
 
-      if (method_exists($requestModel, 'getProducts') && $productsItem = $requestModel->getProducts()) {
+      if (
+        method_exists($requestModel, 'getProducts') &&
+        $productsItem = $requestModel->getProducts()) {
 
         foreach ($productsItem as $i => $item) {
 
@@ -298,7 +371,7 @@ class Chargesmapper
         $requestPayload['cvv'] = $cvv;
       }
 
-      if (method_exists($requestModel, 'getCardToken') && $cardToken = $requestModel->getCardToken()) {
+      if (method_exists($requestModel, 'getCardtoken') && $cardToken = $requestModel->getCardtoken()) {
         $requestPayload['cardToken'] = $cardToken;
       }
 

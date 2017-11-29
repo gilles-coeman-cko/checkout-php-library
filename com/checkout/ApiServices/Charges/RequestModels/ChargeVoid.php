@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\RequestModels\Chargevoid.
+ * Checkout.com Apiservices\Charges\Requestmodels\Chargevoid.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\RequestModels;
+namespace com\checkout\Apiservices\Charges\Requestmodels;
 
 /**
  * Class Charge Void.
@@ -40,8 +40,9 @@ class Chargevoid extends Basechargeinfo
    * @param mixed $products
    *   The products.
    */
-  public function setProducts(\com\checkout\ApiServices\SharedModels\Product $products)
-  {
+  public function setProducts(
+    \com\checkout\Apiservices\Sharedmodels\Product $products
+  ) {
 
     $this->products[] = $products;
   }

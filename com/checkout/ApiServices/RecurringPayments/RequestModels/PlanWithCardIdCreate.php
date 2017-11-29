@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Recurringpayments\RequestModels\Planwithcardidcreate.
+ * Checkout.com Apiservices\Recurringpayments\Requestmodels\Planwithcardidcreate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
+namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
 
 /**
  * Class Plan With Card Id Create.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planwithcardidcreate extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
+class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
 {
   protected $cardId;
   protected $cvv;

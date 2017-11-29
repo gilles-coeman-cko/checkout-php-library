@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Recurringpayments\RequestModels\Planwithcardtokencreate.
+ * Checkout.com Apiservices\Recurringpayments\Requestmodels\Planwithcardtokencreate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
+namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
 
 /**
  * Class Plan With Card Token Create.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planwithcardtokencreate extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
+class Planwithcardtokencreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
 {
   protected $cardToken;
   protected $transactionIndicator;
@@ -34,7 +34,7 @@ class Planwithcardtokencreate extends \com\checkout\ApiServices\Charges\RequestM
    * @return mixed
    *   The cardToken.
    */
-  public function getCardToken()
+  public function getCardtoken()
   {
     return $this->cardToken;
   }
@@ -48,7 +48,7 @@ class Planwithcardtokencreate extends \com\checkout\ApiServices\Charges\RequestM
    * @param mixed $cardToken
    *   The cardToken.
    */
-  public function setCardToken($cardToken)
+  public function setCardtoken($cardToken)
   {
     $this->cardToken = $cardToken;
   }

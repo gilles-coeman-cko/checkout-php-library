@@ -1,191 +1,240 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Tokens\Responsemodels\Cardtoken.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Tokens\Responsemodels;
+
 /**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/18/2015
- * Time: 9:07 AM
+ * Class Card Token.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-
-namespace com\checkout\ApiServices\Tokens\ResponseModels;
-
-
-class CardToken
+class Cardtoken
 {
-    private $object;
-    private $id;
-    private $liveMode;
-    private $created;
-    private $_used;
-    private $_paymentType;
-    private $card;
+  private $object;
+  private $id;
+  private $liveMode;
+  private $created;
+  private $used;
+  private $paymentType;
+  private $card;
 
+  /**
+   * Class constructor.
+   *
+   * @param mixed $response
+   *   The request model.
+   */
+  public function __construct($response)
+  {
+    $this->setCard($response->getCard());
+    $this->setCreated($response->getCreated());
+    $this->setId($response->getId());
+    $this->setLiveMode($response->getLiveMode());
+    $this->setObject($response->getObject());
+    $this->setPaymentType($response->getPaymentType());
+    $this->setUsed($response->getUsed());
+  }
 
-    public  function __construct($response)
-    {
+  /**
+   * Set a card.
+   *
+   * @param mixed $card
+   *   The card.
+   */
+  private function setCard($card)
+  {
+    $cardObg = new \com\checkout\Apiservices\Cards\Responsemodels\Card();
+    $billingDetails = new \com\checkout\Apiservices\Sharedmodels\Address();
+    $billingAddress = $card->getBillingDetails();
+    $billingDetails->setAddressLine1($billingAddress->getAddressLine1());
+    $billingDetails->setAddressLine2($billingAddress->getAddressLine2());
+    $billingDetails->setPostcode($billingAddress->getPostcode());
+    $billingDetails->setCountry($billingAddress->getCountry());
+    $billingDetails->setCity($billingAddress->getCity());
+    $billingDetails->setState($billingAddress->getState());
+    $billingDetails->setPhone($billingAddress->getPhone());
 
-        $this->setCard($response->getCard());
-        $this->setCreated($response->getCreated());
-        $this->setId($response->getId());
-        $this->setLiveMode($response->getLiveMode());
-        $this->setObject($response->getObject());
-        $this->setPaymentType($response->getPaymentType());
-        $this->setUsed($response->getUsed());
+    $cardObg->setId($card->getId());
+    $cardObg->setObject($card->getObject());
+    $cardObg->setName($card->getName());
+    $cardObg->setLast4($card->getLast4());
+    $cardObg->setPaymentMethod($card->getPaymentMethod());
+    $cardObg->setFingerprint($card->getFingerprint());
+    $cardObg->setCustomerId($card->getCustomerId());
+    $cardObg->setExpiryMonth($card->getExpiryMonth());
+    $cardObg->setExpiryYear($card->getExpiryYear());
+    $cardObg->setBillingDetails($billingDetails);
+    $cardObg->setCvcCheck($card->getCvcCheck());
+    $cardObg->setAvsCheck($card->getAvsCheck());
+    $cardObg->setAuthCode($card->getAuthCode());
+    $cardObg->setDefaultCard($card->getDefaultCard());
+    $cardObg->setLiveMode($card->getLiveMode());
+    $this->card = $cardObg;
 
-    }
+  }
 
+  /**
+   * Set the UTC date and time based on ISO 8601 profile.
+   *
+   * @param mixed $created
+   *   The created date.
+   */
+  private function setCreated($created)
+  {
+    $this->created = $created;
+  }
 
+  /**
+   * Set the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @param mixed $id
+   *   The chargeId.
+   */
+  private function setId($id)
+  {
+    $this->id = $id;
+  }
 
-    /**
-     * @param mixed $Card
-     */
-    private function setCard( $card )
-    {
-        $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\Card();
-        $billingDetails  = new \com\checkout\ApiServices\SharedModels\Address();
-        $billingAddress = $card->getBillingDetails();
-        $billingDetails->setAddressLine1($billingAddress->getAddressLine1());
-        $billingDetails->setAddressLine2($billingAddress->getAddressLine2());
-        $billingDetails->setPostcode($billingAddress->getPostcode());
-        $billingDetails->setCountry($billingAddress->getCountry());
-        $billingDetails->setCity($billingAddress->getCity());
-        $billingDetails->setState($billingAddress->getState());
-        $billingDetails->setPhone($billingAddress->getPhone());
+  /**
+   * Set the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @param mixed $liveMode
+   *   The LiveMode.
+   */
+  private function setLiveMode($liveMode)
+  {
+    $this->liveMode = $liveMode;
+  }
 
-        $cardObg->setId($card->getId());
-        $cardObg->setObject($card->getObject());
-        $cardObg->setName($card->getName());
-        $cardObg->setLast4($card->getLast4());
-        $cardObg->setPaymentMethod($card->getPaymentMethod());
-        $cardObg->setFingerprint($card->getFingerprint());
-        $cardObg->setCustomerId($card->getCustomerId());
-        $cardObg->setExpiryMonth($card->getExpiryMonth());
-        $cardObg->setExpiryYear($card->getExpiryYear());
-        $cardObg->setBillingDetails($billingDetails);
-        $cardObg->setCvcCheck($card->getCvcCheck());
-        $cardObg->setAvsCheck($card->getAvsCheck());
-        $cardObg->setAuthCode($card->getAuthCode());
-        $cardObg->setDefaultCard($card->getDefaultCard());
-        $cardObg->setLiveMode($card->getLiveMode());
-        $this->card = $cardObg;
+  /**
+   * Set an object.
+   *
+   * @param int $object
+   *   The object.
+   */
+  private function setObject($object)
+  {
+    $this->object = $object;
+  }
 
-    }
+  /**
+   * Set the payment type.
+   * 
+   * @param mixed $paymentType
+   *   The payment type.
+   */
+  private function setPaymentType($paymentType)
+  {
+    $this->paymentType = $paymentType;
+  }
 
-    /**
-     * @param mixed $created
-     */
-    private function setCreated( $created )
-    {
-        $this->created = $created;
-    }
+  /**
+   * Set the used variable, whatever this is.
+   * 
+   * @param mixed $used
+   *   The used variable.
+   */
+  private function setUsed($used)
+  {
+    $this->used = $used;
+  }
 
-    /**
-     * @param mixed $id
-     */
-    private function setId( $id )
-    {
-        $this->id = $id;
-    }
+  /**
+   * Get a card.
+   *
+   * @return mixed
+   *   The card.
+   */
+  public function getCard()
+  {
+    return $this->card;
+  }
 
-    /**
-     * @param mixed $liveMode
-     */
-    private function setLiveMode( $liveMode )
-    {
-        $this->liveMode = $liveMode;
-    }
+  /**
+   * Get the UTC date and time based on ISO 8601 profile.
+   *
+   * @return mixed
+   *   The created date.
+   */
+  public function getCreated()
+  {
+    return $this->created;
+  }
 
-    /**
-     * @param mixed $object
-     */
-    private function setObject( $object )
-    {
-        $this->object = $object;
-    }
+  /**
+   * Get the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @return mixed
+   *   The chargeId.
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    /**
-     * @param mixed $paymentType
-     */
-    private function setPaymentType( $paymentType )
-    {
-        $this->_paymentType = $paymentType;
-    }
+  /**
+   * Get the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @return mixed
+   *   The LiveMode.
+   */
+  public function getLiveMode()
+  {
+    return $this->liveMode;
+  }
 
-    /**
-     * @param mixed $used
-     */
-    private function setUsed( $used )
-    {
-        $this->_used = $used;
-    }
+  /**
+   * Get an object.
+   *
+   * @return mixed
+   *   The object.
+   */
+  public function getObject()
+  {
+    return $this->object;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCard()
-    {
-        return $this->card;
-    }
+  /**
+   * Get the payment type.
+   * 
+   * @return mixed
+   *   The payment type.
+   */
+  public function getPaymentType()
+  {
+    return $this->paymentType;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLiveMode()
-    {
-        return $this->liveMode;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPaymentType()
-    {
-        return $this->_paymentType;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUsed()
-    {
-        return $this->_used;
-    }
-
+  /**
+   * Get the used variable, whatever this is.
+   * 
+   * @return mixed
+   *   The used variable.
+   */
+  public function getUsed()
+  {
+    return $this->used;
+  }
 
 }

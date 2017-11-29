@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Baseservices.
+ * Checkout.com Apiservices\Baseservices.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices;
+namespace com\checkout\Apiservices;
 
 use com\checkout\helpers\ApiUrls;
 use com\checkout\helpers\AppSetting;

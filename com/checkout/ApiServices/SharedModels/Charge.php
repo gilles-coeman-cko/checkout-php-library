@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\SharedModels\Charge.
+ * Checkout.com Apiservices\Sharedmodels\Charge.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\SharedModels;
+namespace com\checkout\Apiservices\Sharedmodels;
 
 /**
  * Class Charge.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\SharedModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Charge extends \com\checkout\ApiServices\SharedModels\BaseHttp
+class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
   protected $object;
   protected $id;

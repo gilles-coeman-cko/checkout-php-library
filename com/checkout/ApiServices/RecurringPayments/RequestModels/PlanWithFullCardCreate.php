@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Recurringpayments\RequestModels\Planwithfullcardcreate.
+ * Checkout.com Apiservices\Recurringpayments\Requestmodels\Planwithfullcardcreate.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
+namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
 
 /**
  * Class Plan With Full Card Create.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planwithfullcardcreate extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
+class Planwithfullcardcreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
 {
   protected $baseCardcreate;
   protected $transactionIndicator;
@@ -27,7 +27,7 @@ class Planwithfullcardcreate extends \com\checkout\ApiServices\Charges\RequestMo
 
   /**
    * Get the base card.
-   * 
+   *
    * @return mixed
    *   The base card.
    */
@@ -38,18 +38,19 @@ class Planwithfullcardcreate extends \com\checkout\ApiServices\Charges\RequestMo
 
   /**
    * Set the base card.
-   * 
+   *
    * @param mixed $baseCardcreate
    *   The base card.
    */
-  public function setBasecardcreate(\com\checkout\ApiServices\Cards\RequestModels\Basecardcreate $baseCardcreate)
-  {
+  public function setBasecardcreate(
+    \com\checkout\Apiservices\Cards\Requestmodels\Basecardcreate $baseCardcreate
+  ) {
     $this->baseCardcreate = $baseCardcreate;
   }
 
   /**
    * Get the transaction indicator.
-   * 
+   *
    * Transaction indicator.
    *   Set to 1 for regular.
    *   Set to 2 for recurring.
@@ -65,7 +66,7 @@ class Planwithfullcardcreate extends \com\checkout\ApiServices\Charges\RequestMo
 
   /**
    * Set the transaction indicator.
-   * 
+   *
    * Transaction indicator.
    *   Set to 1 for regular.
    *   Set to 2 for recurring.

@@ -1,342 +1,456 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Sharedmodels\Transaction.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\SharedModels;
+namespace com\checkout\Apiservices\Sharedmodels;
 
-class Transaction extends \com\checkout\ApiServices\SharedModels\BaseHttp
+/**
+ * Class Transaction.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 {
+  protected $object;
+  protected $id;
+  protected $originId;
+  protected $date;
+  protected $status;
+  protected $type;
+  protected $amount;
+  protected $scheme;
+  protected $responseCode;
+  protected $currency;
+  protected $liveMode;
+  protected $businessName;
+  protected $channelName;
+  protected $trackId;
+  protected $customerId;
+  protected $customerName;
+  protected $customerEmail;
 
-    protected $object;
-    protected $id;
-    protected $_originId;
-    protected $_date;
-    protected $status;
-    protected $_type;
-    protected $_amount;
-    protected $scheme;
-    protected $responseCode;
-    protected $currency;
-    protected $liveMode;
-    protected $_businessName;
-    protected $_channelName;
-    protected $trackId;
-    protected $customerId;
-    protected $customerName;
-    protected $customerEmail;
+  /**
+   * Get an object.
+   *
+   * @return mixed
+   *   The object.
+   */
+  public function getObject()
+  {
+    return $this->object;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
+  /**
+   * Get the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @return mixed
+   *   The chargeId.
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+   * Get the string that uniquely identifies first the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @return mixed
+   *   The originId.
+   */
+  public function getOriginId()
+  {
+    return $this->originId;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getOriginId()
-    {
-        return $this->_originId;
-    }
+  /**
+   * Get the UTC date and time based on ISO 8601 profile.
+   *
+   * @return mixed
+   *   The date.
+   */
+  public function getDate()
+  {
+    return $this->date;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getDate()
-    {
-        return $this->_date;
-    }
+  /**
+   * Get the status of the transaction.
+   *
+   * @return mixed
+   *   The date.
+   */
+  public function getStatus()
+  {
+    return $this->status;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
+  /**
+   * Get the type of the transaction.
+   *
+   * Transaction indicator. Regular, Recurring or MOTO.
+   *
+   * @return mixed
+   *   The type.
+   */
+  public function getType()
+  {
+    return $this->type;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->_type;
-    }
+  /**
+   * Get the value of the transaction.
+   *
+   * A non-zero positive integer (i.e. decimal figures not allowed).
+   * For most currencies, value is divided into 100 units
+   * (e.g. "value = 100" is equivalent to 1 US Dollar).
+   *
+   * @return mixed
+   *   The amount.
+   */
+  public function getAmount()
+  {
+    return $this->amount;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getAmount()
-    {
-        return $this->_amount;
-    }
+  /**
+   * Get the card scheme.
+   *
+   * @return mixed
+   *   The scheme.
+   */
+  public function getScheme()
+  {
+    return $this->scheme;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getScheme()
-    {
-        return $this->scheme;
-    }
+  /**
+   * Get a response code indicating the status of the request.
+   *
+   * @return mixed
+   *   The responseCode.
+   */
+  public function getResponseCode()
+  {
+    return $this->responseCode;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getResponseCode()
-    {
-        return $this->responseCode;
-    }
+  /**
+   * Get the Three-letter ISO currency code.
+   *
+   * This code is representing the currency in
+   * which the recurring charge will be made.
+   *
+   * @return mixed
+   *   The currency.
+   */
+  public function getCurrency()
+  {
+    return $this->currency;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
+  /**
+   * Get the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @return mixed
+   *   The LiveMode.
+   */
+  public function getLiveMode()
+  {
+    return $this->liveMode;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getLiveMode()
-    {
-        return $this->liveMode;
-    }
+  /**
+   * Get name of the business.
+   *
+   * @return mixed
+   *   The businessName.
+   */
+  public function getBusinessName()
+  {
+    return $this->businessName;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getBusinessName()
-    {
-        return $this->_businessName;
-    }
+  /**
+   * Get name of the business channel.
+   *
+   * @return mixed
+   *   The channelName.
+   */
+  public function getChannelName()
+  {
+    return $this->channelName;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getChannelName()
-    {
-        return $this->_channelName;
-    }
+  /**
+   * Get a track id.
+   *
+   * Order tracking id generated by the merchant. Max length 50 characters.
+   *
+   * @return mixed
+   *   The trackId.
+   */
+  public function getTrackId()
+  {
+    return $this->trackId;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getTrackId()
-    {
-        return $this->trackId;
-    }
+  /**
+   * Get the customer ID.
+   *
+   * Note: The customer id is prefixed with cust_.
+   *
+   * @return mixed
+   *   The CustomerId.
+   */
+  public function getCustomerId()
+  {
+    return $this->customerId;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getCustomerId()
-    {
-        return $this->customerId;
-    }
+  /**
+   * Get the customer name.
+   *
+   * @return mixed
+   *   The customerName.
+   */
+  public function getCustomerName()
+  {
+    return $this->customerName;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getCustomerName()
-    {
-        return $this->customerName;
-    }
+  /**
+   * Get the email address of the customer.
+   *
+   * @return mixed
+   *   The email.
+   */
+  public function getCustomerEmail()
+  {
+    return $this->customerEmail;
+  }
 
-    
-    /**
-     * @return mixed
-     */
-    public function getCustomerEmail()
-    {
-        return $this->customerEmail;
-    }
+  /**
+   * Set an object.
+   *
+   * @param mixed $object
+   *   The object.
+   */
+  public function setObject($object)
+  {
+    $this->object = $object;
+  }
 
-    
-    /**
-     * @param mixed $object
-     */
-    public function setObject( $object )
-    {
-        $this->object = $object;
-    }
+  /**
+   * Set the string that uniquely identifies the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @param mixed $id
+   *   The chargeId.
+   */
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
 
-    /**
-     * @param mixed $id
-     */
-    public function setId( $id )
-    {
-        $this->id = $id;
-    }
+  /**
+   * Set the string that uniquely identifies first the transaction.
+   *
+   * Note: The card id is prefixed with charge_.
+   *
+   * @param mixed $originId
+   *   The originId.
+   */
+  public function setOriginId($originId)
+  {
+    $this->originId = $originId;
+  }
 
+  /**
+   * Set the UTC date and time based on ISO 8601 profile.
+   *
+   * @param mixed $date
+   *   The date.
+   */
+  public function setDate($date)
+  {
+    $this->date = $date;
+  }
 
-    /**
-     * @param mixed $originId
-     */
-    public function setOriginId( $originId )
-    {
-        $this->_originId = $originId;
-    }
+  /**
+   * Set the status of the transaction.
+   *
+   * @param mixed $status
+   *   The date.
+   */
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
 
+  /**
+   * Set the type of the transaction.
+   *
+   * Transaction indicator. Regular, Recurring or MOTO.
+   *
+   * @return mixed $type
+   *   The type.
+   */
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
 
-    /**
-     * @param mixed $date
-     */
-    public function setDate( $date )
-    {
-        $this->_date = $date;
-    }
+  /**
+   * Set the value of the transaction.
+   *
+   * A non-zero positive integer (i.e. decimal figures not allowed).
+   * For most currencies, value is divided into 100 units
+   * (e.g. "value = 100" is equivalent to 1 US Dollar).
+   *
+   * @param mixed $amount
+   *   The amount.
+   */
+  public function setAmount($amount)
+  {
+    $this->amount = $amount;
+  }
 
+  /**
+   * Set the card scheme.
+   *
+   * @param mixed $scheme
+   *   The scheme.
+   */
+  public function setScheme($scheme)
+  {
+    $this->scheme = $scheme;
+  }
 
-    /**
-     * @param mixed $status
-     */
-    public function setStatus( $status )
-    {
-        $this->status = $status;
-    }
+  /**
+   * Set a response code indicating the status of the request.
+   *
+   * @param mixed $responseCode
+   *   The responseCode.
+   */
+  public function setResponsecode($responseCode)
+  {
+    $this->responseCode = $responseCode;
+  }
 
+  /**
+   * Set the Three-letter ISO currency code.
+   *
+   * This code is representing the currency in
+   * which the recurring charge will be made.
+   *
+   * @param mixed $currency
+   *   The currency.
+   */
+  public function setCurrency($currency)
+  {
+    $this->currency = $currency;
+  }
 
-    /**
-     * @param mixed $type
-     */
-    public function setType( $type )
-    {
-        $this->_type = $type;
-    }
+  /**
+   * Set the live mode.
+   *
+   * Defined as true if live keys were used in the request.
+   * Defined as false if test keys were used in the request.
+   *
+   * @param mixed $liveMode
+   *   The LiveMode.
+   */
+  public function setLiveMode($liveMode)
+  {
+    $this->liveMode = $liveMode;
+  }
 
+  /**
+   * Set name of the business.
+   *
+   * @param mixed $businessName
+   *   The businessName.
+   */
+  public function setBusinessName($businessName)
+  {
+    $this->businessName = $businessName;
+  }
 
-    /**
-     * @param mixed $amount
-     */
-    public function setAmount( $amount )
-    {
-        $this->_amount = $amount;
-    }
+  /**
+   * Set name of the business channel.
+   *
+   * @param mixed $channelName
+   *   The channelName.
+   */
+  public function setChannelName($channelName)
+  {
+    $this->channelName = $channelName;
+  }
 
+  /**
+   * Set a track id.
+   *
+   * Order tracking id generated by the merchant. Max length 50 characters.
+   *
+   * @param mixed $trackId
+   *   The trackId.
+   */
+  public function setTrackId($trackId)
+  {
+    $this->trackId = $trackId;
+  }
 
-    /**
-     * @param mixed $scheme
-     */
-    public function setScheme( $scheme )
-    {
-        $this->scheme = $scheme;
-    }
+  /**
+   * Set the customer ID.
+   *
+   * Note: The customer id is prefixed with cust_.
+   *
+   * @param mixed $customerId
+   *   The CustomerId.
+   */
+  public function setCustomerId($customerId)
+  {
+    $this->customerId = $customerId;
+  }
 
+  /**
+   * Set the customer name.
+   *
+   * @param mixed $customerName
+   *   The customerName.
+   */
+  public function setCustomerName($customerName)
+  {
+    $this->customerName = $customerName;
+  }
 
-    /**
-     * @param mixed $responseCode
-     */
-    public function setResponsecode( $responseCode )
-    {
-        $this->responseCode = $responseCode;
-    }
-
-
-    /**
-     * @param mixed $currency
-     */
-    public function setCurrency( $currency )
-    {
-        $this->currency = $currency;
-    }
-
-
-    /**
-     * @param mixed $liveMode
-     */
-    public function setLiveMode( $liveMode )
-    {
-        $this->liveMode = $liveMode;
-    }
-
-
-    /**
-     * @param mixed $businessName
-     */
-    public function setBusinessName( $businessName )
-    {
-        $this->_businessName = $businessName;
-    }
-
-
-    /**
-     * @param mixed $channelName
-     */
-    public function setChannelName( $channelName )
-    {
-        $this->_channelName = $channelName;
-    }
-
-
-    /**
-     * @param mixed $trackId
-     */
-    public function setTrackId( $trackId )
-    {
-        $this->trackId = $trackId;
-    }
-
-
-    /**
-     * @param mixed $customerId
-     */
-    public function setCustomerId( $customerId )
-    {
-        $this->customerId = $customerId;
-    }
-
-
-    /**
-     * @param mixed $customerName
-     */
-    public function setCustomerName( $customerName )
-    {
-        $this->customerName = $customerName;
-    }
-
-
-    /**
-     * @param mixed $customerEmail
-     */
-    public function setCustomerEmail( $customerEmail )
-    {
-        $this->customerEmail = $customerEmail;
-    }
+  /**
+   * Set the email address of the customer.
+   *
+   * @param mixed $email
+   *   The email.
+   */
+  public function setCustomerEmail($customerEmail)
+  {
+    $this->customerEmail = $customerEmail;
+  }
 
 }

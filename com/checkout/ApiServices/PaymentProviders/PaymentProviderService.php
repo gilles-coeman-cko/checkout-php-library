@@ -1,62 +1,72 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Paymentproviders\Paymentproviderservice.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Paymentproviders;
+
 /**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 3/23/2015
- * Time: 9:22 AM
+ * Class Payment Provider Service.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-
-namespace com\checkout\ApiServices\PaymentProviders;
-
-
-class PaymentProviderService extends \com\checkout\ApiServices\Baseservices
+class Paymentproviderservice extends \com\checkout\Apiservices\Baseservices
 {
-    public function getCardProviderList()
-    {
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getPublicKey(),
-        'mode'          => $this->apiSetting->getMode(),
 
-        );
+  /**
+   * Get a list of card providers.
+   *
+   * @return Responsemodels\Cardproviderlist
+   *   The response models or a card provider list object.
+   */
+  public function getCardproviderlist()
+  {
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getPublicKey(),
+      'mode' => $this->apiSetting->getMode(),
 
-        $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
-            $this->apiUrl->getCardProvidersUri(),
-            $this->apiSetting->getPublicKey(), $requestPayload
-        );
+    );
 
-        $responseModel = new ResponseModels\CardProviderList($processCharge);
+    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+      $this->apiUrl->getCardprovidersUri(),
+      $this->apiSetting->getPublicKey(), $requestPayload
+    );
 
-        return $responseModel;
-    }
+    $responseModel = new Responsemodels\Cardproviderlist($processCharge);
 
-    public function getCardProvider($id)
-    {
-        $requestPayload = array (
-        'authorization' => $this->apiSetting->getPublicKey(),
-        'mode'          => $this->apiSetting->getMode(),
+    return $responseModel;
+  }
 
-        );
-        $cardProviderByIdUri = $this->apiUrl->getCardProvidersUri()."/$id";
-        $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
-            $cardProviderByIdUri,
-            $this->apiSetting->getPublicKey(), $requestPayload
-        );
+  /**
+   * Get a card provider's details.
+   *
+   * @return Responsemodels\Cardprovider
+   *   The response models or a card provider object.
+   */
+  public function getCardprovider($id)
+  {
+    $requestPayload = array(
+      'authorization' => $this->apiSetting->getPublicKey(),
+      'mode' => $this->apiSetting->getMode(),
 
-        $responseModel = new \com\checkout\ApiServices\PaymentProviders\ResponseModels\CardProvider($processCharge);
+    );
+    $cardProviderByIdUri = $this->apiUrl->getCardprovidersUri() . "/$id";
+    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+      $cardProviderByIdUri,
+      $this->apiSetting->getPublicKey(), $requestPayload
+    );
 
-        return $responseModel;
-    }
+    $responseModel = new \com\checkout\Apiservices\Paymentproviders\Responsemodels\Cardprovider($processCharge);
+
+    return $responseModel;
+  }
 }

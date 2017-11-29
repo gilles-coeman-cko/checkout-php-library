@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Recurringpayments\Recurringpaymentmapper.
+ * Checkout.com Apiservices\Recurringpayments\Recurringpaymentmapper.
  *
  * PHP Version 5.6
  *
@@ -10,7 +10,7 @@
  * @license https://checkout.com/terms/ MIT License
  * @link https://www.checkout.com/
  */
-namespace com\checkout\ApiServices\Recurringpayments;
+namespace com\checkout\Apiservices\Recurringpayments;
 
 /**
  * Class Recurring Payment Mapper.
@@ -75,38 +75,65 @@ class Recurringpaymentmapper
 
       $requestSinglePaymentplan = array();
 
-      if (method_exists($requestModel, 'getName') && ($name = $requestModel->getName())) {
+      if (
+        method_exists($requestModel, 'getName') &&
+        ($name = $requestModel->getName())
+      ) {
         $requestSinglePaymentplan['name'] = $name;
       }
 
-      if (method_exists($requestModel, 'getPlanTrackId') && ($planTrackId = $requestModel->getPlanTrackId())) {
+      if (
+        method_exists($requestModel, 'getPlanTrackId') &&
+        ($planTrackId = $requestModel->getPlanTrackId())
+      ) {
         $requestSinglePaymentplan['planTrackId'] = $planTrackId;
       }
 
-      if (method_exists($requestModel, 'getAutoCapTime') && ($autoCapTime = $requestModel->getAutoCapTime())) {
+      if (
+        method_exists($requestModel, 'getAutoCapTime') &&
+        ($autoCapTime = $requestModel->getAutoCapTime())
+      ) {
         $requestSinglePaymentplan['autoCapTime'] = $autoCapTime;
       }
 
-      if (method_exists($requestModel, 'getCurrency') && ($currency = $requestModel->getCurrency())) {
+      if (
+        method_exists($requestModel, 'getCurrency') &&
+        ($currency = $requestModel->getCurrency())
+      ) {
         $requestSinglePaymentplan['currency'] = $currency;
       }
 
-      if (method_exists($requestModel, 'getValue') && ($value = $requestModel->getValue())) {
+      if (
+        method_exists($requestModel, 'getValue') &&
+        ($value = $requestModel->getValue())
+      ) {
         $requestSinglePaymentplan['value'] = $value;
       }
-      if (method_exists($requestModel, 'getCycle') && ($cycle = $requestModel->getCycle())) {
+      if (
+        method_exists($requestModel, 'getCycle') &&
+        ($cycle = $requestModel->getCycle())
+      ) {
         $requestSinglePaymentplan['cycle'] = $cycle;
       }
 
-      if (method_exists($requestModel, 'getRecurringCount') && ($recurringCount = $requestModel->getRecurringCount())) {
+      if (
+        method_exists($requestModel, 'getRecurringCount') &&
+        ($recurringCount = $requestModel->getRecurringCount())
+      ) {
         $requestSinglePaymentplan['recurringCount'] = $recurringCount;
       }
 
-      if (method_exists($requestModel, 'getPlanId') && ($planId = $requestModel->getPlanId())) {
+      if (
+        method_exists($requestModel, 'getPlanId') &&
+        ($planId = $requestModel->getPlanId())
+      ) {
         $requestSinglePaymentplan['planId'] = $planId;
       }
 
-      if (method_exists($requestModel, 'getStartDate') && ($startDate = $requestModel->getStartDate())) {
+      if (
+        method_exists($requestModel, 'getStartDate') &&
+        ($startDate = $requestModel->getStartDate())
+      ) {
         $requestSinglePaymentplan['startDate'] = $startDate;
       }
 

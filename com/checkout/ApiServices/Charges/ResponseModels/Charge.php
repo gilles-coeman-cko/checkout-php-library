@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Charges\ResponseModels\Charge.
+ * Checkout.com Apiservices\Charges\Responsemodels\Charge.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Charges\ResponseModels;
+namespace com\checkout\Apiservices\Charges\Responsemodels;
 
 /**
  * Class Charge.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\Charges\ResponseModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Charge extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
+class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
 {
   protected $object;
   protected $id;
@@ -149,7 +149,10 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
       $this->setPaymenttoken($response->getId());
     }
 
-    $this->setResponseType($response->getChargeMode(), $response->getRedirectUrl());
+    $this->setResponseType(
+      $response->getChargeMode(), 
+      $response->getRedirectUrl()
+    );
 
     $this->json = $response->getRawOutput();
 
@@ -1019,7 +1022,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
    */
   protected function setCard($card)
   {
-    $cardObg = new \com\checkout\ApiServices\Cards\ResponseModels\Card($card);
+    $cardObg = new \com\checkout\Apiservices\Cards\Responsemodels\Card($card);
     $this->card = $cardObg;
   }
 
@@ -1031,8 +1034,8 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
    */
   protected function setShippingDetails($shippingDetails)
   {
-    $shippingAddress = new \com\checkout\ApiServices\SharedModels\ShippingAddress();
-    $phone = new \com\checkout\ApiServices\SharedModels\Phone();
+    $shippingAddress = new \com\checkout\Apiservices\Sharedmodels\ShippingAddress();
+    $phone = new \com\checkout\Apiservices\Sharedmodels\Phone();
     $shippingAddress->setAddressLine1($shippingDetails->getAddressLine1());
     $shippingAddress->setAddressLine2($shippingDetails->getAddressLine2());
     $shippingAddress->setPostcode($shippingDetails->getPostcode());
@@ -1057,7 +1060,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
     $productsToReturn = array();
     if ($productsArray) {
       foreach ($productsArray as $item) {
-        $product = new \com\checkout\ApiServices\SharedModels\Product();
+        $product = new \com\checkout\Apiservices\Sharedmodels\Product();
         $product->setName($item['name']);
         $product->setDescription($item['description']);
         $product->setSku($item['sku']);
@@ -1081,7 +1084,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
   protected function setRefunds($refunds)
   {
 
-    $refundObj = new \com\checkout\ApiServices\Charges\ResponseModels\Refund();
+    $refundObj = new \com\checkout\Apiservices\Charges\Responsemodels\Refund();
     $refundObj->setAmount($refunds->getAmount());
     $refundObj->setCurrency($refunds->getCurrency());
     $refundObj->setCreated($refunds->getCreated());
@@ -1109,7 +1112,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
    */
   protected function setDescriptor($descriptor)
   {
-    $descriptorObj = new \com\checkout\ApiServices\SharedModels\Descriptor();
+    $descriptorObj = new \com\checkout\Apiservices\Sharedmodels\Descriptor();
     $descriptorObj->setName($descriptor->getName());
     $descriptorObj->setCity($descriptor->getCity());
     $this->descriptor = $descriptorObj;
@@ -1157,7 +1160,7 @@ class Charge extends \com\checkout\ApiServices\Charges\RequestModels\Basecharge
     $paymentPlansToReturn = array();
     if ($paymentPlansArray) {
       foreach ($paymentPlansArray as $item) {
-        $paymentPlan = new \com\checkout\ApiServices\SharedModels\Customerpaymentplan();
+        $paymentPlan = new \com\checkout\Apiservices\Sharedmodels\Customerpaymentplan();
         $paymentPlan->setPlanId($item['planId']);
         $paymentPlan->setName($item['name']);
         $paymentPlan->setPlanTrackId($item['planTrackId']);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Cards\RequestModels\BaseCard.
+ * Checkout.com Apiservices\Cards\Requestmodels\BaseCard.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Cards\RequestModels;
+namespace com\checkout\Apiservices\Cards\Requestmodels;
 
 /**
  * Class base card.
@@ -140,8 +140,9 @@ class Basecard
    * @param mixed $billingDetails
    *   The BillingDetails .
    */
-  public function setBillingDetails(\com\checkout\ApiServices\SharedModels\Address $billingDetails)
-  {
+  public function setBillingDetails(
+    \com\checkout\Apiservices\Sharedmodels\Address $billingDetails
+  ) {
     $this->billingDetails = $billingDetails;
   }
 

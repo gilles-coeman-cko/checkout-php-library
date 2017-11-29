@@ -1,69 +1,102 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiservices\Sharedmodels\Phone.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
+namespace com\checkout\Apiservices\Sharedmodels;
+
 /**
- * Created by PhpStorm.
- * User: dhiraj.gangoosirdar
- * Date: 5/12/2015
- * Time: 8:20 AM
+ * Class Phone.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
  */
-
-namespace com\checkout\ApiServices\SharedModels;
-
-
 class Phone
 {
-    protected $number;
-    protected $countryCode;
+  protected $number;
+  protected $countryCode;
 
-    /**
-     * @return mixed
-     */
-    public function getCountryCode()
-    {
-        return $this->countryCode;
-    }
+  /**
+   * Get a valid country code for the phone number.
+   *
+   * Note: If countryCode is included, number cannot be NULL.
+   *
+   * @return mixed
+   *   The countryCode.
+   */
+  public function getCountryCode()
+  {
+    return $this->countryCode;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
+  /**
+   * Get a phone number.
+   *
+   * Permitted characters include: numbers, +, (,) ,/ and ' '.
+   * Must be between 6 and 25 characters.
+   *
+   * Note: If countryCode is included, number cannot be NULL.
+   *
+   * Example: "phone": {"countryCode": "44", "number": "12345678"}
+   *
+   * @return mixed
+   *   The number.
+   */
+  public function getNumber()
+  {
+    return $this->number;
+  }
 
-    /**
-     * @param mixed $countryCode
-     */
-    public function setCountryCode( $countryCode )
-    {
-        $this->countryCode = $countryCode;
-    }
+  /**
+   * Set a valid country code for the phone number.
+   *
+   * Note: If countryCode is included, number cannot be NULL.
+   *
+   * @param mixed $countryCode
+   *   The countryCode.
+   */
+  public function setCountryCode($countryCode)
+  {
+    $this->countryCode = $countryCode;
+  }
 
-    /**
-     * @param mixed $number
-     */
-    public function setNumber( $number )
-    {
-        $this->number = $number;
-    }
+  /**
+   * Set a phone number.
+   *
+   * Permitted characters include: numbers, +, (,) ,/ and ' '.
+   * Must be between 6 and 25 characters.
+   *
+   * Note: If countryCode is included, number cannot be NULL.
+   *
+   * Example: "phone": {"countryCode": "44", "number": "12345678"}
+   *
+   * @param mixed $number
+   *   The number.
+   */
+  public function setNumber($number)
+  {
+    $this->number = $number;
+  }
 
-    public function getPhoneDetails()
-    {
-        return array(
-            'number'      => $this->number,
-            'countryCode' => $this->countryCode
-        );
-    }
+  /**
+   * Get the array with phone details.
+   *
+   * @return array
+   *   The array with the phone details.
+   */
+  public function getPhoneDetails()
+  {
+    return array(
+      'number' => $this->number,
+      'countryCode' => $this->countryCode,
+    );
+  }
 }

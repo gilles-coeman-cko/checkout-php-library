@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Reporting\Reportingservice.
+ * Checkout.com Apiservices\Reporting\Reportingservice.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Reporting;
+namespace com\checkout\Apiservices\Reporting;
 
 /**
  * Class Reporting Service.
@@ -19,20 +19,20 @@ namespace com\checkout\ApiServices\Reporting;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Reportingservice extends \com\checkout\ApiServices\Baseservices
+class Reportingservice extends \com\checkout\Apiservices\Baseservices
 {
   /**
    * Request the transactions.
    *
-   * @param RequestModels\Transactionfilter $requestModel
+   * @param Requestmodels\Transactionfilter $requestModel
    *   The request model.
    *
-   * @return ResponseModels\Transactionlist
+   * @return Responsemodels\Transactionlist
    *   Return the server response.
    *
    * @throws Exception
    */
-  public function queryTransaction(RequestModels\Transactionfilter $requestModel)
+  public function queryTransaction(Requestmodels\Transactionfilter $requestModel)
   {
     $Reportingmapper = new Reportingmapper($requestModel);
     $reportingUri = $this->apiUrl->getQueryTransactionApiUri();
@@ -45,8 +45,12 @@ class Reportingservice extends \com\checkout\ApiServices\Baseservices
 
     );
 
-    $processReporting = \com\checkout\helpers\ApiHttpClient::postRequest($reportingUri, $secretKey, $requestReporting);
-    $responseModel = new ResponseModels\Transactionlist($processReporting);
+    $processReporting = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $reportingUri,
+      $secretKey,
+      $requestReporting
+    );
+    $responseModel = new Responsemodels\Transactionlist($processReporting);
 
     return $responseModel;
   }
@@ -54,15 +58,15 @@ class Reportingservice extends \com\checkout\ApiServices\Baseservices
   /**
    * Request the chargebacks.
    *
-   * @param RequestModels\Transactionfilter $requestModel
+   * @param Requestmodels\Transactionfilter $requestModel
    *   The request model.
    *
-   * @return ResponseModels\Transactionlist
+   * @return Responsemodels\Transactionlist
    *   Return the server response.
    *
    * @throws Exception
    */
-  public function queryChargeback(RequestModels\Transactionfilter $requestModel)
+  public function queryChargeback(Requestmodels\Transactionfilter $requestModel)
   {
     $Reportingmapper = new Reportingmapper($requestModel);
     $reportingUri = $this->apiUrl->getQueryChargebackApiUri();
@@ -75,8 +79,12 @@ class Reportingservice extends \com\checkout\ApiServices\Baseservices
 
     );
 
-    $processReporting = \com\checkout\helpers\ApiHttpClient::postRequest($reportingUri, $secretKey, $requestReporting);
-    $responseModel = new ResponseModels\Chargebacklist($processReporting);
+    $processReporting = \com\checkout\helpers\ApiHttpClient::postRequest(
+      $reportingUri,
+      $secretKey,
+      $requestReporting
+    );
+    $responseModel = new Responsemodels\Chargebacklist($processReporting);
 
     return $responseModel;
   }

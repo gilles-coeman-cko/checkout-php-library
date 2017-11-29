@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\SharedModels\BaseHttp.
+ * Checkout.com Apiservices\Sharedmodels\Basehttp.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\SharedModels;
+namespace com\checkout\Apiservices\Sharedmodels;
 
 /**
  * Class Base Http.
@@ -19,7 +19,7 @@ namespace com\checkout\ApiServices\SharedModels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class BaseHttp
+class Basehttp
 {
   protected $httpStatus;
   protected $hasError;

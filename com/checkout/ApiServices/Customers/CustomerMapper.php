@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Customers\Customermapper.
+ * Checkout.com Apiservices\Customers\Customermapper.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\ApiServices\Customers;
+namespace com\checkout\Apiservices\Customers;
 
 /**
  * Class Customer.
@@ -74,30 +74,51 @@ class Customermapper
     if ($requestModel) {
       $requestPayload = array();
 
-      if (method_exists($requestModel, 'getName') && ($name = $requestModel->getName())) {
+      if (
+        method_exists($requestModel, 'getName') &&
+        ($name = $requestModel->getName())
+      ) {
         $requestPayload['name'] = $name;
       }
 
-      if (method_exists($requestModel, 'getEmail') && ($email = $requestModel->getEmail())) {
+      if (
+        method_exists($requestModel, 'getEmail') &&
+        ($email = $requestModel->getEmail())
+      ) {
         $requestPayload['email'] = $email;
       }
 
-      if (method_exists($requestModel, 'getCustomerName') && ($customerName = $requestModel->getCustomerName())) {
+      if (
+        method_exists($requestModel, 'getCustomerName') &&
+        ($customerName = $requestModel->getCustomerName())
+      ) {
         $requestPayload['customerName'] = $customerName;
       }
 
-      if (method_exists($requestModel, 'getMetadata') && ($metadata = $requestModel->getMetadata())) {
+      if (
+        method_exists($requestModel, 'getMetadata') &&
+        ($metadata = $requestModel->getMetadata())
+      ) {
         $requestPayload['metadata'] = $metadata;
       }
 
-      if (method_exists($requestModel, 'getPhoneNumber') && ($phoneNumber = $requestModel->getPhoneNumber())) {
+      if (
+        method_exists($requestModel, 'getPhoneNumber') &&
+        ($phoneNumber = $requestModel->getPhoneNumber())
+      ) {
         $requestPayload['phoneNumber'] = $phoneNumber;
       }
-      if (method_exists($requestModel, 'getCustomerId') && ($customerId = $requestModel->getCustomerId())) {
+      if (
+        method_exists($requestModel, 'getCustomerId') &&
+        ($customerId = $requestModel->getCustomerId())
+      ) {
         $requestPayload['customerId'] = $customerId;
       }
 
-      if (method_exists($requestModel, 'getDescription') && ($description = $requestModel->getDescription())) {
+      if (
+        method_exists($requestModel, 'getDescription') &&
+        ($description = $requestModel->getDescription())
+      ) {
         $requestPayload['description'] = $description;
       }
 

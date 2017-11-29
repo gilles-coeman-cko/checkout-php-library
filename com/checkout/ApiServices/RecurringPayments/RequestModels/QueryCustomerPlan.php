@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com ApiServices\Recurringpayments\RequestModels\Querycustomerplan.
+ * Checkout.com Apiservices\Recurringpayments\Requestmodels\Querycustomerplan.
  *
  * PHP Version 5.6
  *
@@ -10,7 +10,7 @@
  * @license https://checkout.com/terms/ MIT License
  * @link https://www.checkout.com/
  */
-namespace com\checkout\ApiServices\Recurringpayments\RequestModels;
+namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
 
 /**
  * Class Query Customer Plan.
