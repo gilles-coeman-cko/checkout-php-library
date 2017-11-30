@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planwithcardtokencreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
-{
+class Planwithcardtokencreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge {
   protected $cardToken;
   protected $transactionIndicator;
   protected $paymentPlans;
@@ -34,8 +33,7 @@ class Planwithcardtokencreate extends \com\checkout\Apiservices\Charges\Requestm
    * @return mixed
    *   The cardToken.
    */
-  public function getCardtoken()
-  {
+  public function getCardtoken() {
     return $this->cardToken;
   }
 
@@ -48,8 +46,7 @@ class Planwithcardtokencreate extends \com\checkout\Apiservices\Charges\Requestm
    * @param mixed $cardToken
    *   The cardToken.
    */
-  public function setCardtoken($cardToken)
-  {
+  public function setCardtoken($cardToken) {
     $this->cardToken = $cardToken;
   }
 
@@ -64,8 +61,7 @@ class Planwithcardtokencreate extends \com\checkout\Apiservices\Charges\Requestm
    * @return mixed
    *   The transactionIndicator.
    */
-  public function getTransactionIndicator()
-  {
+  public function getTransactionIndicator() {
     return $this->transactionIndicator;
   }
 
@@ -80,8 +76,7 @@ class Planwithcardtokencreate extends \com\checkout\Apiservices\Charges\Requestm
    * @return mixed
    *   The transactionIndicator.
    */
-  public function setTransactionIndicator($transactionIndicator)
-  {
+  public function setTransactionIndicator($transactionIndicator) {
     $this->transactionIndicator = $transactionIndicator;
   }
 
@@ -98,8 +93,7 @@ class Planwithcardtokencreate extends \com\checkout\Apiservices\Charges\Requestm
    * @return mixed
    *   The paymentPlans.
    */
-  public function getPaymentplans()
-  {
+  public function getPaymentplans() {
     return $this->paymentPlans;
   }
 
@@ -116,8 +110,7 @@ class Planwithcardtokencreate extends \com\checkout\Apiservices\Charges\Requestm
    * @param mixed $paymentPlans
    *   The paymentPlans.
    */
-  public function setPaymentplans(Baserecurringpayment $paymentPlans)
-  {
+  public function setPaymentplans(Baserecurringpayment $paymentPlans) {
     $this->paymentPlans[] = $paymentPlans;
   }
 }

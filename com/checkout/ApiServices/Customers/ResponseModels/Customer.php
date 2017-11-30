@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Customers\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $object;
   private $id;
   private $name;
@@ -42,8 +41,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setObject($response->getObject());
     $this->setCards($response->getCards());
@@ -69,8 +67,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The array of cards.
    */
-  public function getCards()
-  {
+  public function getCards() {
     return $this->cards;
   }
 
@@ -80,8 +77,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $card
    *   The card.
    */
-  private function getCard($card)
-  {
+  private function getCard($card) {
 
     $cardObg = new \com\checkout\Apiservices\Cards\Responsemodels\Cardlist($card);
     return $cardObg;
@@ -93,8 +89,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The created date.
    */
-  public function getCreated()
-  {
+  public function getCreated() {
     return $this->created;
   }
 
@@ -106,8 +101,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The defaultCard.
    */
-  public function getDefaultCard()
-  {
+  public function getDefaultCard() {
     return $this->defaultCard;
   }
 
@@ -117,8 +111,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The description.
    */
-  public function getDescription()
-  {
+  public function getDescription() {
     return $this->description;
   }
 
@@ -128,8 +121,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The email.
    */
-  public function getEmail()
-  {
+  public function getEmail() {
     return $this->email;
   }
 
@@ -139,8 +131,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The customerName.
    */
-  public function getCustomerName()
-  {
+  public function getCustomerName() {
     return $this->customerName;
   }
 
@@ -152,8 +143,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The CustomerId.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -166,8 +156,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The LiveMode.
    */
-  public function getLiveMode()
-  {
+  public function getLiveMode() {
     return $this->liveMode;
   }
 
@@ -180,8 +169,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The ltv.
    */
-  public function getLtv()
-  {
+  public function getLtv() {
     return $this->ltv;
   }
 
@@ -194,8 +182,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The metadata.
    */
-  public function getMetadata()
-  {
+  public function getMetadata() {
     return $this->metadata;
   }
 
@@ -205,8 +192,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The customerName.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -216,8 +202,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -231,8 +216,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The phoneNumber.
    */
-  public function getPhoneNumber()
-  {
+  public function getPhoneNumber() {
     return $this->phoneNumber;
   }
 
@@ -242,8 +226,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The responseCode.
    */
-  public function getResponseCode()
-  {
+  public function getResponseCode() {
     return $this->responseCode;
   }
 
@@ -253,8 +236,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  private function setObject($object)
-  {
+  private function setObject($object) {
     $this->object = $object;
   }
 
@@ -266,8 +248,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $cards
    *   The array of cards.
    */
-  private function setCards($cards)
-  {
+  private function setCards($cards) {
     if ($cards) {
       $cardsArray = $cards->toArray();
       $this->cards = $this->getCard($cards);
@@ -280,8 +261,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $created
    *   The created date.
    */
-  private function setCreated($created)
-  {
+  private function setCreated($created) {
     $this->created = $created;
   }
 
@@ -293,8 +273,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $defaultCard
    *   The defaultCard.
    */
-  private function setDefaultCard($defaultCard)
-  {
+  private function setDefaultCard($defaultCard) {
     $this->defaultCard = $defaultCard;
   }
 
@@ -304,8 +283,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $description
    *   The description.
    */
-  private function setDescription($description)
-  {
+  private function setDescription($description) {
     $this->description = $description;
   }
 
@@ -315,8 +293,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $email
    *   The email.
    */
-  private function setEmail($email)
-  {
+  private function setEmail($email) {
     $this->email = $email;
   }
 
@@ -326,8 +303,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $customerName
    *   The customerName.
    */
-  private function setCustomerName($customerName)
-  {
+  private function setCustomerName($customerName) {
     $this->customerName = $customerName;
   }
 
@@ -339,8 +315,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $id
    *   The CustomerId.
    */
-  private function setId($id)
-  {
+  private function setId($id) {
     $this->id = $id;
   }
 
@@ -353,8 +328,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $liveMode
    *   The LiveMode.
    */
-  private function setLiveMode($liveMode)
-  {
+  private function setLiveMode($liveMode) {
     $this->liveMode = $liveMode;
   }
 
@@ -367,8 +341,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $ltv
    *   The ltv.
    */
-  private function setLtv($ltv)
-  {
+  private function setLtv($ltv) {
     $this->ltv = $ltv;
   }
 
@@ -381,8 +354,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $metadata
    *   The metadata.
    */
-  private function setMetadata($metadata)
-  {
+  private function setMetadata($metadata) {
     if ($metadata) {
       $this->metadata = $metadata->toArray();
     }
@@ -394,8 +366,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $name
    *   The customerName.
    */
-  private function setName($name)
-  {
+  private function setName($name) {
     $this->name = $name;
   }
 
@@ -409,8 +380,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed $phoneNumber
    *   The phoneNumber.
    */
-  private function setPhoneNumber($phoneNumber)
-  {
+  private function setPhoneNumber($phoneNumber) {
     $this->phoneNumber = $phoneNumber;
   }
 
@@ -420,8 +390,7 @@ class Customer extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed $responseCode
    *   The responseCode.
    */
-  private function setResponseCode($responseCode)
-  {
+  private function setResponseCode($responseCode) {
     $this->responseCode = $responseCode;
   }
 

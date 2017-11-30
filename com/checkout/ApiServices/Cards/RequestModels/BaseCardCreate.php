@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Cards\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Basecardcreate extends Basecard
-{
+class Basecardcreate extends Basecard {
   protected $number;
   protected $cvv;
 
@@ -30,8 +29,7 @@ class Basecardcreate extends Basecard
    * @return mixed
    *   The number.
    */
-  public function getNumber()
-  {
+  public function getNumber() {
     return $this->number;
   }
 
@@ -41,8 +39,7 @@ class Basecardcreate extends Basecard
    * @param mixed $number
    *   The number.
    */
-  public function setNumber($number)
-  {
+  public function setNumber($number) {
     $this->number = $number;
   }
 
@@ -54,8 +51,7 @@ class Basecardcreate extends Basecard
    * @return mixed
    *   The cvv.
    */
-  public function getCvv()
-  {
+  public function getCvv() {
     return $this->cvv;
   }
 
@@ -67,8 +63,7 @@ class Basecardcreate extends Basecard
    * @param mixed $cvv
    *   The cvv.
    */
-  public function setCvv($cvv)
-  {
+  public function setCvv($cvv) {
     $this->cvv = $cvv;
   }
 }

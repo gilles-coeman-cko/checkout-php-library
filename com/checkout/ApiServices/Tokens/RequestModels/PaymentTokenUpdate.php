@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Tokens\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Paymenttokenupdate
-{
+class Paymenttokenupdate {
   private $id;
   protected $trackId;
   protected $udf1;
@@ -35,8 +34,7 @@ class Paymenttokenupdate
    *
    * @param string $id
    */
-  public function __construct($id)
-  {
+  public function __construct($id) {
     $this->setId($id);
   }
 
@@ -49,8 +47,7 @@ class Paymenttokenupdate
    * @return mixed
    *   The id.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -63,8 +60,7 @@ class Paymenttokenupdate
    * @param mixed $id
    *   The id.
    */
-  public function setId($id)
-  {
+  public function setId($id) {
     $this->id = $id;
   }
 
@@ -76,8 +72,7 @@ class Paymenttokenupdate
    * @return mixed
    *   The udf1.
    */
-  public function getUdf1()
-  {
+  public function getUdf1() {
     return $this->udf1;
   }
 
@@ -89,8 +84,7 @@ class Paymenttokenupdate
    * @param mixed $udf1
    *   The udf1.
    */
-  public function setUdf1($udf1)
-  {
+  public function setUdf1($udf1) {
     $this->udf1 = $udf1;
   }
 
@@ -102,8 +96,7 @@ class Paymenttokenupdate
    * @return mixed
    *   The udf2.
    */
-  public function getUdf2()
-  {
+  public function getUdf2() {
     return $this->udf2;
   }
 
@@ -115,8 +108,7 @@ class Paymenttokenupdate
    * @param mixed $udf2
    *   The udf2.
    */
-  public function setUdf2($udf2)
-  {
+  public function setUdf2($udf2) {
     $this->udf2 = $udf2;
   }
 
@@ -128,8 +120,7 @@ class Paymenttokenupdate
    * @return mixed
    *   The udf3.
    */
-  public function getUdf3()
-  {
+  public function getUdf3() {
     return $this->udf3;
   }
 
@@ -141,8 +132,7 @@ class Paymenttokenupdate
    * @param mixed $udf3
    *   The udf3.
    */
-  public function setUdf3($udf3)
-  {
+  public function setUdf3($udf3) {
     $this->udf3 = $udf3;
   }
 
@@ -154,8 +144,7 @@ class Paymenttokenupdate
    * @return mixed
    *   The udf4.
    */
-  public function getUdf4()
-  {
+  public function getUdf4() {
     return $this->udf4;
   }
 
@@ -167,8 +156,7 @@ class Paymenttokenupdate
    * @param mixed $udf4
    *   The udf4.
    */
-  public function setUdf4($udf4)
-  {
+  public function setUdf4($udf4) {
     $this->udf4 = $udf4;
   }
 
@@ -180,8 +168,7 @@ class Paymenttokenupdate
    * @return mixed
    *   The udf5.
    */
-  public function getUdf5()
-  {
+  public function getUdf5() {
     return $this->udf5;
   }
 
@@ -193,8 +180,7 @@ class Paymenttokenupdate
    * @param mixed $udf5
    *   The udf5.
    */
-  public function setUdf5($udf5)
-  {
+  public function setUdf5($udf5) {
     $this->udf5 = $udf5;
   }
 
@@ -207,8 +193,7 @@ class Paymenttokenupdate
    * @return mixed
    *   The metadata.
    */
-  public function getMetadata()
-  {
+  public function getMetadata() {
     return $this->metadata;
   }
 
@@ -221,8 +206,7 @@ class Paymenttokenupdate
    * @param mixed $metadata
    *   The metadata.
    */
-  public function setMetadata($metadata)
-  {
+  public function setMetadata($metadata) {
     $this->metadata = $metadata;
   }
 
@@ -234,8 +218,7 @@ class Paymenttokenupdate
    * @return mixed
    *   The trackId.
    */
-  public function getTrackId()
-  {
+  public function getTrackId() {
     return $this->trackId;
   }
 
@@ -247,8 +230,7 @@ class Paymenttokenupdate
    * @param mixed $trackId
    *   The trackId.
    */
-  public function setTrackId($trackId)
-  {
+  public function setTrackId($trackId) {
     $this->trackId = $trackId;
   }
 }

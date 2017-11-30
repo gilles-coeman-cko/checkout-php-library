@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planupdate
-{
+class Planupdate {
 
   protected $planId;
   protected $name;
@@ -38,8 +37,7 @@ class Planupdate
    * @return string
    *   The plan Id.
    */
-  public function getPlanId()
-  {
+  public function getPlanId() {
     return $this->planId;
   }
 
@@ -52,8 +50,7 @@ class Planupdate
    * @param string $planId
    *   The plan Id.
    */
-  public function setPlanId($planId)
-  {
+  public function setPlanId($planId) {
     $this->planId = $planId;
   }
 
@@ -65,8 +62,7 @@ class Planupdate
    * @return string
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -78,8 +74,7 @@ class Planupdate
    * @param string $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -89,8 +84,7 @@ class Planupdate
    * @return string
    *   The plan track id.
    */
-  public function getPlanTrackId()
-  {
+  public function getPlanTrackId() {
     return $this->planTrackId;
   }
 
@@ -100,8 +94,7 @@ class Planupdate
    * @param string $planTrackId
    *   The plan track id.
    */
-  public function setPlanTrackId($planTrackId)
-  {
+  public function setPlanTrackId($planTrackId) {
     $this->planTrackId = $planTrackId;
   }
 
@@ -111,8 +104,7 @@ class Planupdate
    * @return mixed
    *   The auto cap time.
    */
-  public function getAutoCapTime()
-  {
+  public function getAutoCapTime() {
     return $this->autoCapTime;
   }
 
@@ -122,8 +114,7 @@ class Planupdate
    * @param mixed $autoCapTime
    *   The auto cap time.
    */
-  public function setAutoCapTime($autoCapTime)
-  {
+  public function setAutoCapTime($autoCapTime) {
     $this->autoCapTime = $autoCapTime;
   }
 
@@ -137,8 +128,7 @@ class Planupdate
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -152,8 +142,7 @@ class Planupdate
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -174,8 +163,7 @@ class Planupdate
    * @return mixed
    *   The status.
    */
-  public function getStatus()
-  {
+  public function getStatus() {
     return $this->status;
   }
 
@@ -196,8 +184,7 @@ class Planupdate
    * @param mixed $status
    *   The status.
    */
-  public function setStatus($status)
-  {
+  public function setStatus($status) {
     $this->status = $status;
   }
 }

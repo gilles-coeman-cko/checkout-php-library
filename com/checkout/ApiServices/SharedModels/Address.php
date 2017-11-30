@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Address
-{
+class Address {
   protected $addressLine1;
   protected $addressLine2;
   protected $postcode;
@@ -35,8 +34,7 @@ class Address
    * @return mixed
    *   The addressLine1.
    */
-  public function getAddressLine1()
-  {
+  public function getAddressLine1() {
     return $this->addressLine1;
   }
 
@@ -46,8 +44,7 @@ class Address
    * @param mixed $addressLine1
    *   The addressLine1.
    */
-  public function setAddressLine1($addressLine1)
-  {
+  public function setAddressLine1($addressLine1) {
     $this->addressLine1 = $addressLine1;
   }
 
@@ -57,8 +54,7 @@ class Address
    * @return mixed
    *   The addressLine2.
    */
-  public function getAddressLine2()
-  {
+  public function getAddressLine2() {
     return $this->addressLine2;
   }
 
@@ -68,8 +64,7 @@ class Address
    * @param mixed $addressLine2
    *   The addressLine2.
    */
-  public function setAddressLine2($addressLine2)
-  {
+  public function setAddressLine2($addressLine2) {
     $this->addressLine2 = $addressLine2;
   }
 
@@ -79,8 +74,7 @@ class Address
    * @return mixed
    *   The postcode.
    */
-  public function getPostcode()
-  {
+  public function getPostcode() {
     return $this->postcode;
   }
 
@@ -90,8 +84,7 @@ class Address
    * @param mixed $postcode
    *   The postcode.
    */
-  public function setPostcode($postcode)
-  {
+  public function setPostcode($postcode) {
     $this->postcode = $postcode;
   }
 
@@ -101,8 +94,7 @@ class Address
    * @return mixed
    *   The country.
    */
-  public function getCountry()
-  {
+  public function getCountry() {
     return $this->country;
   }
 
@@ -112,8 +104,7 @@ class Address
    * @param mixed $country
    *   The country.
    */
-  public function setCountry($country)
-  {
+  public function setCountry($country) {
     $this->country = $country;
   }
 
@@ -123,8 +114,7 @@ class Address
    * @return mixed
    *   The city.
    */
-  public function getCity()
-  {
+  public function getCity() {
     return $this->city;
   }
 
@@ -134,8 +124,7 @@ class Address
    * @param mixed $city
    *   The city.
    */
-  public function setCity($city)
-  {
+  public function setCity($city) {
     $this->city = $city;
   }
 
@@ -145,8 +134,7 @@ class Address
    * @return mixed
    *   The state.
    */
-  public function getState()
-  {
+  public function getState() {
     return $this->state;
   }
 
@@ -156,8 +144,7 @@ class Address
    * @param mixed $state
    *   The state.
    */
-  public function setState($state)
-  {
+  public function setState($state) {
     $this->state = $state;
   }
 
@@ -167,8 +154,7 @@ class Address
    * @return mixed
    *   The phone.
    */
-  public function getPhone()
-  {
+  public function getPhone() {
     return $this->phone;
   }
 
@@ -178,8 +164,7 @@ class Address
    * @param Phone $phone
    *   The phone.
    */
-  public function setPhone(Phone $phone)
-  {
+  public function setPhone(Phone $phone) {
     $this->phone = $phone;
   }
 }

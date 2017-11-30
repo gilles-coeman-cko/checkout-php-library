@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Customers\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $object;
   private $count;
   private $data;
@@ -31,8 +30,7 @@ class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setCount($response->getCount());
     $this->setData($response->getData());
@@ -45,8 +43,7 @@ class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return int
    *   The list count.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -56,8 +53,7 @@ class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The list data.
    */
-  public function getData()
-  {
+  public function getData() {
     return $this->data;
   }
 
@@ -67,8 +63,7 @@ class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return int
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -78,8 +73,7 @@ class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $count
    *   The list count.
    */
-  private function setCount($count)
-  {
+  private function setCount($count) {
     $this->count = $count;
   }
 
@@ -89,8 +83,7 @@ class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $data
    *   The list data.
    */
-  private function setData($data)
-  {
+  private function setData($data) {
     $dataArray = $data->toArray();
     foreach ($dataArray as $customer) {
       $this->data[] = $this->getCustomer($customer);
@@ -103,8 +96,7 @@ class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  private function setObject($object)
-  {
+  private function setObject($object) {
     $this->object = $object;
   }
 
@@ -114,9 +106,8 @@ class Customerlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The customer.
    */
-  private function getCustomer($customer)
-  {
-    $dummyObjCart = new \CheckoutApi_LibrespondObj();
+  private function getCustomer($customer) {
+    $dummyObjCart = new \Checkoutapi_LibrespondObj();
     $dummyObjCart->setConfig($customer);
     $cardObg = new Customer($dummyObjCart);
     return $cardObg;

@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
 
   protected $object;
   protected $id;
@@ -43,8 +42,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -56,8 +54,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The chargeId.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -69,8 +66,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The chargeId.
    */
-  public function getChargeId()
-  {
+  public function getChargeId() {
     return $this->chargeId;
   }
 
@@ -82,8 +78,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The scheme.
    */
-  public function getScheme()
-  {
+  public function getScheme() {
     return $this->scheme;
   }
 
@@ -97,8 +92,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -111,8 +105,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The currency.
    */
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
@@ -124,8 +117,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The trackId.
    */
-  public function getTrackId()
-  {
+  public function getTrackId() {
     return $this->trackId;
   }
 
@@ -135,8 +127,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The issueDate.
    */
-  public function getIssueDate()
-  {
+  public function getIssueDate() {
     return $this->issueDate;
   }
 
@@ -146,8 +137,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The cardNumber.
    */
-  public function getCardNumber()
-  {
+  public function getCardNumber() {
     return $this->cardNumber;
   }
 
@@ -157,8 +147,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The indicator.
    */
-  public function getIndicator()
-  {
+  public function getIndicator() {
     return $this->indicator;
   }
 
@@ -168,8 +157,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The reasonCode.
    */
-  public function getReasonCode()
-  {
+  public function getReasonCode() {
     return $this->reasonCode;
   }
 
@@ -179,8 +167,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The arn.
    */
-  public function getArn()
-  {
+  public function getArn() {
     return $this->arn;
   }
 
@@ -190,8 +177,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The customerName.
    */
-  public function getCustomerName()
-  {
+  public function getCustomerName() {
     return $this->customerName;
   }
 
@@ -201,8 +187,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The customerEmail.
    */
-  public function getCustomerEmail()
-  {
+  public function getCustomerEmail() {
     return $this->customerEmail;
   }
 
@@ -212,8 +197,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  public function setObject($object)
-  {
+  public function setObject($object) {
     $this->object = $object;
   }
 
@@ -225,8 +209,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $id
    *   The chargeId.
    */
-  public function setId($id)
-  {
+  public function setId($id) {
     $this->id = $id;
   }
 
@@ -238,8 +221,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $id
    *   The chargeId.
    */
-  public function setChargeId($chargeId)
-  {
+  public function setChargeId($chargeId) {
     $this->chargeId = $chargeId;
   }
 
@@ -251,8 +233,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $scheme
    *   The scheme.
    */
-  public function setScheme($scheme)
-  {
+  public function setScheme($scheme) {
     $this->scheme = $scheme;
   }
 
@@ -266,8 +247,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -280,8 +260,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $currency
    *   The currency.
    */
-  public function setCurrency($currency)
-  {
+  public function setCurrency($currency) {
     $this->currency = $currency;
   }
 
@@ -293,8 +272,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $trackId
    *   The trackId.
    */
-  public function setTrackId($trackId)
-  {
+  public function setTrackId($trackId) {
     $this->trackId = $trackId;
   }
 
@@ -304,8 +282,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $issueDate
    *   The issueDate.
    */
-  public function setIssueDate($issueDate)
-  {
+  public function setIssueDate($issueDate) {
     $this->issueDate = $issueDate;
   }
 
@@ -315,8 +292,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $cardNumber
    *   The cardNumber.
    */
-  public function setCardNumber($cardNumber)
-  {
+  public function setCardNumber($cardNumber) {
     $this->cardNumber = $cardNumber;
   }
 
@@ -326,8 +302,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $indicator
    *   The indicator.
    */
-  public function setIndicator($indicator)
-  {
+  public function setIndicator($indicator) {
     $this->indicator = $indicator;
   }
 
@@ -337,8 +312,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed $reasonCode
    *   The reasonCode.
    */
-  public function setReasonCode($reasonCode)
-  {
+  public function setReasonCode($reasonCode) {
     $this->reasonCode = $reasonCode;
   }
 
@@ -348,8 +322,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $arn
    *   The arn.
    */
-  public function setArn($arn)
-  {
+  public function setArn($arn) {
     $this->arn = $arn;
   }
 
@@ -359,8 +332,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $customerName
    *   The customerName.
    */
-  public function setCustomerName($customerName)
-  {
+  public function setCustomerName($customerName) {
     $this->customerName = $customerName;
   }
 
@@ -370,8 +342,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $customerEmail
    *   The customerEmail.
    */
-  public function setCustomerEmail($customerEmail)
-  {
+  public function setCustomerEmail($customerEmail) {
     $this->customerEmail = $customerEmail;
   }
 
@@ -381,8 +352,7 @@ class Chargeback extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $responseCode
    *   The responseCode.
    */
-  public function setResponseCode($responseCode)
-  {
+  public function setResponseCode($responseCode) {
     $this->responseCode = $responseCode;
   }
 

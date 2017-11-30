@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Tokens\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardtoken
-{
+class Cardtoken {
   private $object;
   private $id;
   private $liveMode;
@@ -35,8 +34,7 @@ class Cardtoken
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     $this->setCard($response->getCard());
     $this->setCreated($response->getCreated());
     $this->setId($response->getId());
@@ -52,8 +50,7 @@ class Cardtoken
    * @param mixed $card
    *   The card.
    */
-  private function setCard($card)
-  {
+  private function setCard($card) {
     $cardObg = new \com\checkout\Apiservices\Cards\Responsemodels\Card();
     $billingDetails = new \com\checkout\Apiservices\Sharedmodels\Address();
     $billingAddress = $card->getBillingDetails();
@@ -90,8 +87,7 @@ class Cardtoken
    * @param mixed $created
    *   The created date.
    */
-  private function setCreated($created)
-  {
+  private function setCreated($created) {
     $this->created = $created;
   }
 
@@ -103,8 +99,7 @@ class Cardtoken
    * @param mixed $id
    *   The chargeId.
    */
-  private function setId($id)
-  {
+  private function setId($id) {
     $this->id = $id;
   }
 
@@ -117,8 +112,7 @@ class Cardtoken
    * @param mixed $liveMode
    *   The LiveMode.
    */
-  private function setLiveMode($liveMode)
-  {
+  private function setLiveMode($liveMode) {
     $this->liveMode = $liveMode;
   }
 
@@ -128,8 +122,7 @@ class Cardtoken
    * @param int $object
    *   The object.
    */
-  private function setObject($object)
-  {
+  private function setObject($object) {
     $this->object = $object;
   }
 
@@ -139,8 +132,7 @@ class Cardtoken
    * @param mixed $paymentType
    *   The payment type.
    */
-  private function setPaymentType($paymentType)
-  {
+  private function setPaymentType($paymentType) {
     $this->paymentType = $paymentType;
   }
 
@@ -150,8 +142,7 @@ class Cardtoken
    * @param mixed $used
    *   The used variable.
    */
-  private function setUsed($used)
-  {
+  private function setUsed($used) {
     $this->used = $used;
   }
 
@@ -161,8 +152,7 @@ class Cardtoken
    * @return mixed
    *   The card.
    */
-  public function getCard()
-  {
+  public function getCard() {
     return $this->card;
   }
 
@@ -172,8 +162,7 @@ class Cardtoken
    * @return mixed
    *   The created date.
    */
-  public function getCreated()
-  {
+  public function getCreated() {
     return $this->created;
   }
 
@@ -185,8 +174,7 @@ class Cardtoken
    * @return mixed
    *   The chargeId.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -199,8 +187,7 @@ class Cardtoken
    * @return mixed
    *   The LiveMode.
    */
-  public function getLiveMode()
-  {
+  public function getLiveMode() {
     return $this->liveMode;
   }
 
@@ -210,8 +197,7 @@ class Cardtoken
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -221,8 +207,7 @@ class Cardtoken
    * @return mixed
    *   The payment type.
    */
-  public function getPaymentType()
-  {
+  public function getPaymentType() {
     return $this->paymentType;
   }
 
@@ -232,8 +217,7 @@ class Cardtoken
    * @return mixed
    *   The used variable.
    */
-  public function getUsed()
-  {
+  public function getUsed() {
     return $this->used;
   }
 

@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Cards\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   protected $object;
   protected $id;
   protected $last4;
@@ -44,8 +43,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setAuthCode($response->getAuthCode());
     $this->setAvsCheck($response->getAvsCheck());
@@ -75,8 +73,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The Authcode.
    */
-  public function getAuthCode()
-  {
+  public function getAuthCode() {
     return $this->authCode;
   }
 
@@ -86,8 +83,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The avsCheck.
    */
-  public function getAvsCheck()
-  {
+  public function getAvsCheck() {
     return $this->avsCheck;
   }
 
@@ -112,8 +108,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The BillingDetails .
    */
-  public function getBillingDetails()
-  {
+  public function getBillingDetails() {
     return $this->billingDetails;
   }
 
@@ -125,8 +120,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The CustomerId.
    */
-  public function getCustomerId()
-  {
+  public function getCustomerId() {
     return $this->customerId;
   }
 
@@ -140,8 +134,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The cvvCheck.
    */
-  public function getCvvCheck()
-  {
+  public function getCvvCheck() {
     return $this->cvvCheck;
   }
 
@@ -153,8 +146,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The defaultCard.
    */
-  public function getDefaultCard()
-  {
+  public function getDefaultCard() {
     return $this->defaultCard;
   }
 
@@ -164,8 +156,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The expiryMonth.
    */
-  public function getExpiryMonth()
-  {
+  public function getExpiryMonth() {
     return $this->expiryMonth;
   }
 
@@ -175,8 +166,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The expiryYear.
    */
-  public function getExpiryYear()
-  {
+  public function getExpiryYear() {
     return $this->expiryYear;
   }
 
@@ -189,8 +179,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The fingerprint.
    */
-  public function getFingerprint()
-  {
+  public function getFingerprint() {
     return $this->fingerprint;
   }
 
@@ -205,8 +194,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The cardId.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -216,8 +204,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The last4.
    */
-  public function getLast4()
-  {
+  public function getLast4() {
     return $this->last4;
   }
 
@@ -230,8 +217,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The LiveMode.
    */
-  public function getLiveMode()
-  {
+  public function getLiveMode() {
     return $this->liveMode;
   }
 
@@ -241,8 +227,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -252,8 +237,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -263,8 +247,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The paymentMethod.
    */
-  public function getPaymentMethod()
-  {
+  public function getPaymentMethod() {
     return $this->paymentMethod;
   }
 
@@ -274,8 +257,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The responseCode.
    */
-  public function getResponseCode()
-  {
+  public function getResponseCode() {
     return $this->responseCode;
   }
 
@@ -285,8 +267,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $authCode
    *   The Authcode.
    */
-  private function setAuthCode($authCode)
-  {
+  private function setAuthCode($authCode) {
     $this->authCode = $authCode;
   }
 
@@ -296,8 +277,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $avsCheck
    *   The avsCheck.
    */
-  private function setAvsCheck($avsCheck)
-  {
+  private function setAvsCheck($avsCheck) {
     $this->avsCheck = $avsCheck;
   }
 
@@ -322,8 +302,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $billingDetails
    *   The BillingDetails .
    */
-  private function setBillingDetails($billingDetails)
-  {
+  private function setBillingDetails($billingDetails) {
 
     $billingAddress = new \com\checkout\Apiservices\Sharedmodels\Address();
     $phone = new \com\checkout\Apiservices\Sharedmodels\Phone();
@@ -348,8 +327,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $customerId
    *   The CustomerId.
    */
-  private function setCustomerId($customerId)
-  {
+  private function setCustomerId($customerId) {
     $this->customerId = $customerId;
   }
 
@@ -363,8 +341,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $cvvCheck
    *   The cvvCheck.
    */
-  private function setCvvCheck($cvvCheck)
-  {
+  private function setCvvCheck($cvvCheck) {
     $this->cvvCheck = $cvvCheck;
   }
 
@@ -376,8 +353,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $defaultCard
    *   The defaultCard.
    */
-  private function setDefaultCard($defaultCard)
-  {
+  private function setDefaultCard($defaultCard) {
     $this->defaultCard = $defaultCard;
   }
 
@@ -387,8 +363,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $expiryMonth
    *   The expiryMonth.
    */
-  private function setExpiryMonth($expiryMonth)
-  {
+  private function setExpiryMonth($expiryMonth) {
     $this->expiryMonth = $expiryMonth;
   }
 
@@ -398,8 +373,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $expiryYear
    *   The expiryYear.
    */
-  private function setExpiryYear($expiryYear)
-  {
+  private function setExpiryYear($expiryYear) {
     $this->expiryYear = $expiryYear;
   }
 
@@ -412,8 +386,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $fingerprint
    *   The fingerprint.
    */
-  private function setFingerprint($fingerprint)
-  {
+  private function setFingerprint($fingerprint) {
     $this->fingerprint = $fingerprint;
   }
 
@@ -428,8 +401,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $id
    *   The cardId.
    */
-  private function setId($id)
-  {
+  private function setId($id) {
     $this->id = $id;
   }
 
@@ -439,8 +411,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $last4
    *   The last4.
    */
-  private function setLast4($last4)
-  {
+  private function setLast4($last4) {
     $this->last4 = $last4;
   }
 
@@ -453,8 +424,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $liveMode
    *   The LiveMode.
    */
-  private function setLiveMode($liveMode)
-  {
+  private function setLiveMode($liveMode) {
     $this->liveMode = $liveMode;
   }
 
@@ -464,8 +434,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $name
    *   The name.
    */
-  private function setName($name)
-  {
+  private function setName($name) {
     $this->name = $name;
   }
 
@@ -475,8 +444,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  private function setObject($object)
-  {
+  private function setObject($object) {
     $this->object = $object;
   }
 
@@ -486,8 +454,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $paymentMethod
    *   The paymentMethod.
    */
-  private function setPaymentMethod($paymentMethod)
-  {
+  private function setPaymentMethod($paymentMethod) {
     $this->paymentMethod = $paymentMethod;
   }
 
@@ -497,8 +464,7 @@ class Card extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $responseCode
    *   The responseCode.
    */
-  private function setResponseCode($responseCode)
-  {
+  private function setResponseCode($responseCode) {
     $this->responseCode = $responseCode;
   }
 }

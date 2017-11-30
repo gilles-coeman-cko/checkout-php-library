@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Paymentproviders\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   protected $object;
   protected $count;
   protected $data;
@@ -31,8 +30,7 @@ class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Ba
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     $this->setCount($response->getCount());
     $this->setData($response->getData());
     $this->setObject($response->getObject());
@@ -44,8 +42,7 @@ class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Ba
    * @return int
    *   The list count.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -55,8 +52,7 @@ class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Ba
    * @return mixed
    *   The list data.
    */
-  public function getData()
-  {
+  public function getData() {
     return $this->data;
   }
 
@@ -66,8 +62,7 @@ class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Ba
    * @return int
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -77,8 +72,7 @@ class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Ba
    * @param mixed $count
    *   The list count.
    */
-  private function setCount($count)
-  {
+  private function setCount($count) {
     $this->count = $count;
   }
 
@@ -88,8 +82,7 @@ class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Ba
    * @param mixed $data
    *   The list data.
    */
-  private function setData($data)
-  {
+  private function setData($data) {
     $dataArray = $data->toArray();
     foreach ($dataArray as $provider) {
       $this->data[] = $this->getProvider($provider);
@@ -102,8 +95,7 @@ class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Ba
    * @param int $object
    *   The object.
    */
-  private function setObject($object)
-  {
+  private function setObject($object) {
     $this->object = $object;
   }
 
@@ -113,9 +105,8 @@ class Localpaymentproviderlist extends \com\checkout\Apiservices\Sharedmodels\Ba
    * @return mixed
    *   The provider.
    */
-  private function getProvider($customer)
-  {
-    $dummyObjCart = new \CheckoutApi_LibrespondObj();
+  private function getProvider($customer) {
+    $dummyObjCart = new \Checkoutapi_LibrespondObj();
     $dummyObjCart->setConfig($customer);
     $cardObg = new \PHPPlugin\Apiservices\Paymentproviders\Responsemodels\Localpaymentprovider($dummyObjCart);
 

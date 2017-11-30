@@ -18,7 +18,7 @@
  * @category Client
  * @version Release: @package_version@
  */
-class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract implements CheckoutapiClientAdapterInterface {
+class CheckoutapiClientAdapterCurl extends Checkoutapiclientadapterabstract implements CheckoutapiClientAdapterInterface {
   /**
    * Timeout time in minutes.
    *

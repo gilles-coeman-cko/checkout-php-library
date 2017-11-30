@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Tokens\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardtokencreate extends Basecharge
-{
+class Cardtokencreate extends Basecharge {
   protected $baseCardcreate;
 
   /**
@@ -29,8 +28,7 @@ class Cardtokencreate extends Basecharge
    * @return mixed
    *   The baseCardcreate.
    */
-  public function getBasecardcreate()
-  {
+  public function getBasecardcreate() {
     return $this->baseCardcreate;
   }
 
@@ -40,8 +38,7 @@ class Cardtokencreate extends Basecharge
    * @param mixed $baseCardcreate
    *   The baseCardcreate.
    */
-  public function setBasecardcreate(Basecardcreate $baseCardcreate)
-  {
+  public function setBasecardcreate(Basecardcreate $baseCardcreate) {
     $this->baseCardcreate = $baseCardcreate;
   }
 }

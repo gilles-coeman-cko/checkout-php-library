@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   protected $object;
   protected $id;
   protected $chargeMode;
@@ -38,8 +37,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -51,8 +49,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The chargeId.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -67,8 +64,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The chargeMode.
    */
-  public function getChargeMode()
-  {
+  public function getChargeMode() {
     return $this->chargeMode;
   }
 
@@ -78,8 +74,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The created date.
    */
-  public function getCreated()
-  {
+  public function getCreated() {
     return $this->created;
   }
 
@@ -89,8 +84,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The email.
    */
-  public function getEmail()
-  {
+  public function getEmail() {
     return $this->email;
   }
 
@@ -103,8 +97,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The LiveMode.
    */
-  public function getLiveMode()
-  {
+  public function getLiveMode() {
     return $this->liveMode;
   }
 
@@ -116,8 +109,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The status.
    */
-  public function getStatus()
-  {
+  public function getStatus() {
     return $this->status;
   }
 
@@ -129,8 +121,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The trackId.
    */
-  public function getTrackId()
-  {
+  public function getTrackId() {
     return $this->trackId;
   }
 
@@ -144,8 +135,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -155,8 +145,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The responseCode.
    */
-  public function getResponseCode()
-  {
+  public function getResponseCode() {
     return $this->responseCode;
   }
 
@@ -166,8 +155,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  public function setObject($object)
-  {
+  public function setObject($object) {
     $this->object = $object;
   }
 
@@ -179,8 +167,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $id
    *   The chargeId.
    */
-  public function setId($id)
-  {
+  public function setId($id) {
     $this->id = $id;
   }
 
@@ -195,8 +182,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $chargeMode
    *   The chargeMode.
    */
-  public function setChargeMode($chargeMode)
-  {
+  public function setChargeMode($chargeMode) {
     $this->chargeMode = $chargeMode;
   }
 
@@ -206,8 +192,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $created
    *   The created date.
    */
-  public function setCreated($created)
-  {
+  public function setCreated($created) {
     $this->created = $created;
   }
 
@@ -217,8 +202,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $email
    *   The email.
    */
-  public function setEmail($email)
-  {
+  public function setEmail($email) {
     $this->email = $email;
   }
 
@@ -231,8 +215,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $liveMode
    *   The LiveMode.
    */
-  public function setLiveMode($liveMode)
-  {
+  public function setLiveMode($liveMode) {
     $this->liveMode = $liveMode;
   }
 
@@ -244,8 +227,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $status
    *   The status.
    */
-  public function setStatus($status)
-  {
+  public function setStatus($status) {
     $this->status = $status;
   }
 
@@ -257,8 +239,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $trackId
    *   The trackId.
    */
-  public function setTrackId($trackId)
-  {
+  public function setTrackId($trackId) {
     $this->trackId = $trackId;
   }
 
@@ -272,8 +253,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -283,8 +263,7 @@ class Charge extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $responseCode
    *   The responseCode.
    */
-  public function setResponseCode($responseCode)
-  {
+  public function setResponseCode($responseCode) {
     $this->responseCode = $responseCode;
   }
 

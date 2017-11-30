@@ -18,8 +18,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Querycustomerplan
-{
+class Querycustomerplan {
   private $fromDate = null;
   private $toDate = null;
   private $offset = null;
@@ -45,8 +44,7 @@ class Querycustomerplan
    * @param mixed $fromDate
    *   The fromDate.
    */
-  public function setFromDate($fromDate)
-  {
+  public function setFromDate($fromDate) {
     $this->fromDate = $fromDate;
   }
 
@@ -58,8 +56,7 @@ class Querycustomerplan
    * @return mixed
    *   The fromDate.
    */
-  public function getFromDate()
-  {
+  public function getFromDate() {
     return $this->fromDate;
   }
 
@@ -71,8 +68,7 @@ class Querycustomerplan
    * @param mixed $toDate
    *   The toDate.
    */
-  public function setToDate($toDate)
-  {
+  public function setToDate($toDate) {
     $this->toDate = $toDate;
   }
 
@@ -84,8 +80,7 @@ class Querycustomerplan
    * @return mixed
    *   The toDate.
    */
-  public function getToDate()
-  {
+  public function getToDate() {
     return $this->toDate;
   }
 
@@ -95,8 +90,7 @@ class Querycustomerplan
    * @param mixed $offset
    *   The page offset.
    */
-  public function setOffset($offset)
-  {
+  public function setOffset($offset) {
     $this->offset = $offset;
   }
 
@@ -106,8 +100,7 @@ class Querycustomerplan
    * @param mixed $offset
    *   The page offset.
    */
-  public function getOffset()
-  {
+  public function getOffset() {
     return $this->offset;
   }
 
@@ -117,8 +110,7 @@ class Querycustomerplan
    * @param mixed $requestModel
    *   The page count.
    */
-  public function setCount($count)
-  {
+  public function setCount($count) {
     $this->count = $count;
   }
 
@@ -128,8 +120,7 @@ class Querycustomerplan
    * @return mixed
    *   The page data.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -141,8 +132,7 @@ class Querycustomerplan
    * @param string $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -154,8 +144,7 @@ class Querycustomerplan
    * @return string
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -165,8 +154,7 @@ class Querycustomerplan
    * @param string $planTrackId
    *   The plan track id.
    */
-  public function setPlanTrackId($planTrackId)
-  {
+  public function setPlanTrackId($planTrackId) {
     $this->planTrackId = $planTrackId;
   }
 
@@ -176,8 +164,7 @@ class Querycustomerplan
    * @return string
    *   The plan track id.
    */
-  public function getPlanTrackId()
-  {
+  public function getPlanTrackId() {
     return $this->planTrackId;
   }
 
@@ -187,8 +174,7 @@ class Querycustomerplan
    * @param mixed $autoCapTime
    *   The auto cap time.
    */
-  public function setAutoCapTime($autoCapTime)
-  {
+  public function setAutoCapTime($autoCapTime) {
     $this->autoCapTime = $autoCapTime;
   }
 
@@ -198,8 +184,7 @@ class Querycustomerplan
    * @return mixed
    *   The auto cap time.
    */
-  public function getAutoCapTime()
-  {
+  public function getAutoCapTime() {
     return $this->autoCapTime;
   }
 
@@ -213,8 +198,7 @@ class Querycustomerplan
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -228,8 +212,7 @@ class Querycustomerplan
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -250,8 +233,7 @@ class Querycustomerplan
    * @param mixed $status
    *   The status.
    */
-  public function setStatus($status)
-  {
+  public function setStatus($status) {
     $this->status = $status;
   }
 
@@ -272,8 +254,7 @@ class Querycustomerplan
    * @return mixed
    *   The status.
    */
-  public function getStatus()
-  {
+  public function getStatus() {
     return $this->status;
   }
 
@@ -286,8 +267,7 @@ class Querycustomerplan
    * @param string $planId
    *   The plan Id.
    */
-  public function setPlanId($planId)
-  {
+  public function setPlanId($planId) {
     $this->planId = $planId;
   }
 
@@ -300,8 +280,7 @@ class Querycustomerplan
    * @return string
    *   The plan Id.
    */
-  public function getPlanId()
-  {
+  public function getPlanId() {
     return $this->planId;
   }
 
@@ -313,8 +292,7 @@ class Querycustomerplan
    * @param mixed $cardId
    *   The cardId.
    */
-  public function setCardId($cardId)
-  {
+  public function setCardId($cardId) {
     $this->cardId = $cardId;
   }
 
@@ -326,8 +304,7 @@ class Querycustomerplan
    * @return mixed
    *   The customerPlanId.
    */
-  public function getCardId()
-  {
+  public function getCardId() {
     return $this->cardId;
   }
 
@@ -339,8 +316,7 @@ class Querycustomerplan
    * @param mixed $customerId
    *   The customerId.
    */
-  public function setCustomerId($customerId)
-  {
+  public function setCustomerId($customerId) {
     $this->customerId = $customerId;
   }
 
@@ -352,8 +328,7 @@ class Querycustomerplan
    * @return mixed
    *   The customerId.
    */
-  public function getCustomerId()
-  {
+  public function getCustomerId() {
     return $this->customerId;
   }
 
@@ -366,8 +341,7 @@ class Querycustomerplan
    * @param mixed $currency
    *   The currency.
    */
-  public function setCurrency($currency)
-  {
+  public function setCurrency($currency) {
     $this->currency = $currency;
   }
 
@@ -380,8 +354,7 @@ class Querycustomerplan
    * @return mixed
    *   The currency.
    */
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
@@ -400,8 +373,7 @@ class Querycustomerplan
    * @param mixed $cycle
    *   The value.
    */
-  public function setCycle($cycle)
-  {
+  public function setCycle($cycle) {
     $this->cycle = $cycle;
   }
 
@@ -420,8 +392,7 @@ class Querycustomerplan
    * @return mixed
    *   The value.
    */
-  public function getCycle()
-  {
+  public function getCycle() {
     return $this->cycle;
   }
 
@@ -434,8 +405,7 @@ class Querycustomerplan
    * @param mixed $startDate
    *   The startDate.
    */
-  public function setStartDate($startDate)
-  {
+  public function setStartDate($startDate) {
     $this->startDate = $startDate;
   }
 
@@ -448,8 +418,7 @@ class Querycustomerplan
    * @return mixed
    *   The startDate.
    */
-  public function getStartDate()
-  {
+  public function getStartDate() {
     return $this->startDate;
   }
 
@@ -462,8 +431,7 @@ class Querycustomerplan
    * @param mixed $nextRecurringDate
    *   The nextRecurringDate.
    */
-  public function setNextRecurringDate($nextRecurringDate)
-  {
+  public function setNextRecurringDate($nextRecurringDate) {
     $this->nextRecurringDate = $nextRecurringDate;
   }
 
@@ -476,8 +444,7 @@ class Querycustomerplan
    * @return mixed
    *   The nextRecurringDate.
    */
-  public function getNextRecurringDate()
-  {
+  public function getNextRecurringDate() {
     return $this->nextRecurringDate;
   }
 

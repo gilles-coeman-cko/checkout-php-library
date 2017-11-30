@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
 
   protected $object;
   protected $planId;
@@ -46,8 +45,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -60,8 +58,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return string
    *   The plan Id.
    */
-  public function getPlanId()
-  {
+  public function getPlanId() {
     return $this->planId;
   }
 
@@ -73,8 +70,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return string
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -84,8 +80,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return string
    *   The plan track id.
    */
-  public function getPlanTrackId()
-  {
+  public function getPlanTrackId() {
     return $this->planTrackId;
   }
 
@@ -95,8 +90,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The auto cap time.
    */
-  public function getAutoCapTime()
-  {
+  public function getAutoCapTime() {
     return $this->autoCapTime;
   }
 
@@ -109,8 +103,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The currency.
    */
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
@@ -124,8 +117,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -144,8 +136,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The value.
    */
-  public function getCycle()
-  {
+  public function getCycle() {
     return $this->cycle;
   }
 
@@ -157,8 +148,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The recurringCount.
    */
-  public function getRecurringCount()
-  {
+  public function getRecurringCount() {
     return $this->recurringCount;
   }
 
@@ -179,8 +169,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The status.
    */
-  public function getStatus()
-  {
+  public function getStatus() {
     return $this->status;
   }
 
@@ -192,8 +181,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The customerPlanId.
    */
-  public function getCustomerPlanId()
-  {
+  public function getCustomerPlanId() {
     return $this->customerPlanId;
   }
 
@@ -203,8 +191,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The recurringCountLeft.
    */
-  public function getRecurringCountLeft()
-  {
+  public function getRecurringCountLeft() {
     return $this->recurringCountLeft;
   }
 
@@ -214,8 +201,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The totalCollectedValue.
    */
-  public function getTotalCollectedValue()
-  {
+  public function getTotalCollectedValue() {
     return $this->totalCollectedValue;
   }
 
@@ -225,8 +211,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The totalCollectedCount.
    */
-  public function getTotalCollectedCount()
-  {
+  public function getTotalCollectedCount() {
     return $this->totalCollectedCount;
   }
 
@@ -239,8 +224,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The startDate.
    */
-  public function getStartDate()
-  {
+  public function getStartDate() {
     return $this->startDate;
   }
 
@@ -252,8 +236,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The previousRecurringDate.
    */
-  public function getPreviousRecurringDate()
-  {
+  public function getPreviousRecurringDate() {
     return $this->previousRecurringDate;
   }
 
@@ -266,8 +249,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @return mixed
    *   The nextRecurringDate.
    */
-  public function getNextRecurringDate()
-  {
+  public function getNextRecurringDate() {
     return $this->nextRecurringDate;
   }
 
@@ -277,8 +259,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param int $object
    *   The object.
    */
-  public function setObject($object)
-  {
+  public function setObject($object) {
     $this->object = $object;
   }
 
@@ -291,8 +272,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param string $planId
    *   The plan Id.
    */
-  public function setPlanId($planId)
-  {
+  public function setPlanId($planId) {
     $this->planId = $planId;
   }
 
@@ -304,8 +284,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param string $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -315,8 +294,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param string $planTrackId
    *   The plan track id.
    */
-  public function setPlanTrackId($planTrackId)
-  {
+  public function setPlanTrackId($planTrackId) {
     $this->planTrackId = $planTrackId;
   }
 
@@ -326,8 +304,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $autoCapTime
    *   The auto cap time.
    */
-  public function setAutoCapTime($autoCapTime)
-  {
+  public function setAutoCapTime($autoCapTime) {
     $this->autoCapTime = $autoCapTime;
   }
 
@@ -340,8 +317,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $currency
    *   The currency.
    */
-  public function setCurrency($currency)
-  {
+  public function setCurrency($currency) {
     $this->currency = $currency;
   }
 
@@ -355,8 +331,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -375,8 +350,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $cycle
    *   The value.
    */
-  public function setCycle($cycle)
-  {
+  public function setCycle($cycle) {
     $this->cycle = $cycle;
   }
 
@@ -388,8 +362,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $recurringCount
    *   The recurringCount.
    */
-  public function setRecurringCount($recurringCount)
-  {
+  public function setRecurringCount($recurringCount) {
     $this->recurringCount = $recurringCount;
   }
 
@@ -410,8 +383,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $status
    *   The status.
    */
-  public function setStatus($status)
-  {
+  public function setStatus($status) {
     $this->status = $status;
   }
 
@@ -423,8 +395,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $customerPlanId
    *   The customerPlanId.
    */
-  public function setCustomerPlanId($customerPlanId)
-  {
+  public function setCustomerPlanId($customerPlanId) {
     $this->customerPlanId = $customerPlanId;
   }
 
@@ -434,8 +405,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $recurringCountLeft
    *   The recurringCountLeft.
    */
-  public function setRecurringCountLeft($recurringCountLeft)
-  {
+  public function setRecurringCountLeft($recurringCountLeft) {
     $this->recurringCountLeft = $recurringCountLeft;
   }
 
@@ -445,8 +415,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $totalCollectedValue
    *   The totalCollectedValue.
    */
-  public function setTotalCollectedValue($totalCollectedValue)
-  {
+  public function setTotalCollectedValue($totalCollectedValue) {
     $this->totalCollectedValue = $totalCollectedValue;
   }
 
@@ -456,8 +425,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $setTotalCollectedCount
    *   The totalCollectedCount.
    */
-  public function setTotalCollectedCount($totalCollectedCount)
-  {
+  public function setTotalCollectedCount($totalCollectedCount) {
     $this->totalCollectedCount = $totalCollectedCount;
   }
 
@@ -470,8 +438,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $startDate
    *   The startDate.
    */
-  public function setStartDate($startDate)
-  {
+  public function setStartDate($startDate) {
     $this->startDate = $startDate;
   }
 
@@ -483,8 +450,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $previousRecurringDate
    *   The previousRecurringDate.
    */
-  public function setPreviousRecurringDate($previousRecurringDate)
-  {
+  public function setPreviousRecurringDate($previousRecurringDate) {
     $this->previousRecurringDate = $previousRecurringDate;
   }
 
@@ -497,8 +463,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $nextRecurringDate
    *   The nextRecurringDate.
    */
-  public function setNextRecurringDate($nextRecurringDate)
-  {
+  public function setNextRecurringDate($nextRecurringDate) {
     $this->nextRecurringDate = $nextRecurringDate;
   }
 
@@ -512,8 +477,7 @@ class Customerpaymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehtt
    * @param mixed $responseCode
    *   The nextRecurringDate.
    */
-  public function setResponseCode($responseCode)
-  {
+  public function setResponseCode($responseCode) {
     $this->responseCode = $responseCode;
   }
 

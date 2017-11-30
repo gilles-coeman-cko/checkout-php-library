@@ -19,7 +19,6 @@ namespace com\checkout\Apiservices\Tokens;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Paymenttokenmapper
-{
+class Paymenttokenmapper {
 
 }

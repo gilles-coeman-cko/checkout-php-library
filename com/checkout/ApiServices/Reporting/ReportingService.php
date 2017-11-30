@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Reporting;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Reportingservice extends \com\checkout\Apiservices\Baseservices
-{
+class Reportingservice extends \com\checkout\Apiservices\Baseservices {
   /**
    * Request the transactions.
    *
@@ -32,8 +31,7 @@ class Reportingservice extends \com\checkout\Apiservices\Baseservices
    *
    * @throws Exception
    */
-  public function queryTransaction(Requestmodels\Transactionfilter $requestModel)
-  {
+  public function queryTransaction(Requestmodels\Transactionfilter $requestModel) {
     $Reportingmapper = new Reportingmapper($requestModel);
     $reportingUri = $this->apiUrl->getQueryTransactionApiUri();
     $secretKey = $this->apiSetting->getSecretKey();
@@ -45,7 +43,7 @@ class Reportingservice extends \com\checkout\Apiservices\Baseservices
 
     );
 
-    $processReporting = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processReporting = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $reportingUri,
       $secretKey,
       $requestReporting
@@ -66,8 +64,7 @@ class Reportingservice extends \com\checkout\Apiservices\Baseservices
    *
    * @throws Exception
    */
-  public function queryChargeback(Requestmodels\Transactionfilter $requestModel)
-  {
+  public function queryChargeback(Requestmodels\Transactionfilter $requestModel) {
     $Reportingmapper = new Reportingmapper($requestModel);
     $reportingUri = $this->apiUrl->getQueryChargebackApiUri();
     $secretKey = $this->apiSetting->getSecretKey();
@@ -79,7 +76,7 @@ class Reportingservice extends \com\checkout\Apiservices\Baseservices
 
     );
 
-    $processReporting = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processReporting = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $reportingUri,
       $secretKey,
       $requestReporting

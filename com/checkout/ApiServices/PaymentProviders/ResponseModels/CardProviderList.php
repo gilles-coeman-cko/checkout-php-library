@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Paymentproviders\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $object;
   private $count;
   private $data;
@@ -31,8 +30,7 @@ class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setCount($response->getCount());
     $this->setData($response->getData());
@@ -45,8 +43,7 @@ class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $count
    *   The list count.
    */
-  private function setCount($count)
-  {
+  private function setCount($count) {
     $this->count = $count;
   }
 
@@ -56,8 +53,7 @@ class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  private function setData($data)
-  {
+  private function setData($data) {
     $dataArray = $data->toArray();
     foreach ($dataArray as $cardP) {
       $this->data[] = $this->setCardprovider($cardP);
@@ -73,9 +69,8 @@ class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return Cardprovider
    *   The return the provider object.
    */
-  private function setCardprovider($cardP)
-  {
-    $dummyObjCart = new \CheckoutApi_LibrespondObj();
+  private function setCardprovider($cardP) {
+    $dummyObjCart = new \Checkoutapi_LibrespondObj();
     $dummyObjCart->setConfig($cardP);
     $cardObg = new \PHPPlugin\Apiservices\Paymentproviders\Responsemodels\Cardprovider($dummyObjCart);
     return $cardObg;
@@ -87,8 +82,7 @@ class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $data
    *   The list data.
    */
-  private function setObject($object)
-  {
+  private function setObject($object) {
     $this->object = $object;
   }
 
@@ -98,8 +92,7 @@ class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return int
    *   The list count.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -109,8 +102,7 @@ class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $data
    *   The list data.
    */
-  public function getData()
-  {
+  public function getData() {
     return $this->data;
   }
 
@@ -120,8 +112,7 @@ class Cardproviderlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 

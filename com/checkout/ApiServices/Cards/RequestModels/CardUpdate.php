@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Cards\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardupdate
-{
+class Cardupdate {
   private $cardId;
   private $customerId;
   private $baseCard;
@@ -36,8 +35,7 @@ class Cardupdate
    * @return mixed
    *   The cardId.
    */
-  public function getCardId()
-  {
+  public function getCardId() {
     return $this->cardId;
   }
 
@@ -52,8 +50,7 @@ class Cardupdate
    * @param mixed $cardId
    *   The cardId.
    */
-  public function setCardId($cardId)
-  {
+  public function setCardId($cardId) {
     $this->cardId = $cardId;
   }
 
@@ -65,8 +62,7 @@ class Cardupdate
    * @return mixed
    *   The CustomerId.
    */
-  public function getCustomerId()
-  {
+  public function getCustomerId() {
     return $this->customerId;
   }
 
@@ -78,8 +74,7 @@ class Cardupdate
    * @param mixed $customerId
    *   The CustomerId.
    */
-  public function setCustomerId($customerId)
-  {
+  public function setCustomerId($customerId) {
     $this->customerId = $customerId;
   }
 
@@ -89,8 +84,7 @@ class Cardupdate
    * @return mixed
    *   The baseCardcreate.
    */
-  public function getBasecard()
-  {
+  public function getBasecard() {
     return $this->baseCard;
   }
 

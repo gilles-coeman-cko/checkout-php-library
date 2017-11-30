@@ -10,7 +10,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\packages;
+namespace com\checkout\Packages;
 
 /**
  * Class final  CheckoutapiApi.
@@ -35,8 +35,7 @@ namespace com\checkout\packages;
  * @category Utility
  * @version Release: @package_version@
  */
-class Autoloader
-{
+class Autoloader {
   private static $instance;
 
   /**
@@ -45,8 +44,7 @@ class Autoloader
    * @return mixed
    *   The instance.
    */
-  public static function instance()
-  {
+  public static function instance() {
     if (!self::$instance) {
       $class = __class__;
       self::$instance = new $class();
@@ -60,10 +58,8 @@ class Autoloader
    * @param mixed $class
    *   The class.
    */
-  public function autoload($class)
-  {
-    $realclassName = ltrim($class, '\\');
-    $classNameArray = explode('_', $realclassName);
+  public function autoload($class) {
+    $classNameArray = preg_split('/(?=[A-Z])/', $class);
     $includePath = get_include_path();
     set_include_path($includePath);
     $path = '';
@@ -89,8 +85,7 @@ class Autoloader
   /**
    * Register the instance.
    */
-  public static function register()
-  {
+  public static function register() {
     spl_autoload_extensions('.php');
     spl_autoload_register(array(self::instance(), 'autoload'));
   }

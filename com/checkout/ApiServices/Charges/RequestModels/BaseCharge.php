@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Basecharge extends Basechargeinfo
-{
+class Basecharge extends Basechargeinfo {
   protected $email;
   protected $customerName;
   protected $customerId;
@@ -43,8 +42,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The customerIp.
    */
-  public function getCustomerIp()
-  {
+  public function getCustomerIp() {
     return $this->customerIp;
   }
 
@@ -54,8 +52,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $customerIp
    *   The customerIp.
    */
-  public function setCustomerIp($customerIp)
-  {
+  public function setCustomerIp($customerIp) {
     $this->customerIp = $customerIp;
   }
 
@@ -65,8 +62,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The customerName.
    */
-  public function getCustomerName()
-  {
+  public function getCustomerName() {
     return $this->customerName;
   }
 
@@ -76,8 +72,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $customerName
    *   The customerName.
    */
-  public function setCustomerName($customerName)
-  {
+  public function setCustomerName($customerName) {
     $this->customerName = $customerName;
   }
 
@@ -90,8 +85,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The currency.
    */
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
@@ -104,8 +98,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $currency
    *   The currency.
    */
-  public function setCurrency($currency)
-  {
+  public function setCurrency($currency) {
     $this->currency = $currency;
   }
 
@@ -119,8 +112,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -134,8 +126,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -145,8 +136,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The email.
    */
-  public function getEmail()
-  {
+  public function getEmail() {
     return $this->email;
   }
 
@@ -156,8 +146,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $email
    *   The email.
    */
-  public function setEmail($email)
-  {
+  public function setEmail($email) {
     $this->email = $email;
   }
 
@@ -169,8 +158,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The CustomerId.
    */
-  public function getCustomerId()
-  {
+  public function getCustomerId() {
     return $this->customerId;
   }
 
@@ -182,8 +170,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $customerId
    *   The CustomerId.
    */
-  public function setCustomerId($customerId)
-  {
+  public function setCustomerId($customerId) {
     $this->customerId = $customerId;
   }
 
@@ -193,8 +180,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The description.
    */
-  public function getDescription()
-  {
+  public function getDescription() {
     return $this->description;
   }
 
@@ -204,8 +190,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $description
    *   The description.
    */
-  public function setDescription($description)
-  {
+  public function setDescription($description) {
     $this->description = $description;
   }
 
@@ -219,8 +204,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The autoCapture.
    */
-  public function getAutoCapture()
-  {
+  public function getAutoCapture() {
     return $this->autoCapture;
   }
 
@@ -234,8 +218,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $autoCapture
    *   The autoCapture.
    */
-  public function setAutoCapture($autoCapture)
-  {
+  public function setAutoCapture($autoCapture) {
     $this->autoCapture = $autoCapture;
   }
 
@@ -248,8 +231,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The autoCapTime.
    */
-  public function getAutoCapTime()
-  {
+  public function getAutoCapTime() {
     return $this->autoCapTime;
   }
 
@@ -262,8 +244,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $autoCapTime
    *   The autoCapTime.
    */
-  public function setAutoCapTime($autoCapTime)
-  {
+  public function setAutoCapTime($autoCapTime) {
     $this->autoCapTime = $autoCapTime;
   }
 
@@ -273,8 +254,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The shippingDetails.
    */
-  public function getShippingDetails()
-  {
+  public function getShippingDetails() {
     return $this->shippingDetails;
   }
 
@@ -296,8 +276,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The products.
    */
-  public function getProducts()
-  {
+  public function getProducts() {
     return $this->products;
   }
 
@@ -325,8 +304,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The chargeMode.
    */
-  public function getChargeMode()
-  {
+  public function getChargeMode() {
     return $this->chargeMode;
   }
 
@@ -341,8 +319,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $chargeMode
    *   The chargeMode.
    */
-  public function setChargeMode($chargeMode)
-  {
+  public function setChargeMode($chargeMode) {
     $this->chargeMode = $chargeMode;
   }
 
@@ -358,8 +335,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The riskCheck.
    */
-  public function getRiskCheck()
-  {
+  public function getRiskCheck() {
     return $this->riskCheck;
   }
 
@@ -375,8 +351,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $riskCheck
    *   The riskCheck.
    */
-  public function setRiskCheck($riskCheck)
-  {
+  public function setRiskCheck($riskCheck) {
     $this->riskCheck = $riskCheck;
   }
 
@@ -389,8 +364,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $attemptN3D
    *   The attemptN3D.
    */
-  public function setAttemptN3D($attemptN3D)
-  {
+  public function setAttemptN3D($attemptN3D) {
     $this->attemptN3D = $attemptN3D;
   }
 
@@ -403,8 +377,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The attemptN3D.
    */
-  public function getAttemptN3D()
-  {
+  public function getAttemptN3D() {
     return $this->attemptN3D;
   }
 
@@ -429,8 +402,7 @@ class Basecharge extends Basechargeinfo
    * @param mixed $billingDetails
    *   The BillingDetails .
    */
-  public function setBillingDetails($billingDetails)
-  {
+  public function setBillingDetails($billingDetails) {
     $this->billingDetails = $billingDetails;
   }
 
@@ -455,8 +427,7 @@ class Basecharge extends Basechargeinfo
    * @return mixed
    *   The BillingDetails .
    */
-  public function getBillingDetails()
-  {
+  public function getBillingDetails() {
     return $this->billingDetails;
   }
 }

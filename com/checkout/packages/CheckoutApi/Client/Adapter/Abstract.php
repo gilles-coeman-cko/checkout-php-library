@@ -1,7 +1,7 @@
 <?php
 
 /**
- * CheckoutapiClientAdapterAbstract.
+ * Checkout.com Packages\Checkoutapi\Client\Adapter\CheckoutapiClientAdapterAbstract.
  *
  * PHP Version 5.6
  *
@@ -12,9 +12,8 @@
  */
 
 /**
- * CheckoutapiClientAdapterAbstract.
+ * Class Checkout api Client Adapter Abstract.
  *
- * CheckoutapiClientAdapterAbstract.
  * An abstract class for CheckoutapiClient adapters.
  * An adapter can be define a method of transmitting message over http protocol.
  * It encapsulate all basic and core method required by an adpater.
@@ -193,7 +192,7 @@ abstract class CheckoutapiClientAdapterAbstract extends CheckoutapiLibObject {
   }
 
   /**
-   * Gey the resource info.
+   * Get the resource info.
    *
    * @return array
    *   Array with an empty httpStatus attribute.

@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
-{
+class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge {
   protected $cardId;
   protected $cvv;
   protected $transactionIndicator;
@@ -34,8 +33,7 @@ class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmode
    * @return mixed
    *   The customerPlanId.
    */
-  public function getCardId()
-  {
+  public function getCardId() {
     return $this->cardId;
   }
 
@@ -47,8 +45,7 @@ class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmode
    * @param mixed $cardId
    *   The cardId.
    */
-  public function setCardId($cardId)
-  {
+  public function setCardId($cardId) {
     $this->cardId = $cardId;
   }
 
@@ -58,8 +55,7 @@ class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmode
    * @return mixed
    *   The cvv.
    */
-  public function getCvv()
-  {
+  public function getCvv() {
     return $this->cvv;
   }
 
@@ -69,8 +65,7 @@ class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmode
    * @param mixed $cvv
    *   The cvv.
    */
-  public function setCvv($cvv)
-  {
+  public function setCvv($cvv) {
     $this->cvv = $cvv;
   }
 
@@ -85,8 +80,7 @@ class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmode
    * @return mixed
    *   The transactionIndicator.
    */
-  public function getTransactionIndicator()
-  {
+  public function getTransactionIndicator() {
     return $this->transactionIndicator;
   }
 
@@ -101,8 +95,7 @@ class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmode
    * @return mixed
    *   The transactionIndicator.
    */
-  public function setTransactionIndicator($transactionIndicator)
-  {
+  public function setTransactionIndicator($transactionIndicator) {
     $this->transactionIndicator = $transactionIndicator;
   }
 
@@ -119,8 +112,7 @@ class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmode
    * @return mixed
    *   The paymentPlans.
    */
-  public function getPaymentplans()
-  {
+  public function getPaymentplans() {
     return $this->paymentPlans;
   }
 
@@ -137,8 +129,7 @@ class Planwithcardidcreate extends \com\checkout\Apiservices\Charges\Requestmode
    * @param mixed $paymentPlans
    *   The paymentPlans.
    */
-  public function setPaymentplans(Baserecurringpayment $paymentPlans)
-  {
+  public function setPaymentplans(Baserecurringpayment $paymentPlans) {
     $this->paymentPlans[] = $paymentPlans;
   }
 }

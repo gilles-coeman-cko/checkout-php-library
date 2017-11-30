@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargeupdate
-{
+class Chargeupdate {
   private $chargeId;
   private $description;
   private $metadata = array();
@@ -33,8 +32,7 @@ class Chargeupdate
    * @return mixed
    *   The chargeId.
    */
-  public function getChargeId()
-  {
+  public function getChargeId() {
     return $this->chargeId;
   }
 
@@ -46,8 +44,7 @@ class Chargeupdate
    * @param mixed $id
    *   The chargeId.
    */
-  public function setChargeId($chargeId)
-  {
+  public function setChargeId($chargeId) {
     $this->chargeId = $chargeId;
   }
 
@@ -57,8 +54,7 @@ class Chargeupdate
    * @return mixed
    *   The description.
    */
-  public function getDescription()
-  {
+  public function getDescription() {
     return $this->description;
   }
 
@@ -68,8 +64,7 @@ class Chargeupdate
    * @param mixed $description
    *   The description.
    */
-  public function setDescription($description)
-  {
+  public function setDescription($description) {
     $this->description = $description;
   }
 
@@ -82,8 +77,7 @@ class Chargeupdate
    * @return mixed
    *   The metadata.
    */
-  public function getMetadata()
-  {
+  public function getMetadata() {
     return $this->metadata;
   }
 
@@ -96,8 +90,7 @@ class Chargeupdate
    * @param mixed $metadata
    *   The metadata.
    */
-  public function setMetadata($metadata)
-  {
+  public function setMetadata($metadata) {
     $this->metadata = $metadata;
   }
 

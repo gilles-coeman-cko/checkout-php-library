@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Basehttp
-{
+class Basehttp {
   protected $httpStatus;
   protected $hasError;
 
@@ -30,8 +29,7 @@ class Basehttp
    * @param mixed $requestModel
    *   The request model.
    */
-  public function __construct($response = null)
-  {
+  public function __construct($response = null) {
     if ($response) {
       $this->setHttpStatus($response->getHttpStatus());
       $this->setHasError($response->hasError() ? true : false);
@@ -44,8 +42,7 @@ class Basehttp
    * @return mixed
    *   The http status.
    */
-  public function getHttpStatus()
-  {
+  public function getHttpStatus() {
     return $this->httpStatus;
   }
 
@@ -55,8 +52,7 @@ class Basehttp
    * @return mixed
    *   The http error.
    */
-  public function hasError()
-  {
+  public function hasError() {
     return $this->hasError;
   }
 
@@ -66,8 +62,7 @@ class Basehttp
    * @param mixed $httpStatus
    *   The http status.
    */
-  private function setHttpStatus($httpStatus)
-  {
+  private function setHttpStatus($httpStatus) {
     $this->httpStatus = $httpStatus;
   }
 
@@ -77,8 +72,7 @@ class Basehttp
    * @param mixed $hasError
    *   The http error.
    */
-  private function setHasError($hasError)
-  {
+  private function setHasError($hasError) {
     $this->hasError = $hasError;
   }
 }

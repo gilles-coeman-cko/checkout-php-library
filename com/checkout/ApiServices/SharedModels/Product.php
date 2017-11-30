@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Product
-{
+class Product {
   protected $name = '';
   protected $productId = '';
   protected $description = '';
@@ -37,8 +36,7 @@ class Product
    * @return mixed
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -48,8 +46,7 @@ class Product
    * @param mixed $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -59,8 +56,7 @@ class Product
    * @return mixed
    *   The productId.
    */
-  public function getProductId()
-  {
+  public function getProductId() {
     return $this->productId;
   }
 
@@ -70,8 +66,7 @@ class Product
    * @param mixed $productId
    *   The productId.
    */
-  public function setProductId($productId)
-  {
+  public function setProductId($productId) {
     $this->productId = $productId;
   }
 
@@ -81,8 +76,7 @@ class Product
    * @return mixed
    *   The description.
    */
-  public function getDescription()
-  {
+  public function getDescription() {
     return $this->description;
   }
 
@@ -92,8 +86,7 @@ class Product
    * @param mixed $description
    *   The description.
    */
-  public function setDescription($description)
-  {
+  public function setDescription($description) {
     $this->description = $description;
   }
 
@@ -103,8 +96,7 @@ class Product
    * @return mixed
    *   The sku.
    */
-  public function getSku()
-  {
+  public function getSku() {
     return $this->sku;
   }
 
@@ -114,8 +106,7 @@ class Product
    * @param mixed $sku
    *   The sku.
    */
-  public function setSku($sku)
-  {
+  public function setSku($sku) {
     $this->sku = $sku;
   }
 
@@ -125,8 +116,7 @@ class Product
    * @return mixed
    *   The price.
    */
-  public function getPrice()
-  {
+  public function getPrice() {
     return $this->price;
   }
 
@@ -136,8 +126,7 @@ class Product
    * @param mixed $price
    *   The price.
    */
-  public function setPrice($price)
-  {
+  public function setPrice($price) {
     $this->price = $price;
   }
 
@@ -147,8 +136,7 @@ class Product
    * @return mixed
    *   The quantity.
    */
-  public function getQuantity()
-  {
+  public function getQuantity() {
     return $this->quantity;
   }
 
@@ -158,8 +146,7 @@ class Product
    * @param mixed $quantity
    *   The quantity.
    */
-  public function setQuantity($quantity)
-  {
+  public function setQuantity($quantity) {
     $this->quantity = $quantity;
   }
 
@@ -169,8 +156,7 @@ class Product
    * @return mixed
    *   The image.
    */
-  public function getImage()
-  {
+  public function getImage() {
     return $this->image;
   }
 
@@ -180,8 +166,7 @@ class Product
    * @param mixed $image
    *   The image.
    */
-  public function setImage($image)
-  {
+  public function setImage($image) {
     $this->image = $image;
   }
 
@@ -191,8 +176,7 @@ class Product
    * @return mixed
    *   The shippingCost.
    */
-  public function getShippingCost()
-  {
+  public function getShippingCost() {
     return $this->shippingCost;
   }
 
@@ -202,8 +186,7 @@ class Product
    * @param mixed $shippingCost
    *   The shippingCost.
    */
-  public function setShippingCost($shippingCost)
-  {
+  public function setShippingCost($shippingCost) {
     $this->shippingCost = $shippingCost;
   }
 
@@ -213,8 +196,7 @@ class Product
    * @return mixed
    *   The trackingUrl.
    */
-  public function getTrackingUrl()
-  {
+  public function getTrackingUrl() {
     return $this->trackingUrl;
   }
 
@@ -224,8 +206,7 @@ class Product
    * @param mixed $trackingUrl
    *   The trackingUrl.
    */
-  public function setTrackingUrl($trackingUrl)
-  {
+  public function setTrackingUrl($trackingUrl) {
     $this->trackingUrl = $trackingUrl;
   }
 }

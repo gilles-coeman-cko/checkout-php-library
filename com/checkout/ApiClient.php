@@ -1,102 +1,138 @@
 <?php
 
 /**
- * CheckoutapiApi
+ * Checkout.com Apiclient.
  *
  * PHP Version 5.6
- * 
- * @category Api
- * @package  Checkoutapi
- * @author   Dhiraj Gangoosirdar <dhiraj.gangoosirdar@checkout.com>
- * @author   Gilles Coeman <gilles.coeman@checkout.com>
- * @license  https://checkout.com/terms/ MIT License
- * @link     https://www.checkout.com/
+ *
+ * @category Api Services
+ * @package Checkoutapi
+ * @license https://checkout.com/terms/ MIT License
+ * @link https://www.checkout.com/
  */
+
 namespace com\checkout;
 
-class ApiClient
-{
-    private  $_tokenService;
-    private  $_chargeService;
-    private  $cardService;
-    private  $_customerService;
-    private  $_Reportingservice;
-    private  $_Recurringpaymentservice;
-    private  $_visaCheckoutService;
+/**
+ * Class Api Client.
+ *
+ * @category Api Services
+ * @version Release: @package_version@
+ */
+class Apiclient {
+  private $tokenService;
+  private $chargeService;
+  private $cardService;
+  private $customerService;
+  private $reportingservice;
+  private $recurringpaymentservice;
+  private $visaCheckoutService;
 
-    /**
-     * @return Apiservices\Customers\Customerservice
-     */
-    public function customerService()
-    {
-        return $this->_customerService;
-    }
+  /**
+   * Get the customer service.
+   *
+   * @return Apiservices\Customers\Customerservice
+   *   The customerService.
+   */
+  public function customerService() {
+    return $this->customerService;
+  }
 
-    /**
-     * @return Apiservices\Charges\Chargeservice
-     */
-    public function chargeService()
-    {
-        return $this->_chargeService;
-    }
+  /**
+   * Get the charge service.
+   *
+   * @return Apiservices\Charges\Chargeservice
+   *   The chargeService.
+   */
+  public function chargeService() {
+    return $this->chargeService;
+  }
 
-    /**
-     * @return Apiservices\Tokens\Tokenservice
-     */
-    public function tokenService()
-    {
-        return $this->_tokenService;
-    }
+  /**
+   * Get the token service.
+   *
+   * @return Apiservices\Tokens\Tokenservice
+   *   The tokenService.
+   */
+  public function tokenService() {
+    return $this->tokenService;
+  }
 
-    /**
-     * @return Apiservices\Cards\Cardservice
-     */
-    public function cardService()
-    {
-        return $this->cardService;
-    }
+  /**
+   * Get the card service.
+   *
+   * @return Apiservices\Cards\Cardservice
+   *   The cardService.
+   */
+  public function cardService() {
+    return $this->cardService;
+  }
 
-    /**
-     * @return Apiservices\Reporting\Reportingservice
-     */
-    public function Reportingservice()
-    {
-        return $this->_Reportingservice;
-    }
+  /**
+   * Get the reporting service.
+   *
+   * @return Apiservices\Reporting\Reportingservice
+   *   The reportingservice.
+   */
+  public function reportingservice() {
+    return $this->reportingservice;
+  }
 
-    /**
-     * @return Apiservices\Recurringpayments\Recurringpaymentservice
-     */
-    public function Recurringpaymentservice()
-    {
-        return $this->_Recurringpaymentservice;
-    }
+  /**
+   * Get the recurring payment service.
+   *
+   * @return Apiservices\Recurringpayments\Recurringpaymentservice
+   *   The recurringpaymentservice.
+   */
+  public function recurringpaymentservice() {
+    return $this->recurringpaymentservice;
+  }
 
-    /**
-     * @return Apiservices\Visacheckout\Visacheckoutservice
-     */
-    public function visaCheckoutService()
-    {
-        return $this->_visaCheckoutService;
-    }
+  /**
+   * Get the vis checkout service.
+   *
+   * @return Apiservices\Visacheckout\Visacheckoutservice
+   *   The visaCheckoutService.
+   */
+  public function visaCheckoutService() {
+    return $this->visaCheckoutService;
+  }
 
-    public function __construct($secretKey, $env = 'sandbox' ,$debugMode = false, $connectTimeout = 60, $readTimeout =
-        60
-    ) {
-        $appSetting = helpers\AppSetting::getSingletonInstance();
-        $appSetting->setSecretKey($secretKey);
-        $appSetting->setRequestTimeOut($connectTimeout);
-        $appSetting->setReadTimeout($readTimeout);
-        $appSetting->setDebugMode($debugMode);
-        $appSetting->setMode($env);
+  /**
+   * Class constructor.
+   *
+   * @param mixed $secretKey
+   *   The secret key obtained at the Hub.
+   * @param mixed $env
+   *   The mode of the account.
+   * @param mixed $debugMode
+   *   The debug mode indicator.
+   * @param mixed $connectTimeout
+   *   The connect timeout.
+   * @param mixed $readTimeout
+   *   The reqd timeout.
+   *
+   */
+  public function __construct(
+    $secretKey,
+    $env = 'sandbox',
+    $debugMode = false,
+    $connectTimeout = 60,
+    $readTimeout = 60
+  ) {
+    $appSetting = Helpers\AppSetting::getSingletonInstance();
+    $appSetting->setSecretKey($secretKey);
+    $appSetting->setRequestTimeOut($connectTimeout);
+    $appSetting->setReadTimeout($readTimeout);
+    $appSetting->setDebugMode($debugMode);
+    $appSetting->setMode($env);
 
-        $this->_tokenService = new Apiservices\Tokens\Tokenservice($appSetting);
-        $this->_chargeService = new Apiservices\Charges\Chargeservice($appSetting);
-        $this->cardService = new Apiservices\Cards\Cardservice($appSetting);
-        $this->_customerService = new Apiservices\Customers\Customerservice($appSetting);
-        $this->_Reportingservice = new Apiservices\Reporting\Reportingservice($appSetting);
-        $this->_Recurringpaymentservice = new Apiservices\Recurringpayments\Recurringpaymentservice($appSetting);
-        $this->_visaCheckoutService = new Apiservices\Visacheckout\Visacheckoutservice($appSetting);
-
-    }
+    $this->tokenService = new Apiservices\Tokens\Tokenservice($appSetting);
+    $this->chargeService = new Apiservices\Charges\Chargeservice($appSetting);
+    $this->cardService = new Apiservices\Cards\Cardservice($appSetting);
+    $this->customerService = new Apiservices\Customers\Customerservice($appSetting);
+    $this->reportingservice = new Apiservices\Reporting\Reportingservice($appSetting);
+    $this->recurringpaymentservice = new Apiservices\Recurringpayments\Recurringpaymentservice($appSetting);
+    $this->visaCheckoutService = new Apiservices\Visacheckout\Visacheckoutservice($appSetting);
+  }
 }

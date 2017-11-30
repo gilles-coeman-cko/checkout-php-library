@@ -17,8 +17,8 @@ use com\checkout\Apiservices\Baseservices;
 use com\checkout\Apiservices\Charges\Chargesmapper;
 use com\checkout\Apiservices\Sharedmodels\Okresponse;
 use com\checkout\Apiservices\Tokens\Requestmodels\Paymenttokenupdate;
-use com\checkout\helpers\ApiHttpClient;
-use com\checkout\helpers\ApiHttpClientCustomException;
+use com\checkout\Helpers\ApiHttpClient;
+use com\checkout\Helpers\ApiHttpClientCustomException;
 
 /**
  * Class Token Service.
@@ -26,8 +26,7 @@ use com\checkout\helpers\ApiHttpClientCustomException;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Tokenservice extends Baseservices
-{
+class Tokenservice extends Baseservices {
 
   /**
    * Create a payment token object.

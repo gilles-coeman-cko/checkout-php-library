@@ -116,7 +116,7 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
    * @param array $arguments
    *   Argument for creating the adapter.
    *
-   * @return CheckoutapiClientAdapterAbstract|null
+   * @return Checkoutapiclientadapterabstract|null
    *   Something.
    *
    * @throws Exception
@@ -130,7 +130,7 @@ abstract class CheckoutapiClientClient extends CheckoutapiLibObject {
     $class = NULL;
 
     if (class_exists($classAdapterName)) {
-      // @var CheckoutapiClientAdapterAbstract $class.
+      // @var Checkoutapiclientadapterabstract $class.
       $class = CheckoutapiLibFactory::getSingletonInstance(
         $classAdapterName,
         $arguments

@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Deleteresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Deleteresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $delete;
   private $id;
 
@@ -30,8 +29,7 @@ class Deleteresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param null $response
    *   The response model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setDelete($response->getDeleted());
     $this->setId($response->getId());
@@ -43,8 +41,7 @@ class Deleteresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The delete.
    */
-  public function getDelete()
-  {
+  public function getDelete() {
     return $this->delete;
   }
 
@@ -54,8 +51,7 @@ class Deleteresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $delete
    *   The delete.
    */
-  private function setDelete($delete)
-  {
+  private function setDelete($delete) {
     $this->delete = $delete;
   }
 
@@ -65,8 +61,7 @@ class Deleteresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The id.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -76,8 +71,7 @@ class Deleteresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $id
    *   The id.
    */
-  private function setId($id)
-  {
+  private function setId($id) {
     $this->id = $id;
   }
 }

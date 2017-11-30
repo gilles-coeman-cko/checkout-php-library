@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Tokens\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Paymenttoken
-{
+class Paymenttoken {
   private $id;
   private $liveMode;
 
@@ -30,8 +29,7 @@ class Paymenttoken
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     $this->setId($response->getId());
     $this->setLiveMode($response->getLiveMode());
   }
@@ -44,8 +42,7 @@ class Paymenttoken
    * @return mixed
    *   The chargeId.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -57,8 +54,7 @@ class Paymenttoken
    * @param mixed $id
    *   The chargeId.
    */
-  private function setId($id)
-  {
+  private function setId($id) {
     $this->id = $id;
   }
 
@@ -71,8 +67,7 @@ class Paymenttoken
    * @return mixed
    *   The LiveMode.
    */
-  public function getLiveMode()
-  {
+  public function getLiveMode() {
     return $this->liveMode;
   }
 
@@ -85,8 +80,7 @@ class Paymenttoken
    * @param mixed $liveMode
    *   The LiveMode.
    */
-  private function setLiveMode($liveMode)
-  {
+  private function setLiveMode($liveMode) {
     $this->liveMode = $liveMode;
   }
 

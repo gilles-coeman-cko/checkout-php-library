@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $object;
   private $amount;
   private $currency;
@@ -37,8 +36,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The refundedValue.
    */
-  public function getAmount()
-  {
+  public function getAmount() {
     return $this->amount;
   }
 
@@ -52,8 +50,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $refundedValue
    *   The refundedValue.
    */
-  public function setAmount($amount)
-  {
+  public function setAmount($amount) {
     $this->amount = $amount;
   }
 
@@ -63,8 +60,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The balanceTransaction.
    */
-  public function getBalanceTransaction()
-  {
+  public function getBalanceTransaction() {
     return $this->balanceTransaction;
   }
 
@@ -74,8 +70,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $balanceTransaction
    *   The balanceTransaction.
    */
-  public function setBalanceTransaction($balanceTransaction)
-  {
+  public function setBalanceTransaction($balanceTransaction) {
     $this->balanceTransaction = $balanceTransaction;
   }
 
@@ -85,8 +80,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The created date.
    */
-  public function getCreated()
-  {
+  public function getCreated() {
     return $this->created;
   }
 
@@ -96,8 +90,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $created
    *   The created date.
    */
-  public function setCreated($created)
-  {
+  public function setCreated($created) {
     $this->created = $created;
   }
 
@@ -110,8 +103,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The currency.
    */
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
@@ -124,8 +116,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $currency
    *   The currency.
    */
-  public function setCurrency($currency)
-  {
+  public function setCurrency($currency) {
     $this->currency = $currency;
   }
 
@@ -135,8 +126,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -146,8 +136,7 @@ class Refund extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  public function setObject($object)
-  {
+  public function setObject($object) {
     $this->object = $object;
   }
 

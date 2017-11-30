@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   protected $object;
   protected $bin;
   protected $issuerCountryISO2;
@@ -32,8 +31,7 @@ class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -46,8 +44,7 @@ class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The bin.
    */
-  public function getBin()
-  {
+  public function getBin() {
     return $this->bin;
   }
 
@@ -57,8 +54,7 @@ class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The issuerCountryISO2.
    */
-  public function getIssuerCountryISO2()
-  {
+  public function getIssuerCountryISO2() {
     return $this->issuerCountryISO2;
   }
 
@@ -70,8 +66,7 @@ class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The cardType.
    */
-  public function getCardType()
-  {
+  public function getCardType() {
     return $this->cardType;
   }
 
@@ -81,8 +76,7 @@ class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  public function setObject($object)
-  {
+  public function setObject($object) {
     $this->object = $object;
   }
 
@@ -95,8 +89,7 @@ class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $bin
    *   The bin.
    */
-  public function setBin($bin)
-  {
+  public function setBin($bin) {
     $this->bin = $bin;
   }
 
@@ -106,8 +99,7 @@ class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $issuerCountryISO2
    *   The issuerCountryISO2.
    */
-  public function setIssuerCountryISO2($issuerCountryISO2)
-  {
+  public function setIssuerCountryISO2($issuerCountryISO2) {
     $this->issuerCountryISO2 = $issuerCountryISO2;
   }
 
@@ -119,8 +111,7 @@ class Bindata extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $cardType
    *   The cardType.
    */
-  public function setCardType($cardType)
-  {
+  public function setCardType($cardType) {
     $this->cardType = $cardType;
   }
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com helpers\ApiHttpClientCustomException.
+ * Checkout.com Helpers\ApiHttpClientCustomException.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\helpers;
+namespace com\checkout\Helpers;
 
 /**
  * Final class Api Http Client Custom Exception.
@@ -19,8 +19,7 @@ namespace com\checkout\helpers;
  * @category Helpers
  * @version Release: @package_version@
  */
-final class ApiHttpClientCustomException extends \Exception
-{
+final class ApiHttpClientCustomException extends \Exception {
   private $errorMessage = '';
   private $errorCode = '';
   private $eventId = '';
@@ -31,8 +30,7 @@ final class ApiHttpClientCustomException extends \Exception
    * @param mixed $requestModel
    *   The request model.
    */
-  public function __construct($errorMessage, $errorCode, $eventId)
-  {
+  public function __construct($errorMessage, $errorCode, $eventId) {
 
     $this->errorMessage = $errorMessage;
     $this->errorCode = $errorCode;
@@ -45,8 +43,7 @@ final class ApiHttpClientCustomException extends \Exception
    * @return mixed
    *   The errorMessage.
    */
-  public function getErrorMessage()
-  {
+  public function getErrorMessage() {
     return $this->errorMessage;
   }
 
@@ -56,8 +53,7 @@ final class ApiHttpClientCustomException extends \Exception
    * @return mixed
    *   The errorCode.
    */
-  public function getErrorCode()
-  {
+  public function getErrorCode() {
     return $this->errorCode;
   }
 
@@ -67,8 +63,7 @@ final class ApiHttpClientCustomException extends \Exception
    * @return mixed
    *   The eventId.
    */
-  public function getEventId()
-  {
+  public function getEventId() {
     return $this->eventId;
   }
 

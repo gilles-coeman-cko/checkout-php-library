@@ -18,8 +18,7 @@ namespace com\checkout\Apiservices\Reporting\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Transactionfilter
-{
+class Transactionfilter {
   private $fromDate = null;
   private $toDate = null;
   private $pageSize = null;
@@ -35,8 +34,7 @@ class Transactionfilter
    * @param mixed $fromDate
    *   A date.
    */
-  public function setFromDate($fromDate)
-  {
+  public function setFromDate($fromDate) {
     $this->fromDate = $fromDate;
   }
 
@@ -46,8 +44,7 @@ class Transactionfilter
    * @return mixed
    *   A date.
    */
-  public function getFromDate()
-  {
+  public function getFromDate() {
     return $this->fromDate;
   }
 
@@ -57,8 +54,7 @@ class Transactionfilter
    * @param mixed $toDate
    *   A date.
    */
-  public function setToDate($toDate)
-  {
+  public function setToDate($toDate) {
     $this->toDate = $toDate;
   }
 
@@ -68,8 +64,7 @@ class Transactionfilter
    * @return mixed
    *   A date.
    */
-  public function getToDate()
-  {
+  public function getToDate() {
     return $this->toDate;
   }
 
@@ -79,8 +74,7 @@ class Transactionfilter
    * @param mixed $requestModel
    *   The page size.
    */
-  public function setPageSize($pageSize)
-  {
+  public function setPageSize($pageSize) {
     $this->pageSize = $pageSize;
   }
 
@@ -90,8 +84,7 @@ class Transactionfilter
    * @return mixed
    *   The page size.
    */
-  public function getPageSize()
-  {
+  public function getPageSize() {
     return $this->pageSize;
   }
 
@@ -101,8 +94,7 @@ class Transactionfilter
    * @param mixed $requestModel
    *   The page number.
    */
-  public function setPageNumber($pageNumber)
-  {
+  public function setPageNumber($pageNumber) {
     $this->pageNumber = $pageNumber;
   }
 
@@ -112,8 +104,7 @@ class Transactionfilter
    * @return mixed
    *   The page number.
    */
-  public function getPageNumber()
-  {
+  public function getPageNumber() {
     return $this->pageNumber;
   }
 
@@ -123,8 +114,7 @@ class Transactionfilter
    * @param mixed
    *   The sort column.
    */
-  public function setSortColumn($sortColumn)
-  {
+  public function setSortColumn($sortColumn) {
     $this->sortColumn = $sortColumn;
   }
 
@@ -134,8 +124,7 @@ class Transactionfilter
    * @return mixed
    *   The sort column.
    */
-  public function getSortColumn()
-  {
+  public function getSortColumn() {
     return $this->sortColumn;
   }
 
@@ -145,8 +134,7 @@ class Transactionfilter
    * @param mixed
    *   The sort order.
    */
-  public function setSortOrder($sortOrder)
-  {
+  public function setSortOrder($sortOrder) {
     $this->sortOrder = $sortOrder;
   }
 
@@ -156,8 +144,7 @@ class Transactionfilter
    * @return mixed
    *   The sort order.
    */
-  public function getSortOrder()
-  {
+  public function getSortOrder() {
     return $this->sortOrder;
   }
 
@@ -167,8 +154,7 @@ class Transactionfilter
    * @param mixed
    *   The search.
    */
-  public function setSearch($search)
-  {
+  public function setSearch($search) {
     $this->search = $search;
   }
 
@@ -178,8 +164,7 @@ class Transactionfilter
    * @return mixed
    *   The search.
    */
-  public function getSearch()
-  {
+  public function getSearch() {
     return $this->search;
   }
 
@@ -189,8 +174,7 @@ class Transactionfilter
    * @param mixed $filters
    *   The filters.
    */
-  public function setFilters(array $filters)
-  {
+  public function setFilters(array $filters) {
     $this->filters = $filters;
   }
 
@@ -200,8 +184,7 @@ class Transactionfilter
    * @return array
    *   The filters.
    */
-  public function getFilters()
-  {
+  public function getFilters() {
     return $this->filters;
   }
 }

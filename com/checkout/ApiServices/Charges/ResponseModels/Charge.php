@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
-{
+class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge {
   protected $object;
   protected $id;
   protected $liveMode;
@@ -67,8 +66,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setResponse($response);
     $this->setObject($response->getObject());
@@ -165,8 +163,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $response
    *   The response.
    */
-  public function setResponse($response)
-  {
+  public function setResponse($response) {
     $this->response = $response;
   }
 
@@ -176,8 +173,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The response.
    */
-  public function getResponse()
-  {
+  public function getResponse() {
     return $this->response;
   }
 
@@ -187,8 +183,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The original charge id.
    */
-  public function getOriginalId()
-  {
+  public function getOriginalId() {
     return $this->originalId;
   }
 
@@ -198,8 +193,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $setOriginalId
    *   The original charge id.
    */
-  public function setOriginalId($setOriginalId)
-  {
+  public function setOriginalId($setOriginalId) {
     $this->setOriginalId = $setOriginalId;
   }
 
@@ -209,8 +203,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -222,8 +215,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The chargeId.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -236,8 +228,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The LiveMode.
    */
-  public function getLiveMode()
-  {
+  public function getLiveMode() {
     return $this->liveMode;
   }
 
@@ -247,8 +238,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The created date.
    */
-  public function getCreated()
-  {
+  public function getCreated() {
     return $this->created;
   }
 
@@ -262,8 +252,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -276,8 +265,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The currency.
    */
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
@@ -287,8 +275,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The email.
    */
-  public function getEmail()
-  {
+  public function getEmail() {
     return $this->email;
   }
 
@@ -298,8 +285,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The customerIp.
    */
-  public function getCustomerIp()
-  {
+  public function getCustomerIp() {
     return $this->customerIp;
   }
 
@@ -314,8 +300,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The chargeMode.
    */
-  public function getChargeMode()
-  {
+  public function getChargeMode() {
     return $this->chargeMode;
   }
 
@@ -325,8 +310,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The description.
    */
-  public function getDescription()
-  {
+  public function getDescription() {
     return $this->description;
   }
 
@@ -338,8 +322,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The responseMessage.
    */
-  public function getResponseMessage()
-  {
+  public function getResponseMessage() {
     return $this->responseMessage;
   }
 
@@ -352,8 +335,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The responseAdvancedInfo.
    */
-  public function getResponseAdvancedInfo()
-  {
+  public function getResponseAdvancedInfo() {
     return $this->responseAdvancedInfo;
   }
 
@@ -363,8 +345,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The responseCode.
    */
-  public function getResponseCode()
-  {
+  public function getResponseCode() {
     return $this->responseCode;
   }
 
@@ -378,8 +359,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The refundedValue.
    */
-  public function getRefundedValue()
-  {
+  public function getRefundedValue() {
     return $this->refundedValue;
   }
 
@@ -389,8 +369,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The balanceTransaction.
    */
-  public function getBalanceTransaction()
-  {
+  public function getBalanceTransaction() {
     return $this->balanceTransaction;
   }
 
@@ -402,8 +381,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The status.
    */
-  public function getStatus()
-  {
+  public function getStatus() {
     return $this->status;
   }
 
@@ -413,8 +391,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The Authcode.
    */
-  public function getAuthCode()
-  {
+  public function getAuthCode() {
     return $this->authCode;
   }
 
@@ -428,8 +405,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The autoCapture.
    */
-  public function getAutoCapture()
-  {
+  public function getAutoCapture() {
     return $this->autoCapture;
   }
 
@@ -442,8 +418,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The autoCapTime.
    */
-  public function getAutoCapTime()
-  {
+  public function getAutoCapTime() {
     return $this->autoCapTime;
   }
 
@@ -457,8 +432,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The value.
    */
-  public function getPaid()
-  {
+  public function getPaid() {
     return $this->paid;
   }
 
@@ -472,8 +446,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The value.
    */
-  public function getRefunded()
-  {
+  public function getRefunded() {
     return $this->refunded;
   }
 
@@ -487,8 +460,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The value.
    */
-  public function getDeferred()
-  {
+  public function getDeferred() {
     return $this->deferred;
   }
 
@@ -502,8 +474,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The value.
    */
-  public function getExpired()
-  {
+  public function getExpired() {
     return $this->expired;
   }
 
@@ -517,8 +488,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The value.
    */
-  public function getCaptured()
-  {
+  public function getCaptured() {
     return $this->captured;
   }
 
@@ -531,8 +501,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The isCascaded.
    */
-  public function getIsCascaded()
-  {
+  public function getIsCascaded() {
     return $this->isCascaded;
   }
 
@@ -542,8 +511,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The card.
    */
-  public function getCard()
-  {
+  public function getCard() {
     return $this->card;
   }
 
@@ -553,8 +521,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The shippingDetails.
    */
-  public function getShippingDetails()
-  {
+  public function getShippingDetails() {
     return $this->shippingDetails;
   }
 
@@ -564,8 +531,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The products.
    */
-  public function getProducts()
-  {
+  public function getProducts() {
     return $this->products;
   }
 
@@ -575,8 +541,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The refunds.
    */
-  public function getRefunds()
-  {
+  public function getRefunds() {
     return $this->refunds;
   }
 
@@ -586,8 +551,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The localPayment.
    */
-  public function getLocalPayment()
-  {
+  public function getLocalPayment() {
     return $this->localPayment;
   }
 
@@ -602,8 +566,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The transactionIndicator.
    */
-  public function getTransactionIndicator()
-  {
+  public function getTransactionIndicator() {
     return $this->transactionIndicator;
   }
 
@@ -613,8 +576,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The descriptor.
    */
-  public function getDescriptor()
-  {
+  public function getDescriptor() {
     return $this->descriptor;
   }
 
@@ -627,8 +589,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The metadata.
    */
-  public function getMetadata()
-  {
+  public function getMetadata() {
     return $this->metadata;
   }
 
@@ -638,8 +599,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The Customerpaymentplans.
    */
-  public function getCustomerpaymentplans()
-  {
+  public function getCustomerpaymentplans() {
     return $this->Customerpaymentplans;
   }
 
@@ -649,8 +609,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The redirectUrl.
    */
-  public function getRedirectUrl()
-  {
+  public function getRedirectUrl() {
     return $this->redirectUrl;
   }
 
@@ -665,8 +624,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The paymentToken.
    */
-  public function getPaymenttoken()
-  {
+  public function getPaymenttoken() {
     return $this->paymentToken;
   }
 
@@ -676,8 +634,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @return mixed
    *   The responseType.
    */
-  public function getResponseType()
-  {
+  public function getResponseType() {
     return $this->responseType;
   }
 
@@ -687,8 +644,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param int $object
    *   The object.
    */
-  protected function setObject($object)
-  {
+  protected function setObject($object) {
     $this->object = $object;
   }
 
@@ -700,8 +656,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $id
    *   The chargeId.
    */
-  protected function setId($id)
-  {
+  protected function setId($id) {
     $this->id = $id;
   }
 
@@ -714,8 +669,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $liveMode
    *   The LiveMode.
    */
-  protected function setLiveMode($liveMode)
-  {
+  protected function setLiveMode($liveMode) {
     $this->liveMode = $liveMode;
   }
 
@@ -725,8 +679,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $created
    *   The created date.
    */
-  protected function setCreated($created)
-  {
+  protected function setCreated($created) {
     $this->created = $created;
   }
 
@@ -740,8 +693,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $value
    *   The value.
    */
-  protected function setValue($value)
-  {
+  protected function setValue($value) {
     $this->value = $value;
   }
 
@@ -754,8 +706,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $currency
    *   The currency.
    */
-  protected function setCurrency($currency)
-  {
+  protected function setCurrency($currency) {
     $this->currency = $currency;
   }
 
@@ -765,8 +716,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $email
    *   The email.
    */
-  protected function setEmail($email)
-  {
+  protected function setEmail($email) {
     $this->email = $email;
   }
 
@@ -776,8 +726,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $customerIp
    *   The customerIp.
    */
-  protected function setCustomerIp($customerIp)
-  {
+  protected function setCustomerIp($customerIp) {
     $this->customerIp = $customerIp;
   }
 
@@ -792,8 +741,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $chargeMode
    *   The chargeMode.
    */
-  protected function setChargeMode($chargeMode)
-  {
+  protected function setChargeMode($chargeMode) {
     $this->chargeMode = $chargeMode;
   }
 
@@ -803,8 +751,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $description
    *   The description.
    */
-  protected function setDescription($description)
-  {
+  protected function setDescription($description) {
     $this->description = $description;
   }
 
@@ -816,8 +763,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $responseMessage
    *   The responseMessage.
    */
-  protected function setResponseMessage($responseMessage)
-  {
+  protected function setResponseMessage($responseMessage) {
     $this->responseMessage = $responseMessage;
   }
 
@@ -830,8 +776,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $responseAdvancedInfo
    *   The responseAdvancedInfo.
    */
-  protected function setResponseAdvancedInfo($responseAdvancedInfo)
-  {
+  protected function setResponseAdvancedInfo($responseAdvancedInfo) {
     $this->responseAdvancedInfo = $responseAdvancedInfo;
   }
 
@@ -841,8 +786,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $responseCode
    *   The responseCode.
    */
-  protected function setResponseCode($responseCode)
-  {
+  protected function setResponseCode($responseCode) {
     $this->responseCode = $responseCode;
   }
 
@@ -856,8 +800,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $refundedValue
    *   The refundedValue.
    */
-  protected function setRefundedValue($refundedValue)
-  {
+  protected function setRefundedValue($refundedValue) {
     $this->refundedValue = $refundedValue;
   }
 
@@ -867,8 +810,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $balanceTransaction
    *   The balanceTransaction.
    */
-  protected function setBalanceTransaction($balanceTransaction)
-  {
+  protected function setBalanceTransaction($balanceTransaction) {
     $this->balanceTransaction = $balanceTransaction;
   }
 
@@ -880,8 +822,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $status
    *   The status.
    */
-  protected function setStatus($status)
-  {
+  protected function setStatus($status) {
     $this->status = $status;
   }
 
@@ -891,8 +832,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $authCode
    *   The Authcode.
    */
-  protected function setAuthCode($authCode)
-  {
+  protected function setAuthCode($authCode) {
     $this->authCode = $authCode;
   }
 
@@ -906,8 +846,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $autoCapture
    *   The autoCapture.
    */
-  protected function setAutoCapture($autoCapture)
-  {
+  protected function setAutoCapture($autoCapture) {
     $this->autoCapture = $autoCapture;
   }
 
@@ -920,8 +859,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $autoCapTime
    *   The autoCapTime.
    */
-  protected function setAutoCapTime($autoCapTime)
-  {
+  protected function setAutoCapTime($autoCapTime) {
     $this->autoCapTime = $autoCapTime;
   }
 
@@ -935,8 +873,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $paid
    *   The value.
    */
-  protected function setPaid($paid)
-  {
+  protected function setPaid($paid) {
     $this->paid = $paid;
   }
 
@@ -950,8 +887,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $refunded
    *   The value.
    */
-  protected function setRefunded($refunded)
-  {
+  protected function setRefunded($refunded) {
     $this->refunded = $refunded;
   }
 
@@ -965,8 +901,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $deferred
    *   The value.
    */
-  protected function setDeferred($deferred)
-  {
+  protected function setDeferred($deferred) {
     $this->deferred = $deferred;
   }
 
@@ -980,8 +915,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $expired
    *   The value.
    */
-  protected function setExpired($expired)
-  {
+  protected function setExpired($expired) {
     $this->expired = $expired;
   }
 
@@ -995,8 +929,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $captured
    *   The value.
    */
-  protected function setCaptured($captured)
-  {
+  protected function setCaptured($captured) {
     $this->captured = $captured;
   }
 
@@ -1009,8 +942,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $isCascaded
    *   The isCascaded.
    */
-  protected function setIsCascaded($isCascaded)
-  {
+  protected function setIsCascaded($isCascaded) {
     $this->isCascaded = $isCascaded;
   }
 
@@ -1020,8 +952,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $card
    *   The card.
    */
-  protected function setCard($card)
-  {
+  protected function setCard($card) {
     $cardObg = new \com\checkout\Apiservices\Cards\Responsemodels\Card($card);
     $this->card = $cardObg;
   }
@@ -1032,8 +963,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $shippingDetails
    *   The shippingDetails.
    */
-  protected function setShippingDetails($shippingDetails)
-  {
+  protected function setShippingDetails($shippingDetails) {
     $shippingAddress = new \com\checkout\Apiservices\Sharedmodels\ShippingAddress();
     $phone = new \com\checkout\Apiservices\Sharedmodels\Phone();
     $shippingAddress->setAddressLine1($shippingDetails->getAddressLine1());
@@ -1054,8 +984,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $products
    *   The products.
    */
-  protected function setProducts($products)
-  {
+  protected function setProducts($products) {
     $productsArray = $products->toArray();
     $productsToReturn = array();
     if ($productsArray) {
@@ -1081,8 +1010,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $refunds
    *   The refunds.
    */
-  protected function setRefunds($refunds)
-  {
+  protected function setRefunds($refunds) {
 
     $refundObj = new \com\checkout\Apiservices\Charges\Responsemodels\Refund();
     $refundObj->setAmount($refunds->getAmount());
@@ -1099,8 +1027,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $localPayment
    *   The localPayment.
    */
-  protected function setLocalPayment($localPayment)
-  {
+  protected function setLocalPayment($localPayment) {
     $this->localPayment = $localPayment;
   }
 
@@ -1110,8 +1037,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $descriptor
    *   The descriptor.
    */
-  protected function setDescriptor($descriptor)
-  {
+  protected function setDescriptor($descriptor) {
     $descriptorObj = new \com\checkout\Apiservices\Sharedmodels\Descriptor();
     $descriptorObj->setName($descriptor->getName());
     $descriptorObj->setCity($descriptor->getCity());
@@ -1127,8 +1053,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $metadata
    *   The metadata.
    */
-  protected function setMetadata($metadata)
-  {
+  protected function setMetadata($metadata) {
     $this->metadata = $metadata->toArray();
   }
 
@@ -1143,8 +1068,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $transactionIndicator
    *   The transactionIndicator.
    */
-  protected function setTransactionIndicator($transactionIndicator)
-  {
+  protected function setTransactionIndicator($transactionIndicator) {
     $this->transactionIndicator = $transactionIndicator;
   }
 
@@ -1154,8 +1078,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $Customerpaymentplans
    *   The Customerpaymentplans.
    */
-  protected function setCustomerpaymentplans($Customerpaymentplans)
-  {
+  protected function setCustomerpaymentplans($Customerpaymentplans) {
     $paymentPlansArray = $Customerpaymentplans->toArray();
     $paymentPlansToReturn = array();
     if ($paymentPlansArray) {
@@ -1190,8 +1113,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $redirectUrl
    *   The redirectUrl.
    */
-  protected function setRedirectUrl($redirectUrl)
-  {
+  protected function setRedirectUrl($redirectUrl) {
     $this->redirectUrl = $redirectUrl;
   }
 
@@ -1206,8 +1128,7 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $paymentToken
    *   The paymentToken.
    */
-  protected function setPaymenttoken($paymentToken)
-  {
+  protected function setPaymenttoken($paymentToken) {
     $this->paymentToken = $paymentToken;
   }
 
@@ -1219,13 +1140,14 @@ class Charge extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
    * @param mixed $chargeMode
    *   The chargeMode.
    */
-  private function setResponseType($chargeMode, $redirectUrl)
-  {
+  private function setResponseType($chargeMode, $redirectUrl) {
     if ($redirectUrl && $chargeMode == 2) {
       $this->responseType = "3dCharge";
-    } elseif ($redirectUrl && $chargeMode == 1) {
+    }
+    elseif ($redirectUrl && $chargeMode == 1) {
       $this->responseType = "attemptN3dCharge";
-    } else {
+    }
+    else {
       $this->responseType = "normal";
     }
   }

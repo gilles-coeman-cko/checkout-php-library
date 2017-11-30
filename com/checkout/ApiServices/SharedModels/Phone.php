@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Phone
-{
+class Phone {
   protected $number;
   protected $countryCode;
 
@@ -32,8 +31,7 @@ class Phone
    * @return mixed
    *   The countryCode.
    */
-  public function getCountryCode()
-  {
+  public function getCountryCode() {
     return $this->countryCode;
   }
 
@@ -50,8 +48,7 @@ class Phone
    * @return mixed
    *   The number.
    */
-  public function getNumber()
-  {
+  public function getNumber() {
     return $this->number;
   }
 
@@ -63,8 +60,7 @@ class Phone
    * @param mixed $countryCode
    *   The countryCode.
    */
-  public function setCountryCode($countryCode)
-  {
+  public function setCountryCode($countryCode) {
     $this->countryCode = $countryCode;
   }
 
@@ -81,8 +77,7 @@ class Phone
    * @param mixed $number
    *   The number.
    */
-  public function setNumber($number)
-  {
+  public function setNumber($number) {
     $this->number = $number;
   }
 
@@ -92,8 +87,7 @@ class Phone
    * @return array
    *   The array with the phone details.
    */
-  public function getPhoneDetails()
-  {
+  public function getPhoneDetails() {
     return array(
       'number' => $this->number,
       'countryCode' => $this->countryCode,

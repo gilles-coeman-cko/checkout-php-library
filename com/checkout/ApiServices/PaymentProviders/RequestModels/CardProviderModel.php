@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Paymentproviders\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardprovidermodel
-{
+class Cardprovidermodel {
   protected $id;
 
   /**
@@ -29,8 +28,7 @@ class Cardprovidermodel
    * @return mixed
    *   The id.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -40,8 +38,7 @@ class Cardprovidermodel
    * @param mixed $id
    *   The id.
    */
-  public function setId($id)
-  {
+  public function setId($id) {
     $this->id = $id;
   }
 

@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Cards;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardservice extends \com\checkout\Apiservices\Baseservices
-{
+class Cardservice extends \com\checkout\Apiservices\Baseservices {
 
   /**
    * Create a new card.
@@ -31,8 +30,7 @@ class Cardservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function createCard(Requestmodels\Cardcreate $requestModel)
-  {
+  public function createCard(Requestmodels\Cardcreate $requestModel) {
     $cardMapper = new Cardmapper($requestModel);
 
     $requestPayload = array(
@@ -46,7 +44,7 @@ class Cardservice extends \com\checkout\Apiservices\Baseservices
       $this->apiUrl->getCardsApiUri(),
       $requestModel->getCustomerId()
     );
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $createCardUri,
       $this->apiSetting->getSecretKey(),
       $requestPayload
@@ -67,8 +65,7 @@ class Cardservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function getCard($customerId, $cardId)
-  {
+  public function getCard($customerId, $cardId) {
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
       'mode' => $this->apiSetting->getMode(),
@@ -80,7 +77,7 @@ class Cardservice extends \com\checkout\Apiservices\Baseservices
       $customerId
     ) . '/' . $cardId;
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::getRequest(
       $getCardUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -114,7 +111,7 @@ class Cardservice extends \com\checkout\Apiservices\Baseservices
       $requestModel->getCustomerId()
     ) . '/' . $requestModel->getCardId();
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::putRequest(
       $getCardUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -133,8 +130,7 @@ class Cardservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function deleteCard($customerId, $cardId)
-  {
+  public function deleteCard($customerId, $cardId) {
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
       'mode' => $this->apiSetting->getMode(),
@@ -145,7 +141,7 @@ class Cardservice extends \com\checkout\Apiservices\Baseservices
       $customerId
     ) . '/' . $cardId;
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::deleteRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::deleteRequest(
       $getCardUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -165,8 +161,7 @@ class Cardservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function getCartList($customerId)
-  {
+  public function getCartList($customerId) {
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
       'mode' => $this->apiSetting->getMode(),
@@ -175,7 +170,7 @@ class Cardservice extends \com\checkout\Apiservices\Baseservices
 
     $getCardUri = sprintf($this->apiUrl->getCardsApiUri(), $customerId);
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::getRequest(
       $getCardUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );

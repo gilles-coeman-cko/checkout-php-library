@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargehistory extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Chargehistory extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   protected $object;
   protected $id;
   protected $charges;
@@ -31,8 +30,7 @@ class Chargehistory extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
 
     $this->setObject($response->getObject());
@@ -48,8 +46,7 @@ class Chargehistory extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -59,8 +56,7 @@ class Chargehistory extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The charges.
    */
-  public function getCharges()
-  {
+  public function getCharges() {
     return $this->charges;
   }
 
@@ -70,8 +66,7 @@ class Chargehistory extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  private function setObject($object)
-  {
+  private function setObject($object) {
     $this->object = $object;
   }
 
@@ -81,8 +76,7 @@ class Chargehistory extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $charges
    *   The charges.
    */
-  protected function setCharges($charges)
-  {
+  protected function setCharges($charges) {
     $chargesArray = $charges->toArray();
     $chargesToReturn = array();
     if ($chargesArray) {
@@ -111,8 +105,7 @@ class Chargehistory extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $responseCode
    *   The responseCode.
    */
-  private function setResponseCode($responseCode)
-  {
+  private function setResponseCode($responseCode) {
     $this->responseCode = $responseCode;
   }
 

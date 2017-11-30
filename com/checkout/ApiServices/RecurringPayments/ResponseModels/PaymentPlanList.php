@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $_totalRows;
   private $_offSet;
   private $count;
@@ -29,8 +28,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
   /**
    * @param null $response
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setTotalRows($response->getTotalRows());
     $this->setOffset($response->getOffset());
@@ -44,8 +42,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return int
    *   The list count.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -55,8 +52,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The list data.
    */
-  public function getData()
-  {
+  public function getData() {
     return $this->data;
   }
 
@@ -66,8 +62,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $count
    *   The list count.
    */
-  private function setCount($count)
-  {
+  private function setCount($count) {
     $this->count = $count;
   }
 
@@ -77,8 +72,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $data
    *   The list data.
    */
-  private function setData($data)
-  {
+  private function setData($data) {
     $dataArray = $data->toArray();
     foreach ($dataArray as $paymentPlan) {
       $this->data[] = $this->getPaymentplan($paymentPlan);
@@ -94,8 +88,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   A paymentPlan object.
    */
-  private function getPaymentplan($paymentPlan)
-  {
+  private function getPaymentplan($paymentPlan) {
     return $paymentPlan;
   }
 
@@ -105,8 +98,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $totalRows
    *   The total rows.
    */
-  private function setTotalRows($totalRows)
-  {
+  private function setTotalRows($totalRows) {
     $this->_totalRows = $totalRows;
   }
 
@@ -116,8 +108,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The total rows.
    */
-  public function getTotalRows()
-  {
+  public function getTotalRows() {
     return $this->_totalRows;
   }
 
@@ -127,8 +118,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $offset
    *   The row offset.
    */
-  private function setOffset($offset)
-  {
+  private function setOffset($offset) {
     $this->offset = $offset;
   }
 
@@ -138,8 +128,7 @@ class Paymentplanlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The row offset.
    */
-  public function getOffset()
-  {
+  public function getOffset() {
     return $this->offset;
   }
 }

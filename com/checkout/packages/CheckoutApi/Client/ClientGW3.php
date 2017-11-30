@@ -1819,7 +1819,7 @@ class CheckoutapiClientClientgw3 extends CheckoutapiClientClient {
       $headers = $this->initHeader();
       $param['headers'] = $headers;
 
-      // @var CheckoutapiClientAdapterAbstract $adapter.
+      // @var Checkoutapiclientadapterabstract $adapter.
       $adapter = $this->getAdapter($this->getProcessType(), array('uri' => $uri, 'config' => $param));
 
       if ($adapter) {

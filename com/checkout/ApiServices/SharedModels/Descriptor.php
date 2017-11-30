@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Descriptor
-{
+class Descriptor {
   protected $name;
   protected $city;
 
@@ -30,8 +29,7 @@ class Descriptor
    * @return mixed
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -41,8 +39,7 @@ class Descriptor
    * @param mixed $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -52,8 +49,7 @@ class Descriptor
    * @return mixed
    *   The city.
    */
-  public function getCity()
-  {
+  public function getCity() {
     return $this->city;
   }
 
@@ -63,8 +59,7 @@ class Descriptor
    * @param mixed $city
    *   The city.
    */
-  public function setCity($city)
-  {
+  public function setCity($city) {
     $this->city = $city;
   }
 }

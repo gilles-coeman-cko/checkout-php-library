@@ -18,8 +18,7 @@ namespace com\checkout\Apiservices\Recurringpayments;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
-{
+class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices {
 
   /**
    * Creates a new payment plan
@@ -30,8 +29,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function createSinglePlan(Requestmodels\Baserecurringpayment $requestModel)
-  {
+  public function createSinglePlan(Requestmodels\Baserecurringpayment $requestModel) {
     $Recurringpaymentmapper = new \com\checkout\Apiservices\Recurringpayments\Recurringpaymentmapper($requestModel);
 
     $requestPayload = array(
@@ -40,7 +38,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
       'postedParam' => $Recurringpaymentmapper->requestPayloadConverter(),
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getRecurringpaymentsApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -59,8 +57,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function createMultiplePlans(array $plansArray)
-  {
+  public function createMultiplePlans(array $plansArray) {
     $temporaryArray;
 
     foreach ($plansArray as $singlePlan) {
@@ -79,7 +76,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
 
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getRecurringpaymentsApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -98,8 +95,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function updatePlan(Requestmodels\Planupdate $requestModel)
-  {
+  public function updatePlan(Requestmodels\Planupdate $requestModel) {
     $Recurringpaymentmapper = new \com\checkout\Apiservices\Recurringpayments\Recurringpaymentmapper($requestModel);
 
     $_requestPayloadConverter = $Recurringpaymentmapper->requestPayloadConverter();
@@ -115,7 +111,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
       ->apiUrl
       ->getRecurringpaymentsApiUri() . '/' . $requestModel
       ->getPlanId();
-    $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::putRequest(
       $updatePlanUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -136,8 +132,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function cancelPlan($planId)
-  {
+  public function cancelPlan($planId) {
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -145,7 +140,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
 
     );
     $cancelPlanUri = $this->apiUrl->getRecurringpaymentsApiUri() . '/' . $planId;
-    $processCharge = \com\checkout\helpers\ApiHttpClient::deleteRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::deleteRequest(
       $cancelPlanUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -166,8 +161,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function getPlan($planId)
-  {
+  public function getPlan($planId) {
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -175,7 +169,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
 
     );
     $getPlanUri = $this->apiUrl->getRecurringpaymentsApiUri() . '/' . $planId;
-    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::getRequest(
       $getPlanUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -207,7 +201,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
       'postedParam' => $chargesMapper->requestPayloadConverter(),
 
     );
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getCardChargesApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -241,7 +235,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
       'postedParam' => $chargesMapper->requestPayloadConverter(),
 
     );
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getCardChargesApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -275,7 +269,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
       'postedParam' => $chargesMapper->requestPayloadConverter(),
 
     );
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getCardtokensApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -309,7 +303,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
       'postedParam' => $chargesMapper->requestPayloadConverter(),
 
     );
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getPaymenttokensApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -328,8 +322,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function updateCustomerPlan(Requestmodels\Customerplanupdate $requestModel)
-  {
+  public function updateCustomerPlan(Requestmodels\Customerplanupdate $requestModel) {
     $chargesMapper = new \com\checkout\Apiservices\Charges\Chargesmapper(
       $requestModel
     );
@@ -347,7 +340,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
       ->apiUrl
       ->getRecurringpaymentsCustomersApiUri() . '/' . $requestModel
       ->getCustomerPlanId();
-    $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::putRequest(
       $updatePlanUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -368,8 +361,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function cancelCustomerPlan($customerPlanId)
-  {
+  public function cancelCustomerPlan($customerPlanId) {
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -379,7 +371,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
     $cancelPlanUri = $this
       ->apiUrl
       ->getRecurringpaymentsCustomersApiUri() . '/' . $customerPlanId;
-    $processCharge = \com\checkout\helpers\ApiHttpClient::deleteRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::deleteRequest(
       $cancelPlanUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -398,8 +390,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function getCustomerPlan($customerPlanId)
-  {
+  public function getCustomerPlan($customerPlanId) {
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -409,7 +400,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
     $getPlanUri = $this
       ->apiUrl
       ->getRecurringpaymentsCustomersApiUri() . '/' . $customerPlanId;
-    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::getRequest(
       $getPlanUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -429,8 +420,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function queryPlan(Requestmodels\Querypaymentplan $requestModel)
-  {
+  public function queryPlan(Requestmodels\Querypaymentplan $requestModel) {
     $queryMapper = new Recurringpaymentquerymapper($requestModel);
     $queryUri = $this->apiUrl->getRecurringpaymentsQueryApiUri();
     $secretKey = $this->apiSetting->getSecretKey();
@@ -442,7 +432,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
 
     );
 
-    $processQuery = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processQuery = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $queryUri,
       $secretKey,
       $requestQuery
@@ -461,8 +451,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Recurringpayment
    *   The response models or recurring payments.
    */
-  public function queryCustomerPlan(Requestmodels\Querycustomerplan $requestModel)
-  {
+  public function queryCustomerPlan(Requestmodels\Querycustomerplan $requestModel) {
     $queryMapper = new Recurringpaymentquerymapper($requestModel);
     $queryUri = $this->apiUrl->getRecurringpaymentsCustomersQueryApiUri();
     $secretKey = $this->apiSetting->getSecretKey();
@@ -474,7 +463,7 @@ class Recurringpaymentservice extends \com\checkout\Apiservices\Baseservices
 
     );
 
-    $processQuery = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processQuery = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $queryUri,
       $secretKey,
       $requestQuery

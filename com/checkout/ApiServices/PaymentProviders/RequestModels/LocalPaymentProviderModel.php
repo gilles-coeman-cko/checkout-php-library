@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Paymentproviders\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Localpaymentprovidermodel
-{
+class Localpaymentprovidermodel {
   private $providerId;
   private $paymentToken;
   private $ip;
@@ -35,8 +34,7 @@ class Localpaymentprovidermodel
    * @return mixed
    *   The countryCode.
    */
-  public function getCountryCode()
-  {
+  public function getCountryCode() {
     return $this->countryCode;
   }
 
@@ -46,8 +44,7 @@ class Localpaymentprovidermodel
    * @param mixed $countryCode
    *   The countryCode.
    */
-  public function setCountryCode($countryCode)
-  {
+  public function setCountryCode($countryCode) {
     $this->countryCode = $countryCode;
   }
 
@@ -57,8 +54,7 @@ class Localpaymentprovidermodel
    * @return mixed
    *   The ip.
    */
-  public function getIp()
-  {
+  public function getIp() {
     return $this->ip;
   }
 
@@ -68,8 +64,7 @@ class Localpaymentprovidermodel
    * @param mixed $ip
    *   The ip.
    */
-  public function setIp($ip)
-  {
+  public function setIp($ip) {
     $this->ip = $ip;
   }
 
@@ -79,8 +74,7 @@ class Localpaymentprovidermodel
    * @return mixed
    *   The limit.
    */
-  public function getLimit()
-  {
+  public function getLimit() {
     return $this->limit;
   }
 
@@ -90,8 +84,7 @@ class Localpaymentprovidermodel
    * @param mixed $limit
    *   The limit.
    */
-  public function setLimit($limit)
-  {
+  public function setLimit($limit) {
     $this->limit = $limit;
   }
 
@@ -101,8 +94,7 @@ class Localpaymentprovidermodel
    * @return mixed
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -112,8 +104,7 @@ class Localpaymentprovidermodel
    * @param mixed $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -123,8 +114,7 @@ class Localpaymentprovidermodel
    * @return mixed
    *   The paymentToken.
    */
-  public function getPaymenttoken()
-  {
+  public function getPaymenttoken() {
     return $this->paymentToken;
   }
 
@@ -134,8 +124,7 @@ class Localpaymentprovidermodel
    * @param mixed $paymentToken
    *   The paymentToken.
    */
-  public function setPaymenttoken($paymentToken)
-  {
+  public function setPaymenttoken($paymentToken) {
     $this->paymentToken = $paymentToken;
   }
 
@@ -145,8 +134,7 @@ class Localpaymentprovidermodel
    * @return mixed
    *   The providerId.
    */
-  public function getProviderId()
-  {
+  public function getProviderId() {
     return $this->providerId;
   }
 
@@ -156,8 +144,7 @@ class Localpaymentprovidermodel
    * @param mixed $providerId
    *   The providerId.
    */
-  public function setProviderId($providerId)
-  {
+  public function setProviderId($providerId) {
     $this->providerId = $providerId;
   }
 
@@ -167,8 +154,7 @@ class Localpaymentprovidermodel
    * @return mixed
    *   The region.
    */
-  public function getRegion()
-  {
+  public function getRegion() {
     return $this->region;
   }
 
@@ -178,8 +164,7 @@ class Localpaymentprovidermodel
    * @param mixed $region
    *   The region.
    */
-  public function setRegion($region)
-  {
+  public function setRegion($region) {
     $this->region = $region;
   }
 

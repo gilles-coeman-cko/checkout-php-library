@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Reporting\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $count;
   private $pageNumber;
   private $pageSize;
@@ -32,8 +31,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param null $response
    *   The response model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setCount($response->getTotalRecords());
     $this->setData($response->getData());
@@ -47,8 +45,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return int
    *   The list count.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -58,8 +55,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The list data.
    */
-  public function getData()
-  {
+  public function getData() {
     return $this->data;
   }
 
@@ -69,8 +65,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $requestModel
    *   The list count.
    */
-  private function setCount($count)
-  {
+  private function setCount($count) {
     $this->count = $count;
   }
 
@@ -80,8 +75,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $data
    *   The list data.
    */
-  private function setData($data)
-  {
+  private function setData($data) {
     $transactionsArray = $data->toArray();
     $transactionsToReturn = array();
     if ($transactionsArray) {
@@ -119,8 +113,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   A transaction object.
    */
-  private function getTransaction($transaction)
-  {
+  private function getTransaction($transaction) {
     return $transaction;
   }
 
@@ -130,8 +123,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $requestModel
    *   The page number.
    */
-  private function setPageNumber($pageNumber)
-  {
+  private function setPageNumber($pageNumber) {
     $this->pageNumber = $pageNumber;
   }
 
@@ -141,8 +133,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The page number.
    */
-  public function getPageNumber()
-  {
+  public function getPageNumber() {
     return $this->pageNumber;
   }
 
@@ -152,8 +143,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $requestModel
    *   The page size.
    */
-  private function setPageSize($pageSize)
-  {
+  private function setPageSize($pageSize) {
     $this->pageSize = $pageSize;
   }
 
@@ -163,8 +153,7 @@ class Transactionlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The page size.
    */
-  public function getPageSize()
-  {
+  public function getPageSize() {
     return $this->pageSize;
   }
 }

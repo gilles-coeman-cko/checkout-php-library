@@ -18,8 +18,7 @@ namespace com\checkout\Apiservices\Recurringpayments;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Recurringpaymentquerymapper
-{
+class Recurringpaymentquerymapper {
   private $requestModel;
 
   /**
@@ -28,8 +27,7 @@ class Recurringpaymentquerymapper
    * @param mixed $requestModel
    *   The request model.
    */
-  public function __construct($requestModel)
-  {
+  public function __construct($requestModel) {
     $this->setRequestModel($requestModel);
   }
 
@@ -39,8 +37,7 @@ class Recurringpaymentquerymapper
    * @return mixed
    *   The request model.
    */
-  public function getRequestModel()
-  {
+  public function getRequestModel() {
     return $this->requestModel;
   }
 
@@ -50,8 +47,7 @@ class Recurringpaymentquerymapper
    * @param mixed $requestModel
    *   The request model.
    */
-  public function setRequestModel($requestModel)
-  {
+  public function setRequestModel($requestModel) {
     $this->requestModel = $requestModel;
   }
 
@@ -64,8 +60,7 @@ class Recurringpaymentquerymapper
    * @return array|null
    *   The reporting array.
    */
-  public function requestQueryConverter($requestModel = null)
-  {
+  public function requestQueryConverter($requestModel = null) {
     $requestQuery = null;
     if (!$requestModel) {
       $requestModel = $this->getRequestModel();

@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Paymentproviders\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   protected $id;
   protected $type;
   protected $name;
@@ -36,8 +35,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setCountryCodes($response->getCountryCodes());
     $this->setCustomerFields($response->getCustomerFields());
@@ -56,8 +54,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @param mixed $CountryCodes
    *   The CountryCodes.
    */
-  protected function setCountryCodes($CountryCodes)
-  {
+  protected function setCountryCodes($CountryCodes) {
     $this->countryCodes = $CountryCodes->toArray();
   }
 
@@ -67,11 +64,10 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @param Responsemodels|Customfields $customerFields
    *   The customerFields.
    */
-  protected function setCustomerFields($customerFields)
-  {
+  protected function setCustomerFields($customerFields) {
     $dataArray = $customerFields->toArray();
     foreach ($dataArray as $customerField) {
-      $dummyObjCart = new \CheckoutApi_LibrespondObj();
+      $dummyObjCart = new \Checkoutapi_LibrespondObj();
       $dummyObjCart->setConfig($customerField);
       $customerFieldObj = new \PHPPlugin\Apiservices\Paymentproviders\Responsemodels\Customfields(
         $dummyObjCart
@@ -87,8 +83,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @param mixed $dimensions
    *   The dimensions.
    */
-  protected function setDimensions($dimensions)
-  {
+  protected function setDimensions($dimensions) {
     $this->dimensions = $dimensions->toArray();
   }
 
@@ -98,8 +93,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @param mixed $id
    *   The id.
    */
-  protected function setId($id)
-  {
+  protected function setId($id) {
     $this->id = $id;
   }
 
@@ -109,8 +103,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @param mixed $iframe
    *   The iframe.
    */
-  protected function setIframe($iframe)
-  {
+  protected function setIframe($iframe) {
     $this->iframe = $iframe;
   }
 
@@ -120,8 +113,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @param mixed $name
    *   The name.
    */
-  protected function setName($name)
-  {
+  protected function setName($name) {
     $this->name = $name;
   }
 
@@ -131,12 +123,11 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @param mixed $regions
    *   The regions.
    */
-  protected function setRegions($regions)
-  {
+  protected function setRegions($regions) {
 
     $dataArray = $regions->toArray();
     foreach ($dataArray as $region) {
-      $dummyObjCart = new \CheckoutApi_LibrespondObj();
+      $dummyObjCart = new \Checkoutapi_LibrespondObj();
       $dummyObjCart->setConfig($region);
       $regionsObj = new \PHPPlugin\Apiservices\Paymentproviders\Responsemodels\Region(
         $dummyObjCart
@@ -152,8 +143,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @param mixed $type
    *   The type.
    */
-  protected function setType($type)
-  {
+  protected function setType($type) {
     $this->type = $type;
   }
 
@@ -163,8 +153,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @return mixed
    *   The CountryCodes.
    */
-  public function getCountryCodes()
-  {
+  public function getCountryCodes() {
     return $this->countryCodes;
   }
 
@@ -174,8 +163,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @return mixed
    *   The customerFields.
    */
-  public function getCustomerFields()
-  {
+  public function getCustomerFields() {
     return $this->customerFields;
   }
 
@@ -185,8 +173,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @return mixed
    *   The dimensions.
    */
-  public function getDimensions()
-  {
+  public function getDimensions() {
     return $this->dimensions;
   }
 
@@ -196,8 +183,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @return mixed
    *   The id.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -207,8 +193,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @return mixed
    *   The iframe.
    */
-  public function getIframe()
-  {
+  public function getIframe() {
     return $this->iframe;
   }
 
@@ -218,8 +203,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @return mixed
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -229,8 +213,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @return mixed
    *   The regions.
    */
-  public function getRegions()
-  {
+  public function getRegions() {
     return $this->regions;
   }
 
@@ -240,8 +223,7 @@ class Localpaymentprovider extends \com\checkout\Apiservices\Sharedmodels\Baseht
    * @return mixed
    *   The type.
    */
-  public function getType()
-  {
+  public function getType() {
     return $this->type;
   }
 

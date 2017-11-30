@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Cards\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardcreate
-{
+class Cardcreate {
   private $customerId;
   private $baseCardcreate;
 
@@ -32,8 +31,7 @@ class Cardcreate
    * @return mixed
    *   The CustomerId.
    */
-  public function getCustomerId()
-  {
+  public function getCustomerId() {
     return $this->customerId;
   }
 
@@ -45,8 +43,7 @@ class Cardcreate
    * @param mixed $customerId
    *   The CustomerId.
    */
-  public function setCustomerId($customerId)
-  {
+  public function setCustomerId($customerId) {
     $this->customerId = $customerId;
   }
 
@@ -56,8 +53,7 @@ class Cardcreate
    * @return mixed
    *   The baseCardcreate.
    */
-  public function getBasecardcreate()
-  {
+  public function getBasecardcreate() {
     return $this->baseCardcreate;
   }
 

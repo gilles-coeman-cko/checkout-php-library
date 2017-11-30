@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Paymentproviders\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardprovider extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Cardprovider extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $id;
   private $name;
 
@@ -30,8 +29,7 @@ class Cardprovider extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setId($response->getId());
     $this->setName($response->getName());
@@ -43,8 +41,7 @@ class Cardprovider extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $id
    *   The provider id.
    */
-  protected function setId($id)
-  {
+  protected function setId($id) {
     $this->id = $id;
   }
 
@@ -54,8 +51,7 @@ class Cardprovider extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $name
    *   The provider name.
    */
-  protected function setName($name)
-  {
+  protected function setName($name) {
     $this->name = $name;
   }
 
@@ -65,8 +61,7 @@ class Cardprovider extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The provider id.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -76,8 +71,7 @@ class Cardprovider extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The provider name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 

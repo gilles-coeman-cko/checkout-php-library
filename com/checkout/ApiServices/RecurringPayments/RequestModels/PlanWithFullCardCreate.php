@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planwithfullcardcreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
-{
+class Planwithfullcardcreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge {
   protected $baseCardcreate;
   protected $transactionIndicator;
   protected $paymentPlans;
@@ -31,8 +30,7 @@ class Planwithfullcardcreate extends \com\checkout\Apiservices\Charges\Requestmo
    * @return mixed
    *   The base card.
    */
-  public function getBasecardcreate()
-  {
+  public function getBasecardcreate() {
     return $this->baseCardcreate;
   }
 
@@ -59,8 +57,7 @@ class Planwithfullcardcreate extends \com\checkout\Apiservices\Charges\Requestmo
    * @return mixed
    *   The transactionIndicator.
    */
-  public function getTransactionIndicator()
-  {
+  public function getTransactionIndicator() {
     return $this->transactionIndicator;
   }
 
@@ -75,8 +72,7 @@ class Planwithfullcardcreate extends \com\checkout\Apiservices\Charges\Requestmo
    * @return mixed
    *   The transactionIndicator.
    */
-  public function setTransactionIndicator($transactionIndicator)
-  {
+  public function setTransactionIndicator($transactionIndicator) {
     $this->transactionIndicator = $transactionIndicator;
   }
 
@@ -93,8 +89,7 @@ class Planwithfullcardcreate extends \com\checkout\Apiservices\Charges\Requestmo
    * @return mixed
    *   The paymentPlans.
    */
-  public function getPaymentplans()
-  {
+  public function getPaymentplans() {
     return $this->paymentPlans;
   }
 
@@ -111,8 +106,7 @@ class Planwithfullcardcreate extends \com\checkout\Apiservices\Charges\Requestmo
    * @param mixed $paymentPlans
    *   The paymentPlans.
    */
-  public function setPaymentplans(Baserecurringpayment $paymentPlans)
-  {
+  public function setPaymentplans(Baserecurringpayment $paymentPlans) {
     $this->paymentPlans[] = $paymentPlans;
   }
 }

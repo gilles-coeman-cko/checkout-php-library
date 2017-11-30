@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Querypaymentplan
-{
+class Querypaymentplan {
   private $fromDate = null;
   private $toDate = null;
   private $offset = null;
@@ -39,8 +38,7 @@ class Querypaymentplan
    * @param mixed $fromDate
    *   The fromDate.
    */
-  public function setFromDate($fromDate)
-  {
+  public function setFromDate($fromDate) {
     $this->fromDate = $fromDate;
   }
 
@@ -52,8 +50,7 @@ class Querypaymentplan
    * @return mixed
    *   The fromDate.
    */
-  public function getFromDate()
-  {
+  public function getFromDate() {
     return $this->fromDate;
   }
 
@@ -65,8 +62,7 @@ class Querypaymentplan
    * @param mixed $toDate
    *   The toDate.
    */
-  public function setToDate($toDate)
-  {
+  public function setToDate($toDate) {
     $this->toDate = $toDate;
   }
 
@@ -78,8 +74,7 @@ class Querypaymentplan
    * @return mixed
    *   The toDate.
    */
-  public function getToDate()
-  {
+  public function getToDate() {
     return $this->toDate;
   }
 
@@ -89,8 +84,7 @@ class Querypaymentplan
    * @param mixed $offset
    *   The page offset.
    */
-  public function setOffset($offset)
-  {
+  public function setOffset($offset) {
     $this->offset = $offset;
   }
 
@@ -100,8 +94,7 @@ class Querypaymentplan
    * @param mixed $offset
    *   The page offset.
    */
-  public function getOffset()
-  {
+  public function getOffset() {
     return $this->offset;
   }
 
@@ -111,8 +104,7 @@ class Querypaymentplan
    * @param mixed $requestModel
    *   The page count.
    */
-  public function setCount($count)
-  {
+  public function setCount($count) {
     $this->count = $count;
   }
 
@@ -122,8 +114,7 @@ class Querypaymentplan
    * @return mixed
    *   The page data.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -135,8 +126,7 @@ class Querypaymentplan
    * @param string $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -148,8 +138,7 @@ class Querypaymentplan
    * @return string
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -159,8 +148,7 @@ class Querypaymentplan
    * @param string $planTrackId
    *   The plan track id.
    */
-  public function setPlanTrackId($planTrackId)
-  {
+  public function setPlanTrackId($planTrackId) {
     $this->planTrackId = $planTrackId;
   }
 
@@ -170,8 +158,7 @@ class Querypaymentplan
    * @return string
    *   The plan track id.
    */
-  public function getPlanTrackId()
-  {
+  public function getPlanTrackId() {
     return $this->planTrackId;
   }
 
@@ -181,8 +168,7 @@ class Querypaymentplan
    * @param mixed $autoCapTime
    *   The auto cap time.
    */
-  public function setAutoCapTime($autoCapTime)
-  {
+  public function setAutoCapTime($autoCapTime) {
     $this->autoCapTime = $autoCapTime;
   }
 
@@ -192,8 +178,7 @@ class Querypaymentplan
    * @return mixed
    *   The auto cap time.
    */
-  public function getAutoCapTime()
-  {
+  public function getAutoCapTime() {
     return $this->autoCapTime;
   }
 
@@ -207,8 +192,7 @@ class Querypaymentplan
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -222,8 +206,7 @@ class Querypaymentplan
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -244,8 +227,7 @@ class Querypaymentplan
    * @param mixed $status
    *   The status.
    */
-  public function setStatus($status)
-  {
+  public function setStatus($status) {
     $this->status = $status;
   }
 
@@ -266,8 +248,7 @@ class Querypaymentplan
    * @return mixed
    *   The status.
    */
-  public function getStatus()
-  {
+  public function getStatus() {
     return $this->status;
   }
 

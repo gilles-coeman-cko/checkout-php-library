@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Reporting\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $count;
   private $pageNumber;
   private $pageSize;
@@ -32,8 +31,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param null $response
    *   The response model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setCount($response->getTotalRecords());
     $this->setData($response->getData());
@@ -47,8 +45,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return int
    *   The list count.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -58,8 +55,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The list data.
    */
-  public function getData()
-  {
+  public function getData() {
     return $this->data;
   }
 
@@ -69,8 +65,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $requestModel
    *   The list count.
    */
-  private function setCount($count)
-  {
+  private function setCount($count) {
     $this->count = $count;
   }
 
@@ -80,8 +75,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $data
    *   The list data.
    */
-  private function setData($data)
-  {
+  private function setData($data) {
     $chargeBacksArray = $data->toArray();
     $chargeBacksToReturn = array();
     if ($chargeBacksArray) {
@@ -117,8 +111,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   A chargeback object.
    */
-  private function getChargeback($chargeback)
-  {
+  private function getChargeback($chargeback) {
     return $chargeback;
   }
 
@@ -128,8 +121,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $requestModel
    *   The page number.
    */
-  private function setPageNumber($pageNumber)
-  {
+  private function setPageNumber($pageNumber) {
     $this->pageNumber = $pageNumber;
   }
 
@@ -139,8 +131,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The page number.
    */
-  public function getPageNumber()
-  {
+  public function getPageNumber() {
     return $this->pageNumber;
   }
 
@@ -150,8 +141,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $requestModel
    *   The page size.
    */
-  private function setPageSize($pageSize)
-  {
+  private function setPageSize($pageSize) {
     $this->pageSize = $pageSize;
   }
 
@@ -161,8 +151,7 @@ class Chargebacklist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The page size.
    */
-  public function getPageSize()
-  {
+  public function getPageSize() {
     return $this->pageSize;
   }
 }

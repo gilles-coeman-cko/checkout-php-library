@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com helpers\ApiUrls.
+ * Checkout.com Helpers\ApiUrls.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\helpers;
+namespace com\checkout\Helpers;
 
 /**
  * Class Api Urls.
@@ -19,8 +19,7 @@ namespace com\checkout\helpers;
  * @category Helpers
  * @version Release: @package_version@
  */
-class ApiUrls
-{
+class ApiUrls {
   private $baseApiUri = null;
   private $cardTokensApiUri = null;
   private $paymentTokensApiUri = null;
@@ -54,8 +53,7 @@ class ApiUrls
    * @param mixed $requestModel
    *   The request model.
    */
-  public function __construct()
-  {
+  public function __construct() {
     $this->setBaseApiUri(AppSetting::getSingletonInstance()->getBaseApiUri());
   }
 
@@ -65,8 +63,7 @@ class ApiUrls
    * @return string
    *   The baseApiUri.
    */
-  public function getBaseApiUri()
-  {
+  public function getBaseApiUri() {
     return $this->baseApiUri;
   }
 
@@ -76,8 +73,7 @@ class ApiUrls
    * @param string $baseApiUri
    *   The baseApiUri.
    */
-  public function setBaseApiUri($baseApiUri)
-  {
+  public function setBaseApiUri($baseApiUri) {
     $this->baseApiUri = $baseApiUri;
   }
 
@@ -87,8 +83,7 @@ class ApiUrls
    * @return string
    *   The verifyChargesApiUri.
    */
-  public function getVerifyChargesApiUri()
-  {
+  public function getVerifyChargesApiUri() {
     if (!$this->verifyChargesApiUri) {
       $this->setVerifyChargesApiUri($this->getBaseApiUri() . "/charges/%s");
     }
@@ -102,8 +97,7 @@ class ApiUrls
    * @param string $verifyChargesApiUri
    *   The verifyChargesApiUri.
    */
-  public function setVerifyChargesApiUri($verifyChargesApiUri)
-  {
+  public function setVerifyChargesApiUri($verifyChargesApiUri) {
     $this->verifyChargesApiUri = $verifyChargesApiUri;
   }
 
@@ -113,8 +107,7 @@ class ApiUrls
    * @return string
    *   The cardTokensApiUri.
    */
-  public function getCardtokensApiUri()
-  {
+  public function getCardtokensApiUri() {
     if (!$this->cardTokensApiUri) {
       $this->setCardtokensApiUri($this->getBaseApiUri() . "/charges/token");
     }
@@ -127,8 +120,7 @@ class ApiUrls
    * @param string $cardTokensApiUri
    *   The cardTokensApiUri.
    */
-  public function setCardtokensApiUri($cardTokensApiUri)
-  {
+  public function setCardtokensApiUri($cardTokensApiUri) {
     $this->cardTokensApiUri = $cardTokensApiUri;
   }
 
@@ -138,8 +130,7 @@ class ApiUrls
    * @return string
    *   The cardTokensApiUri.
    */
-  public function getPaymenttokensApiUri()
-  {
+  public function getPaymenttokensApiUri() {
     if (!$this->paymentTokensApiUri) {
       $this->setPaymenttokensApiUri($this->getBaseApiUri() . "/tokens/payment");
     }
@@ -152,8 +143,7 @@ class ApiUrls
    * @param string $paymentTokensApiUri
    *   The paymentTokensApiUri.
    */
-  public function setPaymenttokensApiUri($paymentTokensApiUri)
-  {
+  public function setPaymenttokensApiUri($paymentTokensApiUri) {
     $this->paymentTokensApiUri = $paymentTokensApiUri;
   }
 
@@ -163,8 +153,7 @@ class ApiUrls
    * @return string
    *   The paymentTokenUpdateApiUri.
    */
-  public function getPaymenttokenupdateApiUri()
-  {
+  public function getPaymenttokenupdateApiUri() {
     if (!$this->paymentTokenUpdateApiUri) {
       $this->setPaymenttokenupdateApiUri(
         $this->getBaseApiUri() . "/tokens/payment/%s"
@@ -179,8 +168,7 @@ class ApiUrls
    * @param string $paymentTokenUpdateApiUri
    *   The paymentTokenUpdateApiUri.
    */
-  public function setPaymenttokenupdateApiUri($paymentTokenUpdateApiUri)
-  {
+  public function setPaymenttokenupdateApiUri($paymentTokenUpdateApiUri) {
     $this->paymentTokenUpdateApiUri = $paymentTokenUpdateApiUri;
   }
 
@@ -190,8 +178,7 @@ class ApiUrls
    * @return string
    *   The cardProvidersUri.
    */
-  public function getCardprovidersUri()
-  {
+  public function getCardprovidersUri() {
     if (!$this->cardProvidersUri) {
       $this->setCardprovidersUri($this->getBaseApiUri() . "/providers/cards");
     }
@@ -204,8 +191,7 @@ class ApiUrls
    * @param string $cardProvidersUri
    *   The cardProvidersUri.
    */
-  public function setCardprovidersUri($cardProvidersUri)
-  {
+  public function setCardprovidersUri($cardProvidersUri) {
     $this->cardProvidersUri = $cardProvidersUri;
   }
 
@@ -215,8 +201,7 @@ class ApiUrls
    * @return string
    *   The localPaymentprovidersUri.
    */
-  public function getLocalpaymentprovidersUri()
-  {
+  public function getLocalpaymentprovidersUri() {
     if (!$this->localPaymentprovidersUri) {
       $this->setLocalpaymentprovidersUri(
         $this->getBaseApiUri() . "/providers/localpayments"
@@ -232,8 +217,7 @@ class ApiUrls
    * @param string $localPaymentprovidersUri
    *   The localPaymentprovidersUri.
    */
-  public function setLocalpaymentprovidersUri($localPaymentprovidersUri)
-  {
+  public function setLocalpaymentprovidersUri($localPaymentprovidersUri) {
     $this->localPaymentprovidersUri = $localPaymentprovidersUri;
   }
 
@@ -243,8 +227,7 @@ class ApiUrls
    * @return string
    *   The customersApiUri.
    */
-  public function getCustomersApiUri()
-  {
+  public function getCustomersApiUri() {
     if (!$this->customersApiUri) {
       $this->setCustomersApiUri($this->getBaseApiUri() . "/customers");
     }
@@ -258,8 +241,7 @@ class ApiUrls
    * @param string $customersApiUri
    *   The customersApiUri.
    */
-  public function setCustomersApiUri($customersApiUri)
-  {
+  public function setCustomersApiUri($customersApiUri) {
     $this->customersApiUri = $customersApiUri;
   }
 
@@ -269,8 +251,7 @@ class ApiUrls
    * @return string
    *   The cardsApiUri.
    */
-  public function getCardsApiUri()
-  {
+  public function getCardsApiUri() {
     if (!$this->cardsApiUri) {
       $this->setCardsApiUri($this->getBaseApiUri() . "/customers/%s/cards");
     }
@@ -283,8 +264,7 @@ class ApiUrls
    * @param string $cardsApiUri
    *   The cardsApiUri.
    */
-  public function setCardsApiUri($cardsApiUri)
-  {
+  public function setCardsApiUri($cardsApiUri) {
     $this->cardsApiUri = $cardsApiUri;
   }
 
@@ -294,8 +274,7 @@ class ApiUrls
    * @return string
    *   The cardChargesApiUri.
    */
-  public function getCardChargesApiUri()
-  {
+  public function getCardChargesApiUri() {
     if (!$this->cardChargesApiUri) {
       $this->setCardChargesApiUri($this->getBaseApiUri() . "/charges/card");
     }
@@ -308,8 +287,7 @@ class ApiUrls
    * @param string $cardChargesApiUri
    *   The cardChargesApiUri.
    */
-  public function setCardChargesApiUri($cardChargesApiUri)
-  {
+  public function setCardChargesApiUri($cardChargesApiUri) {
     $this->cardChargesApiUri = $cardChargesApiUri;
   }
 
@@ -319,8 +297,7 @@ class ApiUrls
    * @return string
    *   The cardTokenChargesApiUri.
    */
-  public function getCardtokenChargesApiUri()
-  {
+  public function getCardtokenChargesApiUri() {
     if (!$this->cardTokenChargesApiUri) {
       $this->setCardtokenChargesApiUri($this->getBaseApiUri() . "/charges/token");
     }
@@ -333,8 +310,7 @@ class ApiUrls
    * @param string $cardTokenChargesApiUri
    *   The cardTokenChargesApiUri.
    */
-  public function setCardtokenChargesApiUri($cardTokenChargesApiUri)
-  {
+  public function setCardtokenChargesApiUri($cardTokenChargesApiUri) {
     $this->cardTokenChargesApiUri = $cardTokenChargesApiUri;
   }
 
@@ -344,8 +320,7 @@ class ApiUrls
    * @return string
    *   The chargeWithPaymenttokenUri.
    */
-  public function getChargeWithPaymenttokenUri()
-  {
+  public function getChargeWithPaymenttokenUri() {
     if (!$this->chargeWithPaymenttokenUri) {
       $this->setChargeWithPaymenttokenUri(
         $this->getBaseApiUri() . "/charges/js/card"
@@ -361,8 +336,7 @@ class ApiUrls
    * @param string $chargeWithPaymenttokenUri
    *   The chargeWithPaymenttokenUri.
    */
-  public function setChargeWithPaymenttokenUri($chargeWithPaymenttokenUri)
-  {
+  public function setChargeWithPaymenttokenUri($chargeWithPaymenttokenUri) {
     $this->chargeWithPaymenttokenUri = $chargeWithPaymenttokenUri;
   }
 
@@ -372,8 +346,7 @@ class ApiUrls
    * @return string
    *   The defaultCardChargesApiUri.
    */
-  public function getDefaultCardChargesApiUri()
-  {
+  public function getDefaultCardChargesApiUri() {
     if (!$this->defaultCardChargesApiUri) {
       $this->setDefaultCardChargesApiUri(
         $this->getBaseApiUri() . "/charges/customer"
@@ -388,8 +361,7 @@ class ApiUrls
    * @param string $defaultCardChargesApiUri
    *   The defaultCardChargesApiUri.
    */
-  public function setDefaultCardChargesApiUri($defaultCardChargesApiUri)
-  {
+  public function setDefaultCardChargesApiUri($defaultCardChargesApiUri) {
     $this->defaultCardChargesApiUri = $defaultCardChargesApiUri;
   }
 
@@ -399,8 +371,7 @@ class ApiUrls
    * @return string
    *   The chargeRefundsApiUri.
    */
-  public function getChargerefundsApiUri()
-  {
+  public function getChargerefundsApiUri() {
     if (!$this->chargeRefundsApiUri) {
       $this->setChargerefundsApiUri(
         $this->getBaseApiUri() . "/charges/%s/refund"
@@ -415,8 +386,7 @@ class ApiUrls
    * @param string $chargeRefundsApiUri
    *   The chargeRefundsApiUri.
    */
-  public function setChargerefundsApiUri($chargeRefundsApiUri)
-  {
+  public function setChargerefundsApiUri($chargeRefundsApiUri) {
     $this->chargeRefundsApiUri = $chargeRefundsApiUri;
   }
 
@@ -426,8 +396,7 @@ class ApiUrls
    * @return string
    *   The captureChargesApiUri.
    */
-  public function getCaptureChargesApiUri()
-  {
+  public function getCaptureChargesApiUri() {
     if (!$this->captureChargesApiUri) {
       $this->setCaptureChargesApiUri(
         $this->getBaseApiUri() . "/charges/%s/capture"
@@ -442,8 +411,7 @@ class ApiUrls
    * @param string $captureChargesApiUri
    *   The captureChargesApiUri.
    */
-  public function setCaptureChargesApiUri($captureChargesApiUri)
-  {
+  public function setCaptureChargesApiUri($captureChargesApiUri) {
     $this->captureChargesApiUri = $captureChargesApiUri;
   }
 
@@ -453,8 +421,7 @@ class ApiUrls
    * @return string
    *   The updateChargesApiUri.
    */
-  public function getUpdateChargesApiUri()
-  {
+  public function getUpdateChargesApiUri() {
     if (!$this->updateChargesApiUri) {
       $this->setUpdateChargesApiUri(
         $this->getBaseApiUri() . "/charges/%s"
@@ -469,8 +436,7 @@ class ApiUrls
    * @return null
    *   The voidChargesApiUri.
    */
-  public function getVoidChargesApiUri()
-  {
+  public function getVoidChargesApiUri() {
     if (!$this->voidChargesApiUri) {
       $this->setVoidChargesApiUri($this->getBaseApiUri() . "/charges/%s/void");
     }
@@ -483,8 +449,7 @@ class ApiUrls
    * @return null
    *   The queryTransactionApiUri.
    */
-  public function getQueryTransactionApiUri()
-  {
+  public function getQueryTransactionApiUri() {
     if (!$this->queryTransactionApiUri) {
       $this->setQueryTransactionApiUri(
         $this->getBaseApiUri() . "/reporting/transactions"
@@ -500,8 +465,7 @@ class ApiUrls
    * @param mixed $queryTransactionApiUri
    *   The queryTransactionApiUri.
    */
-  public function setQueryTransactionApiUri($queryTransactionApiUri)
-  {
+  public function setQueryTransactionApiUri($queryTransactionApiUri) {
     $this->queryTransactionApiUri = $queryTransactionApiUri;
   }
 
@@ -511,8 +475,7 @@ class ApiUrls
    * @return null
    *   The queryChargebackApiUri.
    */
-  public function getQueryChargebackApiUri()
-  {
+  public function getQueryChargebackApiUri() {
     if (!$this->queryChargebackApiUri) {
       $this->setQueryChargebackApiUri(
         $this->getBaseApiUri() . "/reporting/chargebacks"
@@ -528,8 +491,7 @@ class ApiUrls
    * @param mixed $queryChargebackApiUri
    *   The queryChargebackApiUri.
    */
-  public function setQueryChargebackApiUri($queryChargebackApiUri)
-  {
+  public function setQueryChargebackApiUri($queryChargebackApiUri) {
     $this->queryChargebackApiUri = $queryChargebackApiUri;
   }
 
@@ -539,8 +501,7 @@ class ApiUrls
    * @param null $voidChargesApiUri
    *   The voidChargesApiUri.
    */
-  public function setVoidChargesApiUri($voidChargesApiUri)
-  {
+  public function setVoidChargesApiUri($voidChargesApiUri) {
     $this->voidChargesApiUri = $voidChargesApiUri;
   }
 
@@ -550,8 +511,7 @@ class ApiUrls
    * @return string
    *   The retrieveChargesApiUri.
    */
-  public function getRetrieveChargesApiUri()
-  {
+  public function getRetrieveChargesApiUri() {
 
     if (!$this->retrieveChargesApiUri) {
       $this->setRetrieveChargesApiUri($this->getBaseApiUri() . "/charges/%s");
@@ -566,8 +526,7 @@ class ApiUrls
    * @param string $retrieveChargesApiUri
    *   The retrieveChargesApiUri.
    */
-  public function setRetrieveChargesApiUri($retrieveChargesApiUri)
-  {
+  public function setRetrieveChargesApiUri($retrieveChargesApiUri) {
     $this->retrieveChargesApiUri = $retrieveChargesApiUri;
   }
 
@@ -577,8 +536,7 @@ class ApiUrls
    * @return string
    *   The retrieveChargehistoryApiUri.
    */
-  public function getRetrieveChargehistoryApiUri()
-  {
+  public function getRetrieveChargehistoryApiUri() {
 
     if (!$this->retrieveChargehistoryApiUri) {
       $this->setRetrieveChargehistoryApiUri(
@@ -595,8 +553,7 @@ class ApiUrls
    * @param string $retrieveChargehistoryApiUri
    *   The retrieveChargehistoryApiUri.
    */
-  public function setRetrieveChargehistoryApiUri($retrieveChargehistoryApiUri)
-  {
+  public function setRetrieveChargehistoryApiUri($retrieveChargehistoryApiUri) {
     $this->retrieveChargehistoryApiUri = $retrieveChargehistoryApiUri;
   }
 
@@ -606,8 +563,7 @@ class ApiUrls
    * @param string $updateChargesApiUri
    *   The updateChargesApiUri.
    */
-  public function setUpdateChargesApiUri($updateChargesApiUri)
-  {
+  public function setUpdateChargesApiUri($updateChargesApiUri) {
     $this->updateChargesApiUri = $updateChargesApiUri;
   }
 
@@ -617,8 +573,7 @@ class ApiUrls
    * @return string
    *   The recurringPaymentsApiUri.
    */
-  public function getRecurringpaymentsApiUri()
-  {
+  public function getRecurringpaymentsApiUri() {
 
     if (!$this->recurringPaymentsApiUri) {
       $this->setRecurringpaymentsApiUri(
@@ -635,8 +590,7 @@ class ApiUrls
    * @param string $recurringPaymentsApiUri
    *   The recurringPaymentsApiUri.
    */
-  public function setRecurringpaymentsApiUri($recurringPaymentsApiUri)
-  {
+  public function setRecurringpaymentsApiUri($recurringPaymentsApiUri) {
     $this->recurringPaymentsApiUri = $recurringPaymentsApiUri;
   }
 
@@ -646,8 +600,7 @@ class ApiUrls
    * @return string
    *   The recurringPaymentsQueryApiUri.
    */
-  public function getRecurringpaymentsQueryApiUri()
-  {
+  public function getRecurringpaymentsQueryApiUri() {
 
     if (!$this->recurringPaymentsQueryApiUri) {
       $this->setRecurringpaymentsQueryApiUri(
@@ -664,8 +617,7 @@ class ApiUrls
    * @param string $recurringPaymentsQueryApiUri
    *   The recurringPaymentsQueryApiUri.
    */
-  public function setRecurringpaymentsQueryApiUri($recurringPaymentsQueryApiUri)
-  {
+  public function setRecurringpaymentsQueryApiUri($recurringPaymentsQueryApiUri) {
     $this->recurringPaymentsQueryApiUri = $recurringPaymentsQueryApiUri;
   }
 
@@ -675,8 +627,7 @@ class ApiUrls
    * @return string
    *   The recurringPaymentsCustomersApiUri.
    */
-  public function getRecurringpaymentsCustomersApiUri()
-  {
+  public function getRecurringpaymentsCustomersApiUri() {
     if (!$this->recurringPaymentsCustomersApiUri) {
       $this->setRecurringpaymentsCustomersApiUri(
         $this->getBaseApiUri() . "/recurringPayments/customers"
@@ -704,8 +655,7 @@ class ApiUrls
    * @return string
    *   The recurringPaymentsCustomersQueryApiUri.
    */
-  public function getRecurringpaymentsCustomersQueryApiUri()
-  {
+  public function getRecurringpaymentsCustomersQueryApiUri() {
     if (!$this->recurringPaymentsCustomersQueryApiUri) {
       $this->setRecurringpaymentsCustomersQueryApiUri(
         $this->getBaseApiUri() . "/recurringPayments/customers/search"
@@ -734,8 +684,7 @@ class ApiUrls
    * @return string
    *   The visaCheckoutCardtokenApiUri.
    */
-  public function getVisacheckoutcardtokenApiUri()
-  {
+  public function getVisacheckoutcardtokenApiUri() {
     if (!$this->visaCheckoutCardtokenApiUri) {
       $this->setVisacheckoutcardtokenApiUri(
         $this->getBaseApiUri() . "/tokens/card/visa-checkout"
@@ -751,8 +700,7 @@ class ApiUrls
    * @param string $visaCheckoutCardtokenApiUri
    *   The visaCheckoutCardtokenApiUri.
    */
-  public function setVisacheckoutcardtokenApiUri($visaCheckoutCardtokenApiUri)
-  {
+  public function setVisacheckoutcardtokenApiUri($visaCheckoutCardtokenApiUri) {
     $this->visaCheckoutCardtokenApiUri = $visaCheckoutCardtokenApiUri;
   }
 }

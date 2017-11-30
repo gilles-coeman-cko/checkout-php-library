@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardtokenchargecreate extends Basecharge
-{
+class Cardtokenchargecreate extends Basecharge {
   private $cardToken;
   protected $transactionIndicator;
 
@@ -33,8 +32,7 @@ class Cardtokenchargecreate extends Basecharge
    * @return mixed
    *   The cardToken.
    */
-  public function getCardtoken()
-  {
+  public function getCardtoken() {
     return $this->cardToken;
   }
 
@@ -47,8 +45,7 @@ class Cardtokenchargecreate extends Basecharge
    * @param mixed $cardToken
    *   The cardToken.
    */
-  public function setCardtoken($cardToken)
-  {
+  public function setCardtoken($cardToken) {
     $this->cardToken = $cardToken;
   }
 
@@ -63,8 +60,7 @@ class Cardtokenchargecreate extends Basecharge
    * @return mixed
    *   The transactionIndicator.
    */
-  public function getTransactionIndicator()
-  {
+  public function getTransactionIndicator() {
     return $this->transactionIndicator;
   }
 
@@ -79,8 +75,7 @@ class Cardtokenchargecreate extends Basecharge
    * @param mixed $transactionIndicator
    *   The transactionIndicator.
    */
-  public function setTransactionIndicator($transactionIndicator)
-  {
+  public function setTransactionIndicator($transactionIndicator) {
     $this->transactionIndicator = $transactionIndicator;
   }
 }

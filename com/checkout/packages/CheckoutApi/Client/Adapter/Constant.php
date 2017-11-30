@@ -1,7 +1,7 @@
 <?php
 
 /**
- * CheckoutapiApi.
+ * Checkout.com Packages\Checkoutapi\Client\Adapter\CheckoutapiClientAdapterConstant.
  *
  * PHP Version 5.6
  *

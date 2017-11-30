@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   protected $object;
   protected $id;
   protected $originId;
@@ -45,8 +44,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -58,8 +56,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The chargeId.
    */
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
@@ -71,8 +68,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The originId.
    */
-  public function getOriginId()
-  {
+  public function getOriginId() {
     return $this->originId;
   }
 
@@ -82,8 +78,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The date.
    */
-  public function getDate()
-  {
+  public function getDate() {
     return $this->date;
   }
 
@@ -93,8 +88,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The date.
    */
-  public function getStatus()
-  {
+  public function getStatus() {
     return $this->status;
   }
 
@@ -106,8 +100,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The type.
    */
-  public function getType()
-  {
+  public function getType() {
     return $this->type;
   }
 
@@ -121,8 +114,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The amount.
    */
-  public function getAmount()
-  {
+  public function getAmount() {
     return $this->amount;
   }
 
@@ -132,8 +124,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The scheme.
    */
-  public function getScheme()
-  {
+  public function getScheme() {
     return $this->scheme;
   }
 
@@ -143,8 +134,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The responseCode.
    */
-  public function getResponseCode()
-  {
+  public function getResponseCode() {
     return $this->responseCode;
   }
 
@@ -157,8 +147,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The currency.
    */
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
@@ -171,8 +160,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The LiveMode.
    */
-  public function getLiveMode()
-  {
+  public function getLiveMode() {
     return $this->liveMode;
   }
 
@@ -182,8 +170,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The businessName.
    */
-  public function getBusinessName()
-  {
+  public function getBusinessName() {
     return $this->businessName;
   }
 
@@ -193,8 +180,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The channelName.
    */
-  public function getChannelName()
-  {
+  public function getChannelName() {
     return $this->channelName;
   }
 
@@ -206,8 +192,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The trackId.
    */
-  public function getTrackId()
-  {
+  public function getTrackId() {
     return $this->trackId;
   }
 
@@ -219,8 +204,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The CustomerId.
    */
-  public function getCustomerId()
-  {
+  public function getCustomerId() {
     return $this->customerId;
   }
 
@@ -230,8 +214,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The customerName.
    */
-  public function getCustomerName()
-  {
+  public function getCustomerName() {
     return $this->customerName;
   }
 
@@ -241,8 +224,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The email.
    */
-  public function getCustomerEmail()
-  {
+  public function getCustomerEmail() {
     return $this->customerEmail;
   }
 
@@ -252,8 +234,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $object
    *   The object.
    */
-  public function setObject($object)
-  {
+  public function setObject($object) {
     $this->object = $object;
   }
 
@@ -265,8 +246,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $id
    *   The chargeId.
    */
-  public function setId($id)
-  {
+  public function setId($id) {
     $this->id = $id;
   }
 
@@ -278,8 +258,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $originId
    *   The originId.
    */
-  public function setOriginId($originId)
-  {
+  public function setOriginId($originId) {
     $this->originId = $originId;
   }
 
@@ -289,8 +268,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $date
    *   The date.
    */
-  public function setDate($date)
-  {
+  public function setDate($date) {
     $this->date = $date;
   }
 
@@ -300,8 +278,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $status
    *   The date.
    */
-  public function setStatus($status)
-  {
+  public function setStatus($status) {
     $this->status = $status;
   }
 
@@ -313,8 +290,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed $type
    *   The type.
    */
-  public function setType($type)
-  {
+  public function setType($type) {
     $this->type = $type;
   }
 
@@ -328,8 +304,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $amount
    *   The amount.
    */
-  public function setAmount($amount)
-  {
+  public function setAmount($amount) {
     $this->amount = $amount;
   }
 
@@ -339,8 +314,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $scheme
    *   The scheme.
    */
-  public function setScheme($scheme)
-  {
+  public function setScheme($scheme) {
     $this->scheme = $scheme;
   }
 
@@ -350,8 +324,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $responseCode
    *   The responseCode.
    */
-  public function setResponsecode($responseCode)
-  {
+  public function setResponsecode($responseCode) {
     $this->responseCode = $responseCode;
   }
 
@@ -364,8 +337,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $currency
    *   The currency.
    */
-  public function setCurrency($currency)
-  {
+  public function setCurrency($currency) {
     $this->currency = $currency;
   }
 
@@ -378,8 +350,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $liveMode
    *   The LiveMode.
    */
-  public function setLiveMode($liveMode)
-  {
+  public function setLiveMode($liveMode) {
     $this->liveMode = $liveMode;
   }
 
@@ -389,8 +360,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $businessName
    *   The businessName.
    */
-  public function setBusinessName($businessName)
-  {
+  public function setBusinessName($businessName) {
     $this->businessName = $businessName;
   }
 
@@ -400,8 +370,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $channelName
    *   The channelName.
    */
-  public function setChannelName($channelName)
-  {
+  public function setChannelName($channelName) {
     $this->channelName = $channelName;
   }
 
@@ -413,8 +382,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $trackId
    *   The trackId.
    */
-  public function setTrackId($trackId)
-  {
+  public function setTrackId($trackId) {
     $this->trackId = $trackId;
   }
 
@@ -426,8 +394,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $customerId
    *   The CustomerId.
    */
-  public function setCustomerId($customerId)
-  {
+  public function setCustomerId($customerId) {
     $this->customerId = $customerId;
   }
 
@@ -437,8 +404,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $customerName
    *   The customerName.
    */
-  public function setCustomerName($customerName)
-  {
+  public function setCustomerName($customerName) {
     $this->customerName = $customerName;
   }
 
@@ -448,8 +414,7 @@ class Transaction extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $email
    *   The email.
    */
-  public function setCustomerEmail($customerEmail)
-  {
+  public function setCustomerEmail($customerEmail) {
     $this->customerEmail = $customerEmail;
   }
 

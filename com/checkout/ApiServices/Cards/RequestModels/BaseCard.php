@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Cards\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Basecard
-{
+class Basecard {
   protected $name;
   protected $expiryMonth;
   protected $expiryYear;
@@ -33,8 +32,7 @@ class Basecard
    * @return mixed
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -44,8 +42,7 @@ class Basecard
    * @param mixed $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -55,8 +52,7 @@ class Basecard
    * @return mixed
    *   The expiryMonth.
    */
-  public function getExpiryMonth()
-  {
+  public function getExpiryMonth() {
     return $this->expiryMonth;
   }
 
@@ -66,8 +62,7 @@ class Basecard
    * @param mixed $expiryMonth
    *   The expiryMonth.
    */
-  public function setExpiryMonth($expiryMonth)
-  {
+  public function setExpiryMonth($expiryMonth) {
     $this->expiryMonth = $expiryMonth;
   }
 
@@ -77,8 +72,7 @@ class Basecard
    * @return mixed
    *   The expiryYear.
    */
-  public function getExpiryYear()
-  {
+  public function getExpiryYear() {
     return $this->expiryYear;
   }
 
@@ -88,8 +82,7 @@ class Basecard
    * @param mixed $expiryYear
    *   The expiryYear.
    */
-  public function setExpiryYear($expiryYear)
-  {
+  public function setExpiryYear($expiryYear) {
     $this->expiryYear = $expiryYear;
   }
 
@@ -114,8 +107,7 @@ class Basecard
    * @return mixed
    *   The BillingDetails .
    */
-  public function getBillingDetails()
-  {
+  public function getBillingDetails() {
     return $this->billingDetails;
   }
 
@@ -154,8 +146,7 @@ class Basecard
    * @return mixed
    *   The defaultCard.
    */
-  public function getDefaultCard()
-  {
+  public function getDefaultCard() {
     return $this->defaultCard;
   }
 
@@ -167,8 +158,7 @@ class Basecard
    * @param mixed $defaultCard
    *   The defaultCard.
    */
-  public function setDefaultCard($defaultCard)
-  {
+  public function setDefaultCard($defaultCard) {
     $this->defaultCard = $defaultCard;
   }
 }

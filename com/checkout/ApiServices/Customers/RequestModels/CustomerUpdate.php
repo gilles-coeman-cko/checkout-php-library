@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Customers\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customerupdate extends Basecustomer
-{
+class Customerupdate extends Basecustomer {
 
   private $customerId;
 
@@ -32,8 +31,7 @@ class Customerupdate extends Basecustomer
    * @return mixed
    *   The customerId.
    */
-  public function getCustomerId()
-  {
+  public function getCustomerId() {
     return $this->customerId;
   }
 
@@ -45,8 +43,7 @@ class Customerupdate extends Basecustomer
    * @param mixed $customerId
    *   The customerId.
    */
-  public function setCustomerId($customerId)
-  {
+  public function setCustomerId($customerId) {
     $this->customerId = $customerId;
   }
 }

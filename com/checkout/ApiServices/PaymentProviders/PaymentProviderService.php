@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Paymentproviders;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Paymentproviderservice extends \com\checkout\Apiservices\Baseservices
-{
+class Paymentproviderservice extends \com\checkout\Apiservices\Baseservices {
 
   /**
    * Get a list of card providers.
@@ -28,15 +27,14 @@ class Paymentproviderservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Cardproviderlist
    *   The response models or a card provider list object.
    */
-  public function getCardproviderlist()
-  {
+  public function getCardproviderlist() {
     $requestPayload = array(
       'authorization' => $this->apiSetting->getPublicKey(),
       'mode' => $this->apiSetting->getMode(),
 
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::getRequest(
       $this->apiUrl->getCardprovidersUri(),
       $this->apiSetting->getPublicKey(), $requestPayload
     );
@@ -52,15 +50,14 @@ class Paymentproviderservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Cardprovider
    *   The response models or a card provider object.
    */
-  public function getCardprovider($id)
-  {
+  public function getCardprovider($id) {
     $requestPayload = array(
       'authorization' => $this->apiSetting->getPublicKey(),
       'mode' => $this->apiSetting->getMode(),
 
     );
     $cardProviderByIdUri = $this->apiUrl->getCardprovidersUri() . "/$id";
-    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::getRequest(
       $cardProviderByIdUri,
       $this->apiSetting->getPublicKey(), $requestPayload
     );

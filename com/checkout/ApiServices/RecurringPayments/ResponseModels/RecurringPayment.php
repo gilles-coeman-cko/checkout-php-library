@@ -19,16 +19,14 @@ namespace com\checkout\Apiservices\Recurringpayments\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   protected $object;
   protected $id;
   protected $paymentPlans;
   protected $totalCollectionCount;
   protected $totalCollectionValue;
 
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
 
     $this->setObject($response->getObject());
@@ -46,8 +44,7 @@ class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return int
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -57,8 +54,7 @@ class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The totalCollectedCount.
    */
-  public function getTotalCollectionCount()
-  {
+  public function getTotalCollectionCount() {
     return $this->totalCollectionCount;
   }
 
@@ -68,8 +64,7 @@ class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The totalCollectionValue.
    */
-  public function getTotalCollectionValue()
-  {
+  public function getTotalCollectionValue() {
     return $this->totalCollectionValue;
   }
 
@@ -86,8 +81,7 @@ class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The paymentPlans.
    */
-  public function getPaymentplans()
-  {
+  public function getPaymentplans() {
     return $this->paymentPlans;
   }
 
@@ -97,8 +91,7 @@ class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  private function setObject($object)
-  {
+  private function setObject($object) {
     $this->object = $object;
   }
 
@@ -115,8 +108,7 @@ class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $paymentPlans
    *   The paymentPlans.
    */
-  protected function setPaymentplans($paymentPlans)
-  {
+  protected function setPaymentplans($paymentPlans) {
     $paymentPlansArray = $paymentPlans->toArray();
     $paymentPlansToReturn = array();
     if ($paymentPlansArray) {
@@ -143,8 +135,7 @@ class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $totalCollectionCount
    *   The totalCollectionCount.
    */
-  public function setTotalCollectionCount($totalCollectionCount)
-  {
+  public function setTotalCollectionCount($totalCollectionCount) {
     $this->totalCollectionCount = $totalCollectionCount;
   }
 
@@ -154,8 +145,7 @@ class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $totalCollectionValue
    *   The totalCollectionValue.
    */
-  public function setTotalCollectionValue($totalCollectionValue)
-  {
+  public function setTotalCollectionValue($totalCollectionValue) {
     $this->totalCollectionValue = $totalCollectionValue;
   }
 
@@ -169,8 +159,7 @@ class Recurringpayment extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $responseCode
    *   The responseCode.
    */
-  private function setResponseCode($responseCode)
-  {
+  private function setResponseCode($responseCode) {
     $this->responseCode = $responseCode;
   }
 

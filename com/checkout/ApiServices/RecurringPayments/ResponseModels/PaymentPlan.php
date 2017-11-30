@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
 
   protected $object;
   protected $planId;
@@ -33,8 +32,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
   protected $recurringCount;
   protected $status;
 
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
 
     $this->setObject($response->getObject());
@@ -56,8 +54,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return int
    *   The object.
    */
-  public function getObject()
-  {
+  public function getObject() {
     return $this->object;
   }
 
@@ -70,8 +67,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return string
    *   The plan Id.
    */
-  public function getPlanId()
-  {
+  public function getPlanId() {
     return $this->planId;
   }
 
@@ -83,8 +79,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return string
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -94,8 +89,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return string
    *   The plan track id.
    */
-  public function getPlanTrackId()
-  {
+  public function getPlanTrackId() {
     return $this->planTrackId;
   }
 
@@ -105,8 +99,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The auto cap time.
    */
-  public function getAutoCapTime()
-  {
+  public function getAutoCapTime() {
     return $this->autoCapTime;
   }
 
@@ -119,8 +112,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The currency.
    */
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
@@ -134,8 +126,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -154,8 +145,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The value.
    */
-  public function getCycle()
-  {
+  public function getCycle() {
     return $this->cycle;
   }
 
@@ -167,8 +157,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The recurringCount.
    */
-  public function getRecurringCount()
-  {
+  public function getRecurringCount() {
     return $this->recurringCount;
   }
 
@@ -189,8 +178,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The status.
    */
-  public function getStatus()
-  {
+  public function getStatus() {
     return $this->status;
   }
 
@@ -200,8 +188,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  public function setObject($object)
-  {
+  public function setObject($object) {
     $this->object = $object;
   }
 
@@ -214,8 +201,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param string $planId
    *   The plan Id.
    */
-  public function setPlanId($planId)
-  {
+  public function setPlanId($planId) {
     $this->planId = $planId;
   }
 
@@ -227,8 +213,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param string $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -238,8 +223,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param string $planTrackId
    *   The plan track id.
    */
-  public function setPlanTrackId($planTrackId)
-  {
+  public function setPlanTrackId($planTrackId) {
     $this->planTrackId = $planTrackId;
   }
 
@@ -249,8 +233,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $autoCapTime
    *   The auto cap time.
    */
-  public function setAutoCapTime($autoCapTime)
-  {
+  public function setAutoCapTime($autoCapTime) {
     $this->autoCapTime = $autoCapTime;
   }
 
@@ -263,8 +246,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $currency
    *   The currency.
    */
-  public function setCurrency($currency)
-  {
+  public function setCurrency($currency) {
     $this->currency = $currency;
   }
 
@@ -278,8 +260,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -298,8 +279,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $cycle
    *   The value.
    */
-  public function setCycle($cycle)
-  {
+  public function setCycle($cycle) {
     $this->cycle = $cycle;
   }
 
@@ -311,8 +291,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $recurringCount
    *   The recurringCount.
    */
-  public function setRecurringCount($recurringCount)
-  {
+  public function setRecurringCount($recurringCount) {
     $this->recurringCount = $recurringCount;
   }
 
@@ -333,8 +312,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $status
    *   The status.
    */
-  public function setStatus($status)
-  {
+  public function setStatus($status) {
     $this->status = $status;
   }
 
@@ -348,8 +326,7 @@ class Paymentplan extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $responseCode
    *   The responseCode.
    */
-  public function setResponseCode($responseCode)
-  {
+  public function setResponseCode($responseCode) {
     $this->responseCode = $responseCode;
   }
 

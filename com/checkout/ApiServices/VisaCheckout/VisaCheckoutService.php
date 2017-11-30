@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Visacheckout;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Visacheckoutservice extends \com\checkout\Apiservices\Baseservices
-{
+class Visacheckoutservice extends \com\checkout\Apiservices\Baseservices {
   /**
    * Create a VISA checkout card token.
    *
@@ -46,7 +45,7 @@ class Visacheckoutservice extends \com\checkout\Apiservices\Baseservices
       'postedParam' => $visaCheckoutMapper->requestPayloadConverter(),
     );
 
-    $processVisacheckout = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processVisacheckout = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $visaCheckoutUri, $publicKey,
       $requestVisacheckout
     );

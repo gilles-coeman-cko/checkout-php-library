@@ -13,8 +13,8 @@
 
 namespace com\checkout\Apiservices;
 
-use com\checkout\helpers\ApiUrls;
-use com\checkout\helpers\AppSetting;
+use com\checkout\Helpers\ApiUrls;
+use com\checkout\Helpers\AppSetting;
 
 /**
  * Class Base Services.
@@ -22,8 +22,7 @@ use com\checkout\helpers\AppSetting;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Baseservices
-{
+class Baseservices {
   protected $apiSetting = null;
   protected $apiUrl = null;
 
@@ -35,8 +34,7 @@ class Baseservices
    * @param ApiUrls|null $apiUrl
    *   The api URLs.
    */
-  public function __construct(AppSetting $apiSetting, ApiUrls $apiUrl = null)
-  {
+  public function __construct(AppSetting $apiSetting, ApiUrls $apiUrl = null) {
     $this->setApiSetting($apiSetting);
     if (!$this->getApiUrl() && !$apiUrl) {
       $apiUrl = new ApiUrls();
@@ -48,22 +46,20 @@ class Baseservices
   /**
    * Get the API settings.
    *
-   * @return \com\checkout\helpers\AppSetting
+   * @return \com\checkout\Helpers\AppSetting
    *   The API Settings.
    */
-  public function getApiSetting()
-  {
+  public function getApiSetting() {
     return $this->apiSetting;
   }
 
   /**
    * Set the API settings.
    *
-   * @param \com\checkout\helpers\AppSetting $apiSetting
+   * @param \com\checkout\Helpers\AppSetting $apiSetting
    *   The API Settings.
    */
-  public function setApiSetting($apiSetting)
-  {
+  public function setApiSetting($apiSetting) {
     $this->apiSetting = $apiSetting;
   }
 
@@ -73,8 +69,7 @@ class Baseservices
    * @return string
    *   The API URL.
    */
-  public function getApiUrl()
-  {
+  public function getApiUrl() {
     return $this->apiUrl;
   }
 
@@ -84,8 +79,7 @@ class Baseservices
    * @param string $apiUrl
    *   The API URL.
    */
-  public function setApiUrl($apiUrl)
-  {
+  public function setApiUrl($apiUrl) {
     $this->apiUrl = $apiUrl;
   }
 }

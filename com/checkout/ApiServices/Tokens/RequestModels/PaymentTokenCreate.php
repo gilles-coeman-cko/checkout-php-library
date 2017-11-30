@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Tokens\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Paymenttokencreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
-{
+class Paymenttokencreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge {
   protected $transactionIndicator;
 
   /**
@@ -34,8 +33,7 @@ class Paymenttokencreate extends \com\checkout\Apiservices\Charges\Requestmodels
    * @return mixed
    *   The transactionIndicator.
    */
-  public function getTransactionIndicator()
-  {
+  public function getTransactionIndicator() {
     return $this->transactionIndicator;
   }
 
@@ -50,8 +48,7 @@ class Paymenttokencreate extends \com\checkout\Apiservices\Charges\Requestmodels
    * @param mixed $transactionIndicator
    *   The transactionIndicator.
    */
-  public function setTransactionIndicator($transactionIndicator)
-  {
+  public function setTransactionIndicator($transactionIndicator) {
     $this->transactionIndicator = $transactionIndicator;
   }
 }

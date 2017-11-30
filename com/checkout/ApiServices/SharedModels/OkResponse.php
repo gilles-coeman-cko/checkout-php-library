@@ -19,16 +19,14 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Okresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Okresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   /**
    * Class constructor.
    *
    * @param null $response
    *   The response model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setMessage($response->getMessage());
   }
@@ -41,8 +39,7 @@ class Okresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The message.
    */
-  public function getMessage()
-  {
+  public function getMessage() {
     return $this->message;
   }
 
@@ -52,8 +49,7 @@ class Okresponse extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $message
    *   The message.
    */
-  public function setMessage($message)
-  {
+  public function setMessage($message) {
     $this->message = $message;
   }
 }

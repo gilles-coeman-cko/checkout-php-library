@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargesmapper
-{
+class Chargesmapper {
   private $requestModel;
 
   /**
@@ -29,8 +28,7 @@ class Chargesmapper
    * @param mixed $requestModel
    *   The request model.
    */
-  public function __construct($requestModel)
-  {
+  public function __construct($requestModel) {
     $this->setRequestModel($requestModel);
   }
 
@@ -40,8 +38,7 @@ class Chargesmapper
    * @return mixed
    *   The request model.
    */
-  public function getRequestModel()
-  {
+  public function getRequestModel() {
     return $this->requestModel;
   }
 
@@ -51,8 +48,7 @@ class Chargesmapper
    * @param mixed $requestModel
    *   The request model.
    */
-  public function setRequestModel($requestModel)
-  {
+  public function setRequestModel($requestModel) {
     $this->requestModel = $requestModel;
   }
 
@@ -65,8 +61,7 @@ class Chargesmapper
    * @return array|null
    *   The reporting array.
    */
-  public function requestPayloadConverter($requestModel = null)
-  {
+  public function requestPayloadConverter($requestModel = null) {
     $requestPayload = null;
     if (!$requestModel) {
       $requestModel = $this->getRequestModel();

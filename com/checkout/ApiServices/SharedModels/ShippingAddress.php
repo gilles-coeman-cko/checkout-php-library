@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Sharedmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class ShippingAddress extends Address
-{
+class ShippingAddress extends Address {
   protected $recipientName;
 
   /**
@@ -29,8 +28,7 @@ class ShippingAddress extends Address
    * @return mixed
    *   The recipientName.
    */
-  public function getRecipientName()
-  {
+  public function getRecipientName() {
     return $this->recipientName;
   }
 
@@ -40,8 +38,7 @@ class ShippingAddress extends Address
    * @param mixed $recipientName
    *   The recipientName.
    */
-  public function setRecipientName($recipientName)
-  {
+  public function setRecipientName($recipientName) {
     $this->recipientName = $recipientName;
   }
 }

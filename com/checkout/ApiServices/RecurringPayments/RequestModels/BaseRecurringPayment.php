@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Baserecurringpayment
-{
+class Baserecurringpayment {
   protected $name;
   protected $planTrackId;
   protected $autoCapTime;
@@ -40,8 +39,7 @@ class Baserecurringpayment
    * @return string
    *   The name.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -53,8 +51,7 @@ class Baserecurringpayment
    * @param string $name
    *   The name.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -64,8 +61,7 @@ class Baserecurringpayment
    * @return string
    *   The plan track id.
    */
-  public function getPlanTrackId()
-  {
+  public function getPlanTrackId() {
     return $this->planTrackId;
   }
 
@@ -75,8 +71,7 @@ class Baserecurringpayment
    * @param string $planTrackId
    *   The plan track id.
    */
-  public function setPlanTrackId($planTrackId)
-  {
+  public function setPlanTrackId($planTrackId) {
     $this->planTrackId = $planTrackId;
   }
 
@@ -86,8 +81,7 @@ class Baserecurringpayment
    * @return mixed
    *   The auto cap time.
    */
-  public function getAutoCapTime()
-  {
+  public function getAutoCapTime() {
     return $this->autoCapTime;
   }
 
@@ -97,8 +91,7 @@ class Baserecurringpayment
    * @param mixed $autoCapTime
    *   The auto cap time.
    */
-  public function setAutoCapTime($autoCapTime)
-  {
+  public function setAutoCapTime($autoCapTime) {
     $this->autoCapTime = $autoCapTime;
   }
 
@@ -111,8 +104,7 @@ class Baserecurringpayment
    * @return mixed
    *   The currency.
    */
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
@@ -125,8 +117,7 @@ class Baserecurringpayment
    * @param mixed $currency
    *   The currency.
    */
-  public function setCurrency($currency)
-  {
+  public function setCurrency($currency) {
     $this->currency = $currency;
   }
 
@@ -140,8 +131,7 @@ class Baserecurringpayment
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -155,8 +145,7 @@ class Baserecurringpayment
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -175,8 +164,7 @@ class Baserecurringpayment
    * @return mixed
    *   The value.
    */
-  public function getCycle()
-  {
+  public function getCycle() {
     return $this->cycle;
   }
 
@@ -195,8 +183,7 @@ class Baserecurringpayment
    * @param mixed $cycle
    *   The value.
    */
-  public function setCycle($cycle)
-  {
+  public function setCycle($cycle) {
     $this->cycle = $cycle;
   }
 
@@ -208,8 +195,7 @@ class Baserecurringpayment
    * @return mixed
    *   The recurringCount.
    */
-  public function getRecurringCount()
-  {
+  public function getRecurringCount() {
     return $this->recurringCount;
   }
 
@@ -221,8 +207,7 @@ class Baserecurringpayment
    * @param mixed $recurringCount
    *   The recurringCount.
    */
-  public function setRecurringCount($recurringCount)
-  {
+  public function setRecurringCount($recurringCount) {
     $this->recurringCount = $recurringCount;
   }
 
@@ -235,8 +220,7 @@ class Baserecurringpayment
    * @return mixed
    *   The startDate.
    */
-  public function getStartDate()
-  {
+  public function getStartDate() {
     return $this->startDate;
   }
 
@@ -249,8 +233,7 @@ class Baserecurringpayment
    * @param mixed $startDate
    *   The startDate.
    */
-  public function setStartDate($startDate)
-  {
+  public function setStartDate($startDate) {
     $this->startDate = $startDate;
   }
 
@@ -271,8 +254,7 @@ class Baserecurringpayment
    * @return mixed
    *   The status.
    */
-  public function getStatus()
-  {
+  public function getStatus() {
     return $this->status;
   }
 
@@ -293,8 +275,7 @@ class Baserecurringpayment
    * @param mixed $status
    *   The status.
    */
-  public function setStatus($status)
-  {
+  public function setStatus($status) {
     $this->status = $status;
   }
 
@@ -307,8 +288,7 @@ class Baserecurringpayment
    * @return string
    *   The plan Id.
    */
-  public function getPlanId()
-  {
+  public function getPlanId() {
     return $this->planId;
   }
 
@@ -321,8 +301,7 @@ class Baserecurringpayment
    * @param string $planId
    *   The plan Id.
    */
-  public function setPlanId($planId)
-  {
+  public function setPlanId($planId) {
     $this->planId = $planId;
   }
 }

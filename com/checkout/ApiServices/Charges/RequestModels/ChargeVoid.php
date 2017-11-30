@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargevoid extends Basechargeinfo
-{
+class Chargevoid extends Basechargeinfo {
   protected $products = array();
 
   /**
@@ -29,8 +28,7 @@ class Chargevoid extends Basechargeinfo
    * @return mixed
    *   The products.
    */
-  public function getProducts()
-  {
+  public function getProducts() {
     return $this->products;
   }
 

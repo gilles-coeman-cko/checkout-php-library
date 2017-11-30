@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Visacheckout\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Visacheckoutcardtokencreate
-{
+class Visacheckoutcardtokencreate {
   private $callId = null;
   private $includeBindata = null;
 
@@ -30,8 +29,7 @@ class Visacheckoutcardtokencreate
    * @param mixed $callId
    *   The callId.
    */
-  public function setCallId($callId)
-  {
+  public function setCallId($callId) {
     $this->callId = $callId;
   }
 
@@ -41,8 +39,7 @@ class Visacheckoutcardtokencreate
    * @return mixed
    *   The callId.
    */
-  public function getCallId()
-  {
+  public function getCallId() {
     return $this->callId;
   }
 
@@ -52,8 +49,7 @@ class Visacheckoutcardtokencreate
    * @param mixed $includeBindata
    *   The includeBindata.
    */
-  public function setIncludeBindata($includeBindata)
-  {
+  public function setIncludeBindata($includeBindata) {
     $this->includeBindata = $includeBindata;
   }
 
@@ -63,8 +59,7 @@ class Visacheckoutcardtokencreate
    * @return mixed
    *   The includeBindata.
    */
-  public function getIncludeBindata()
-  {
+  public function getIncludeBindata() {
     return $this->includeBindata;
   }
 }

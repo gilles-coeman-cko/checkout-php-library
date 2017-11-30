@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Customers\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customerfilter
-{
+class Customerfilter {
   private $count;
   private $offset;
   private $created;
@@ -31,8 +30,7 @@ class Customerfilter
    * @return mixed
    *   The created date.
    */
-  public function getCreated()
-  {
+  public function getCreated() {
     return $this->created;
   }
 
@@ -42,8 +40,7 @@ class Customerfilter
    * @param mixed $created
    *   The created date.
    */
-  public function setCreated($created)
-  {
+  public function setCreated($created) {
     $this->created = $created;
   }
 
@@ -53,8 +50,7 @@ class Customerfilter
    * @param mixed $offset
    *   The page offset.
    */
-  public function getOffset()
-  {
+  public function getOffset() {
     return $this->offset;
   }
 
@@ -64,8 +60,7 @@ class Customerfilter
    * @param mixed $offset
    *   The page offset.
    */
-  public function setOffset($offset)
-  {
+  public function setOffset($offset) {
     $this->offset = $offset;
   }
 
@@ -75,8 +70,7 @@ class Customerfilter
    * @return mixed
    *   The page data.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -86,8 +80,7 @@ class Customerfilter
    * @param mixed $requestModel
    *   The page count.
    */
-  public function setCount($count)
-  {
+  public function setCount($count) {
     $this->count = $count;
   }
 }

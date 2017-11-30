@@ -18,8 +18,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Planwithpaymenttokencreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge
-{
+class Planwithpaymenttokencreate extends \com\checkout\Apiservices\Charges\Requestmodels\Basecharge {
   protected $transactionIndicator;
   protected $paymentPlans = array();
 
@@ -34,8 +33,7 @@ class Planwithpaymenttokencreate extends \com\checkout\Apiservices\Charges\Reque
    * @return mixed
    *   The transactionIndicator.
    */
-  public function getTransactionIndicator()
-  {
+  public function getTransactionIndicator() {
     return $this->transactionIndicator;
   }
 
@@ -50,8 +48,7 @@ class Planwithpaymenttokencreate extends \com\checkout\Apiservices\Charges\Reque
    * @return mixed
    *   The transactionIndicator.
    */
-  public function setTransactionIndicator($transactionIndicator)
-  {
+  public function setTransactionIndicator($transactionIndicator) {
     $this->transactionIndicator = $transactionIndicator;
   }
 
@@ -68,8 +65,7 @@ class Planwithpaymenttokencreate extends \com\checkout\Apiservices\Charges\Reque
    * @return mixed
    *   The paymentPlans.
    */
-  public function getPaymentplans()
-  {
+  public function getPaymentplans() {
     return $this->paymentPlans;
   }
 
@@ -86,8 +82,7 @@ class Planwithpaymenttokencreate extends \com\checkout\Apiservices\Charges\Reque
    * @param mixed $paymentPlans
    *   The paymentPlans.
    */
-  public function setPaymentplans(Baserecurringpayment $paymentPlans)
-  {
+  public function setPaymentplans(Baserecurringpayment $paymentPlans) {
     $this->paymentPlans[] = $paymentPlans;
   }
 }

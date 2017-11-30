@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com helpers\ApiHttpClient.
+ * Checkout.com Helpers\ApiHttpClient.
  *
  * PHP Version 5.6
  *
@@ -11,7 +11,7 @@
  * @link https://www.checkout.com/
  */
 
-namespace com\checkout\helpers;
+namespace com\checkout\Helpers;
 
 /**
  * Final class Api Http Client.
@@ -19,8 +19,7 @@ namespace com\checkout\helpers;
  * @category Helpers
  * @version Release: @package_version@
  */
-final class ApiHttpClient
-{
+final class ApiHttpClient {
   private $httpStatus = '';
 
   /**
@@ -33,7 +32,7 @@ final class ApiHttpClient
    * @param string|null $requestPayload
    *   The payload.
    *
-   * @return mixed|CheckoutApi_Api
+   * @return mixed|Checkoutapi_Api
    *   The request respons.
    */
   public static function postRequest(
@@ -42,12 +41,13 @@ final class ApiHttpClient
     $requestPayload = null
   ) {
     $requestPayload['method'] = 'POST';
-    $temp = \CheckoutApi_Api::getApi()
+    $temp = \Checkoutapi_Api::getApi()
       ->request($requestUri, $requestPayload, true);
 
     if ($temp && $temp->isValid()) {
       return $temp;
-    } else {
+    }
+    else {
       $_errorMessageCodes = $temp
         ->getErrorMessageCodes();
       throw new ApiHttpClientCustomException(
@@ -71,7 +71,7 @@ final class ApiHttpClient
    * @param string|null $requestPayload
    *   The payload.
    *
-   * @return mixed|CheckoutApi_Api
+   * @return mixed|Checkoutapi_Api
    *   The request respons.
    */
   public static function getRequest(
@@ -80,12 +80,13 @@ final class ApiHttpClient
     $requestPayload = null
   ) {
     $requestPayload['method'] = 'GET';
-    $temp = \CheckoutApi_Api::getApi()
+    $temp = \Checkoutapi_Api::getApi()
       ->request($requestUri, $requestPayload, true);
 
     if ($temp && $temp->isValid()) {
       return $temp;
-    } else {
+    }
+    else {
       $_errorMessageCodes = $temp->getErrorMessageCodes();
       throw new ApiHttpClientCustomException(
         $temp
@@ -108,7 +109,7 @@ final class ApiHttpClient
    * @param string|null $requestPayload
    *   The payload.
    *
-   * @return mixed|CheckoutApi_Api
+   * @return mixed|Checkoutapi_Api
    *   The request respons.
    */
   public static function putRequest(
@@ -116,12 +117,13 @@ final class ApiHttpClient
     $authenticationKey,
     $requestPayload = null) {
     $requestPayload['method'] = 'PUT';
-    $temp = \CheckoutApi_Api::getApi()
+    $temp = \Checkoutapi_Api::getApi()
       ->request($requestUri, $requestPayload, true);
 
     if ($temp && $temp->isValid()) {
       return $temp;
-    } else {
+    }
+    else {
       $_errorMessageCodes = $temp
         ->getErrorMessageCodes();
       throw new ApiHttpClientCustomException(
@@ -145,7 +147,7 @@ final class ApiHttpClient
    * @param string|null $requestPayload
    *   The payload.
    *
-   * @return mixed|CheckoutApi_Api
+   * @return mixed|Checkoutapi_Api
    *   The request respons.
    */
   public static function deleteRequest(
@@ -154,12 +156,13 @@ final class ApiHttpClient
     $requestPayload = null
   ) {
     $requestPayload['method'] = 'DELETE';
-    $temp = \CheckoutApi_Api::getApi()
+    $temp = \Checkoutapi_Api::getApi()
       ->request($requestUri, $requestPayload, true);
 
     if ($temp && $temp->isValid()) {
       return $temp;
-    } else {
+    }
+    else {
       $_errorMessageCodes = $temp
         ->getErrorMessageCodes();
       throw new ApiHttpClientCustomException(

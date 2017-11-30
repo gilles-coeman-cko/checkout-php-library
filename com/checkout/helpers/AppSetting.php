@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Checkout.com helpers\AppSetting.
+ * Checkout.com Helpers\AppSetting.
  *
  * PHP Version 5.6
  *
@@ -10,7 +10,7 @@
  * @license https://checkout.com/terms/ MIT License
  * @link https://www.checkout.com/
  */
-namespace com\checkout\helpers {
+namespace com\checkout\Helpers {
 
   /**
    * Class App Setting.
@@ -18,8 +18,7 @@ namespace com\checkout\helpers {
    * @category Helpers
    * @version Release: @package_version@
    */
-  class AppSetting
-  {
+  class AppSetting {
     protected static $instance = null;
     private $secretKey = null;
     private $requestTimeOut = 60;
@@ -36,8 +35,7 @@ namespace com\checkout\helpers {
      * @return string
      *   The mode.
      */
-    public function getMode()
-    {
+    public function getMode() {
       return $this->mode;
     }
 
@@ -47,8 +45,7 @@ namespace com\checkout\helpers {
      * @param string $mode
      *   The mode.
      */
-    public function setMode($mode)
-    {
+    public function setMode($mode) {
       $this->mode = $mode;
     }
 
@@ -58,8 +55,7 @@ namespace com\checkout\helpers {
      * @param mixed $requestModel
      *   The request model.
      */
-    protected function __construct()
-    {
+    protected function __construct() {
       if (isset($_SERVER) && isset($_SERVER['HTTP_USER_AGENT'])) {
         $this->setClientUserAgentName($_SERVER['HTTP_USER_AGENT']);
       }
@@ -71,8 +67,7 @@ namespace com\checkout\helpers {
      * @return self
      *   The instance.
      */
-    public static function getSingletonInstance()
-    {
+    public static function getSingletonInstance() {
       if (!isset(static::$instance)) {
         static::$instance = new AppSetting();
       }
@@ -88,8 +83,7 @@ namespace com\checkout\helpers {
      * @return AppSetting
      *   The instance.
      */
-    public static function getInstance($override = false)
-    {
+    public static function getInstance($override = false) {
       $instance = new AppSetting();
       if ($override) {
         static::$instance = $instance;
@@ -103,8 +97,7 @@ namespace com\checkout\helpers {
      * @return null
      *   The secretKey.
      */
-    public function getSecretKey()
-    {
+    public function getSecretKey() {
       return $this->secretKey;
     }
 
@@ -114,8 +107,7 @@ namespace com\checkout\helpers {
      * @param null $secretKey
      *   The secretKey.
      */
-    public function setSecretKey($secretKey)
-    {
+    public function setSecretKey($secretKey) {
       $this->secretKey = $secretKey;
     }
 
@@ -125,8 +117,7 @@ namespace com\checkout\helpers {
      * @return null
      *   The pucblicKey.
      */
-    public function getPublicKey()
-    {
+    public function getPublicKey() {
       return $this->publicKey;
     }
 
@@ -136,8 +127,7 @@ namespace com\checkout\helpers {
      * @param null $publicKey
      *   The pucblicKey.
      */
-    public function setPublicKey($publicKey)
-    {
+    public function setPublicKey($publicKey) {
       $this->publicKey = $publicKey;
     }
 
@@ -147,8 +137,7 @@ namespace com\checkout\helpers {
      * @return null
      *   The requestTimeOut.
      */
-    public function getRequestTimeOut()
-    {
+    public function getRequestTimeOut() {
       return $this->requestTimeOut;
     }
 
@@ -158,8 +147,7 @@ namespace com\checkout\helpers {
      * @param null $requestTimeOut
      *   The requestTimeOut.
      */
-    public function setRequestTimeOut($requestTimeOut)
-    {
+    public function setRequestTimeOut($requestTimeOut) {
       $this->requestTimeOut = $requestTimeOut;
     }
 
@@ -169,8 +157,7 @@ namespace com\checkout\helpers {
      * @return string
      *   The readTimeout.
      */
-    public function getReadTimeout()
-    {
+    public function getReadTimeout() {
       return $this->readTimeout;
     }
 
@@ -180,8 +167,7 @@ namespace com\checkout\helpers {
      * @param string $readTimeout
      *   The readTimeout.
      */
-    public function setReadTimeout($readTimeout)
-    {
+    public function setReadTimeout($readTimeout) {
       $this->readTimeout = $readTimeout;
     }
 
@@ -191,8 +177,7 @@ namespace com\checkout\helpers {
      * @return null
      *   The debugMode.
      */
-    public function getDebugMode()
-    {
+    public function getDebugMode() {
       return $this->debugMode;
     }
 
@@ -202,8 +187,7 @@ namespace com\checkout\helpers {
      * @param null $debugMode
      *   The debugMode.
      */
-    public function setDebugMode($debugMode)
-    {
+    public function setDebugMode($debugMode) {
       $this->debugMode = $debugMode;
     }
 
@@ -213,13 +197,13 @@ namespace com\checkout\helpers {
      * @return null
      *   The baseApiUri.
      */
-    public function getBaseApiUri()
-    {
+    public function getBaseApiUri() {
 
       if ($this->mode == 'sandbox') {
 
         $this->baseApiUri = "https://sandbox.checkout.com/api2/v2";
-      } else {
+      }
+      else {
 
         $this->baseApiUri = 'https://api2.checkout.com/v2';
       }
@@ -233,8 +217,7 @@ namespace com\checkout\helpers {
      * @param null $baseApiUri
      *   The baseApiUri.
      */
-    public function setBaseApiUri($baseApiUri)
-    {
+    public function setBaseApiUri($baseApiUri) {
       $this->baseApiUri = $baseApiUri;
     }
 
@@ -244,8 +227,7 @@ namespace com\checkout\helpers {
      * @return null
      *   The clientVersion.
      */
-    public function getClientVersion()
-    {
+    public function getClientVersion() {
       return $this->clientVersion;
     }
 
@@ -255,8 +237,7 @@ namespace com\checkout\helpers {
      * @param null $clientVersion
      *   The clientVersion.
      */
-    public function setClientVersion($clientVersion)
-    {
+    public function setClientVersion($clientVersion) {
       $this->clientVersion = $clientVersion;
     }
 
@@ -266,8 +247,7 @@ namespace com\checkout\helpers {
      * @return null
      *   The clientUserAgentName.
      */
-    public function getClientUserAgentName()
-    {
+    public function getClientUserAgentName() {
       return $this->clientUserAgentName;
     }
 
@@ -277,8 +257,7 @@ namespace com\checkout\helpers {
      * @param null $clientUserAgentName
      *   The clientUserAgentName.
      */
-    public function setClientUserAgentName($clientUserAgentName)
-    {
+    public function setClientUserAgentName($clientUserAgentName) {
       $this->clientUserAgentName = $clientUserAgentName;
     }
 
@@ -288,8 +267,7 @@ namespace com\checkout\helpers {
      * @return null
      *   The defaultContentType.
      */
-    public function getDefaultContentType()
-    {
+    public function getDefaultContentType() {
       return $this->defaultContentType;
     }
 
@@ -299,8 +277,7 @@ namespace com\checkout\helpers {
      * @param null $defaultContentType
      *   The defaultContentType.
      */
-    public function setDefaultContentType($defaultContentType)
-    {
+    public function setDefaultContentType($defaultContentType) {
       $this->defaultContentType = $defaultContentType;
     }
 

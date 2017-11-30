@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargeidchargeretrieve
-{
+class Chargeidchargeretrieve {
   /**
    * Get the string that uniquely identifies the transaction.
    *
@@ -29,8 +28,7 @@ class Chargeidchargeretrieve
    * @return mixed
    *   The chargeId.
    */
-  public function getChargeId()
-  {
+  public function getChargeId() {
     return $this->chargeId;
   }
 
@@ -42,8 +40,7 @@ class Chargeidchargeretrieve
    * @param mixed $id
    *   The chargeId.
    */
-  public function setChargeId($chargeId)
-  {
+  public function setChargeId($chargeId) {
     $this->chargeId = $chargeId;
   }
   private $chargeId;

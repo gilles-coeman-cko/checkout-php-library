@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargecapture
-{
+class Chargecapture {
   private $chargeId;
   private $value;
 
@@ -34,8 +33,7 @@ class Chargecapture
    * @return mixed
    *   The value.
    */
-  public function getValue()
-  {
+  public function getValue() {
     return $this->value;
   }
 
@@ -49,8 +47,7 @@ class Chargecapture
    * @param mixed $value
    *   The value.
    */
-  public function setValue($value)
-  {
+  public function setValue($value) {
     $this->value = $value;
   }
 
@@ -62,8 +59,7 @@ class Chargecapture
    * @return mixed
    *   The chargeId.
    */
-  public function getChargeId()
-  {
+  public function getChargeId() {
     return $this->chargeId;
   }
 
@@ -75,8 +71,7 @@ class Chargecapture
    * @param mixed $id
    *   The chargeId.
    */
-  public function setChargeId($chargeId)
-  {
+  public function setChargeId($chargeId) {
     $this->chargeId = $chargeId;
   }
 }

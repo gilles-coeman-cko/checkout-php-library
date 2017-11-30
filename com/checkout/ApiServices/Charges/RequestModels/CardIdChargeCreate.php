@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardidchargecreate extends Basecharge
-{
+class Cardidchargecreate extends Basecharge {
   protected $cardId;
   protected $cvv;
   protected $transactionIndicator;
@@ -36,8 +35,7 @@ class Cardidchargecreate extends Basecharge
    * @return mixed
    *   The cardId.
    */
-  public function getCardId()
-  {
+  public function getCardId() {
     return $this->cardId;
   }
 
@@ -52,8 +50,7 @@ class Cardidchargecreate extends Basecharge
    * @param mixed $cardId
    *   The cardId.
    */
-  public function setCardId($cardId)
-  {
+  public function setCardId($cardId) {
     $this->cardId = $cardId;
   }
 
@@ -65,8 +62,7 @@ class Cardidchargecreate extends Basecharge
    * @return mixed
    *   The cvv.
    */
-  public function getCvv()
-  {
+  public function getCvv() {
     return $this->cvv;
   }
 
@@ -78,8 +74,7 @@ class Cardidchargecreate extends Basecharge
    * @param mixed $cvv
    *   The cvv.
    */
-  public function setCvv($cvv)
-  {
+  public function setCvv($cvv) {
     $this->cvv = $cvv;
   }
 
@@ -94,8 +89,7 @@ class Cardidchargecreate extends Basecharge
    * @return mixed
    *   The transactionIndicator.
    */
-  public function getTransactionIndicator()
-  {
+  public function getTransactionIndicator() {
     return $this->transactionIndicator;
   }
 
@@ -110,8 +104,7 @@ class Cardidchargecreate extends Basecharge
    * @param mixed $transactionIndicator
    *   The transactionIndicator.
    */
-  public function setTransactionIndicator($transactionIndicator)
-  {
+  public function setTransactionIndicator($transactionIndicator) {
     $this->transactionIndicator = $transactionIndicator;
   }
 }

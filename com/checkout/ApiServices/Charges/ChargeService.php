@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargeservice extends \com\checkout\Apiservices\Baseservices
-{
+class Chargeservice extends \com\checkout\Apiservices\Baseservices {
 
   /**
    * Verify the charge by its token
@@ -31,8 +30,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Charge
    *   The response model.
    */
-  public function verifyCharge($paymentToken)
-  {
+  public function verifyCharge($paymentToken) {
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -46,7 +44,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
       $paymentToken
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::getRequest(
       $retrieveChargeWithChargeUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -64,8 +62,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Charge
    *   The response models or charge objects.
    */
-  public function chargeWithCard(Requestmodels\CardChargeCreate $requestModel)
-  {
+  public function chargeWithCard(Requestmodels\CardChargeCreate $requestModel) {
 
     $chargeMapper = new Chargesmapper($requestModel);
 
@@ -75,7 +72,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
       'postedParam' => $chargeMapper->requestPayloadConverter(),
 
     );
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getCardChargesApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -95,8 +92,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
    *   The response models or charge objects.
    */
 
-  public function chargeWithCardId(Requestmodels\Cardidchargecreate $requestModel)
-  {
+  public function chargeWithCardId(Requestmodels\Cardidchargecreate $requestModel) {
 
     $chargeMapper = new Chargesmapper($requestModel);
 
@@ -106,7 +102,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
       'postedParam' => $chargeMapper->requestPayloadConverter(),
 
     );
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getCardChargesApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -138,7 +134,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
 
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getCardtokensApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -169,7 +165,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
       'postedParam' => $chargeMapper->requestPayloadConverter(),
 
     );
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $this->apiUrl->getDefaultCardChargesApiUri(),
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -208,7 +204,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
         ->getChargeId()
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $refundUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -241,7 +237,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
     );
     $refundUri = sprintf($this->apiUrl->getVoidChargesApiUri(), $chargeId);
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $refundUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -280,7 +276,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
         ->getChargeId()
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::postRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::postRequest(
       $refundUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -319,7 +315,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
         ->getChargeId()
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::putRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::putRequest(
       $updateUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -340,8 +336,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Charge
    *   The response models or charge objects.
    */
-  public function getCharge($chargeId)
-  {
+  public function getCharge($chargeId) {
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -356,7 +351,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
       $chargeId
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::getRequest(
       $retrieveChargeWithChargeUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );
@@ -374,8 +369,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
    * @return Responsemodels\Charge
    *   The response models or charge objects.
    */
-  public function getChargehistory($chargeId)
-  {
+  public function getChargehistory($chargeId) {
 
     $requestPayload = array(
       'authorization' => $this->apiSetting->getSecretKey(),
@@ -390,7 +384,7 @@ class Chargeservice extends \com\checkout\Apiservices\Baseservices
       $chargeId
     );
 
-    $processCharge = \com\checkout\helpers\ApiHttpClient::getRequest(
+    $processCharge = \com\checkout\Helpers\ApiHttpClient::getRequest(
       $retrieveChargehistoryWithChargeUri,
       $this->apiSetting->getSecretKey(), $requestPayload
     );

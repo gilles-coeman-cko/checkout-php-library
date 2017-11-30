@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Paymentproviders\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   protected $key;
   protected $dataType;
   protected $label;
@@ -38,8 +37,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setDataType($response->getDataType());
     $this->setErrorCodes($response->getErrorCodes());
@@ -60,8 +58,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $dataType
    *   The dataType.
    */
-  protected function setDataType($dataType)
-  {
+  protected function setDataType($dataType) {
     $this->dataType = $dataType;
   }
 
@@ -71,8 +68,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $errorCodes
    *   The errorCodes.
    */
-  protected function setErrorCodes($errorCodes)
-  {
+  protected function setErrorCodes($errorCodes) {
     $this->errorCodes = $errorCodes->toArray();
   }
 
@@ -82,8 +78,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $isActive
    *   The isActive.
    */
-  protected function setIsActive($isActive)
-  {
+  protected function setIsActive($isActive) {
     $this->isActive = $isActive;
   }
 
@@ -93,8 +88,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $key
    *   The key.
    */
-  protected function setKey($key)
-  {
+  protected function setKey($key) {
     $this->key = $key;
   }
 
@@ -104,8 +98,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $label
    *   The label.
    */
-  protected function setLabel($label)
-  {
+  protected function setLabel($label) {
     $this->label = $label;
   }
 
@@ -115,8 +108,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $lookupValues
    *   The lookupValues.
    */
-  protected function setLookupValues($lookupValues)
-  {
+  protected function setLookupValues($lookupValues) {
     $this->lookupValues = $lookupValues->toArray();
   }
 
@@ -126,8 +118,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $maxLength
    *   The maxLength.
    */
-  protected function setMaxLength($maxLength)
-  {
+  protected function setMaxLength($maxLength) {
     $this->maxLength = $maxLength;
   }
 
@@ -137,8 +128,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $minLength
    *   The minLength.
    */
-  protected function setMinLength($minLength)
-  {
+  protected function setMinLength($minLength) {
     $this->minLength = $minLength;
   }
 
@@ -148,8 +138,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $order
    *   The order.
    */
-  protected function setOrder($order)
-  {
+  protected function setOrder($order) {
     $this->order = $order;
   }
 
@@ -159,8 +148,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $required
    *   The required.
    */
-  protected function setRequired($required)
-  {
+  protected function setRequired($required) {
     $this->required = $required;
   }
 
@@ -170,8 +158,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The dataType.
    */
-  public function getDataType()
-  {
+  public function getDataType() {
     return $this->dataType;
   }
 
@@ -181,8 +168,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The errorCodes.
    */
-  public function getErrorCodes()
-  {
+  public function getErrorCodes() {
     return $this->errorCodes;
   }
 
@@ -192,8 +178,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The isActive.
    */
-  public function getIsActive()
-  {
+  public function getIsActive() {
     return $this->isActive;
   }
 
@@ -203,8 +188,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The key.
    */
-  public function getKey()
-  {
+  public function getKey() {
     return $this->key;
   }
 
@@ -214,8 +198,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The label.
    */
-  public function getLabel()
-  {
+  public function getLabel() {
     return $this->label;
   }
 
@@ -226,8 +209,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
 
    *   The lookupValues.
    */
-  public function getLookupValues()
-  {
+  public function getLookupValues() {
     return $this->lookupValues;
   }
 
@@ -237,8 +219,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The maxLength.
    */
-  public function getMaxLength()
-  {
+  public function getMaxLength() {
     return $this->maxLength;
   }
 
@@ -248,8 +229,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The minLength.
    */
-  public function getMinLength()
-  {
+  public function getMinLength() {
     return $this->minLength;
   }
 
@@ -259,8 +239,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The order.
    */
-  public function getOrder()
-  {
+  public function getOrder() {
     return $this->order;
   }
 
@@ -270,8 +249,7 @@ class Customfields extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The required.
    */
-  public function getRequired()
-  {
+  public function getRequired() {
     return $this->required;
   }
 

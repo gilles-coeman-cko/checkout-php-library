@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Cards\Responsemodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
-{
+class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp {
   private $object;
   private $count;
   private $data;
@@ -31,8 +30,7 @@ class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $response
    *   The request model.
    */
-  public function __construct($response)
-  {
+  public function __construct($response) {
     parent::__construct($response);
     $this->setCount($response->getCount());
     $this->setData($response->getData());
@@ -45,8 +43,7 @@ class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $count
    *   The list count.
    */
-  private function setCount($count)
-  {
+  private function setCount($count) {
     $this->count = $count;
   }
 
@@ -56,8 +53,7 @@ class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return int
    *   The list count.
    */
-  public function getCount()
-  {
+  public function getCount() {
     return $this->count;
   }
 
@@ -67,8 +63,7 @@ class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param mixed $data
    *   The list data.
    */
-  private function setData($data)
-  {
+  private function setData($data) {
     $arrayData = $data->toArray();
     foreach ($arrayData as $card) {
       $this->data[] = $this->getCard($card);
@@ -81,8 +76,7 @@ class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   The list data.
    */
-  public function getData()
-  {
+  public function getData() {
     return $this->data;
   }
 
@@ -92,8 +86,7 @@ class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @param int $object
    *   The object.
    */
-  private function setObject($object)
-  {
+  private function setObject($object) {
     $this->object = $object;
   }
 
@@ -106,9 +99,8 @@ class Cardlist extends \com\checkout\Apiservices\Sharedmodels\Basehttp
    * @return mixed
    *   A card object.
    */
-  private function getCard($card)
-  {
-    $dummyObjCart = new \CheckoutApi_LibrespondObj();
+  private function getCard($card) {
+    $dummyObjCart = new \Checkoutapi_LibrespondObj();
     $dummyObjCart->setConfig($card);
     $cardObg = new \com\checkout\Apiservices\Cards\Responsemodels\Card(
       $dummyObjCart

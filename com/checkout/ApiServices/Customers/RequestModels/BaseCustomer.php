@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Customers\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Basecustomer
-{
+class Basecustomer {
   protected $name;
   protected $customerName;
   protected $email;
@@ -34,8 +33,7 @@ class Basecustomer
    * @return mixed
    *   The description.
    */
-  public function getDescription()
-  {
+  public function getDescription() {
     return $this->description;
   }
 
@@ -45,8 +43,7 @@ class Basecustomer
    * @param mixed $description
    *   The description.
    */
-  public function setDescription($description)
-  {
+  public function setDescription($description) {
     $this->description = $description;
   }
 
@@ -56,8 +53,7 @@ class Basecustomer
    * @return mixed
    *   The email.
    */
-  public function getEmail()
-  {
+  public function getEmail() {
     return $this->email;
   }
 
@@ -67,8 +63,7 @@ class Basecustomer
    * @param mixed $email
    *   The email.
    */
-  public function setEmail($email)
-  {
+  public function setEmail($email) {
     $this->email = $email;
   }
 
@@ -81,8 +76,7 @@ class Basecustomer
    * @return mixed
    *   The metadata.
    */
-  public function getMetadata()
-  {
+  public function getMetadata() {
     return $this->metadata;
   }
 
@@ -95,8 +89,7 @@ class Basecustomer
    * @param mixed $metadata
    *   The metadata.
    */
-  public function setMetadata($metadata)
-  {
+  public function setMetadata($metadata) {
     if (!empty($metadata) && is_array($metadata)) {
       $this->metadata = array_merge_recursive($this->metadata, $metadata);
     }
@@ -108,8 +101,7 @@ class Basecustomer
    * @return mixed
    *   The customerName.
    */
-  public function getName()
-  {
+  public function getName() {
     return $this->name;
   }
 
@@ -119,8 +111,7 @@ class Basecustomer
    * @param mixed $name
    *   The customerName.
    */
-  public function setName($name)
-  {
+  public function setName($name) {
     $this->name = $name;
   }
 
@@ -130,8 +121,7 @@ class Basecustomer
    * @return mixed
    *   The customerName.
    */
-  public function getCustomerName()
-  {
+  public function getCustomerName() {
     return $this->customerName;
   }
 
@@ -141,8 +131,7 @@ class Basecustomer
    * @param mixed $customerName
    *   The customerName.
    */
-  public function setCustomerName($customerName)
-  {
+  public function setCustomerName($customerName) {
     $this->customerName = $customerName;
   }
 
@@ -156,8 +145,7 @@ class Basecustomer
    * @return mixed
    *   The phoneNumber.
    */
-  public function getPhoneNumber()
-  {
+  public function getPhoneNumber() {
     return $this->phoneNumber;
   }
 

@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Recurringpayments\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customerplanupdate extends Baserecurringpayment
-{
+class Customerplanupdate extends Baserecurringpayment {
   private $customerPlanId;
   private $cardId;
 
@@ -32,8 +31,7 @@ class Customerplanupdate extends Baserecurringpayment
    * @return mixed
    *   The customerPlanId.
    */
-  public function getCustomerPlanId()
-  {
+  public function getCustomerPlanId() {
     return $this->customerPlanId;
   }
 
@@ -45,8 +43,7 @@ class Customerplanupdate extends Baserecurringpayment
    * @param mixed $customerPlanId
    *   The customerPlanId.
    */
-  public function setCustomerPlanId($customerPlanId)
-  {
+  public function setCustomerPlanId($customerPlanId) {
     $this->customerPlanId = $customerPlanId;
   }
 
@@ -58,8 +55,7 @@ class Customerplanupdate extends Baserecurringpayment
    * @return mixed
    *   The customerPlanId.
    */
-  public function getCardId()
-  {
+  public function getCardId() {
     return $this->cardId;
   }
 
@@ -71,8 +67,7 @@ class Customerplanupdate extends Baserecurringpayment
    * @param mixed $cardId
    *   The cardId.
    */
-  public function setCardId($cardId)
-  {
+  public function setCardId($cardId) {
     $this->cardId = $cardId;
   }
 }

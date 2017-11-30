@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Charges\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Chargeretrievewithpaymenttoken
-{
+class Chargeretrievewithpaymenttoken {
   private $paymentToken;
 
   /**
@@ -32,8 +31,7 @@ class Chargeretrievewithpaymenttoken
    * @return mixed
    *   The cardToken.
    */
-  public function getPaymenttoken()
-  {
+  public function getPaymenttoken() {
     return $this->paymentToken;
   }
 
@@ -46,8 +44,7 @@ class Chargeretrievewithpaymenttoken
    * @param mixed $cardToken
    *   The cardToken.
    */
-  public function setPaymenttoken($paymentToken)
-  {
+  public function setPaymenttoken($paymentToken) {
     $this->paymentToken = $paymentToken;
   }
 }

@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Reporting;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Reportingmapper
-{
+class Reportingmapper {
   private $requestModel;
 
   /**
@@ -29,8 +28,7 @@ class Reportingmapper
    * @param mixed $requestModel
    *   The request model.
    */
-  public function __construct($requestModel)
-  {
+  public function __construct($requestModel) {
     $this->setRequestModel($requestModel);
   }
 
@@ -40,8 +38,7 @@ class Reportingmapper
    * @return mixed
    *   The request model.
    */
-  public function getRequestModel()
-  {
+  public function getRequestModel() {
     return $this->requestModel;
   }
 
@@ -51,8 +48,7 @@ class Reportingmapper
    * @param mixed $requestModel
    *   The request model.
    */
-  public function setRequestModel($requestModel)
-  {
+  public function setRequestModel($requestModel) {
     $this->requestModel = $requestModel;
   }
 
@@ -65,8 +61,7 @@ class Reportingmapper
    * @return array|null
    *   The reporting array.
    */
-  public function requestReportingConverter($requestModel = null)
-  {
+  public function requestReportingConverter($requestModel = null) {
     $requestReporting = null;
     if (!$requestModel) {
       $requestModel = $this->getRequestModel();

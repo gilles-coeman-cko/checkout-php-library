@@ -19,8 +19,7 @@ namespace com\checkout\Apiservices\Customers\Requestmodels;
  * @category Api Services
  * @version Release: @package_version@
  */
-class Customercreate extends Basecustomer
-{
+class Customercreate extends Basecustomer {
   protected $baseCardcreate;
 
   /**
@@ -29,8 +28,7 @@ class Customercreate extends Basecustomer
    * @return mixed
    *   The baseCardcreate.
    */
-  public function getBasecardcreate()
-  {
+  public function getBasecardcreate() {
     return $this->baseCardcreate;
   }
 
