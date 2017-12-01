@@ -18,7 +18,7 @@
  * @category Client
  * @version Release: @package_version@
  */
-class CheckoutapiClientAdapterCurl extends Checkoutapiclientadapterabstract implements CheckoutapiClientAdapterInterface {
+class CheckoutapiClientAdapterCurl extends CheckoutapiClientAdapterAbstract implements CheckoutapiClientAdapterInterface {
   /**
    * Timeout time in minutes.
    *
@@ -64,12 +64,12 @@ class CheckoutapiClientAdapterCurl extends Checkoutapiclientadapterabstract impl
     }
 
     $resource = $this->getResource();
-    curlsetopt($resource, CURLOPT_URL, $this->getUri());
+    curl_setopt($resource, CURLOPT_URL, $this->getUri());
 
     $headers = $this->getHeaders();
 
     if (!empty($headers)) {
-      curlsetopt($resource, CURLOPT_HTTPHEADER, $headers);
+      curl_setopt($resource, CURLOPT_HTTPHEADER, $headers);
     }
 
     $method = $this->getMethod();
@@ -98,18 +98,18 @@ class CheckoutapiClientAdapterCurl extends Checkoutapiclientadapterabstract impl
     }
 
     if ($curlMethod != CheckoutapiClientAdapterConstant::API_GET) {
-      curlsetopt($resource, CURLOPT_CUSTOMREQUEST, $curlMethod);
+      curl_setopt($resource, CURLOPT_CUSTOMREQUEST, $curlMethod);
     }
 
     if (
       $method == CheckoutapiClientAdapterConstant::API_POST ||
       $method == CheckoutapiClientAdapterConstant::API_PUT
     ) {
-      curlsetopt($resource, CURLOPT_POSTFIELDS, $this->getPostedParam());
+      curl_setopt($resource, CURLOPT_POSTFIELDS, $this->getPostedParam());
     }
 
-    curlsetopt($resource, CURLOPT_RETURNTRANSFER, TRUE);
-    curlsetopt($resource, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($resource, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($resource, CURLOPT_SSL_VERIFYPEER, FALSE);
 
     $response = curl_exec($resource);
     $httpstatus = curl_getinfo($resource, CURLINFO_HTTP_CODE);
@@ -162,7 +162,7 @@ class CheckoutapiClientAdapterCurl extends Checkoutapiclientadapterabstract impl
 
     $resource = curl_init();
 
-    curlsetopt($resource, CURLOPT_CONNECTTIMEOUT, $this->getTimeout());
+    curl_setopt($resource, CURLOPT_CONNECTTIMEOUT, $this->getTimeout());
 
     $this->setResource($resource);
     parent::connect();

@@ -64,7 +64,7 @@ class Autoloader {
     set_include_path($includePath);
     $path = '';
     $baseDir = __DIR__;
-    if (!preg_match('/PHPUnit/', $realclassName) && !preg_match('/Composer/', $realclassName)) {
+    if (!preg_match('/PHPUnit/', $class) && !preg_match('/Composer/', $class)) {
       if (!empty($classNameArray) && sizeof($classNameArray) > 1) {
 
         $path = $baseDir . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, $classNameArray) . '.php';
@@ -76,10 +76,8 @@ class Autoloader {
             include $file;
           }
         }
-
       }
     }
-
   }
 
   /**
